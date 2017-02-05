@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    BG Spiders
+                    BG Spider
                 </div>
 
                 <div class="links">
