@@ -26,4 +26,31 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function roles(){
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function hasRole($name){
+
+        foreach($this->roles as $role){
+            if($role->name == $name) return true;
+        }
+
+        return false;
+    }
+
+    public function isAllowedTo($do){
+
+        foreach($this->roles as $role){
+
+            foreach($role->permission as $permission){
+                if($permission->name == $do) return true;
+            }
+
+            return false;
+        }
+
+        return false;
+    }
 }
