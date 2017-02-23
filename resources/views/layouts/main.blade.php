@@ -52,7 +52,7 @@
                 <li><a href="#">One more separated link</a></li>
               </ul>
             </li>
-            <li class="active"><a href="/literature">Literature</a></li>
+            <li><a href="/literature">Literature</a></li>
             <li><a href="/contact">Contact</a></li>            
           </ul>
         </div><!--/.nav-collapse -->
