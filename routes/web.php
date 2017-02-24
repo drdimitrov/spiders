@@ -15,4 +15,5 @@ Auth::routes();
 
 Route::get('/', 'FrontController@index');
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/literature', 'LiteratureController@index')->name('literature');

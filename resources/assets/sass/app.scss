@@ -8,6 +8,9 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+// Vendor
+@import 'vendor/autocomplete-js';
+
 
 html {
   position: relative;
@@ -42,4 +45,8 @@ body > .container {
 
 code {
   font-size: 80%;
+}
+
+.page-header {
+    margin: 100px 0 22px;
 }

@@ -1,25 +1,46 @@
 <template>
-    <form action="#" @submit.prevent="show" class="form-inline">
-        <div class="form-group fg1">
-            <label for="authors">Choose Author</label>            
-            <input type="text" name="authors" id="authors" class="form-control">          
+    <form action="/literature" method="GET" class="form-inline">
+        <div class="form-group fg1">            
+            <input type="text" name="author_name" id="author_name" class="form-control" placeholder="Choose Author">
+            <input type="hidden" name="author" :value="author_id">          
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Search</button>
         </div>
-    </form>
-    bla
+    </form>   
 </template>
 
 <script>
+    import autocomplete from 'autocomplete.js';
+    import algolia from 'algoliasearch';
+
     export default {
-        methods: {
-            show(){
-                console.log('test');
+        data(){
+            return {
+                author_id : null
             }
         },
-        mounted() {
+        methods: {
             //
+        },
+        mounted() {
+            const index = algolia('G437GIPECU', 'ed5ac16faecbf760f179127985d565f1')
+                .initIndex('authors');
+
+            autocomplete('#author_name', {
+                hint : true
+            }, {
+                source : autocomplete.sources.hits(index, {
+                    hitsPerPage : 50
+                }),
+                displayKey : 'last_name',
+                templates : {
+                    suggestion(suggestion){                                           
+                        return `<span>${suggestion._highlightResult.last_name.value} ${suggestion.first_name}</span>`;
+                    }
+                },                
+                empty : `<div class="aa-empty">No authors found</div>`
+            });
         }
     }
 </script>
