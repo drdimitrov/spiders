@@ -17,13 +17,14 @@
     export default {
         data(){
             return {
-                author_id : null
+                author_id : 10
             }
         },
         methods: {
             //
         },
         mounted() {
+
             const index = algolia('G437GIPECU', 'ed5ac16faecbf760f179127985d565f1')
                 .initIndex('authors');
 
@@ -35,7 +36,7 @@
                 }),
                 displayKey : 'last_name',
                 templates : {
-                    suggestion(suggestion){                                           
+                    suggestion(suggestion){
                         return `<span>${suggestion._highlightResult.last_name.value} ${suggestion.first_name}</span>`;
                     }
                 },                
