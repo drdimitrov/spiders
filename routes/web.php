@@ -17,3 +17,9 @@ Route::get('/', 'FrontController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/literature', 'LiteratureController@index')->name('literature');
+
+//Admin routes
+Route::get('/admin/authors', 'Admin\AuthorsController@index')->name('admin.authors');
+Route::get('/admin/authors/create', 'Admin\AuthorsController@create')->name('admin.authors.create');
+Route::post('/admin/authors/create', 'Admin\AuthorsController@save');
+
