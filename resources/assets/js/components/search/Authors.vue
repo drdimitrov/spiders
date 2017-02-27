@@ -2,7 +2,7 @@
     <form action="/literature" method="GET" class="form-inline">
         <div class="form-group fg1">            
             <input type="text" id="author_name" class="form-control" placeholder="Choose Author">
-            <input type="hidden" id="author" name="author" value="">          
+            <input type="hidden" id="author" name="author" :value="author_id">          
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Search</button>
@@ -42,8 +42,8 @@
                 },                
                 empty : `<div class="aa-empty">No authors found</div>`
             }).on('autocomplete:selected', function(event, suggestion, dataset){
-                $('#author').attr('value', suggestion.id);
-            });
+                this.author_id = suggestion.id;
+            }.bind(this));
         }
     }
 </script>
