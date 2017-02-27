@@ -1,7 +1,7 @@
 <template>
     <form action="/literature" method="GET" class="form-inline">
         <div class="form-group fg1">            
-            <input type="text" name="author_name" id="author_name" class="form-control" placeholder="Choose Author">
+            <input type="text" id="author_name" class="form-control" placeholder="Choose Author">
             <input type="hidden" id="author" name="author" value="">          
         </div>
         <div class="form-group">
@@ -17,7 +17,7 @@
     export default {
         data(){
             return {
-                author_id : 10
+                author_id : null
             }
         },
         methods: {
@@ -37,11 +37,12 @@
                 displayKey : 'last_name',
                 templates : {
                     suggestion(suggestion){
-                        //TO DO add athor's id in request
                         return `<span>${suggestion._highlightResult.last_name.value} ${suggestion.first_name}</span>`;
                     }
                 },                
                 empty : `<div class="aa-empty">No authors found</div>`
+            }).on('autocomplete:selected', function(event, suggestion, dataset){
+                $('#author').attr('value', suggestion.id);
             });
         }
     }
