@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/harpactea.jpg') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <title>Sticky Footer Navbar Template for Bootstrap</title>
+    <title>Bulgarian spiders</title>
 
     <!-- Scripts -->
     <script>

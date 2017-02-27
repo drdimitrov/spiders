@@ -2,7 +2,7 @@
     <form action="/literature" method="GET" class="form-inline">
         <div class="form-group fg1">            
             <input type="text" name="author_name" id="author_name" class="form-control" placeholder="Choose Author">
-            <input type="hidden" name="author" :value="author_id">          
+            <input type="hidden" id="author" name="author" value="">          
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Search</button>
@@ -37,6 +37,7 @@
                 displayKey : 'last_name',
                 templates : {
                     suggestion(suggestion){
+                        //TO DO add athor's id in request
                         return `<span>${suggestion._highlightResult.last_name.value} ${suggestion.first_name}</span>`;
                     }
                 },                
