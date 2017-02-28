@@ -10,7 +10,7 @@ class LiteratureController extends Controller
     public function index(Request $request){
 
     	$literature = Paper::paginate(20);
-    	return view('front.literature');
+    	return view('front.literature', compact('literature'));
     	
     }
 }

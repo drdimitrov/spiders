@@ -9,7 +9,16 @@
 
 	<div class="row">
 		<div class="col-md-12">
-			
+			<table class="table table-bordered">
+			  @foreach($literature as $lit)
+				<tr>
+					<td>{{ $lit->author }}</td>
+					<td>{{ $lit->published_at }}</td>
+					<td>{{ $lit->name }}</td>
+					<td>{{ $lit->journal }}</td>
+				</tr>
+			  @endforeach
+			</table>
 		</div>
 	</div>
 </div>

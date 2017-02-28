@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Paper extends Model
 {
 	protected $fillable = [
-		'name', 'journal', 'slug', 'published_at',
+		'name', 'author_id', 'journal', 'slug', 'published_at',
 	];
 
     protected $dates = [

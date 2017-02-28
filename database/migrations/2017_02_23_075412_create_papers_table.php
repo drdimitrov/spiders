@@ -16,6 +16,8 @@ class CreatePapersTable extends Migration
         Schema::create('papers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->integer('author_id')->unsigned();
+            $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
             $table->string('journal');
             $table->string('slug');
             $table->timestamp('published_at')->nullable();

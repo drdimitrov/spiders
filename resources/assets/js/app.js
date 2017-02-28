@@ -14,6 +14,7 @@ require('./bootstrap');
  */
 
 Vue.component('author', require('./components/search/Authors.vue'));
+Vue.component('author-select', require('./components/search/ChooseAuth.vue'));
 
 const app = new Vue({
     el: '#app'

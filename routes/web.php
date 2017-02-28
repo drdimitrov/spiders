@@ -22,4 +22,6 @@ Route::get('/literature', 'LiteratureController@index')->name('literature');
 Route::get('/admin/authors', 'Admin\AuthorsController@index')->name('admin.authors');
 Route::get('/admin/authors/create', 'Admin\AuthorsController@create')->name('admin.authors.create');
 Route::post('/admin/authors/create', 'Admin\AuthorsController@save');
-
+Route::get('/admin/papers', 'Admin\PapersController@index')->name('admin.papers');
+Route::get('/admin/papers/create', 'Admin\PapersController@create')->name('admin.papers.create');
+Route::post('/admin/papers/create', 'Admin\PapersController@save');

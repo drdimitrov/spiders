@@ -11,7 +11,8 @@
                 @endif
                 <div class="panel-body">
                     <author style="display: inline;"></author>
-                    <a href="{{ route('admin.authors') }}" class="btn btn-success pull-right">All authors</a>
+                    <a href="{{ route('admin.authors') }}" class="btn btn-success">All authors</a> 
+                    <a href="{{ route('admin.authors.create') }}" class="btn btn-success pull-right">Insert new author</a>
                     
                     <h3>List of authors:</h3>
 					

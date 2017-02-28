@@ -8,8 +8,9 @@ use App\Author;
 
 class AuthorsController extends Controller
 {
-    public function index(){
-    	$authors = Author::orderBy('last_name')->get();    	
+    public function index(Request $request){
+    	$authors = $request->has('author') ? Author::where('id', $request->author)->get() : Author::orderBy('last_name')->get();
+    	  	
     	return view('admin.authors.index', compact('authors'));
     }
 
