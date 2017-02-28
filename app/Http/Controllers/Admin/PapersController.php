@@ -18,7 +18,7 @@ class PapersController extends Controller
     }
 
     public function save(Request $request){
-
+    	dd($request->all());
     	$this->validate($request, [
 	        'author' => 'required',
 	        'name' => 'required',
@@ -29,7 +29,6 @@ class PapersController extends Controller
 	    $slug = $author->last_name . '-' . $published . '-' .str_limit($request->name, 50);
 	    
     	$paper = Paper::create([
-			'author_id' => $request->author,
 			'name' => $request->name,
 			'journal' => $request->journal,
 			'published_at' => $request->published_at,

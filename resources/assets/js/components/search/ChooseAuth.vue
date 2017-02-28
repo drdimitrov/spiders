@@ -1,7 +1,6 @@
 <template>
     <div class="form-group">
         <input type="text" id="author_name" class="form-control" placeholder="Choose Author">
-    <input type="hidden" id="author" name="author" :value="author_id">    
     </div>
 </template>
 
@@ -12,7 +11,7 @@
     export default {
         data(){
             return {
-                author_id : null
+                authors : []
             }
         },
         methods: {
@@ -37,7 +36,7 @@
                 },                
                 empty : `<div class="aa-empty">No authors found</div>`
             }).on('autocomplete:selected', function(event, suggestion, dataset){
-                this.author_id = suggestion.id;
+                //this.author_id = suggestion.id;
             }.bind(this));
         }
     }

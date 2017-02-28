@@ -10,4 +10,8 @@ class Author extends Model
 	use Searchable;
 	
     protected $fillable = ['last_name', 'first_name'];
+
+    public function papers(){
+    	return $this->belongsToMany(Paper::class);
+    }
 }

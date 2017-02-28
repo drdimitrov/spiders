@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Paper extends Model
 {
 	protected $fillable = [
-		'name', 'author_id', 'journal', 'slug', 'published_at',
+		'name', 'journal', 'slug', 'published_at',
 	];
 
     protected $dates = [
@@ -15,4 +15,8 @@ class Paper extends Model
         'updated_at',
         'published_at',
     ];
+
+    public function authors(){
+    	return $this->belongsToMany(Author::class);
+    }
 }
