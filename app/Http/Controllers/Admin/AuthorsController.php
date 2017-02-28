@@ -9,7 +9,7 @@ use App\Author;
 class AuthorsController extends Controller
 {
     public function index(){
-    	$authors = Author::all();    	
+    	$authors = Author::orderBy('last_name')->get();    	
     	return view('admin.authors.index', compact('authors'));
     }
 

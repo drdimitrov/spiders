@@ -1,5 +1,5 @@
 <template>
-    <form action="/literature" method="GET" class="form-inline">
+    <form method="GET" class="form-inline">
         <div class="form-group fg1">            
             <input type="text" id="author_name" class="form-control" placeholder="Choose Author">
             <input type="hidden" id="author" name="author" :value="author_id">          
