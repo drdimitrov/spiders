@@ -1,6 +1,11 @@
 <template>
-    <div class="form-group">
-        <input type="text" id="author_name" class="form-control" placeholder="Choose Author">
+    <div>
+        <div class="form-group">
+            <input type="text" id="author_name" class="form-control" placeholder="Choose Author">
+        </div>
+        <ul class="list-inline">
+            <li v-for="auth in authors">{{ auth.last_name }} {{ auth.first_name }}, </li>
+        </ul>
     </div>
 </template>
 
@@ -15,7 +20,17 @@
             }
         },
         methods: {
-            //
+            addAuthor(author){
+                var existing = this.authors.find((a) => {
+                    return a.id == author.id;
+                })
+
+                if(existing){
+                    return;
+                }
+
+                this.authors.push(author);
+            }
         },
         mounted() {
 
@@ -36,7 +51,7 @@
                 },                
                 empty : `<div class="aa-empty">No authors found</div>`
             }).on('autocomplete:selected', function(event, suggestion, dataset){
-                //this.author_id = suggestion.id;
+                this.addAuthor(suggestion);
             }.bind(this));
         }
     }
