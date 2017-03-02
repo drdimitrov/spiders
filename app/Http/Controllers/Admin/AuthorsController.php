@@ -22,8 +22,8 @@ class AuthorsController extends Controller
 
 
     	$this->validate($request, [
-	        'last_name' => 'required|alpha',
-	        'first_name' => 'required|regex:/^[\pL\s\-]+$/u',
+	        'first_name' => 'required|unique_with:authors,last_name',
+	        'last_name' => 'required',
 	    ]);
 
 	    $author = Author::create([
