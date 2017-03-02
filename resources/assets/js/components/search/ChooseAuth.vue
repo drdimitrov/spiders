@@ -4,7 +4,7 @@
             <input type="text" id="author_name" class="form-control" placeholder="Choose Author">
         </div>
         <ul class="list-inline">
-            <li v-for="auth in authors">{{ auth.last_name }} {{ auth.first_name }}, </li>
+            <li v-for="auth in authors">{{ auth.last_name }} {{ auth.first_name }} [<a href="#" @click.prevent="removeAuthor(auth)">x</a>], </li>
         </ul>
     </div>
 </template>
@@ -30,6 +30,12 @@
                 }
 
                 this.authors.push(author);
+            },
+
+            removeAuthor(author){
+                this.authors = this.authors.filter((a) => {
+                    return a.id !== author.id;
+                });
             }
         },
         mounted() {
