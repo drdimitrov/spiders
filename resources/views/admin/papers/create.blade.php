@@ -9,12 +9,22 @@
 
                 <div class="panel-body">
                     <h3>Add new paper:</h3>
+
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                    
-                    <form action="#" method="POST">
+                    <form method="POST">
                         <author-select style="display: inline;"></author-select>
 
                         <div class="form-group" style="display: inline-block; ">            
-                            <input type="text" name="published_at" class="form-control" placeholder="Year of publishing" style="width: 140px; display: inline;">
+                            <input type="text" name="published_at" class="form-control" placeholder="Year (2001)" style="width: 140px; display: inline;">
                         </div>
                         
                     	<div class="form-group">            

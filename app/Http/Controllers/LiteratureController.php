@@ -9,7 +9,7 @@ class LiteratureController extends Controller
 {
     public function index(Request $request){
 
-    	$literature = Paper::paginate(20);
+    	$literature = Paper::with('authors')->paginate(20);
     	return view('front.literature', compact('literature'));
     	
     }

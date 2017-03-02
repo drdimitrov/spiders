@@ -20,6 +20,7 @@ body {
   margin-bottom: 60px;
   background-color : #fff;
 }
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -28,8 +29,6 @@ body {
   height: 60px;
   background-color: #f5f5f5;
 }
-
-
 
 body > .container {
   padding: 60px 15px 0;
@@ -51,3 +50,27 @@ code {
     margin: 100px 0 22px;
 }
 
+.tag {
+  font-size: 14px;
+  padding: .3em .4em .4em;
+  margin: 0 .1em;
+}
+.tag a {
+  color: #bbb;
+  cursor: pointer;
+  opacity: 0.6;
+}
+.tag a:hover {
+  opacity: 1.0
+}
+.tag .remove {
+  vertical-align: bottom;
+  top: 0;
+}
+.tag a {
+  margin: 0 0 0 .3em;
+}
+.tag a .glyphicon-white {
+  color: #fff;
+  margin-bottom: 4px;
+}

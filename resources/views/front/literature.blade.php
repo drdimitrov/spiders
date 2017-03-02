@@ -12,8 +12,19 @@
 			<table class="table table-bordered">
 			  @foreach($literature as $lit)
 				<tr>
-					<td>{{ $lit->author }}</td>
-					<td>{{ $lit->published_at }}</td>
+					<td>
+					@foreach($lit->authors as $ka => $author)
+						@if($loop->first)
+						{{ $author->last_name }}, {{ str_limit($author->first_name, 1, '') }}.,
+						@else
+						{{ str_limit($author->first_name, 1, '') }}. {{ $author->last_name }}
+							@if(!$loop->last)
+							,
+							@endif
+						@endif
+					@endforeach
+					</td>
+					<td>{{ $lit->published_at->format('Y') }}</td>
 					<td>{{ $lit->name }}</td>
 					<td>{{ $lit->journal }}</td>
 				</tr>

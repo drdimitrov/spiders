@@ -28,7 +28,7 @@
             const index = algolia('G437GIPECU', 'ed5ac16faecbf760f179127985d565f1')
                 .initIndex('authors');
 
-            autocomplete('#author_name', {
+            let selectAuthor = autocomplete('#author_name', {
                 hint : true
             }, {
                 source : autocomplete.sources.hits(index, {
@@ -43,6 +43,7 @@
                 empty : `<div class="aa-empty">No authors found</div>`
             }).on('autocomplete:selected', function(event, suggestion, dataset){
                 this.author_id = suggestion.id;
+                selectAuthor.autocomplete.setVal(suggestion.first_name + ' ' + suggestion.last_name);   
             }.bind(this));
         }
     }
