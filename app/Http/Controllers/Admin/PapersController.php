@@ -18,7 +18,7 @@ class PapersController extends Controller
     }
 
     public function save(Request $request){
-    	dd($request->all());
+    	
     	$this->validate($request, [
 	        'authors' => 'required',
 	        'name' => 'required',

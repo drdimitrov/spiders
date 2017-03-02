@@ -13,16 +13,21 @@
 			  @foreach($literature as $lit)
 				<tr>
 					<td>
-					@foreach($lit->authors as $ka => $author)
-						@if($loop->first)
-						{{ $author->last_name }}, {{ str_limit($author->first_name, 1, '') }}.,
-						@else
-						{{ str_limit($author->first_name, 1, '') }}. {{ $author->last_name }}
-							@if(!$loop->last)
-							,
+					@if(count($lit->authors) > 1)
+						@foreach($lit->authors as $ka => $author)						
+							@if($loop->first)
+								{{ $author->last_name }}, {{ str_limit($author->first_name, 1, '') }}.,
+							@else
+								{{ str_limit($author->first_name, 1, '') }}. {{ $author->last_name }}
+								@if(!$loop->last)
+								,
+								@endif
 							@endif
-						@endif
-					@endforeach
+						
+						@endforeach
+					@else
+						{{ $lit->authors[0]->last_name }}, {{ str_limit($lit->authors[0]->first_name, 1, '') }}.
+					@endif
 					</td>
 					<td>{{ $lit->published_at->format('Y') }}</td>
 					<td>{{ $lit->name }}</td>
