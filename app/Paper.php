@@ -19,4 +19,13 @@ class Paper extends Model
     public function authors(){
     	return $this->belongsToMany(Author::class);
     }
+
+    public function hasAuthor($id){
+
+        foreach($this-> authors as $author){
+            if($author->id == $id) return true;
+        }
+
+        return false;
+    }
 }
