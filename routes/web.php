@@ -17,6 +17,7 @@ Route::get('/', 'FrontController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/literature', 'LiteratureController@index')->name('literature');
+Route::get('/literature/{paper}', 'LiteratureController@show')->name('literature.single');
 
 //Admin routes
 Route::get('/admin/authors', 'Admin\AuthorsController@index')->name('admin.authors');

@@ -35,7 +35,7 @@ class PapersController extends Controller
 			'name' => $request->name,
 			'journal' => $request->journal,
 			'published_at' => $request->published_at ? $request->published_at.'-01-01 00:00:01' : null,
-			'slug' => str_replace(['.', '\\', '/'], '', str_replace(' ', '-', $slug)),
+			'slug' => str_replace(['.', '\\', '/', ','], '', str_replace(' ', '-', $slug)),
 		]);
 
 		if($paper->save()){
