@@ -28,14 +28,14 @@ class PapersController extends Controller
 	    $authors = Author::find($request->authors);
 
 	    $author = count($authors) > 1 ? $authors->first()->last_name.'-et-al' : $authors->first()->last_name;
-	    
-	    $slug = $author. '-' . $request->published_at . '-' . str_limit($request->name, 50);
+	    	    
+	    $slug = str_slug($author .'-'. $request->published_at .'-'. str_limit($request->name, 50), '-');
 	    
     	$paper = Paper::create([
 			'name' => $request->name,
 			'journal' => $request->journal,
 			'published_at' => $request->published_at ? $request->published_at.'-01-01 00:00:01' : null,
-			'slug' => str_replace(['.', '\\', '/', ','], '', str_replace(' ', '-', $slug)),
+			'slug' => $slug,
 		]);
 
 		if($paper->save()){
