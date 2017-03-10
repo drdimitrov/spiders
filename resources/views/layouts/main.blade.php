@@ -126,6 +126,14 @@
             document.querySelector('head').appendChild(msViewportStyle)
           }
 
+          //Active link in menu
+          var url = window.location;
+          $('.navbar ul.nav li a').filter(function () {
+              $('.navbar ul.nav li.active').removeClass('active');
+              return this.href == url;
+          }).parent().addClass('active');
+
+
         })();
       </script>
 

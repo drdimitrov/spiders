@@ -3,7 +3,10 @@
 @section('content')
 <div class="container">
 	<div class="page-header">
-		<h1 style="display: inline;">Literature</h1>
+		<h1 style="display: inline;">
+			Literature 
+			<a href="{{ route('literature') }}" class="btn btn-primary">All papers</a>
+		</h1>
 		<author class="pull-right"></author>
 	</div>
 
