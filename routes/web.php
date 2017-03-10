@@ -20,6 +20,7 @@ Route::get('/literature', 'LiteratureController@index')->name('literature');
 Route::get('/literature/{paper}', 'LiteratureController@show')->name('literature.single');
 
 //Admin routes
+Route::get('/admin', 'Admin\AdminController@index')->name('admin');
 Route::get('/admin/authors', 'Admin\AuthorsController@index')->name('admin.authors');
 Route::get('/admin/authors/create', 'Admin\AuthorsController@create')->name('admin.authors.create');
 Route::post('/admin/authors/create', 'Admin\AuthorsController@save');
