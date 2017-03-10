@@ -12,7 +12,7 @@ class PapersController extends Controller
     public function index(){
     	return view('admin.papers.index');
     }
-
+    
     public function create(){
     	return view('admin.papers.create');
     }
