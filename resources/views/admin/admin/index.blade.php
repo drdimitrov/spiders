@@ -43,8 +43,8 @@
 							  </a>
 							  <div class="collapse" id="toggleDemo1" style="height: 0px;">
 							    <ul class="nav nav-list">
-							      <li><a href="{{route('admin.authors')}}">Papers list</a></li>
-							      <li><a href="{{route('admin.authors.create')}}">Add paper</a></li>
+							      <li><a href="{{route('admin.papers')}}">Papers list</a></li>
+							      <li><a href="{{route('admin.papers.create')}}">Add paper</a></li>
 							      <li><a href="#">Edit paper</a></li>
 							      <li><a href="#">Delete paper</a></li>
 							    </ul>
