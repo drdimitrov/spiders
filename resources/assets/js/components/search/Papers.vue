@@ -10,8 +10,7 @@
         <div class="form-group">
             <label for="sel1">Select paper:</label>            
             <select class="form-control" id="sel1">
-                <option>Tragnal kos s dalag nos, prez gorata gol i bos</option>
-                <option v-for="paper in papers">{{paper.name}}</option>
+                <option v-for="paper in papers" :value="paper.id">{{paper.name}}</option>
             </select>
         </div>
     </div>
@@ -60,7 +59,9 @@
                     year : this.year_published,
                     _token: 'SjME8e76Q7mlPfEmByZAoBHsjikso17RIBCgMiPW'
                 }, (data) => {
-                    console.log(data);
+                    data.papers.forEach((e) => {
+                        this.papers.push(e);
+                    });
                 });                
             }.bind(this));
 
