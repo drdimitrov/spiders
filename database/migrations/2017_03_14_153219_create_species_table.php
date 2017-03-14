@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFamiliesTable extends Migration
+class CreateSpeciesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,19 @@ class CreateFamiliesTable extends Migration
      */
     public function up()
     {
-        Schema::create('families', function (Blueprint $table) {
+        Schema::create('species', function (Blueprint $table) {
+            
             $table->increments('id');
             $table->string('name');
             $table->integer('paper_id')->unsigned();
+            $table->integer('genus_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('paper_id')
               ->references('id')->on('papers');
+
+            $table->foreign('genus_id')
+              ->references('id')->on('genera');
         });
     }
 
@@ -31,6 +36,6 @@ class CreateFamiliesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('families');
+        Schema::dropIfExists('species');
     }
 }
