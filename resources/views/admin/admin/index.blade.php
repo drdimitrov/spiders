@@ -51,6 +51,58 @@
 							  </div>
 							</li>
 
+							<li>
+							  <a href="#" data-toggle="collapse" data-target="#toggleDemo2" data-parent="#sidenav02" class="collapsed">
+							  <h4>
+							  Families
+							  <small><span class="caret"></span></small>
+							  </h4>
+							  </a>
+							  <div class="collapse" id="toggleDemo2" style="height: 0px;">
+							    <ul class="nav nav-list">
+							      <li><a href="#">List of families</a></li>
+							      <li><a href="#">Add family</a></li>
+							      <li><a href="#">Edit family</a></li>
+							      <li><a href="#">Delete family</a></li>
+							    </ul>
+							  </div>
+							</li>
+
+							<li>
+							  <a href="#" data-toggle="collapse" data-target="#toggleDemo3" data-parent="#sidenav03" class="collapsed">
+							  <h4>
+							  Genera
+							  <small><span class="caret"></span></small>
+							  </h4>
+							  </a>
+							  <div class="collapse" id="toggleDemo3" style="height: 0px;">
+							    <ul class="nav nav-list">
+							      <li><a href="#">List of genera</a></li>
+							      <li><a href="#">Add genus</a></li>
+							      <li><a href="#">Edit genus</a></li>
+							      <li><a href="#">Delete genus</a></li>
+							    </ul>
+							  </div>
+							</li>
+
+
+							<li>
+							  <a href="#" data-toggle="collapse" data-target="#toggleDemo4" data-parent="#sidenav04" class="collapsed">
+							  <h4>
+							  Species
+							  <small><span class="caret"></span></small>
+							  </h4>
+							  </a>
+							  <div class="collapse" id="toggleDemo4" style="height: 0px;">
+							    <ul class="nav nav-list">
+							      <li><a href="#">List of species</a></li>
+							      <li><a href="#">Add species</a></li>
+							      <li><a href="#">Edit species</a></li>
+							      <li><a href="#">Delete species</a></li>
+							    </ul>
+							  </div>
+							</li>
+
 
 							<li><a href="#"><span class="glyphicon glyphicon-lock"></span> Normalmenu</a></li>
 							
