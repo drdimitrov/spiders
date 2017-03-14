@@ -19,6 +19,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/literature', 'LiteratureController@index')->name('literature');
 Route::get('/literature/{paper}', 'LiteratureController@show')->name('literature.single');
 
+//Search routes
+Route::post('/algolia/search-papers', 'Admin\AlgoliaController@selectPaper');
+
 //Admin routes
 Route::get('/admin', 'Admin\AdminController@index')->name('admin');
 Route::get('/admin/authors', 'Admin\AuthorsController@index')->name('admin.authors');
