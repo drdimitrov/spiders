@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Species extends Model
 {
-    $fillable = ['name', 'paper_id', 'genus_id'];
+    protected $fillable = ['name', 'paper_id', 'genus_id'];
 }

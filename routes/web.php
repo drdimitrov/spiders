@@ -17,9 +17,12 @@ Route::get('/', 'FrontController@index')->name('frontpage');
 Route::get('/contact', 'FrontController@contact')->name('contact');
 Route::post('/contact', 'FrontController@postContact');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/families', 'FamilyController@index')->name('families');
+
 Route::get('/literature', 'LiteratureController@index')->name('literature');
 Route::get('/literature/{paper}', 'LiteratureController@show')->name('literature.single');
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 //Search routes
 Route::post('/algolia/search-papers', 'Admin\AlgoliaController@selectPaper');

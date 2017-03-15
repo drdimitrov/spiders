@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Family extends Model
 {
-    $fillable = ['name', 'paper_id'];
+    protected $fillable = ['name', 'paper_id'];
 }
