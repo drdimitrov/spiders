@@ -13,7 +13,9 @@
 Auth::routes();
 
 
-Route::get('/', 'FrontController@index');
+Route::get('/', 'FrontController@index')->name('frontpage');
+Route::get('/contact', 'FrontController@contact')->name('contact');
+Route::post('/contact', 'FrontController@postContact');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/literature', 'LiteratureController@index')->name('literature');
