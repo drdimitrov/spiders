@@ -6,6 +6,12 @@
     <h1>Contact us</h1>
   </div>
 
+  	@if(Session::has('msg'))
+	<div class="alert alert-success">
+	  {{Session::get('msg')}}
+	</div>
+  	@endif
+
 	<form action="{{ route('contact') }}" method="POST">
 		<div class="form-group">
 			<label for="name">Name</label>
