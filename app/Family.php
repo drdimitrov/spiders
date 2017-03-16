@@ -11,4 +11,8 @@ class Family extends Model
     public function paper(){
     	return $this->belongsTo(Paper::class);
     }
+
+    public function genera(){
+    	return $this->hasMany(Genus::class);
+    }
 }

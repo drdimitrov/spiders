@@ -20,7 +20,12 @@ Route::post('/contact', 'FrontController@postContact');
 Route::get('/families', 'FamilyController@index')->name('families');
 
 Route::get('/genera', 'GenusController@index')->name('genera');
-Route::get('/genera/{genus}', 'GenusController@show')->name('genera.show');
+Route::get('/genera/show/{family}', 'GenusController@showFamilyGenera')->name('genera.family');
+Route::get('/genus/{id}', 'GenusController@show')->name('genera.show');
+
+Route::get('/species', 'SpeciesController@index')->name('species');
+Route::get('/species/show/{genus}', 'SpeciesController@showGenusSpecies')->name('species.genus');
+
 
 Route::get('/literature', 'LiteratureController@index')->name('literature');
 Route::get('/literature/{paper}', 'LiteratureController@show')->name('literature.single');
