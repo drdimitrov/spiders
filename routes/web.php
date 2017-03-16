@@ -19,6 +19,9 @@ Route::post('/contact', 'FrontController@postContact');
 
 Route::get('/families', 'FamilyController@index')->name('families');
 
+Route::get('/genera', 'GenusController@index')->name('genera');
+Route::get('/genera/{genus}', 'GenusController@show')->name('genera.show');
+
 Route::get('/literature', 'LiteratureController@index')->name('literature');
 Route::get('/literature/{paper}', 'LiteratureController@show')->name('literature.single');
 
