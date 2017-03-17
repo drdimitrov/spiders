@@ -18,10 +18,7 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug');
-            $table->integer('paper_id')->unsigned();
             $table->timestamps();
-
-            $table->foreign('paper_id')->references('id')->on('papers');
 
         });
     }

@@ -27,7 +27,7 @@
                         @endforeach
                     </td>
                     <td>
-                        <a href="{{ route('genera.family', $family->id) }}">Genera</a>
+                        <a href="{{ route('genera.family', $family->slug) }}">Genera</a>
                     </td>
                 </tr>
                 @php($cnt++)
