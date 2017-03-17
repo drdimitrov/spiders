@@ -61,7 +61,7 @@
 							  <div class="collapse" id="toggleDemo2" style="height: 0px;">
 							    <ul class="nav nav-list">
 							      <li><a href="#">List of families</a></li>
-							      <li><a href="#">Add family</a></li>
+							      <li><a href="{{ route('admin.family.create') }}">Add family</a></li>
 							      <li><a href="#">Edit family</a></li>
 							      <li><a href="#">Delete family</a></li>
 							    </ul>
@@ -104,9 +104,9 @@
 							</li>
 
 
-							<li><a href="#"><span class="glyphicon glyphicon-lock"></span> Normalmenu</a></li>
+							<!-- <li><a href="#"><span class="glyphicon glyphicon-lock"></span> Normalmenu</a></li>
 							
-							<li><a href=""><span class="glyphicon glyphicon-cog"></span> PreferencesMenu</a></li>
+							<li><a href=""><span class="glyphicon glyphicon-cog"></span> PreferencesMenu</a></li> -->
 						</ul>
 					</div><!--/.nav-collapse -->
 				</div>
