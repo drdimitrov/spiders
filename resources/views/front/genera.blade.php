@@ -21,13 +21,13 @@
                 <tr>
                     <td>{{ $cnt }}</td>
                     <td>{{ $genus->name }}</td>
-                    <td>
+                    <td>                    
                         @foreach($genus->paper->authors as $author)
-                        <a href="{{ route('literature.single', $family->paper->slug) }}"  target="_blank">{{ $author->last_name }}, {{ $family->paper->published_at->format('Y') }}</a>
+                        <a href="{{ route('literature.single', $genus->paper->slug) }}"  target="_blank">{{ $author->last_name }}, {{ $genus->paper->published_at->format('Y') }}</a>
                         @endforeach
                     </td>
                     <td>
-                        <a href="{{ route('species.genus', $genus->id) }}">Species</a>
+                        <a href="{{ route('species.genus', $genus->slug) }}">Species</a>
                     </td>
                 </tr>
                 @php($cnt++)

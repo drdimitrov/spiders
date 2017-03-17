@@ -17,7 +17,8 @@ class GenusController extends Controller
     }
 
     public function showFamilyGenera(Request $request){
-    	$family = Family::with('genera')->where('slug', $request->family)->first();
+    	$family = Family::with('genera.paper.authors')->where('slug', $request->family)->first();
+       // dd($family->genera);
     	return view('front.genera', compact('family'));
     }
 }

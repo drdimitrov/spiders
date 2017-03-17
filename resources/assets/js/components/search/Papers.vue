@@ -9,7 +9,7 @@
         &nbsp;&nbsp;
         <div class="form-group">
             <label for="sel1">Select paper:</label>            
-            <select class="form-control" id="sel1">
+            <select class="form-control" id="sel1" name="sel1">
                 <option v-for="paper in papers" :value="paper.id">{{paper.name}}</option>
             </select>
         </div>
@@ -57,7 +57,7 @@
                 $.post('/algolia/search-papers', {
                     author : suggestion.id,
                     year : this.year_published,
-                    _token: 'SjME8e76Q7mlPfEmByZAoBHsjikso17RIBCgMiPW'
+                    _token: $("meta[name='csrf-token']").attr("content")
                 }, (data) => {
                     data.papers.forEach((e) => {
                         this.papers.push(e);

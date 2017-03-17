@@ -78,7 +78,7 @@
 							  <div class="collapse" id="toggleDemo3" style="height: 0px;">
 							    <ul class="nav nav-list">
 							      <li><a href="#">List of genera</a></li>
-							      <li><a href="#">Add genus</a></li>
+							      <li><a href="{{ route('admin.genus.create') }}">Add genus</a></li>
 							      <li><a href="#">Edit genus</a></li>
 							      <li><a href="#">Delete genus</a></li>
 							    </ul>

@@ -37,11 +37,17 @@ Route::post('/algolia/search-papers', 'Admin\AlgoliaController@selectPaper');
 
 //Admin routes
 Route::get('/admin', 'Admin\AdminController@index')->name('admin');
+
 Route::get('/admin/authors', 'Admin\AuthorsController@index')->name('admin.authors');
 Route::get('/admin/authors/create', 'Admin\AuthorsController@create')->name('admin.authors.create');
 Route::post('/admin/authors/create', 'Admin\AuthorsController@save');
+
 Route::get('/admin/papers', 'Admin\PapersController@index')->name('admin.papers');
 Route::get('/admin/papers/create', 'Admin\PapersController@create')->name('admin.papers.create');
 Route::post('/admin/papers/create', 'Admin\PapersController@save');
+
 Route::get('/admin/family/create', 'Admin\FamilyController@create')->name('admin.family.create');
 Route::post('/admin/family/create', 'Admin\FamilyController@save');
+
+Route::get('/admin/genus/create', 'Admin\GenusController@create')->name('admin.genus.create');
+Route::post('/admin/genus/create', 'Admin\GenusController@save');
