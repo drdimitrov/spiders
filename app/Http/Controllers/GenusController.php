@@ -17,8 +17,7 @@ class GenusController extends Controller
     }
 
     public function showFamilyGenera(Request $request){
-    	
-    	$family = Family::with('genera')->find($request->family);
+    	$family = Family::with('genera')->where('slug', $request->family)->first();
     	return view('front.genera', compact('family'));
     }
 }
