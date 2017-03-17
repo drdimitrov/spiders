@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Family extends Model
 {
+	use Searchable;
+
     protected $fillable = ['name', 'slug', 'order_id', 'author'];
 
     public function paper(){

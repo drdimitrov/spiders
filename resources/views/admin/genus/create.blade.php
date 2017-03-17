@@ -28,13 +28,9 @@
 
                         <paper-select></paper-select>
 
-                        <div class="form-group">
+                        <div class="form-group">                            
 				            <label for="sel1">Select family:</label>            
-				            <select class="form-control" name="family_select">
-				            @foreach($families as $family)
-				                <option value="{{$family->id}}">{{$family->name}}</option>
-			                @endforeach
-				            </select>
+				            <family-select></family-select>
 				        </div>
 
                     	<div class="form-group">            

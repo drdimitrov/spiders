@@ -30,11 +30,7 @@
 
                         <div class="form-group">
 				            <label for="sel1">Select genus:</label>            
-				            <select class="form-control" name="genus_select">
-				            @foreach($genera as $genus)
-				                <option value="{{$genus->id}}">{{$genus->name}}</option>
-			                @endforeach
-				            </select>
+				            <genus-select></genus-select>
 				        </div>
 
                     	<div class="form-group">            
