@@ -51,3 +51,6 @@ Route::post('/admin/family/create', 'Admin\FamilyController@save');
 
 Route::get('/admin/genus/create', 'Admin\GenusController@create')->name('admin.genus.create');
 Route::post('/admin/genus/create', 'Admin\GenusController@save');
+
+Route::get('/admin/species/create', 'Admin\SpeciesController@create')->name('admin.species.create');
+Route::post('/admin/species/create', 'Admin\SpeciesController@save');

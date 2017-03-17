@@ -96,7 +96,7 @@
 							  <div class="collapse" id="toggleDemo4" style="height: 0px;">
 							    <ul class="nav nav-list">
 							      <li><a href="#">List of species</a></li>
-							      <li><a href="#">Add species</a></li>
+							      <li><a href="{{ route('admin.species.create') }}">Add species</a></li>
 							      <li><a href="#">Edit species</a></li>
 							      <li><a href="#">Delete species</a></li>
 							    </ul>

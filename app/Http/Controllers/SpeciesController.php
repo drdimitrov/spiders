@@ -11,7 +11,7 @@ class SpeciesController extends Controller
     }
 
     public function showGenusSpecies(Request $request){
-    	//
+    	dd($request->all());
     }
 
     public function show(Request $request){

@@ -8,7 +8,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    <h3>Add new genus:</h3>
+                    <h3>Add new species:</h3>
 
                     @if (count($errors) > 0)
                         <div class="alert alert-danger">
@@ -24,15 +24,15 @@
 						<div class="alert alert-success">{{ Session::get('msg') }}</div>
                     @endif
                    
-                    <form method="POST" action="{{ route('admin.genus.create') }}">
+                    <form method="POST" action="{{ route('admin.species.create') }}">
 
                         <paper-select></paper-select>
 
                         <div class="form-group">
-				            <label for="sel1">Select family:</label>            
-				            <select class="form-control" name="family_select">
-				            @foreach($families as $family)
-				                <option value="{{$family->id}}">{{$family->name}}</option>
+				            <label for="sel1">Select genus:</label>            
+				            <select class="form-control" name="genus_select">
+				            @foreach($genera as $genus)
+				                <option value="{{$genus->id}}">{{$genus->name}}</option>
 			                @endforeach
 				            </select>
 				        </div>
@@ -42,7 +42,7 @@
 				        </div>
 				         
 				        <div class="form-group">
-				            <button type="submit" class="btn btn-primary">Save Genus</button>
+				            <button type="submit" class="btn btn-primary">Save Species</button>
 				        </div>
 
                         {{ csrf_field() }}
