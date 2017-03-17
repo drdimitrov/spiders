@@ -17,8 +17,10 @@ class GenusController extends Controller
     }
 
     public function showFamilyGenera(Request $request){
-    	$family = Family::with('genera.paper.authors')->where('slug', $request->family)->first();
-       // dd($family->genera);
+    	$family = Family::with(['genera' => function($genus){
+            $genus->orderBy('name');
+        }])->where('slug', $request->family)->first();
+        
     	return view('front.genera', compact('family'));
     }
 }
