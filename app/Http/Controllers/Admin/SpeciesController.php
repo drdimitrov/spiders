@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Genus;
+use App\Species;
 
 class SpeciesController extends Controller
 {
@@ -13,6 +14,22 @@ class SpeciesController extends Controller
     }
 
     public function save(Request $request){
-    	dd($request->all());
+
+    	$this->validate($request, [
+	        'name' => 'required|alpha',
+	        'sel1' => 'required|integer',
+	        'genus_id' => 'required|integer',
+	    ]);
+
+	    $species = Species::create([
+	    	'name' => $request->name,
+	    	'slug' => strtolower($request->name),
+	    	'paper_id' => $request->sel1,
+	    	'genus_id' => $request->genus_id,
+    	]);
+
+    	if($species->save()){
+    		return redirect(route('admin.species.create'))->withMsg('Species has been created successfully.');
+    	}
     }
 }
