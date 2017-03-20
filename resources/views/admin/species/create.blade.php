@@ -29,7 +29,7 @@
                         <paper-select></paper-select>
 
                         <div class="form-group">
-				            <label for="sel1">Select genus:</label>            
+				            <label>Select genus:</label>            
 				            <genus-select></genus-select>
 				        </div>
 

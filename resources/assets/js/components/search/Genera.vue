@@ -1,13 +1,8 @@
-<template>
-    <form method="GET" class="form-inline">
-        <div class="form-group fg1">            
-            <input type="text" id="genus_name" class="form-control" placeholder="Choose Genus">
-            <input type="hidden" id="genus" name="genus_id" :value="genus_id">          
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Search</button>
-        </div>
-    </form>   
+<template>    
+    <div class="form-group fg1">            
+        <input type="text" id="genus_name" class="form-control" placeholder="Choose Genus">
+        <input type="hidden" id="genus" name="genus_id" :value="genus_id">          
+    </div>        
 </template>
 
 <script>
