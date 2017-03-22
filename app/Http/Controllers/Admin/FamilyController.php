@@ -21,7 +21,7 @@ class FamilyController extends Controller
 
 	    $family = Family::create([
 	    	'name' => $request->name,
-	    	'order_id' => 1,
+	    	'order_id' => 2,
 	    	'slug' => strtolower($request->name),
 	    	'author' => $request->author,
     	]);
