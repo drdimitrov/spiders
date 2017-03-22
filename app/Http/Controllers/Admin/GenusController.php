@@ -25,7 +25,7 @@ class GenusController extends Controller
 	    	'name' => $request->name,
 	    	'slug' => strtolower($request->name),
 	    	'paper_id' => $request->sel1,
-	    	'family_id' => $request->family_select,
+	    	'family_id' => $request->family,
     	]);
 
     	if($genus->save()){
