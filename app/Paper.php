@@ -16,7 +16,20 @@ class Paper extends Model
         'published_at',
     ];
 
+    public function getRouteKeyName(){
+        return 'slug';
+    }
+
     public function authors(){
     	return $this->belongsToMany(Author::class);
+    }
+
+    public function hasAuthor($id){
+
+        foreach($this-> authors as $author){
+            if($author->id == $id) return true;
+        }
+
+        return false;
     }
 }

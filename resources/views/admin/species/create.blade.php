@@ -8,11 +8,9 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    <h3 style="display: inline;">Add new author:</h3>
-                        <a style="display: inline;" href="{{ route('admin.authors') }}" class="btn btn-success pull-right" style="display: inline;">Back to authors</a>
-                   <br><br><br>
+                    <h3>Add new species:</h3>
 
-                   @if (count($errors) > 0)
+                    @if (count($errors) > 0)
                         <div class="alert alert-danger">
                             <ul>
                                 @foreach ($errors->all() as $error)
@@ -21,16 +19,26 @@
                             </ul>
                         </div>
                     @endif
-                    
-                    <form action="{{ route('admin.authors.create') }}" method="POST">
+
+                    @if(Session::has('msg'))
+						<div class="alert alert-success">{{ Session::get('msg') }}</div>
+                    @endif
+                   
+                    <form method="POST" action="{{ route('admin.species.create') }}">
+
+                        <paper-select></paper-select>
+
+                        <div class="form-group">
+				            <label>Select genus:</label>            
+				            <genus-select></genus-select>
+				        </div>
+
                     	<div class="form-group">            
-				            <input type="text" name="first_name" class="form-control" placeholder="First Name">				              
+				            <input type="text" name="name" class="form-control" placeholder="Name">				              
 				        </div>
-				        <div class="form-group">            
-				            <input type="text" name="last_name" class="form-control" placeholder="Last Name">				              
-				        </div>
+				         
 				        <div class="form-group">
-				            <button type="submit" class="btn btn-primary">Save Author</button>
+				            <button type="submit" class="btn btn-primary">Save Species</button>
 				        </div>
 
                         {{ csrf_field() }}

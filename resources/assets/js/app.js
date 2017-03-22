@@ -15,6 +15,9 @@ require('./bootstrap');
 
 Vue.component('author', require('./components/search/Authors.vue'));
 Vue.component('author-select', require('./components/search/ChooseAuth.vue'));
+Vue.component('paper-select', require('./components/search/Papers.vue'));
+Vue.component('family-select', require('./components/search/Families.vue'));
+Vue.component('genus-select', require('./components/search/Genera.vue'));
 
 const app = new Vue({
     el: '#app'

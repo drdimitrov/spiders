@@ -1,8 +1,8 @@
 <template>
     <form method="GET" class="form-inline">
         <div class="form-group fg1">            
-            <input type="text" id="author_name" class="form-control" placeholder="Choose Author">
-            <input type="hidden" id="author" name="author" :value="author_id">          
+            <input type="text" id="family_name" class="form-control" placeholder="Choose Family">
+            <input type="hidden" id="family" name="family" :value="family_id">          
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Search</button>
@@ -17,7 +17,7 @@
     export default {
         data(){
             return {
-                author_id : null
+                family_id : null
             }
         },
         methods: {
@@ -26,24 +26,24 @@
         mounted() {
 
             const index = algolia('G437GIPECU', 'ed5ac16faecbf760f179127985d565f1')
-                .initIndex('authors');
+                .initIndex('families');
 
-            let selectAuthor = autocomplete('#author_name', {
+            let selectFamily = autocomplete('#family_name', {
                 hint : true
             }, {
                 source : autocomplete.sources.hits(index, {
                     hitsPerPage : 50
                 }),
-                displayKey : 'last_name',
+                displayKey : 'name',
                 templates : {
                     suggestion(suggestion){
-                        return `<span>${suggestion._highlightResult.last_name.value} ${suggestion.first_name}</span>`;
+                        return `<span>${suggestion._highlightResult.name.value}</span>`;
                     }
                 },                
-                empty : `<div class="aa-empty">No authors found</div>`
+                empty : `<div class="aa-empty">No families found</div>`
             }).on('autocomplete:selected', function(event, suggestion, dataset){
-                this.author_id = suggestion.id;
-                selectAuthor.autocomplete.setVal(suggestion.first_name + ' ' + suggestion.last_name);   
+                this.family_id = suggestion.id;
+                selectFamily.autocomplete.setVal(suggestion.name); 
             }.bind(this));
         }
     }
