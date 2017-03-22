@@ -1,7 +1,7 @@
 <template>
     <div> 
         <label for="sel1">Choose author and year of publishing:</label><br>       
-        <div class="form-group" style="display: inline-block">        
+        <div class="form-group" style="display: inline-block; margin-bottom: 0;">        
             <input type="text" id="year_published" v-model="year_published" class="form-control" placeholder="Year">            
         </div>
         <div class="form-group" style="display: inline-block">
