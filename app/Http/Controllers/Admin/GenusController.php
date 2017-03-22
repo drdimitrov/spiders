@@ -18,7 +18,7 @@ class GenusController extends Controller
     	$this->validate($request, [
 	        'name' => 'required|unique:genera|alpha',
 	        'sel1' => 'required|integer',
-	        'family_select' => 'required|integer',
+	        'family' => 'required|integer',
 	    ]);
 
 	    $genus = Genus::create([
