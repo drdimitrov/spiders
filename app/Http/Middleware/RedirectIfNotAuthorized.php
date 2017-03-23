@@ -15,10 +15,7 @@ class RedirectIfNotAuthorized
      */
     public function handle($request, Closure $next)
     {
-        if(\Auth::guest()){
-            return redirect('/home')->with('msg', 'You are not authorized!');
-        }
-
+        
         if(!\Auth::user()->hasRole('admin') && !\Auth::user()->hasRole('supervisor')){
             return redirect('/home')->with('msg', 'You are not authorized!');
         }
