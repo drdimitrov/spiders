@@ -99,18 +99,41 @@
                           <ul class="nav navbar-nav">
                             <li class="active"><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
                             <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Authors <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
                               <ul class="dropdown-menu forAnimate" role="menu">
-                                <li><a href="{{URL::to('createusuario')}}">Crear</a></li>
-                                <li><a href="#">Modificar</a></li>
-                                <li><a href="#">Reportar</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Informes</a></li>
+                                <li><a href="#">List</a></li>
+                                <li><a href="{{route('admin.authors.create')}}">Create</a></li>                                
                               </ul>
-                            </li>          
-                            <li ><a href="#">Libros<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>        
+                            </li>
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Papers <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a>
+                              <ul class="dropdown-menu forAnimate" role="menu">
+                                <li><a href="#">List</a></li>
+                                <li><a href="{{route('admin.authors.create')}}">Create</a></li>                                
+                              </ul>
+                            </li>
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Families <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a>
+                              <ul class="dropdown-menu forAnimate" role="menu">
+                                <li><a href="#">List</a></li>
+                                <li><a href="{{route('admin.authors.create')}}">Create</a></li>                                
+                              </ul>
+                            </li>
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genera <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a>
+                              <ul class="dropdown-menu forAnimate" role="menu">
+                                <li><a href="#">List</a></li>
+                                <li><a href="{{route('admin.authors.create')}}">Create</a></li>                                
+                              </ul>
+                            </li>
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Species <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a>
+                              <ul class="dropdown-menu forAnimate" role="menu">
+                                <li><a href="#">List</a></li>
+                                <li><a href="{{route('admin.authors.create')}}">Create</a></li>                                
+                              </ul>
+                            </li>              
+                            <!-- <li ><a href="#">Libros<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li> -->        
                             <li ><a href="#">Tags<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
                           </ul>
                         </div>
