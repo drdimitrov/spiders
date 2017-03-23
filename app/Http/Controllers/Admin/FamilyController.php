@@ -8,6 +8,11 @@ use App\Family;
 
 class FamilyController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('isAllowed');
+    }
+    
     public function create(Request $request){
     	return view('admin.family.create');
     }

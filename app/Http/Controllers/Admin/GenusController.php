@@ -9,6 +9,11 @@ use App\Genus;
 
 class GenusController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('isAllowed');
+    }
+    
     public function create(){
     	return view('admin.genus.create', ['families' => Family::all()]);
     }

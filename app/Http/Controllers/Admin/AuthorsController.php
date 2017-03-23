@@ -8,6 +8,11 @@ use App\Author;
 
 class AuthorsController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('isAllowed');
+    }
+    
     public function index(Request $request){
     	$authors = $request->has('author') ? Author::where('id', $request->author)->get() : Author::orderBy('last_name')->get();
     	  	

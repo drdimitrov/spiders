@@ -9,6 +9,11 @@ use App\Species;
 
 class SpeciesController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('isAllowed');
+    }
+    
     public function create(){
     	return view('admin.species.create', ['genera' => Genus::orderBy('name')->get()]);
     }

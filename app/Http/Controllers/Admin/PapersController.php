@@ -9,6 +9,11 @@ use App\Paper;
 
 class PapersController extends Controller
 {
+	public function __construct(){
+		$this->middleware('auth');
+		$this->middleware('isAllowed');
+	}
+	
     public function index(){
     	return view('admin.papers.index');
     }
