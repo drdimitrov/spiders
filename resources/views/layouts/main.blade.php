@@ -41,7 +41,7 @@
                 <ul class="dropdown-menu">
                   <li><a href="#">Search for taxon</a></li>
                   <li><a href="{{route('families')}}">List all families</a></li>
-                  <li><a href="#">List all genera</a></li>
+                  <li><a href="{{route('genera')}}">List all genera</a></li>
                   <!-- <li role="separator" class="divider"></li> -->
                 </ul>
               </li>

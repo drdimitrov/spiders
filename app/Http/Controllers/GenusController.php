@@ -9,7 +9,9 @@ use App\Family;
 class GenusController extends Controller
 {
     public function index(){
-    	//
+    	$genera = Genus::with('paper.authors')->orderBy('name')->get();
+
+        return view('front.genera-list', compact('genera'));
     }
 
     public function show(Request $request){
