@@ -2,13 +2,10 @@
 
 @section('content')        
     <div class="panel panel-default">
-        <div class="panel-heading">Dashboard</div>
+        <div class="panel-heading">Add new author:</div>
 
         <div class="panel-body">
-            <h3 style="display: inline;">Add new author:</h3>
-                <a style="display: inline;" href="{{ route('admin.authors') }}" class="btn btn-success pull-right" style="display: inline;">Back to authors</a>
-           <br><br><br>
-
+           
            @if (count($errors) > 0)
                 <div class="alert alert-danger">
                     <ul>
