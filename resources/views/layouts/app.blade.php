@@ -110,28 +110,28 @@
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Papers <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a>
                               <ul class="dropdown-menu forAnimate" role="menu">
                                 <li><a href="#">List</a></li>
-                                <li><a href="{{route('admin.authors.create')}}">Create</a></li>                                
+                                <li><a href="{{route('admin.papers.create')}}">Create</a></li>                                
                               </ul>
                             </li>
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Families <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a>
                               <ul class="dropdown-menu forAnimate" role="menu">
                                 <li><a href="#">List</a></li>
-                                <li><a href="{{route('admin.authors.create')}}">Create</a></li>                                
+                                <li><a href="{{route('admin.family.create')}}">Create</a></li>                                
                               </ul>
                             </li>
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genera <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a>
                               <ul class="dropdown-menu forAnimate" role="menu">
                                 <li><a href="#">List</a></li>
-                                <li><a href="{{route('admin.authors.create')}}">Create</a></li>                                
+                                <li><a href="{{route('admin.genus.create')}}">Create</a></li>                                
                               </ul>
                             </li>
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Species <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a>
                               <ul class="dropdown-menu forAnimate" role="menu">
                                 <li><a href="#">List</a></li>
-                                <li><a href="{{route('admin.authors.create')}}">Create</a></li>                                
+                                <li><a href="{{route('admin.species.create')}}">Create</a></li>                                
                               </ul>
                             </li>              
                             <!-- <li ><a href="#">Libros<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>        
