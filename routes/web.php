@@ -23,9 +23,8 @@ Route::get('/genera', 'GenusController@index')->name('genera');
 Route::get('/genera/show/{family}', 'GenusController@showFamilyGenera')->name('genera.family');
 Route::get('/genus/{id}', 'GenusController@show')->name('genera.show');
 
-Route::get('/species', 'SpeciesController@index')->name('species');
 Route::get('/species/show/{genus}', 'SpeciesController@showGenusSpecies')->name('species.genus');
-
+Route::get('/species/{species}', 'SpeciesController@show')->name('species');
 
 Route::get('/literature', 'LiteratureController@index')->name('literature');
 Route::get('/literature/{paper}', 'LiteratureController@show')->name('literature.single');

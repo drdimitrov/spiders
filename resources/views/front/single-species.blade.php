@@ -1,0 +1,1 @@
+{{ $species->genus->name }} {{ $species->name }}

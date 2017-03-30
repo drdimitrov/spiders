@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Genus;
+use App\Species;
 
 class SpeciesController extends Controller
 {
-    public function index(){
-    	//
-    }
-
+    
     public function showGenusSpecies(Request $request){
     	
     	$genus = Genus::with(['species' => function($species){
@@ -21,6 +19,9 @@ class SpeciesController extends Controller
     }
 
     public function show(Request $request){
-    	//
+
+        $species = Species::with('genus')->find($request->species);
+    	
+        return view('front.single-species', compact('species'));
     }
 }
