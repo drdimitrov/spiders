@@ -84,6 +84,7 @@
         
         <div class="container-fluid">
             <div class="row">
+                @if(Auth::check())
                 <div class="col-md-2">
                     <nav class="navbar navbar-default sidebar" role="navigation">
                         <div class="container-fluid">
@@ -97,7 +98,7 @@
                         </div>
                         <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
                           <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+                            <li class="active"><a href="/">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Authors <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
                               <ul class="dropdown-menu forAnimate" role="menu">
@@ -141,6 +142,9 @@
                     </nav>
                 </div>
                 <div class="col-md-10">
+                @else
+                <div class="col-md-12">
+                @endif
                     @yield('content')
                 </div>
             </div>
