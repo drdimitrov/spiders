@@ -39,7 +39,7 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Identification <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Search for taxon</a></li>
+                  <li><a href="{{route('taxon.search')}}">Search for taxon</a></li>
                   <li><a href="{{route('families')}}">List all families</a></li>
                   <li><a href="{{route('genera')}}">List all genera</a></li>
                   <!-- <li role="separator" class="divider"></li> -->

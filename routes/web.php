@@ -29,6 +29,9 @@ Route::get('/species/{species}', 'SpeciesController@show')->name('species');
 Route::get('/literature', 'LiteratureController@index')->name('literature');
 Route::get('/literature/{paper}', 'LiteratureController@show')->name('literature.single');
 
+Route::get('/taxon/search', 'SearchController@index')->name('taxon.search');
+Route::post('/taxon/search', 'SearchController@show');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Search routes
