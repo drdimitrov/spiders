@@ -21,6 +21,10 @@ class SpeciesController extends Controller
     public function show(Request $request){
 
         $species = Species::with('genus')->find($request->species);
+
+        if(! $species){
+            return redirect('/');
+        }
     	
         return view('front.single-species', compact('species'));
     }
