@@ -2,10 +2,9 @@
 
 @section('content')
 <div class="panel panel-default">
-    <div class="panel-heading">Dashboard</div>
+    <div class="panel-heading">Add new species:</div>
 
     <div class="panel-body">
-        <h3>Add new species:</h3>
 
         @if (count($errors) > 0)
             <div class="alert alert-danger">
