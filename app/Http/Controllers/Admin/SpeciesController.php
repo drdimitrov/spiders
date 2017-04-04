@@ -31,6 +31,7 @@ class SpeciesController extends Controller
 	    	'slug' => strtolower($request->name),
 	    	'paper_id' => $request->sel1,
 	    	'genus_id' => $request->genus_id,
+            'brackets' => $request->has('brackets') ? $request->brackets : null,
     	]);
 
     	if($species->save()){

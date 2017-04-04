@@ -24,6 +24,10 @@
 
             <paper-select></paper-select>
 
+            <div class="checkbox">
+                <label><input type="checkbox" name="brackets" value="1">Brackets</label>
+            </div>
+
             <div class="form-group">
 	            <label>Select genus:</label>            
 	            <genus-select></genus-select>
@@ -32,7 +36,8 @@
         	<div class="form-group">            
 	            <input type="text" name="name" class="form-control" placeholder="Name">				              
 	        </div>
-	         
+
+            	         
 	        <div class="form-group">
 	            <button type="submit" class="btn btn-primary">Save Species</button>
 	        </div>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCountriesTable extends Migration
+class AddBracketsToSpeciesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateCountriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('countries', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('slug');
-            $table->timestamps();
+        Schema::table('species', function (Blueprint $table) {
+            $table->smallInteger('brackets')->nullable();
         });
     }
 
@@ -28,6 +25,8 @@ class CreateCountriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('countries');
+        Schema::table('species', function (Blueprint $table) {
+            $table->dropColumn('brackets');
+        });
     }
 }
