@@ -40,4 +40,24 @@ class AuthorsController extends Controller
     		return redirect(route('admin.authors'))->with('msg-success', 'Author has been saved.');
     	}
 	}
+
+    public function edit(Author $author){
+        return view('admin.authors.edit', compact('author'));
+    }
+
+    public function saveAuthor(Request $request){
+
+        $this->validate($request, [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'id' => 'required',
+        ]);
+
+        $author = Author::find($request->id);
+        $author->first_name = $request->first_name;
+        $author->last_name = $request->last_name;
+        $author->save();
+
+        return redirect(route('admin.authors'));
+    }
 }

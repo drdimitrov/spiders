@@ -15,6 +15,10 @@ class Genus extends Model
     	return $this->belongsTo(Paper::class);
     }
 
+    public function family(){
+    	return $this->belongsTo(Family::class);
+    }
+
     public function species(){
     	return $this->hasMany(Species::class);
     }

@@ -13,6 +13,12 @@ class SpeciesController extends Controller
         $this->middleware('auth');
         $this->middleware('isAllowed');
     }
+
+    public function index(){
+        $species = Species::with('genus')->get();
+
+        return view('admin.species.index', compact('species'));
+    }
     
     public function create(){
     	return view('admin.species.create', ['genera' => Genus::orderBy('name')->get()]);
@@ -37,5 +43,22 @@ class SpeciesController extends Controller
     	if($species->save()){
     		return redirect(route('admin.species.create'))->withMsg('Species has been created successfully.');
     	}
+    }
+
+    public function edit(Species $species){
+        $genera = Genus::all();
+        return view('admin.species.edit', compact('species', 'genera'));
+    }
+
+    public function saveSpecies(Request $request){
+        
+        $species = Species::find($request->id);
+        $species->name = $request->name;       
+        $species->slug = $request->slug;       
+        $species->genus_id = $request->genus_id;
+
+        if($species->save()){
+            return redirect(route('admin.species'));
+        }       
     }
 }

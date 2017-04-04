@@ -42,17 +42,28 @@ Route::get('/admin', 'Admin\AdminController@index')->name('admin');
 
 Route::get('/admin/authors', 'Admin\AuthorsController@index')->name('admin.authors');
 Route::get('/admin/authors/create', 'Admin\AuthorsController@create')->name('admin.authors.create');
+Route::get('/admin/authors/edit/{author}', 'Admin\AuthorsController@edit')->name('admin.authors.edit');
+Route::post('/admin/authors/edit', 'Admin\AuthorsController@saveAuthor');
 Route::post('/admin/authors/create', 'Admin\AuthorsController@save');
 
 Route::get('/admin/papers', 'Admin\PapersController@index')->name('admin.papers');
 Route::get('/admin/papers/create', 'Admin\PapersController@create')->name('admin.papers.create');
 Route::post('/admin/papers/create', 'Admin\PapersController@save');
 
+Route::get('/admin/family', 'Admin\FamilyController@index')->name('admin.family');
 Route::get('/admin/family/create', 'Admin\FamilyController@create')->name('admin.family.create');
 Route::post('/admin/family/create', 'Admin\FamilyController@save');
+Route::get('/admin/family/edit/{family}', 'Admin\FamilyController@edit')->name('admin.family.edit');
+Route::post('/admin/family/edit', 'Admin\FamilyController@saveFamily');
 
+Route::get('/admin/genus', 'Admin\GenusController@index')->name('admin.genus');
 Route::get('/admin/genus/create', 'Admin\GenusController@create')->name('admin.genus.create');
 Route::post('/admin/genus/create', 'Admin\GenusController@save');
+Route::get('/admin/genus/edit/{genus}', 'Admin\GenusController@edit')->name('admin.genus.edit');
+Route::post('/admin/genus/edit', 'Admin\GenusController@saveGenus');
 
+Route::get('/admin/species', 'Admin\SpeciesController@index')->name('admin.species');
 Route::get('/admin/species/create', 'Admin\SpeciesController@create')->name('admin.species.create');
 Route::post('/admin/species/create', 'Admin\SpeciesController@save');
+Route::get('/admin/species/edit/{species}', 'Admin\SpeciesController@edit')->name('admin.species.edit');
+Route::post('/admin/species/edit', 'Admin\SpeciesController@saveSpecies');

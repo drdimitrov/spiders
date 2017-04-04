@@ -12,6 +12,12 @@ class FamilyController extends Controller
         $this->middleware('auth');
         $this->middleware('isAllowed');
     }
+
+    public function index(){
+        $families = Family::all();
+
+        return view('admin.family.index', compact('families'));
+    }
     
     public function create(Request $request){
     	return view('admin.family.create');
@@ -36,5 +42,21 @@ class FamilyController extends Controller
     	}
 
     	return redirect(route('admin.family.create'))->withMsg('Whoops, something went wrong.');
+    }
+
+    public function edit(Family $family){
+        return view('admin.family.edit', compact('family'));
+    }
+
+    public function saveFamily(Request $request){
+        $family = Family::find($request->id);
+        $family->name = $request->name;
+        $family->slug = $request->slug;
+        $family->author = $request->author;
+
+        if($family->save()){
+            return redirect(route('admin.family'));
+        }
+
     }
 }

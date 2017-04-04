@@ -10,17 +10,14 @@
                     {{ Session::get('msg-success') }}
                 @endif
                 <div class="panel-body">
-                    <author style="display: inline;"></author>
-                    <a href="{{ route('admin.authors') }}" class="btn btn-success">All authors</a> 
-                    <a href="{{ route('admin.authors.create') }}" class="btn btn-success pull-right">Insert new author</a>
-                    
-                    <h3>List of authors:</h3>
+                                      
+                    <h3>List of families:</h3>
 					
 					<ul class="list-group">
-                    @foreach($authors as $author)
+                    @foreach($families as $family)
 						<li class="list-group-item">
-                            {{ $author->last_name }}, {{ $author->first_name }}
-                            <a href="{{ route('admin.authors.edit', $author->id) }}">
+                            {{ $family->name }}
+                            <a href="{{ route('admin.family.edit', $family->id) }}">
                                 <span class="glyphicon glyphicon-pencil pull-right"></span>
                             </a>
                         </li>

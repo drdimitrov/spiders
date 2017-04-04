@@ -14,6 +14,12 @@ class GenusController extends Controller
         $this->middleware('isAllowed');
     }
     
+    public function index(){
+        $genera = Genus::with('family')->get();
+
+        return view('admin.genus.index', compact('genera'));
+    }
+
     public function create(){
     	return view('admin.genus.create', ['families' => Family::all()]);
     }
@@ -36,5 +42,21 @@ class GenusController extends Controller
     	if($genus->save()){
     		return redirect(route('admin.genus.create'))->withMsg('Genus has been created successfully.');
     	}
+    }
+
+    public function edit(Genus $genus){
+        $families = Family::all();
+        return view('admin.genus.edit', compact('genus', 'families'));
+    }
+
+    public function saveGenus(Request $request){
+        $genus = Genus::find($request->id);
+        $genus->name = $request->name;
+        $genus->slug = $request->slug;
+        $genus->family_id = $request->family_id;
+
+        if($genus->save()){
+            return redirect(route('admin.genus'));
+        }
     }
 }
