@@ -16,5 +16,7 @@ class Record extends Model
 	    'juvenile_females',
 	    'collected_by',
 	    'collected_at',
+	    'recorded_by',
+	    'recorded_as',
     ];
 }

@@ -15,6 +15,8 @@ class CreateRecordsTable extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('recorded_by');
+            $table->string('recorded_as');
             $table->integer('species_id')->unsigned()->index();
             $table->foreign('species_id')->references('id')->on('species')->onDelete('cascade');
             $table->integer('locality_id')->unsigned()->index();
