@@ -1,0 +1,50 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Region;
+use App\Country;
+
+class RegionController extends Controller
+{
+    public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('isAllowed');
+    }
+
+    public function index(){
+    	$regions = Region::all();
+
+    	return view('admin.regions.index', compact('regions'));
+    }
+
+    public function create(){
+    	$countries = Country::all();
+    	return view('admin.regions.create', compact('countries'));
+    }
+
+    public function save(Request $request){
+
+    	$this->validate($request, [
+	        'name' => 'required|unique:regions|alpha',
+	        'slug' => 'required',
+	    ]);
+
+	    $region = Region::create([
+	    	'name' => $request->name,
+	        'slug' => $request->slug,
+    	]);
+
+    	if($region->save()){
+    		$region->countries()->sync($request->countries);
+    		return redirect(route('admin.region'));
+    	}
+    }
+
+    public function edit(Region $region){
+    	dd($region);
+    }
+
+}
