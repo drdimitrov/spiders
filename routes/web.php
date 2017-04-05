@@ -72,6 +72,7 @@ Route::get('/admin/countries', 'Admin\CountryController@index')->name('admin.cou
 Route::get('/admin/countries/create', 'Admin\CountryController@create')->name('admin.country.create');
 Route::post('/admin/countries/create', 'Admin\CountryController@save');
 Route::get('/admin/country/edit/{country}', 'Admin\CountryController@edit')->name('admin.country.edit');
+Route::post('/admin/country/edit', 'Admin\CountryController@saveCountry');
 
 Route::get('/admin/regions', 'Admin\RegionController@index')->name('admin.region');
 Route::get('/admin/regions/create', 'Admin\RegionController@create')->name('admin.region.create');

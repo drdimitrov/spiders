@@ -14,7 +14,7 @@ class CountryController extends Controller
     }
 
     public function index(){
-    	$countries = Country::all();
+    	$countries = Country::orderBy('name')->get();
 
     	return view('admin.countries.index', compact('countries'));
     }
@@ -41,7 +41,16 @@ class CountryController extends Controller
     }
 
     public function edit(Country $country){
-    	dd($country);
+    	return view('admin.countries.edit', compact('country'));
     }
 
+    public function saveCountry(Request $request){
+        $country = Country::find($request->id);
+        $country->name = $request->name;
+        $country->slug = $request->slug;
+
+        if($country->save()){
+            return redirect(route('admin.country'));
+        }
+    }
 }
