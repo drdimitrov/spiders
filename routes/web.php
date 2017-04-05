@@ -67,3 +67,8 @@ Route::get('/admin/species/create', 'Admin\SpeciesController@create')->name('adm
 Route::post('/admin/species/create', 'Admin\SpeciesController@save');
 Route::get('/admin/species/edit/{species}', 'Admin\SpeciesController@edit')->name('admin.species.edit');
 Route::post('/admin/species/edit', 'Admin\SpeciesController@saveSpecies');
+
+Route::get('/admin/countries', 'Admin\CountryController@index')->name('admin.country');
+Route::get('/admin/countries/create', 'Admin\CountryController@create')->name('admin.country.create');
+Route::post('/admin/countries/create', 'Admin\CountryController@save');
+Route::get('/admin/country/edit/{country}', 'Admin\CountryController@edit')->name('admin.country.edit');

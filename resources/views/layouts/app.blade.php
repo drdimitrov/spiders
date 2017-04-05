@@ -133,6 +133,34 @@
                                 <li><a href="{{route('admin.species')}}">List</a></li>
                                 <li><a href="{{route('admin.species.create')}}">Create</a></li>                                
                               </ul>
+                            </li>
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Countries <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a>
+                              <ul class="dropdown-menu forAnimate" role="menu">
+                                <li><a href="{{route('admin.species')}}">List</a></li>
+                                <li><a href="{{route('admin.country.create')}}">Create</a></li>                                
+                              </ul>
+                            </li>
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Regions <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a>
+                              <ul class="dropdown-menu forAnimate" role="menu">
+                                <li><a href="{{route('admin.species')}}">List</a></li>
+                                <li><a href="{{route('admin.species.create')}}">Create</a></li>                                
+                              </ul>
+                            </li>
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Localities <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a>
+                              <ul class="dropdown-menu forAnimate" role="menu">
+                                <li><a href="{{route('admin.species')}}">List</a></li>
+                                <li><a href="{{route('admin.species.create')}}">Create</a></li>                                
+                              </ul>
+                            </li>
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Records <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a>
+                              <ul class="dropdown-menu forAnimate" role="menu">
+                                <li><a href="{{route('admin.species')}}">List</a></li>
+                                <li><a href="{{route('admin.species.create')}}">Create</a></li>                                
+                              </ul>
                             </li>              
                             <!-- <li ><a href="#">Libros<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>        
                             <li ><a href="#">Tags<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li> -->
