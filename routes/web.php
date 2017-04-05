@@ -78,3 +78,4 @@ Route::get('/admin/regions', 'Admin\RegionController@index')->name('admin.region
 Route::get('/admin/regions/create', 'Admin\RegionController@create')->name('admin.region.create');
 Route::post('/admin/regions/create', 'Admin\RegionController@save');
 Route::get('/admin/region/edit/{region}', 'Admin\RegionController@edit')->name('admin.region.edit');
+Route::post('/admin/region/edit', 'Admin\RegionController@saveRegion');

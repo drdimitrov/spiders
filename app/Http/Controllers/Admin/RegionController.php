@@ -43,8 +43,23 @@ class RegionController extends Controller
     	}
     }
 
-    public function edit(Region $region){
-    	dd($region);
+    public function edit(Request $request){
+    	$region = Region::with('countries')->find($request->region);
+        $countries = Country::orderBy('name')->get();
+        $regionPlucked = $region->countries->pluck('id')->toArray();
+        
+        return view('admin.regions.edit', compact('region', 'countries', 'regionPlucked'));
+    }
+
+    public function saveRegion(Request $request){
+        $region = Region::find($request->id);
+        $region->name = $request->name;
+        $region->slug = $request->slug;
+
+        if($region->save()){
+            $region->countries()->sync($request->countries);
+            return redirect(route('admin.region'));
+        }
     }
 
 }
