@@ -16,7 +16,16 @@ class Record extends Model
 	    'juvenile_females',
 	    'collected_by',
 	    'collected_at',
+	    'paper_id',
 	    'recorded_by',
 	    'recorded_as',
     ];
+
+    public function localities(){
+    	return $this->belongsTo(Locality::class);
+    }
+
+    public function species(){
+    	return $this->belongsTo(Species::class);
+    }
 }

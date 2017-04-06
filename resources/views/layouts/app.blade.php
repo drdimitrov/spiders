@@ -151,8 +151,8 @@
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Localities <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a>
                               <ul class="dropdown-menu forAnimate" role="menu">
-                                <li><a href="{{route('admin.species')}}">List</a></li>
-                                <li><a href="{{route('admin.species.create')}}">Create</a></li>                                
+                                <li><a href="{{route('admin.locality')}}">List</a></li>
+                                <li><a href="{{route('admin.locality.create')}}">Create</a></li>                                
                               </ul>
                             </li>
                             <li class="dropdown">

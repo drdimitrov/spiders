@@ -79,3 +79,14 @@ Route::get('/admin/regions/create', 'Admin\RegionController@create')->name('admi
 Route::post('/admin/regions/create', 'Admin\RegionController@save');
 Route::get('/admin/region/edit/{region}', 'Admin\RegionController@edit')->name('admin.region.edit');
 Route::post('/admin/region/edit', 'Admin\RegionController@saveRegion');
+
+Route::get('/admin/localities', 'Admin\LocalityController@index')->name('admin.locality');
+Route::get('/admin/locality/create', 'Admin\LocalityController@create')->name('admin.locality.create');
+Route::post('/admin/locality/create', 'Admin\LocalityController@save');
+Route::get('/admin/locality/edit/{locality}', 'Admin\LocalityController@edit')->name('admin.locality.edit');
+Route::post('/admin/locality/edit', 'Admin\LocalityController@saveLocality');
+
+
+Route::get('/admin/records', 'Admin\RecordController@index')->name('admin.record');
+Route::get('/admin/records/create', 'Admin\RecordController@create')->name('admin.record.create');
+Route::post('/admin/records/create', 'Admin\RecordController@save');
