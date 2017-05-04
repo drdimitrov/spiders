@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/jquery-ui.min.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -158,8 +159,8 @@
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Records <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a>
                               <ul class="dropdown-menu forAnimate" role="menu">
-                                <li><a href="{{route('admin.species')}}">List</a></li>
-                                <li><a href="{{route('admin.species.create')}}">Create</a></li>                                
+                               
+                                <li><a href="{{route('admin.record.create')}}">Create</a></li>                                
                               </ul>
                             </li>              
                             <!-- <li ><a href="#">Libros<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>        
@@ -181,5 +182,13 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script>
+        $('#datepicker').datepicker({
+            dateFormat: "dd-mm-yy",
+            changeMonth: true,
+            changeYear: true,
+            yearRange: '1915:2027'
+        });
+    </script>
 </body>
 </html>

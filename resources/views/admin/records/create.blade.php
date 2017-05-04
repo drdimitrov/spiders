@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
-@section('content')        
+@section('content')
+      
 <div class="panel panel-default">
-    <div class="panel-heading">Add new family:</div>
+    <div class="panel-heading">Add new record:</div>
 
     <div class="panel-body">
 
@@ -20,15 +21,52 @@
 			<div class="alert alert-success">{{ Session::get('msg') }}</div>
         @endif
        
-        <form method="POST" action="{{ route('admin.record.create') }}">
-            
-        	<div class="form-group">            
-	           		              
-	        </div>
-	        
-	        <div class="form-group">            
-	            <input type="text" name="author" class="form-control" placeholder="Author">				              
-	        </div>
+        <form method="POST" action="{{ route('admin.record.create') }}">            
+        		        
+            <div class="form-group">            
+                <label for="species_id">Select species:</label>
+                <select class="form-control" name="species_id">
+                    @foreach($species as $s)
+                        <option value="{{ $s->id }}" >
+                        {{ $s->name }} > {{ $s->genus->name }}
+                        </option>
+                    @endforeach
+                </select>                        
+            </div>
+
+            <div class="form-group">            
+                <label for="locality_id">Select locality:</label>
+                <select class="form-control" name="locality_id">
+                    @foreach($localities as $locality)
+                        <option value="{{ $locality->id }}" >
+                            {{ $locality->name }}
+                        </option>
+                    @endforeach
+                </select>                        
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Notes:</label>
+                <textarea name="comments" class="form-control" rows="5" id="comment"></textarea>
+            </div>
+
+            <div class="form-group" id="inps">
+                <label>Specimens:</label>            
+                <input type="text" name="males" class="form-control" placeholder="males" style="display: inline; width: 120px;">
+                <input type="text" name="females" class="form-control" placeholder="females" style="display: inline; width: 120px;">                      
+                <input type="text" name="males_juv" class="form-control" placeholder="juv. males" style="display: inline; width: 120px;">                      
+                <input type="text" name="females_juv" class="form-control" placeholder="juv. females" style="display: inline; width: 120px;">                     
+            </div>
+
+            <div class="form-group">      
+                <input type="text" name="collected_by" class="form-control" placeholder="collected by">                     
+            </div>
+
+            <div class="input-group">
+                <label for="datepicker">Select date:</label>
+                <input type="text" class="form-control" id="datepicker" name="datepicker">
+            </div>
+            <br>
 
 	        <div class="form-group">
 	            <button type="submit" class="btn btn-primary">Save Record</button>
@@ -37,5 +75,6 @@
             {{ csrf_field() }}
         </form>
     </div>
-</div>   
+</div>
+   
 @endsection

@@ -5,13 +5,15 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Record;
+use App\Species;
+use App\Locality;
 
 class RecordController extends Controller
 {
-    public function index(){
-    	$localities = Record::with('localities', 'species')->get();
-    	return view('admin.records.index', compact('localities'));
-    }
+    // public function index(){
+    // 	$localities = Record::with('localities', 'species')->get();
+    // 	return view('admin.records.index', compact('localities'));
+    // }
 
     public function create(){
     	$species = Species::with('genus')->orderBy('name')->get();
