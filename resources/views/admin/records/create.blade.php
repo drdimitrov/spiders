@@ -34,6 +34,13 @@
                 </select>                        
             </div>
 
+            <paper-select></paper-select>
+
+            <div class="form-group">
+                <label for="recorded_as">Recorded as:</label>            
+                <input type="text" name="recorded_as" class="form-control" >
+            </div>
+
             <div class="form-group">            
                 <label for="locality_id">Select locality:</label>
                 <select class="form-control" name="locality_id">
@@ -46,8 +53,8 @@
             </div>
 
             <div class="form-group">
-                <label for="comments">Notes:</label>
-                <textarea name="comments" class="form-control" rows="5" id="comment"></textarea>
+                <label for="notes">Notes:</label>
+                <textarea name="notes" class="form-control" rows="5" id="notes"></textarea>
             </div>
 
             <div class="form-group" id="inps">
