@@ -13,6 +13,11 @@
 		</h1>
 	</div>
 
-      
+    <div class="col-md-6">
+    	<h3>Localities:</h3>
+    </div>
+    <div class="col-md-6">
+    	<p>Google maps api</p>
+    </div>  
 </div>
 @endsection
