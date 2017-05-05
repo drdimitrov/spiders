@@ -16,12 +16,25 @@
     <div class="col-md-6">
     	<h3>Localities:</h3>
 
-    	@foreach($species->records as $record)
-			<p>{{ $record->locality->name }}</p>
+    	@foreach($localities as $k => $locality)
+    		<p>
+    		<b>{{ $k }}: </b>
+			@foreach($locality as $loc)
+				{{ $loc['name'] }},
+				@if(isset($loc['notes'])) {{ $loc['notes'] }}, @endif 				 
+				@if(isset($loc['males'])) {{ $loc['males'] }} &#9794;,  @endif
+				@if(isset($loc['females'])) {{ $loc['females'] }} &#9792;,  @endif
+				@if(isset($loc['juvenile_males'])) {{ $loc['juvenile_males'] }} juv. &#9794;,  @endif
+				@if(isset($loc['juvenile_females'])) {{ $loc['juvenile_females'] }} juv. &#9792;,  @endif
+				@if(isset($loc['date'])) {{ $loc['date'] }}, @endif
+				@if(isset($loc['leg'])) {{ $loc['leg'] }} leg., @endif 
+				({{ $loc['published'] }}); 
+			@endforeach
+			</p>
     	@endforeach
     </div>
     <div class="col-md-6">
-    	<p>Google maps api</p>
+    	<p>To implement Google maps api here...</p>
     </div>  
 </div>
 @endsection

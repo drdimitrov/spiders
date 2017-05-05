@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Record extends Model
 {
+    protected $dates = [
+    	'created_at', 'updated_at', 'collected_at'
+    ];
+
     protected $fillable = [
 	    'species_id', 
 	    'locality_id', 
@@ -26,5 +30,9 @@ class Record extends Model
 
     public function species(){
     	return $this->belongsTo(Species::class);
+    }
+
+    public function paper(){
+    	return $this->belongsTo(Paper::class);
     }
 }

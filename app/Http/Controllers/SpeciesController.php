@@ -20,12 +20,42 @@ class SpeciesController extends Controller
 
     public function show(Request $request){
 
-        $species = Species::with('genus', 'records')->find($request->species);
+        $species = Species::with(
+            'records.locality.country',
+            'records.paper.authors', 
+            'genus'
+        )->find($request->species);
+        
+        $localities = [];
+
+        foreach($species->records as $record){
+            $auth = '';
+            foreach($record->paper->authors as $author){
+                $auth .= ' '.$author->last_name;
+                //dd($author);
+            }
+
+            //dd($auth);
+            $localities[$record->locality->country->name][] = [
+                'name' => $record->locality->name,
+                'notes' => $record->comments,
+                'date' => $record->collected_at->format('d-m-Y'),
+                'leg' => $record->collected_by,
+                'males' => $record->males,
+                'females' => $record->females,
+                'juvenile_males' => $record->juvenile_males,
+                'juvenile_females' => $record->juvenile_females,
+                'published' => $auth . ' ' . $record->paper->published_at->format('Y'),
+                'recorded' => $species->genus->name . ' ' . $species->name,
+            ];
+        }
+
+        ksort($localities);
 
         if(! $species){
             return redirect('/');
         }
     	
-        return view('front.single-species', compact('species'));
+        return view('front.single-species', compact('species', 'localities'));
     }
 }
