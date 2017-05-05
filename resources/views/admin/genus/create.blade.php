@@ -22,16 +22,18 @@
        
         <form method="POST" action="{{ route('admin.genus.create') }}">
 
-            <paper-select></paper-select>
-
             <div class="form-group">                            
 	            <label for="sel1">Select family:</label>            
 	            <family-select></family-select>
 	        </div>
 
         	<div class="form-group">            
-	            <input type="text" name="name" class="form-control" placeholder="Name">				              
+	            <input type="text" name="name" class="form-control" placeholder="Name">
 	        </div>
+
+            <div class="form-group">            
+                <input type="text" name="author" class="form-control" placeholder="Author">
+            </div>
 	         
 	        <div class="form-group">
 	            <button type="submit" class="btn btn-primary">Save Genus</button>

@@ -21,6 +21,10 @@
                     <label for="name">Name:</label>            
 		            <input type="text" name="name" class="form-control" value="{{ $species->name }}">
 		        </div>
+                <div class="form-group">
+                    <label for="name">Author:</label>            
+                    <input type="text" name="author" class="form-control" value="{{ $species->author }}">
+                </div>
 		        <div class="form-group">
                     <label for="slug">Slug:</label>           
 		            <input type="text" name="slug" class="form-control" value="{{ $species->slug }}">

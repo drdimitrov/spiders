@@ -4,9 +4,9 @@
             <input type="text" id="family_name" class="form-control" placeholder="Choose Family">
             <input type="hidden" id="family" name="family" :value="family_id">          
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <button type="submit" class="btn btn-primary">Search</button>
-        </div>
+        </div> -->
     </div> 
 </template>
 

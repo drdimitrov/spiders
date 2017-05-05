@@ -9,12 +9,8 @@ class Genus extends Model
 {
 	use Searchable;
 	
-    protected $fillable = ['name', 'paper_id', 'family_id', 'slug'];
-
-    public function paper(){
-    	return $this->belongsTo(Paper::class);
-    }
-
+    protected $fillable = ['name', 'author', 'family_id', 'slug'];
+    
     public function family(){
     	return $this->belongsTo(Family::class);
     }

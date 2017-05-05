@@ -28,14 +28,14 @@ class SpeciesController extends Controller
 
     	$this->validate($request, [
 	        'name' => 'required|alpha',
-	        'sel1' => 'required|integer',
+	        'author' => 'required',
 	        'genus_id' => 'required|integer',
 	    ]);
 
 	    $species = Species::create([
 	    	'name' => $request->name,
 	    	'slug' => strtolower($request->name),
-	    	'paper_id' => $request->sel1,
+	    	'author' => $request->author,
 	    	'genus_id' => $request->genus_id,
             'brackets' => $request->has('brackets') ? $request->brackets : null,
     	]);
@@ -54,6 +54,7 @@ class SpeciesController extends Controller
         
         $species = Species::find($request->id);
         $species->name = $request->name;       
+        $species->author = $request->author;       
         $species->slug = $request->slug;       
         $species->genus_id = $request->genus_id;
 

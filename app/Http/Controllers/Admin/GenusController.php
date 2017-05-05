@@ -28,14 +28,14 @@ class GenusController extends Controller
 
     	$this->validate($request, [
 	        'name' => 'required|unique:genera|alpha',
-	        'sel1' => 'required|integer',
+	        'author' => 'required',
 	        'family' => 'required|integer',
 	    ]);
 
 	    $genus = Genus::create([
 	    	'name' => $request->name,
 	    	'slug' => strtolower($request->name),
-	    	'paper_id' => $request->sel1,
+	    	'author' => $request->author,
 	    	'family_id' => $request->family,
     	]);
 
@@ -52,6 +52,7 @@ class GenusController extends Controller
     public function saveGenus(Request $request){
         $genus = Genus::find($request->id);
         $genus->name = $request->name;
+        $genus->author = $request->author;
         $genus->slug = $request->slug;
         $genus->family_id = $request->family_id;
 
