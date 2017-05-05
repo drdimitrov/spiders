@@ -21,14 +21,7 @@
                 <tr>
                     <td>{{ $cnt }}</td>
                     <td>{{ $genus->name }}</td>
-                    <td>
-                      <a href="{{ route('literature.single', $genus->paper->slug) }}">
-                      @foreach($genus->paper->authors as $author)
-                        {{ $author->first_name }} {{ $author->last_name }}, 
-                      @endforeach
-                      {{ $genus->paper->published_at->format('Y') }}
-                      </a>
-                    </td>
+                    <td>{{ $genus->author }}</td>
                     <td>
                         <a href="{{ route('species.genus', $genus->slug) }}">Species</a>
                     </td>

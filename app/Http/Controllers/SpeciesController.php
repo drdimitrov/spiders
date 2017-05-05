@@ -13,7 +13,7 @@ class SpeciesController extends Controller
     	
     	$genus = Genus::with(['species' => function($species){
             $species->orderBy('name');
-        }, 'species.paper.authors'])->where('slug', $request->genus)->first();
+        }])->where('slug', $request->genus)->first();
 
     	return view('front.species', compact('genus'));
     }

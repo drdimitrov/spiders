@@ -9,7 +9,7 @@ use App\Family;
 class GenusController extends Controller
 {
     public function index(){
-    	$genera = Genus::with('paper.authors')->orderBy('name')->get();
+    	$genera = Genus::orderBy('name')->get();
 
         return view('front.genera-list', compact('genera'));
     }
@@ -21,7 +21,7 @@ class GenusController extends Controller
     public function showFamilyGenera(Request $request){
     	$family = Family::with(['genera' => function($genus){
             $genus->orderBy('name');
-        }, 'genera.paper.authors'])->where('slug', $request->family)->first();
+        }])->where('slug', $request->family)->first();
 
     	return view('front.genera', compact('family'));
     }

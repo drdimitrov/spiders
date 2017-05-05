@@ -8,10 +8,7 @@
 			{{ $species->genus->name }} {{ $species->name }}
 
 			<b>
-			@foreach($species->paper->authors as $author)
-				{{ $author->first_name }} {{ $author->last_name }}, 
-			@endforeach
-			{{ $species->paper->published_at->format('Y') }}
+			{{ $species->author }}
 			</b>
 		</h1>
 	</div>
