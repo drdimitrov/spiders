@@ -20,7 +20,7 @@ class Record extends Model
 	    'recorded_as',
     ];
 
-    public function localities(){
+    public function locality(){
     	return $this->belongsTo(Locality::class);
     }
 

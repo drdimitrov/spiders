@@ -20,7 +20,7 @@ class SpeciesController extends Controller
 
     public function show(Request $request){
 
-        $species = Species::with('genus')->find($request->species);
+        $species = Species::with('genus', 'records')->find($request->species);
 
         if(! $species){
             return redirect('/');

@@ -11,4 +11,8 @@ class Species extends Model
     public function genus(){
     	return $this->belongsTo(Genus::class);
     }
+
+    public function records(){
+    	return $this->hasMany(Record::class);
+    }
 }

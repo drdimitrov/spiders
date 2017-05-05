@@ -15,6 +15,10 @@
 
     <div class="col-md-6">
     	<h3>Localities:</h3>
+
+    	@foreach($species->records as $record)
+			<p>{{ $record->locality->name }}</p>
+    	@endforeach
     </div>
     <div class="col-md-6">
     	<p>Google maps api</p>
