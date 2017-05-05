@@ -22,6 +22,29 @@ class RecordController extends Controller
     }
 
     public function save(Request $request){
-    	dd($request->all());
+
+        $this->validate($request, [
+            'species_id' => 'required|integer',
+            'locality_id' => 'required|integer',
+            'sel1' => 'required|integer',
+        ]);
+
+    	$record = Record::create([
+            'species_id' => $request->species_id,
+            'locality_id' => $request->locality_id,
+            'comments' => $request->notes,
+            'males' => $request->males,
+            'females' => $request->females,
+            'juvenile_males' => $request->males_juv,
+            'juvenile_females' => $request->females_juv,
+            'collected_by' => $request->collected_by,
+            'collected_at' => \Carbon\Carbon::createFromFormat('d-m-Y', $request->datepicker),
+            'paper_id' => 11, //$request->sel1,
+            'recorded_as' => $request->recorded_as,
+        ]);
+
+        if($record->save()){
+            return redirect(route('admin.record.create'));
+        }
     }
 }

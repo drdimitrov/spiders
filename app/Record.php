@@ -17,7 +17,6 @@ class Record extends Model
 	    'collected_by',
 	    'collected_at',
 	    'paper_id',
-	    'recorded_by',
 	    'recorded_as',
     ];
 
