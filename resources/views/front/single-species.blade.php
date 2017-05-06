@@ -34,7 +34,7 @@
     	@endforeach
     </div>
     <div class="col-md-6">
-    	<p>To implement Google maps api here...</p>
+    	<div id="map"></div>
     </div>  
 </div>
 @endsection

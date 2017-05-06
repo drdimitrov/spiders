@@ -31,11 +31,9 @@ class SpeciesController extends Controller
         foreach($species->records as $record){
             $auth = '';
             foreach($record->paper->authors as $author){
-                $auth .= ' '.$author->last_name;
-                //dd($author);
+                $auth .= ' '.$author->last_name;                
             }
 
-            //dd($auth);
             $localities[$record->locality->country->name][] = [
                 'name' => $record->locality->name,
                 'notes' => $record->comments,
