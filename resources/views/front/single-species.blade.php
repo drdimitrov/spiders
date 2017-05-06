@@ -34,7 +34,19 @@
     	@endforeach
     </div>
     <div class="col-md-6">
-    	<div id="map"></div>
+    	<div id="map" style="width: 300px; height: 300px;"></div>
     </div>  
 </div>
+<script>
+	initMap = function(){
+	var map = new google.maps.Map(document.getElementById('map'), {
+      center: {
+      	lat: -34.397, 
+      	lng: 150.644
+      },
+      scrollwheel: false,
+      zoom: 8
+    });
+}
+</script>
 @endsection
