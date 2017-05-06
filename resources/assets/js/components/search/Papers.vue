@@ -11,7 +11,6 @@
         <div class="form-group">
             <label for="sel1">Select paper:</label>                    
             <select class="form-control" id="sel1" name="sel1">
-            <option value="0">None</option>    
                 <option v-for="paper in papers" :value="paper.id">{{paper.name}}</option>
             </select>
         </div>
