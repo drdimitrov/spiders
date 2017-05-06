@@ -12,7 +12,7 @@ initMap = function(){
     position: {
       	lat: 42.131470, 
       	lng: 27.750139
-      },,
+      },
     map: map,
     title: 'Tsarevo'
   });
