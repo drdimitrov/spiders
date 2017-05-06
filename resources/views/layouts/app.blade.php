@@ -170,7 +170,7 @@
                       </div>
                     </nav>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-9">
                 @else
                 <div class="col-md-12">
                 @endif
@@ -178,7 +178,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
     <!-- Scripts -->
