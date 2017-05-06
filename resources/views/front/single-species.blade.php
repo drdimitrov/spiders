@@ -34,7 +34,7 @@
     	@endforeach
     </div>
     <div class="col-md-6">
-    	<div id="map" style="width: 400px; height: 500px;"></div>
+    	<div id="map" style="width: 500px; height: 450px;"></div>
     </div>  
 </div>
 
