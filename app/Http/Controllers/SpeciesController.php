@@ -44,6 +44,7 @@ class SpeciesController extends Controller
                 'juvenile_males' => $record->juvenile_males,
                 'juvenile_females' => $record->juvenile_females,
                 'published' => $auth . ' ' . $record->paper->published_at->format('Y'),
+                'slug' => $record->paper->slug,
                 'recorded' => $species->genus->name . ' ' . $species->name,
             ];
         }

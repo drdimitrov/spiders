@@ -28,7 +28,7 @@
 				@if(isset($loc['juvenile_females'])) {{ $loc['juvenile_females'] }} juv. &#9792;,  @endif
 				@if(isset($loc['date'])) {{ $loc['date'] }}, @endif
 				@if(isset($loc['leg'])) {{ $loc['leg'] }} leg., @endif 
-				({{ $loc['published'] }}); 
+				(<a href="/literature/{{ $loc['slug'] }}">{{ $loc['published'] }}</a>); 
 			@endforeach
 			</p>
     	@endforeach
