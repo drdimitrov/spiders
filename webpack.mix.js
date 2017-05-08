@@ -13,7 +13,6 @@ const { mix } = require('laravel-mix');
 
 mix.js([
 	'resources/assets/js/app.js',
-	'resources/assets/js/maps/maps.js?key=AIzaSyA41cF0sttrkX2sC2iwpBp5cyr6aFAIKJM&callback=app.initMap',
 	'resources/assets/ui/jquery-ui.js'
 	], 'public/js/app.js')
    .sass('resources/assets/sass/app.scss', 'public/css')

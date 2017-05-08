@@ -18,7 +18,7 @@
         },
         methods: {
             createMap(){
-                this.map = new google.maps.Map(this.$els.map, {
+                this.map = new google.maps.Map(document.getElementById('map'), {
                     center: {
                         lat: 41.865545, 
                         lng: 27.966174

@@ -20,14 +20,11 @@ Vue.component('author-select', require('./components/search/ChooseAuth.vue'));
 Vue.component('paper-select', require('./components/search/Papers.vue'));
 Vue.component('family-select', require('./components/search/Families.vue'));
 Vue.component('genus-select', require('./components/search/Genera.vue'));
-Vue.component('google-maps', require('./components/google-maps/Maps.vue'));
 
 const app = new Vue({
     el: '#app',
     methods: {
-        initMap(){        	
-            this.$broadcast('MapsApiLoaded')
-        }
+        //
     }
 });
 
