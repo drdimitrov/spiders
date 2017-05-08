@@ -58,7 +58,7 @@ class SpeciesController extends Controller
                     $record->locality->latitude, 
                     $record->locality->longitude,
                     $record->locality->name,
-                ]
+                ];
             }
         }
 
