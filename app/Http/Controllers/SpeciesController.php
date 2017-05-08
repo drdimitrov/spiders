@@ -37,7 +37,7 @@ class SpeciesController extends Controller
             $localities[$record->locality->country->name][] = [
                 'name' => $record->locality->name,
                 'notes' => $record->comments,
-                'date' => $record->collected_at->format('d-m-Y'),
+                'date' => $record->collected_at ? $record->collected_at->format('d-m-Y') : null,
                 'leg' => $record->collected_by,
                 'males' => $record->males,
                 'females' => $record->females,
