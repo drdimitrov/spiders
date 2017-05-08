@@ -46,7 +46,11 @@ class SpeciesController extends Controller
                 'published' => $auth . ' ' . $record->paper->published_at->format('Y'),
                 'slug' => $record->paper->slug,
                 'recorded' => $species->genus->name . ' ' . $species->name,
-                'coordinates' => [$record->locality->latitude, $record->locality->longitude],
+                'coordinates' => [
+                    $record->locality->latitude, 
+                    $record->locality->longitude,
+                    $record->locality->name,
+                ],
             ];
         }
 

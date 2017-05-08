@@ -41,6 +41,7 @@
 </div>
    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA41cF0sttrkX2sC2iwpBp5cyr6aFAIKJM&callback=initMap"
   type="text/javascript"></script>
+  @if(!empty($coordinates))
   <script>
     initMap = function(){
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -52,24 +53,18 @@
         zoom: 8
       });
 
-    new google.maps.Marker({
-      position: {
-          lat: 42.131470, 
-          lng: 27.750139
-        },
-      map: map,
-      title: 'Tsarevo'
-    });
-
-    new google.maps.Marker({
-      position: {
-          lat: 41.970880, 
-          lng: 27.972505
-        },
-      map: map,
-      title: 'Tsarevo'
-    });
+    @foreach($coordinates as $cd)
+	    new google.maps.Marker({
+	      position: {
+	          lat: '{{$cd["0"]}}', 
+	          lng: '{{$cd["1"]}}'
+	        },
+	      map: map,
+	      title: '{{$cd["2"]}}'
+	    });
+    @endforeach
 
   }
-  </script> 
+  </script>
+  @endif 
 @endsection
