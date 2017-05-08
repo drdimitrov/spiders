@@ -29,7 +29,9 @@
 				@if(isset($loc['date'])) {{ $loc['date'] }}, @endif
 				@if(isset($loc['leg'])) {{ $loc['leg'] }} leg., @endif 
 				(<a href="/literature/{{ $loc['slug'] }}">{{ $loc['published'] }}</a>);
-				@php($coordinates[] = $loc['coordinates']) 
+					@if(isset($loc['coordinates']))
+						@php($coordinates[] = $loc['coordinates'])
+					@endif 
 			@endforeach
 			</p>
     	@endforeach
