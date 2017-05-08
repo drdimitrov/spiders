@@ -56,8 +56,8 @@
     @foreach($coordinates as $cd)
 	    new google.maps.Marker({
 	      position: {
-	          lat: '{{$cd["0"]}}', 
-	          lng: '{{$cd["1"]}}'
+	          lat: {{$cd["0"]}}, 
+	          lng: {{$cd["1"]}}
 	        },
 	      map: map,
 	      title: '{{$cd["2"]}}'
