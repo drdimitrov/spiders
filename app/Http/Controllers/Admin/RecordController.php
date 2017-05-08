@@ -38,7 +38,7 @@ class RecordController extends Controller
             'juvenile_males' => $request->males_juv,
             'juvenile_females' => $request->females_juv,
             'collected_by' => $request->collected_by,
-            'collected_at' => \Carbon\Carbon::createFromFormat('d-m-Y', $request->datepicker),
+            'collected_at' => $request->has('datepicker') ?\Carbon\Carbon::createFromFormat('d-m-Y', $request->datepicker) : null,
             'paper_id' => $request->sel1,
             'recorded_as' => $request->recorded_as,
         ]);
