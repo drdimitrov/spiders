@@ -95,7 +95,7 @@
       </nav>
 
       <div id="app">@yield('content')
-      <script>console.log(app)</script>
+      <script>console.log(appinitMap())</script>
       </div>
       
 
