@@ -15,7 +15,7 @@
 
     <div class="col-md-6">
     	<h3>Localities:</h3>
-
+		@php($coordinates = [])
     	@foreach($localities as $k => $locality)
     		<p>
     		<b>{{ $k }}: </b>
@@ -28,10 +28,12 @@
 				@if(isset($loc['juvenile_females'])) {{ $loc['juvenile_females'] }} juv. &#9792;,  @endif
 				@if(isset($loc['date'])) {{ $loc['date'] }}, @endif
 				@if(isset($loc['leg'])) {{ $loc['leg'] }} leg., @endif 
-				(<a href="/literature/{{ $loc['slug'] }}">{{ $loc['published'] }}</a>); 
+				(<a href="/literature/{{ $loc['slug'] }}">{{ $loc['published'] }}</a>);
+				@php($coordinates[] = $loc['coordinates']) 
 			@endforeach
 			</p>
     	@endforeach
+    	{{dd($coordinates)}}
     </div>
     <div class="col-md-6">
     	<div id="map" style="width: 500px; height: 400px;"></div>
