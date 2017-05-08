@@ -10,14 +10,11 @@
                 //
             }
         },
-        props : ['localities'],
-        methods: {
-            initMap(){
-                this.$broadcast('Maps api loaded')
+        props : ['localities'],        
+        events : {
+            MapsApiLoaded(){
+                alert('maps loaded')
             }
-        },
-        mounted() {
-            //console.log('google-maps')
         }
     }
 

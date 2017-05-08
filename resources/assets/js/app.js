@@ -23,7 +23,12 @@ Vue.component('genus-select', require('./components/search/Genera.vue'));
 Vue.component('google-maps', require('./components/google-maps/Maps.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    methods: {
+        initMap(){
+            this.$broadcast('Maps api loaded')
+        }
+    }
 });
 
 
