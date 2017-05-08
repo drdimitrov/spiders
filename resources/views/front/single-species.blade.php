@@ -33,7 +33,7 @@
 			@endforeach
 			</p>
     	@endforeach
-    	{{dd($coordinates)}}
+
     </div>
     <div class="col-md-6">
     	<div id="map" style="width: 500px; height: 400px;"></div>
@@ -52,7 +52,7 @@
         zoom: 8
       });
 
-      var marker = new google.maps.Marker({
+    new google.maps.Marker({
       position: {
           lat: 42.131470, 
           lng: 27.750139
@@ -60,6 +60,16 @@
       map: map,
       title: 'Tsarevo'
     });
+
+    new google.maps.Marker({
+      position: {
+          lat: 41.970880, 
+          lng: 27.972505
+        },
+      map: map,
+      title: 'Tsarevo'
+    });
+
   }
   </script> 
 @endsection
