@@ -94,9 +94,7 @@
         </div>
       </nav>
 
-      <div id="app">@yield('content')
-      <script>console.log(app.initMap())</script>
-      </div>
+      <div id="app">@yield('content')</div>
       
 
       <footer class="footer">
@@ -106,8 +104,8 @@
       </footer>
 
       <script src="{{ asset('js/app.js') }}"></script>
-      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA41cF0sttrkX2sC2iwpBp5cyr6aFAIKJM&callback=app.initMap"
-  type="text/javascript"></script>
+     <!--  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA41cF0sttrkX2sC2iwpBp5cyr6aFAIKJM&callback=app.initMap"
+  type="text/javascript"></script> -->
     <!-- <script src="{{ asset('js/maps.js') }}"></script> -->
       <script>
         /*!
