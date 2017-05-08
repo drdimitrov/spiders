@@ -35,8 +35,9 @@
     </div>
     <div class="col-md-6">
     	<div id="map" style="width: 500px; height: 400px;">
-    		<google-maps localities=""></google-maps>
+    		
     	</div>
+    	<google-maps localities=""></google-maps>
     </div>  
 </div>
 
