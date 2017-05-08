@@ -2,7 +2,7 @@
 
 @section('content')
 @php($cnt = 1)
-<div class="container search">
+<div class="container search"  id="app">
      <div class="page-header">
         <h1>Search for taxon</h1>
       </div>

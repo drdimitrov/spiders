@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="container">
+<div class="container" id="app">
 	<div class="page-header">
 		<h1 style="display: inline;">
 			Literature 
