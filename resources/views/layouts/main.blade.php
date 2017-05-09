@@ -96,7 +96,7 @@
 
       <div>@yield('content')</div>
       
-
+<br><br>
       <footer class="footer">
         <div class="container">
           <p class="text-muted">Footer content here.</p>
