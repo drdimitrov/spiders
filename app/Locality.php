@@ -23,4 +23,8 @@ class Locality extends Model
     	return $this->belongsTo(Region::class);
     	
     }
+
+    public function records(){
+        return $this->hasMany(Record::class);
+    }
 }

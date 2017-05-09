@@ -75,6 +75,14 @@
             </div>
             <br>
 
+            <!-- <div class="form-group">            
+                <label for="collection_id">Kept in collection:</label>
+                <select class="form-control" name="collection_id">                    
+                    <option value="0">No data</option>                    
+                    <option value="">NMNHS/B11</option>                    
+                </select>                        
+            </div> -->
+
 	        <div class="form-group">
 	            <button type="submit" class="btn btn-primary">Save Record</button>
 	        </div>

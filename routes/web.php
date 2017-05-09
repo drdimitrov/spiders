@@ -37,6 +37,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Search routes
 Route::post('/algolia/search-papers', 'Admin\AlgoliaController@selectPaper');
 
+//Statistics
+Route::get('/statistics/species-by-locality', 'Statistics\StatisticByLocalityController@index')->name('stat.locality');
+Route::post('/statistics/species-by-locality', 'Statistics\StatisticByLocalityController@locality')->name('stat.locality.single');
+
 //Admin routes
 Route::get('/admin', 'Admin\AdminController@index')->name('admin');
 
