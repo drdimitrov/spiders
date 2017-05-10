@@ -4,8 +4,10 @@
 @php($cnt = 1)
 <div class="container">
      <div class="page-header">
-        <h1>{{ $lName }} - list of species</h1>
+        <h1>{{ $lName }} - list of species</h1>        
       </div>
+
+      <a href="/statistics/species-by-locality" class="btn btn-primary pull-right">Back to localities</a>
 
       <table class="table table-striped">
         <thead>

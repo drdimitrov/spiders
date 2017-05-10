@@ -7,19 +7,34 @@
         <h1>Species by locality</h1>
       </div>
 
-      <form action="{{ route('stat.locality.single') }}" method="POST">
-        <div class="form-group">
-          <label for="sel1">Select locality:</label>
-          <select class="form-control" name="locality">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nr.</th>
+            <th>Locality</th>
+            <th>Region</th>
+            <th>Country</th>
+            <th>Action</th>            
+          </tr>
+        </thead>
+        <tbody>
             @foreach($localities as $locality)
-              <option value="{{ $locality->id }}">{{ $locality->name }}</option>
-            @endforeach            
-          </select>
-        </div>
-        <div class="form-group">
-          <button class="btn btn-default">Show species</button>
-        </div>
-        {{ csrf_field() }}
-      </form>
+                <tr>
+                    <td>{{ $cnt }}</td>
+                    <td>{{ $locality->name }}</td>
+                    <td>{{ $locality->region->name }}</td>
+                    <td>{{ $locality->country->name }}</td>
+                    <td>
+                       <form action="{{ route('stat.locality.single') }}" method="POST">
+                        <input type="hidden" name="locality" value="{{ $locality->id }}">
+                        <button class="btn btn-default">Show species</button>
+                        {{ csrf_field() }}
+                      </form>
+                    </td>
+                </tr>
+                @php($cnt++)
+            @endforeach          
+        </tbody>
+      </table>
 </div>
 @endsection

@@ -9,7 +9,7 @@ use App\Locality;
 class StatisticByLocalityController extends Controller
 {
     public function index(){
-    	$localities = Locality::orderBy('name')->get();
+    	$localities = Locality::with('country', 'region')->orderBy('name')->get();
     	return view('front.statistics.locality.index', compact('localities'));
     }
 
