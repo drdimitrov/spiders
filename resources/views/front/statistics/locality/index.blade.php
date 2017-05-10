@@ -24,12 +24,8 @@
                     <td>{{ $locality->name }}</td>
                     <td>{{ $locality->region->name }}</td>
                     <td>{{ $locality->country->name }}</td>
-                    <td>
-                       <form action="{{ route('stat.locality.single') }}" method="POST">
-                        <input type="hidden" name="locality" value="{{ $locality->id }}">
-                        <button class="btn btn-default">Show species</button>
-                        {{ csrf_field() }}
-                      </form>
+                    <td>                       
+                      <a href="/statistics/species-by-locality/{{ $locality->id }}" class="btn btn-default">Show species</a>
                     </td>
                 </tr>
                 @php($cnt++)

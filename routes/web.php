@@ -39,7 +39,7 @@ Route::post('/algolia/search-papers', 'Admin\AlgoliaController@selectPaper');
 
 //Statistics
 Route::get('/statistics/species-by-locality', 'Statistics\StatisticByLocalityController@index')->name('stat.locality');
-Route::post('/statistics/species-by-locality', 'Statistics\StatisticByLocalityController@locality')->name('stat.locality.single');
+Route::get('/statistics/species-by-locality/{locality}', 'Statistics\StatisticByLocalityController@locality')->name('stat.locality.single');
 
 //Admin routes
 Route::get('/admin', 'Admin\AdminController@index')->name('admin');
