@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
+    <meta name="description" content="Spiders of Balkan Peninsula">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/harpactea.jpg') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <title>Bulgarian spiders</title>
+    <title>BPS</title>
 
     <!-- Scripts -->
     <script>
@@ -31,7 +31,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">BG spiders</a>
+            <a class="navbar-brand" href="/">BP spiders</a>
           </div>
           <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">

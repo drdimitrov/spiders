@@ -91,6 +91,7 @@ Route::get('/admin/locality/edit/{locality}', 'Admin\LocalityController@edit')->
 Route::post('/admin/locality/edit', 'Admin\LocalityController@saveLocality');
 
 
-// Route::get('/admin/records', 'Admin\RecordController@index')->name('admin.record');
+Route::get('/admin/records', 'Admin\RecordController@index')->name('admin.record');
 Route::get('/admin/records/create', 'Admin\RecordController@create')->name('admin.record.create');
 Route::post('/admin/records/create', 'Admin\RecordController@save');
+Route::get('/admin/records/edit/{record}', 'Admin\RecordController@edit')->name('admin.record.edit');

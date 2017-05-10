@@ -159,7 +159,7 @@
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Records <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a>
                               <ul class="dropdown-menu forAnimate" role="menu">
-                               
+                               <li><a href="{{route('admin.record')}}">List</a></li>
                                 <li><a href="{{route('admin.record.create')}}">Create</a></li>                                
                               </ul>
                             </li>              

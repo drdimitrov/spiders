@@ -10,10 +10,10 @@ use App\Locality;
 
 class RecordController extends Controller
 {
-    // public function index(){
-    // 	$localities = Record::with('localities', 'species')->get();
-    // 	return view('admin.records.index', compact('localities'));
-    // }
+    public function index(){
+    	$records = Record::with('locality', 'species.genus')->get();
+    	return view('admin.records.index', compact('records'));
+    }
 
     public function create(){
     	$species = Species::with('genus')->orderBy('name')->get();
@@ -46,5 +46,9 @@ class RecordController extends Controller
         if($record->save()){
             return redirect(route('admin.record.create'));
         }
+    }
+
+    public function edit(Request $request){
+        //dd(Record::find($request->record));
     }
 }
