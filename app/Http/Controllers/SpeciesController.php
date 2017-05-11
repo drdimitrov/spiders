@@ -30,9 +30,24 @@ class SpeciesController extends Controller
 
         foreach($species->records as $record){
             $auth = '';
-            foreach($record->paper->authors as $author){
-                $auth .= ' '.$author->last_name;                
+
+            if(count($record->paper->authors) > 1){
+                $authCnt = 1;
+                foreach($record->paper->authors as $author){
+                    if($authCnt < count($record->paper->authors)){
+                        $auth .= ' '.$author->last_name . ' &';
+                    }else{
+                        $auth .= ' '.$author->last_name;
+                    }
+                    
+                    $authCnt+=1;               
+                }
+            }else{
+                foreach($record->paper->authors as $author){
+                    $auth .= ' '.$author->last_name;                
+                }
             }
+            
 
             $localities[$record->locality->country->name][] = [
                 'name' => $record->locality->name,
