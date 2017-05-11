@@ -28,6 +28,8 @@ class LocalityController extends Controller
 	        'slug' => 'required',
 	        'region_id' => 'required',
 	        'country_id' => 'required',
+            'latitude' => 'numeric|between:0,99.999999',
+            'longitude' => 'numeric|between:0,99.999999'
 	    ]);
 
 	    $locality = Locality::create([
@@ -50,6 +52,16 @@ class LocalityController extends Controller
     }
 
     public function saveLocality(Request $request){
+            
+        $this->validate($request, [
+            'name' => 'required|unique:regions',
+            'slug' => 'required',
+            'region_id' => 'required',
+            'country_id' => 'required',
+            'latitude' => 'numeric|between:0,99.999999',
+            'longitude' => 'numeric|between:0,99.999999'
+        ]);
+
     	$locality = Locality::find($request->id);
     	$locality->name = $request->name;
     	$locality->slug = str_slug($request->slug, '-');
