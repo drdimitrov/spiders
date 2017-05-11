@@ -35,6 +35,17 @@
                 <input type="text" name="author" class="form-control" placeholder="Author">
             </div>
 
+            <div class="form-group">            
+                <input type="text" name="es_id" class="form-control" placeholder="ES id">
+            </div>
+
+            <div class="form-group">            
+                <input type="text" name="wsc_id" class="form-control" placeholder="WSC id">
+            </div>
+
+            <div class="form-group">            
+                <input type="text" name="wsc_lsid" class="form-control" placeholder="WSC LS id">
+            </div>
             	         
 	        <div class="form-group">
 	            <button type="submit" class="btn btn-primary">Save Species</button>

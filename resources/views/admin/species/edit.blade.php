@@ -29,6 +29,21 @@
                     <label for="slug">Slug:</label>           
 		            <input type="text" name="slug" class="form-control" value="{{ $species->slug }}">
 		        </div>
+
+                <div class="form-group">
+                <label for="es_id">ES id:</label>            
+                <input type="text" name="es_id" class="form-control" value="{{ $species->es_id }}">
+            </div>
+
+            <div class="form-group">
+                <label for="wsc_id">WSC id:</label>            
+                <input type="text" name="wsc_id" class="form-control" value="{{ $species->wsc_id }}">
+            </div>
+
+            <div class="form-group">
+                <label for="wsc_lsid">WSC lsid:</label>   
+                <input type="text" name="wsc_lsid" class="form-control" value="{{ $species->wsc_lsid }}">
+            </div>
                 
                 <div class="form-group">
                     <label for="genus_id">Genus:</label>

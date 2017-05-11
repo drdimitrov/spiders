@@ -14,6 +14,20 @@
 	</div>
 
     <div class="col-md-6">
+    	@if($species->es_id || $species->wsc_id)
+		<div id="externalSrcs">			
+			@if($species->wsc_id)
+				<a href="http://wsc.nmbe.ch/species/{{ $species->wsc_id }}" style="margin-right: 20px;">Species in WSC <span class="glyphicon glyphicon-share-alt"></span></a>
+				
+			@endif
+			@if($species->es_id)
+				<a href="http://www.araneae.unibe.ch/data/{{ $species->es_id }}">Species in EU Spiders <span class="glyphicon glyphicon-share-alt"></span></a>
+								
+			@endif
+		</div>
+		<hr>
+    	@endif
+    	<div></div>
     	<h3>Localities:</h3>
 		@php($coordinates = [])
     	@foreach($localities as $k => $locality)

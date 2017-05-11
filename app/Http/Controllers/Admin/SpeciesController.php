@@ -30,6 +30,8 @@ class SpeciesController extends Controller
 	        'name' => 'required|alpha',
 	        'author' => 'required',
 	        'genus_id' => 'required|integer',
+            'es_id' => 'integer',
+            'wsc_id' => 'integer',
 	    ]);
 
 	    $species = Species::create([
@@ -37,6 +39,10 @@ class SpeciesController extends Controller
 	    	'slug' => strtolower($request->name),
 	    	'author' => $request->author,
 	    	'genus_id' => $request->genus_id,
+            'es_id' => $request->es_id,
+            'wsc_id' => $request->wsc_id,
+            'wsc_lsid' => $request->wsc_lsid,
+
     	]);
 
     	if($species->save()){
@@ -50,12 +56,23 @@ class SpeciesController extends Controller
     }
 
     public function saveSpecies(Request $request){
+
+        $this->validate($request, [
+            'name' => 'required|alpha',
+            'author' => 'required',
+            'genus_id' => 'required|integer',
+            'es_id' => 'integer',
+            'wsc_id' => 'integer',
+        ]);
         
         $species = Species::find($request->id);
         $species->name = $request->name;       
         $species->author = $request->author;       
         $species->slug = $request->slug;       
         $species->genus_id = $request->genus_id;
+        $species->es_id = $request->es_id;
+        $species->wsc_id = $request->wsc_id;
+        $species->wsc_lsid = $request->wsc_lsid;
 
         if($species->save()){
             return redirect(route('admin.species'));
