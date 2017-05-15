@@ -17,11 +17,11 @@
     	@if($species->es_id || $species->wsc_id)
 		<div id="externalSrcs">			
 			@if($species->wsc_id)
-				<a href="http://wsc.nmbe.ch/species/{{ $species->wsc_id }}" style="margin-right: 20px;">Species in WSC <span class="glyphicon glyphicon-share-alt"></span></a>
+				<a href="http://wsc.nmbe.ch/species/{{ $species->wsc_id }}" target="_blank" style="margin-right: 20px;">Species in WSC <span class="glyphicon glyphicon-share-alt"></span></a>
 				
 			@endif
 			@if($species->es_id)
-				<a href="http://www.araneae.unibe.ch/data/{{ $species->es_id }}">Species in EU Spiders <span class="glyphicon glyphicon-share-alt"></span></a>
+				<a href="http://www.araneae.unibe.ch/data/{{ $species->es_id }}" target="_blank">Species in EU Spiders <span class="glyphicon glyphicon-share-alt"></span></a>
 								
 			@endif
 		</div>
@@ -42,7 +42,7 @@
 				@if(isset($loc['juvenile_females'])) {{ $loc['juvenile_females'] }} juv. &#9792;,  @endif
 				@if(isset($loc['date'])) {{ $loc['date'] }}, @endif
 				@if(isset($loc['leg'])) {{ $loc['leg'] }} leg., @endif 
-				(<a href="/literature/{{ $loc['slug'] }}">{{ $loc['published'] }}</a>);
+				(<a href="/literature/{{ $loc['slug'] }}" target="_blank">{{ $loc['published'] }}</a>);
 					@if(isset($loc['coordinates']))
 						@php($coordinates[] = $loc['coordinates'])
 					@endif 
