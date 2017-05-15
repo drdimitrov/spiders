@@ -11,4 +11,10 @@ class Region extends Model
     public function countries(){
     	return $this->belongsToMany(Country::class);
     }
+
+    public function localities(){
+    	return $this->hasMany(Locality::class);
+    }
+
+    
 }

@@ -20,12 +20,24 @@ class SpeciesController extends Controller
 
     public function show(Request $request){
 
-        $species = Species::with(
-            'records.locality.country',
-            'records.paper.authors', 
-            'genus'
-        )->find($request->species);
-        
+        if($request->has('region')){
+            $species = Species::with([
+                    'records.locality' => function($q){
+                        $q->where('locality.region_id', $request->region);
+                    }
+                ],
+                'records.locality.country',
+                'records.paper.authors', 
+                'genus'
+            )->find($request->species);
+        }else{
+            $species = Species::with(
+                'records.locality.country',
+                'records.paper.authors', 
+                'genus'
+            )->find($request->species);
+        }
+                
         $localities = [];
 
         foreach($species->records as $record){

@@ -24,7 +24,7 @@ Route::get('/genera/show/{family}', 'GenusController@showFamilyGenera')->name('g
 Route::get('/genus/{id}', 'GenusController@show')->name('genera.show');
 
 Route::get('/species/show/{genus}', 'SpeciesController@showGenusSpecies')->name('species.genus');
-Route::get('/species/{species}', 'SpeciesController@show')->name('species');
+Route::get('/species/{species}/{region?}', 'SpeciesController@show')->name('species');
 
 Route::get('/literature', 'LiteratureController@index')->name('literature');
 Route::get('/literature/{paper}', 'LiteratureController@show')->name('literature.single');
@@ -40,6 +40,8 @@ Route::post('/algolia/search-papers', 'Admin\AlgoliaController@selectPaper');
 //Statistics
 Route::get('/statistics/species-by-locality', 'Statistics\StatisticByLocalityController@index')->name('stat.locality');
 Route::get('/statistics/species-by-locality/{locality}', 'Statistics\StatisticByLocalityController@locality')->name('stat.locality.single');
+Route::get('/statistics/species-by-region', 'Statistics\StatisticByRegionController@index')->name('stat.region');
+Route::get('/statistics/species-by-region/{region}', 'Statistics\StatisticByRegionController@region')->name('stat.region.single');
 
 //Admin routes
 Route::get('/admin', 'Admin\AdminController@index')->name('admin');

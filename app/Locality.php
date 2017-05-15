@@ -27,4 +27,9 @@ class Locality extends Model
     public function records(){
         return $this->hasMany(Record::class);
     }
+
+    public function species(){
+        return $this->belongsToMany(Species::class, 'records', 'locality_id', 'species_id');
+    }
+
 }
