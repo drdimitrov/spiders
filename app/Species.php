@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Species extends Model
 {
-    protected $fillable = ['name', 'author', 'genus_id', 'slug', 'brackets'];
+    protected $fillable = ['name', 'author', 'genus_id', 'slug', 'es_id', 'wsc_id', 'wsc_lsid'];
 
     public function genus(){
     	return $this->belongsTo(Genus::class);
