@@ -34,7 +34,7 @@
     		<p>
     		<b>{{ $k }}: </b>
 			@foreach($locality as $loc)
-				{{ $loc['name'] }},
+				{{ $loc['name'] }} - 
 				@if(isset($loc['notes'])) {{ $loc['notes'] }}, @endif 				 
 				@if(isset($loc['males'])) {{ $loc['males'] }} &#9794;,  @endif
 				@if(isset($loc['females'])) {{ $loc['females'] }} &#9792;,  @endif
