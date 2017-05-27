@@ -99,7 +99,9 @@
 <br><br>_
       <footer class="footer">
         <div class="container">
-          <p class="text-muted">Footer content here.</p>
+          <p class="text-muted">
+            Citation: Dimitrov D: Spiders of Balkan Peninsula. http://araneae.herokuapp.com.
+          </p>
         </div>
       </footer>
 

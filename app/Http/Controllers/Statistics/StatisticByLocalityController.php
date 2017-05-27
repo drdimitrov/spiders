@@ -21,7 +21,7 @@ class StatisticByLocalityController extends Controller
 
     	foreach($locality->records as $r){
     		
-    		$pAuthors = count($r->paper->authors)  > 1? $r->paper->authors->first()->last_name.' et all ' : $r->paper->authors->first()->last_name;
+    		$pAuthors = count($r->paper->authors)  > 1? $r->paper->authors->first()->last_name.' et al. ' : $r->paper->authors->first()->last_name;
     		$spLocs[$r->species_id][$r->species->genus->name . ' ' . $r->species->name][] = [
     				'date' => $r->collected_at ? $r->collected_at->format('d-m-Y') : null,
     				'males' => $r->males ?: null,
