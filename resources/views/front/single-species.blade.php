@@ -33,8 +33,9 @@
     	@foreach($localities as $k => $locality)
     		<p>
     		<b>{{ $k }}: </b>
-			@foreach($locality as $loc)
-				{{ $loc['name'] }} - 
+			@foreach($locality as $kl => $locs)
+				{{ $kl }} - 
+				@foreach($locs as $loc)
 				@if(isset($loc['notes'])) {{ $loc['notes'] }}, @endif 				 
 				@if(isset($loc['males'])) {{ $loc['males'] }} &#9794;,  @endif
 				@if(isset($loc['females'])) {{ $loc['females'] }} &#9792;,  @endif
@@ -45,7 +46,8 @@
 				(<a href="/literature/{{ $loc['slug'] }}" target="_blank">{{ $loc['published'] }}</a>);
 					@if(isset($loc['coordinates']))
 						@php($coordinates[] = $loc['coordinates'])
-					@endif 
+					@endif
+				@endforeach
 			@endforeach
 			</p>
     	@endforeach

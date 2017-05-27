@@ -61,8 +61,8 @@ class SpeciesController extends Controller
             }
             
 
-            $localities[$record->locality->country->name][] = [
-                'name' => $record->locality->name,
+            $localities[$record->locality->country->name][$record->locality->name][] = [
+                //'name' => $record->locality->name,
                 'notes' => $record->comments,
                 'date' => $record->collected_at ? $record->collected_at->format('d-m-Y') : null,
                 'leg' => $record->collected_by,
@@ -83,7 +83,7 @@ class SpeciesController extends Controller
         }
 
         ksort($localities);
-
+//dd($localities);
         if(! $species){
             return redirect('/');
         }
