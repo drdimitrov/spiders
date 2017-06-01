@@ -11,7 +11,7 @@ use App\Country;
 class LocalityController extends Controller
 {
     public function index(){
-    	$localities = Locality::orderBy('name')->get();
+    	$localities = Locality::orderBy('name')->paginate(100);
     	return view('admin.localities.index', compact('localities'));
     }
 

@@ -15,7 +15,7 @@ class SpeciesController extends Controller
     }
 
     public function index(){
-        $species = Species::with('genus')->get();
+        $species = Species::with('genus')->paginate(100);
 
         return view('admin.species.index', compact('species'));
     }

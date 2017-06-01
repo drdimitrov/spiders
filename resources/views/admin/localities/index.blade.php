@@ -23,6 +23,8 @@
                         </li>
                     @endforeach
                     </ul>
+
+                    {{ $localities->links() }}
                 </div
             </div>
 

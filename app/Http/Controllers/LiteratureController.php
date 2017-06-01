@@ -13,7 +13,7 @@ class LiteratureController extends Controller
     	if($request->has('author')){
     		$singleAuth = Author::with(['papers' => function($query){
     			$query->orderBy('published_at');
-    		}])->where('id', $request->author)->paginate(20);
+    		}])->where('id', $request->author)->get();
 
     		return view('front.literature', compact('singleAuth'));
     	}

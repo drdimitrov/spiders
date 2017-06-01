@@ -37,7 +37,7 @@
 					<td><a href="/literature/{{ $lit->slug }}">{{ $lit->name }}</a></td>
 					<td>{{ $lit->journal }}</td>
 				</tr>
-			  @endforeach
+			  @endforeach			  
 			 @endif
 			
 			<!-- Specific author's papers -->
@@ -66,6 +66,11 @@
 				@endforeach
 			@endif
 			</table>
+			
+			@if(isset($literature))
+				{{ $literature->links() }}
+			@endif
+
 		</div>
 	</div>
 </div>

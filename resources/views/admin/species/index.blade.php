@@ -23,6 +23,8 @@
                         </li>
                     @endforeach
                     </ul>
+
+                    {{ $species->links() }}
                 </div
             </div>
 
