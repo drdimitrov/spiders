@@ -16,7 +16,6 @@ class RecordController extends Controller
     }
 
     public function create(){
-    	$species = Species::with('genus')->orderBy('name')->get();
     	$localities = Locality::orderBy('name')->get();
     	return view('admin.records.create', compact('species', 'localities'));
     }
@@ -50,5 +49,10 @@ class RecordController extends Controller
 
     public function edit(Request $request){
         //dd(Record::find($request->record));
+    }
+
+    public function searchSpecies(Request $request){
+        $species = Species::with('genus')->where('name', 'like', $request->species.'%')->orderBy('name')->get();
+        return $species;
     }
 }

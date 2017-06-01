@@ -18,6 +18,8 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "jquery-ui": "github:jquery/jquery-ui"
+    "debounce": "^1.0.2",
+    "jquery-ui": "github:jquery/jquery-ui",
+    "vue2-autocomplete-js": "0.0.4"
   }
 }
