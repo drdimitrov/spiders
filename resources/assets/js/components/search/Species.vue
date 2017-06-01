@@ -2,7 +2,7 @@
     <div>
     	<input class="form-control" v-model="search" type="text" >
 		<input type="hidden" name="species_id" v-model="species_id">
-	    <ul>
+	    <ul id="selectResults">
 	    	<li v-for="spc in species"><a href="#" @click.prevent="selectSpecies(spc)">{{ spc.name }} > {{ spc.genus.name }}</a></li>
 	    </ul>
     </div>
@@ -49,3 +49,19 @@
 
 	}
 </script>
+
+<style lang="scss">
+	#selectResults{
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		background: #f2f2f2;
+    	width: 100%;
+
+		li{
+			font-weight: bold;
+			margin: 10px 0;
+		}
+	}
+</style>
