@@ -16,13 +16,15 @@
 					<ul class="list-group">
                     @foreach($records as $record)
 						<li class="list-group-item">
-                            {{ $record->species->genus->name}} {{ $record->species->name }} - {{ $record->locality->name }}
+                            {{ $record->species->genus->name}} {{ $record->species->name }} - {{ $record->locality->name }} ({{ $record->paper->published_at->format('Y') }})
                             <a href="{{ route('admin.record.edit', $record->id) }}">
                                 <span class="glyphicon glyphicon-pencil pull-right"></span>
                             </a>
                         </li>
                     @endforeach
                     </ul>
+
+                    {{ $records->links() }}
                 </div
             </div>
 

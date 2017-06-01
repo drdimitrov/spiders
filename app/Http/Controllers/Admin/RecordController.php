@@ -11,7 +11,7 @@ use App\Locality;
 class RecordController extends Controller
 {
     public function index(){
-    	$records = Record::with('locality', 'species.genus')->get();
+    	$records = Record::with('locality', 'species.genus', 'paper')->paginate(5);
     	return view('admin.records.index', compact('records'));
     }
 
