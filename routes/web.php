@@ -98,3 +98,4 @@ Route::get('/admin/records/create', 'Admin\RecordController@create')->name('admi
 Route::post('/admin/records/create', 'Admin\RecordController@save');
 Route::get('/admin/records/edit/{record}', 'Admin\RecordController@edit')->name('admin.record.edit');
 Route::post('/admin/records/search-species', 'Admin\RecordController@searchSpecies');
+Route::post('/admin/records/search-localities', 'Admin\RecordController@searchLocalities');

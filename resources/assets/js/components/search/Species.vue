@@ -61,7 +61,7 @@
 
 		li{
 			font-weight: bold;
-			margin: 10px 0;
+			margin: 10px;
 		}
 	}
 </style>

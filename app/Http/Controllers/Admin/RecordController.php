@@ -11,13 +11,13 @@ use App\Locality;
 class RecordController extends Controller
 {
     public function index(){
-    	$records = Record::with('locality', 'species.genus', 'paper')->paginate(5);
+    	$records = Record::with('locality', 'species.genus', 'paper')->paginate(100);
     	return view('admin.records.index', compact('records'));
     }
 
     public function create(){
-    	$localities = Locality::orderBy('name')->get();
-    	return view('admin.records.create', compact('species', 'localities'));
+
+    	return view('admin.records.create');
     }
 
     public function save(Request $request){
@@ -53,6 +53,13 @@ class RecordController extends Controller
 
     public function searchSpecies(Request $request){
         $species = Species::with('genus')->where('name', 'like', $request->species.'%')->orderBy('name')->get();
+
         return $species;
+    }
+
+    public function searchLocalities(Request $request){
+        $localities = Locality::where('name', 'like', $request->locality.'%')->orderBy('name')->get();
+
+        return $localities;
     }
 }

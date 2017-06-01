@@ -37,13 +37,7 @@
 
             <div class="form-group">            
                 <label for="locality_id">Select locality:</label>
-                <select class="form-control" name="locality_id">
-                    @foreach($localities as $locality)
-                        <option value="{{ $locality->id }}" >
-                            {{ $locality->name }}
-                        </option>
-                    @endforeach
-                </select>                        
+                <locality-select></locality-select>    
             </div>
 
             <div class="form-group">
