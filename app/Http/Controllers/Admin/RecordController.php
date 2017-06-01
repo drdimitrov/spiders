@@ -52,13 +52,13 @@ class RecordController extends Controller
     }
 
     public function searchSpecies(Request $request){
-        $species = Species::with('genus')->where('name', 'like', $request->species.'%')->orderBy('name')->get();
+        $species = Species::with('genus')->where('name', 'ilike', $request->species.'%')->orderBy('name')->get();
 
         return $species;
     }
 
     public function searchLocalities(Request $request){
-        $localities = Locality::where('name', 'like', $request->locality.'%')->orderBy('name')->get();
+        $localities = Locality::where('name', 'ilike', $request->locality.'%')->orderBy('name')->get();
 
         return $localities;
     }
