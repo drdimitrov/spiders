@@ -40,7 +40,7 @@
 			},
 
 			selectLocality(locality){
-				this.search = `${locality.name}`;
+				this.search = `${locality.name}.`;
 				this.locality_id = locality.id;
 				this.localities = [];				
 			}
