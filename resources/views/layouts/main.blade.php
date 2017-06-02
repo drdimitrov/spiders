@@ -100,7 +100,7 @@
       <footer class="footer">
         <div class="container">
           <p class="text-muted">
-            Citation: Dimitrov D: Spiders of Balkan Peninsula. http://araneae.herokuapp.com.
+            Citation: Dimitrov D: Spiders of Balkan Peninsula. online at http://araneae.herokuapp.com.
           </p>
         </div>
       </footer>
