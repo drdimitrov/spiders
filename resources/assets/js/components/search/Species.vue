@@ -1,6 +1,6 @@
 <template> 
     <div>
-    	<input class="form-control" v-model="search" type="text" style="display: inline-block;">
+    	<input class="form-control" v-model="search" type="text" style="display: inline-block;" placeholder="Choose speies">
 		<input type="hidden" name="species_id" v-model="species_id">
 	    <ul id="selectResults">
 	    	<li v-for="spc in species"><a href="#" @click.prevent="selectSpecies(spc)">{{ spc.name }} > {{ spc.genus.name }}</a></li>
