@@ -8,10 +8,16 @@
       </div>
 
       <form action="{{ route('taxon.search') }}" method="POST">
-          <genus-select style="display: inline-block;"></genus-select>
+          <family-select style="display: inline-block;"></family-select>
           <button type="submit" class="btn btn-primary">Search</button>
           {{ csrf_field() }}
       </form>
+
+      <form action="{{ route('taxon.search') }}" method="POST">
+          <genus-select style="display: inline-block;"></genus-select>
+          <button type="submit" class="btn btn-primary">Search</button>
+          {{ csrf_field() }}
+      </form>      
        
 </div>
 
