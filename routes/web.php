@@ -40,6 +40,8 @@ Route::post('/algolia/search-papers', 'Admin\AlgoliaController@selectPaper');
 //Statistics
 Route::get('/statistics/localities-by-country', 'Statistics\StatisticByCountryController@index')->name('stat.countries');
 Route::get('/statistics/localities-by-country/{country}', 'Statistics\StatisticByCountryController@country')->name('stat.country');
+Route::get('/statistics/localities-by-region', 'Statistics\StatisticByRegionController@localitiesByRegion')->name('stat.regions');
+Route::get('/statistics/localities-by-region/{region}', 'Statistics\StatisticByRegionController@localitiesByRegionShow')->name('stat.region');
 Route::get('/statistics/species-by-locality', 'Statistics\StatisticByLocalityController@index')->name('stat.locality');
 Route::get('/statistics/species-by-locality/{locality}', 'Statistics\StatisticByLocalityController@locality')->name('stat.locality.single');
 Route::get('/statistics/species-by-region', 'Statistics\StatisticByRegionController@index')->name('stat.region');

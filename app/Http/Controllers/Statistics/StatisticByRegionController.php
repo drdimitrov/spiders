@@ -45,4 +45,18 @@ class StatisticByRegionController extends Controller
         
         return view('front.statistics.region.show', compact('region', 'species'));
     }
+
+    public function localitiesByRegion(){
+        $regions = Region::with('countries')->orderBy('name')->get();
+        return view('front.statistics.region.localities', compact('regions'));
+    }
+
+    public function localitiesByRegionShow(Request $request){
+        $region = Region::with(['localities' => function($query){
+            $query->orderBy('name');
+        }])->find($request->region);
+
+        return view('front.statistics.region.localities-show', compact('region'));
+
+    }
 }
