@@ -60,6 +60,9 @@ Route::get('/admin/papers', 'Admin\PapersController@index')->name('admin.papers'
 Route::get('/admin/papers/create', 'Admin\PapersController@create')->name('admin.papers.create');
 Route::post('/admin/papers/create', 'Admin\PapersController@save');
 
+Route::get('/admin/collections', 'Admin\CollectionController@index')->name('admin.collections');
+Route::get('/admin/collections/create', 'Admin\CollectionController@create')->name('admin.collections.create');
+
 Route::get('/admin/family', 'Admin\FamilyController@index')->name('admin.family');
 Route::get('/admin/family/create', 'Admin\FamilyController@create')->name('admin.family.create');
 Route::post('/admin/family/create', 'Admin\FamilyController@save');
