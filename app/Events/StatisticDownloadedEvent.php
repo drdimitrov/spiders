@@ -31,8 +31,8 @@ class StatisticDownloadedEvent
      *
      * @return Channel|array
      */
-    public function broadcastOn()
-    {
-        return new PrivateChannel('user-download');
-    }
+    // public function broadcastOn()
+    // {
+    //     return new PrivateChannel('user-download');
+    // }
 }
