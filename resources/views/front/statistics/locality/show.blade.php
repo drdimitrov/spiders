@@ -44,13 +44,12 @@
             @endforeach          
         </tbody>
       </table>
-
       @if(Auth::check())
-        <form action="/statistics/species-locality-export" method="POST">
-          {{csrf_field()}}
-          <input type="hidden" name="locality" value="{{ $lId }}">
-          <input type="submit" value="Export" class="btn btn-primary pull-right">
-        </form>
-      @endif      
+      <form action="/statistics/species-locality-export" method="POST">
+        {{csrf_field()}}
+        <input type="hidden" name="locality" value="{{ $lId }}">
+        <input type="submit" value="Export" class="btn btn-primary pull-right">
+      </form>
+      @endif 
 </div>
 @endsection

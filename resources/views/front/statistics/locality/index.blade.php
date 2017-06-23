@@ -4,7 +4,7 @@
 @php($cnt = 1)
 <div class="container">
      <div class="page-header">
-        <h1>Species by locality</h1>
+        <h1>List of localities</h1>
       </div>
 
       <table class="table table-striped">
