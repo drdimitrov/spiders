@@ -28,11 +28,11 @@ class StatisticDownloadedListener
     public function handle(StatisticDownloadedEvent $event)
     {
         if($event->type == 'species-by-locality'){
-            $place = 'locality_id'
+            $place = 'locality_id';
         }elseif($event->type == 'species-by-region'){
-            $place = 'region_id'
+            $place = 'region_id';
         }elseif($event->type == 'species-by-country'){
-            $place = 'country_id'
+            $place = 'country_id';
         }
 
         DownloadStatistic::create([
