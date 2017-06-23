@@ -8,7 +8,9 @@ class DownloadStatistic extends Model
 {
     protected $fillable = [
 		'type', 
-		'place',
+		'locality_id',
+		'region_id',
+		'country_id',
 		'user_id', 
     ];
 
