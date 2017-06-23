@@ -66,7 +66,10 @@ class StatisticByLocalityController extends Controller
                     'paper_slug' => $r->paper->slug,
                 ];
         }
-
+        //Dispatch an event
+        event(new \App\Events\StatisticDownloadedEvent('species list - locality: '.$lName));
+        
+        //Export the data
         Excel::create(str_replace(' ', '_', $lName).'_'.date('d_m_Y'), function($excel) use($lName, $spLocs){
                 $excel->sheet($lName, function($sheet) use($lName, $spLocs){
                     $cnt = 1;
