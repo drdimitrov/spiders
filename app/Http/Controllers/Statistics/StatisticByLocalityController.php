@@ -67,7 +67,7 @@ class StatisticByLocalityController extends Controller
                 ];
         }
         //Dispatch an event
-        event(new \App\Events\StatisticDownloadedEvent('species-by-locality', $lName));
+        event(new \App\Events\StatisticDownloadedEvent('species-by-locality', $lId));
         
         //Export the data
         Excel::create(str_replace(' ', '_', $lName).'_'.date('d_m_Y'), function($excel) use($lName, $spLocs){

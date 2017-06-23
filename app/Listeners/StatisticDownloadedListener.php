@@ -27,9 +27,17 @@ class StatisticDownloadedListener
      */
     public function handle(StatisticDownloadedEvent $event)
     {
+        if($event->type == 'species-by-locality'){
+            $place = 'locality_id'
+        }elseif($event->type == 'species-by-region'){
+            $place = 'region_id'
+        }elseif($event->type == 'species-by-country'){
+            $place = 'country_id'
+        }
+
         DownloadStatistic::create([
             'type' => $event->type,
-            'place' => $event->place,
+            $place => $event->place,
             'user_id' => \Auth::user()->id,
         ]);
 
