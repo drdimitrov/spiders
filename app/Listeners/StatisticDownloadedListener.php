@@ -5,6 +5,7 @@ namespace App\Listeners;
 use App\Events\StatisticDownloadedEvent;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\DownloadStatistic;
 
 class StatisticDownloadedListener
 {
@@ -26,6 +27,11 @@ class StatisticDownloadedListener
      */
     public function handle(StatisticDownloadedEvent $event)
     {
-        //dd(\Auth::user()->id, 'listener: '.$event->statistic);
+        DownloadStatistic::create([
+            'type' => $event->type,
+            'place' => $event->place,
+            'user_id' => \Auth::user()->id,
+        ]);
+
     }
 }

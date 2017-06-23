@@ -14,16 +14,18 @@ class StatisticDownloadedEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $statistic;
+    public $type;
+    public $place;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($statistic)
+    public function __construct($type, $place)
     {
-        $this->statistic = $statistic;
+        $this->type = $type;
+        $this->place = $place;
     }
 
     /**
