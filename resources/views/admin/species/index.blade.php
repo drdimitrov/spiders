@@ -16,7 +16,7 @@
 					<ul class="list-group">
                     @foreach($species as $s)
 						<li class="list-group-item">
-                            {{ $s->genus->name }} {{ $s->name }}
+                            {{ $s->name }} > {{ $s->genus->name }}
                             <a href="{{ route('admin.species.edit', $s->id) }}">
                                 <span class="glyphicon glyphicon-pencil pull-right"></span>
                             </a>
