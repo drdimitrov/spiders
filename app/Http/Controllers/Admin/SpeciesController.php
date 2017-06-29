@@ -30,8 +30,8 @@ class SpeciesController extends Controller
 	        'name' => 'required|alpha',
 	        'author' => 'required',
 	        'genus_id' => 'required|integer',
-            'es_id' => 'integer',
-            'wsc_id' => 'integer',
+            'es_id' => 'integer|nullable',
+            'wsc_id' => 'integer|nullable',
 	    ]);
 
 	    $species = Species::create([
@@ -61,8 +61,8 @@ class SpeciesController extends Controller
             'name' => 'required|alpha',
             'author' => 'required',
             'genus_id' => 'required|integer',
-            'es_id' => 'integer',
-            'wsc_id' => 'integer',
+            'es_id' => 'integer|nullable',
+            'wsc_id' => 'integer|nullable',
         ]);
         
         $species = Species::find($request->id);
