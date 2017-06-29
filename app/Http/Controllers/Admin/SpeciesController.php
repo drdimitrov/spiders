@@ -27,7 +27,7 @@ class SpeciesController extends Controller
     public function save(Request $request){
 
     	$this->validate($request, [
-	        'name' => 'required|unique:species|alpha',
+	        'name' => 'required|unique_with:genera,name|alpha',
 	        'author' => 'required',
 	        'genus_id' => 'required|integer',
             'es_id' => 'integer|nullable',

@@ -55,7 +55,7 @@
                 </div>
 
 		        <div class="form-group">
-		            <button type="submit" class="btn btn-primary">Save Genus</button>
+		            <button type="submit" class="btn btn-primary">Save Species</button>
 		        </div>
 
                 <input type="hidden" name="id" value="{{ $species->id }}">
