@@ -35,13 +35,13 @@ class SpeciesController extends Controller
 	    ]);
 
 	    $species = Species::create([
-	    	'name' => $request->name,
+	    	'name' => trim($request->name),
 	    	'slug' => strtolower($request->name),
-	    	'author' => $request->author,
-	    	'genus_id' => $request->genus_id,
-            'es_id' => $request->es_id,
-            'wsc_id' => $request->wsc_id,
-            'wsc_lsid' => $request->wsc_lsid,
+	    	'author' => trim($request->author),
+	    	'genus_id' => (int) $request->genus_id,
+            'es_id' => (int) $request->es_id,
+            'wsc_id' => (int) $request->wsc_id,
+            'wsc_lsid' => trim($request->wsc_lsid),
 
     	]);
 
@@ -66,13 +66,13 @@ class SpeciesController extends Controller
         ]);
         
         $species = Species::find($request->id);
-        $species->name = $request->name;       
-        $species->author = $request->author;       
-        $species->slug = $request->slug;       
-        $species->genus_id = $request->genus_id;
-        $species->es_id = $request->es_id;
-        $species->wsc_id = $request->wsc_id;
-        $species->wsc_lsid = $request->wsc_lsid;
+        $species->name = trim($request->name);       
+        $species->author = trim($request->author);       
+        $species->slug = trim($request->slug);       
+        $species->genus_id = (int) $request->genus_id;
+        $species->es_id = (int) $request->es_id;
+        $species->wsc_id = (int) $request->wsc_id;
+        $species->wsc_lsid = trim($request->wsc_lsid);
 
         if($species->save()){
             return redirect(route('admin.species'));
