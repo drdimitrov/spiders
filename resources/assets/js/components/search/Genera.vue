@@ -24,10 +24,11 @@
                 .initIndex('genera');
 
             let selectGenus = autocomplete('#genus_name', {
-                hint : true
+                hint : true,
+                minLength : 2
             }, {
                 source : autocomplete.sources.hits(index, {
-                    hitsPerPage : 50
+                    hitsPerPage : 50,
                 }),
                 displayKey : 'name',
                 templates : {
