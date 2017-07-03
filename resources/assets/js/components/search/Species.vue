@@ -27,7 +27,7 @@
 		},
 
 		created(){
-			this.findSpecies = debounce(this.findSpecies, 400);
+			this.findSpecies = debounce(this.findSpecies, 500);
 		},
 
 		methods: {
