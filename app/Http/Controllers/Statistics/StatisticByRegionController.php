@@ -17,9 +17,16 @@ class StatisticByRegionController extends Controller
 
     public function region(Request $request){
 
-        $region = Region::find($request->region); 
+        $region = Region::with('countries')->find($request->region); 
 
-        $locality = Locality::with('species.genus')->where('region_id', $request->region)->get();
+         $loc = Locality::with('species.genus')
+            ->where('region_id', $request->region);
+
+            if($request->country){
+                $loc->where('country_id', $request->country);
+            }
+
+        $locality = $loc->get();
 
         $locSpecies = [];
         $species = [];
