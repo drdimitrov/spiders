@@ -4,7 +4,7 @@
 @php($cnt = 1)
 <div class="container">
      <div class="page-header">
-        <h1>List of all families</h1>
+        <h1>List of all families <span style="font-size: 0.5em">({{ count($families) }} families, {{ $generaCount }} genera, {{ $speciesCount }} species)</span></h1>
       </div>
 
       <table class="table table-striped">
