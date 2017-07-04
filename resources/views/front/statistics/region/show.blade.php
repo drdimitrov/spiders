@@ -10,7 +10,7 @@
 
       <form class="form-inline pull-right">
           <select class="form-control mb-2 mr-sm-2 mb-sm-0" name="country">
-            <option value="0" selected>Select country</option>
+            <option value="0" selected>All countries</option>
             @foreach($region->countries as $rc)
             <option value="{{ $rc->id }}">{{ $rc->name }}</option>
             @endforeach
