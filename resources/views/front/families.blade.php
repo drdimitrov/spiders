@@ -13,6 +13,8 @@
             <th>Nr.</th>
             <th>Family</th>
             <th>Author</th>
+            <th>Genera</th>
+            <th>Species</th>
             <th>List</th>
           </tr>
         </thead>
@@ -22,6 +24,8 @@
                     <td>{{ $cnt }}</td>
                     <td>{{ $family->name }}</td>
                     <td>{{ $family->author }}</td>
+                    <td>{{ $family->genera_count }}</td>
+                    <td>{{ $family->species_count }}</td>
                     <td>
                         <a href="{{ route('genera.family', $family->slug) }}">Genera</a>
                     </td>
