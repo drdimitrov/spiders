@@ -22,7 +22,7 @@ class StatisticByRegionController extends Controller
          $loc = Locality::with('species.genus')
             ->where('region_id', $request->region);
 
-            if($request->country){
+            if($request->country && $request->country != 0){
                 $loc->where('country_id', $request->country);
             }
 
