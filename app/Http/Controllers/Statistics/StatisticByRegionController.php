@@ -46,7 +46,7 @@ class StatisticByRegionController extends Controller
             }
         }
 
-        ksort($species);
+        asort($species);
 
         $species = collect($species);
         
