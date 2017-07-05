@@ -23,7 +23,7 @@
           <tr>
             <th>Nr.</th>
             <th>Species</th>
-            <th>Action</th>
+            <th>Localities in the region</th>
           </tr>
         </thead>
         <tbody>
