@@ -62,6 +62,12 @@
 		li{
 			font-weight: bold;
 			margin: 10px;
+
+			a{
+				text-decoration: none;
+				color: #000;
+				font: 13.3333px Arial;
+			}
 		}
 	}
 </style>
