@@ -23,30 +23,30 @@ class LiteratureController extends Controller
     	}])->orderBy('published_at')->paginate(50);
 
         
-        $litarr = [];
+        // $litarr = [];
 
-        foreach($literature as $lit){ 
-            $litarr[$lit->id] = [
-                'name' => $lit->name, 
-                'journal' => $lit->journal,
-                'slug' => $lit->slug,
-                'published_at' => $lit->published_at,
-                'created_at' => $lit->created_at,
-                'updated_at' => $lit->updated_at,
-            ];
+        // foreach($literature as $lit){ 
+        //     $litarr[$lit->id] = [
+        //         'name' => $lit->name, 
+        //         'journal' => $lit->journal,
+        //         'slug' => $lit->slug,
+        //         'published_at' => $lit->published_at,
+        //         'created_at' => $lit->created_at,
+        //         'updated_at' => $lit->updated_at,
+        //     ];
 
-            foreach($lit->authors as $a){
-                $litarr[$lit->id]['authors'][] = $a->last_name . ' ' . str_limit($a->first_name, 1, '');
-            }
+        //     foreach($lit->authors as $a){
+        //         $litarr[$lit->id]['authors'][] = $a->last_name . ' ' . str_limit($a->first_name, 1, '');
+        //     }
 
-            $litarr[$lit->id]['authors'] = implode(', ', $litarr[$lit->id]['authors']);
-        }
+        //     $litarr[$lit->id]['authors'] = implode(', ', $litarr[$lit->id]['authors']);
+        // }
 
-        usort($litarr, function($a, $b) {
-            return $a['authors'] <=> $b['authors'];
-        });
+        // usort($litarr, function($a, $b) {
+        //     return $a['authors'] <=> $b['authors'];
+        // });
 
-        dd(collect($litarr));
+        // dd(collect($litarr));
     	    	
     	return view('front.literature', compact('literature'));
     	
