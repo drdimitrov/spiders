@@ -20,8 +20,9 @@ class LiteratureController extends Controller
 
     	$literature = Paper::with(['authors' => function($query){
     		$query->orderBy('author_paper.id');
-    	}])->orderBy('published_at')->paginate(20);
+    	}])->orderBy('published_at')->paginate(50);
 
+        
         // $litarr = [];
 
         // foreach($literature as $lit){ 
@@ -41,7 +42,11 @@ class LiteratureController extends Controller
         //     $litarr[$lit->id]['authors'] = implode(', ', $litarr[$lit->id]['authors']);
         // }
 
-        // dd($litarr);
+        // usort($litarr, function($a, $b) {
+        //     return $a['authors'] <=> $b['authors'];
+        // });
+
+        // dd(collect($litarr));
     	    	
     	return view('front.literature', compact('literature'));
     	
