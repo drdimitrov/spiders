@@ -100,7 +100,7 @@
       <footer class="footer">
         <div class="container">
           <p class="text-muted">
-            Citation: Dimitrov D: Spiders of Balkan Peninsula. http://araneae.herokuapp.com.
+            <b>Citation:</b> Dimitrov D: Spiders (Araneae) of Balkan Peninsula. online at http://araneae.herokuapp.com. Version 2017.
           </p>
         </div>
       </footer>
