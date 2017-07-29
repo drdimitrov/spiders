@@ -48,6 +48,8 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statistics <span class="caret"></span></a>
                 <ul class="dropdown-menu">
+                  <li><a href="{{ route('stat.countries') }}">Localities by country</a></li>
+                  <li><a href="{{ route('stat.regions') }}">Localities by region</a></li>
                   <li><a href="{{ route('stat.locality') }}">Species by locality</a></li>
                   <li><a href="{{ route('stat.region') }}">Species by region</a></li>
                   <li><a href="#">Species by country</a></li>

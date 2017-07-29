@@ -115,6 +115,13 @@
                               </ul>
                             </li>
                             <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Collections <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-book"></span></a>
+                              <ul class="dropdown-menu forAnimate" role="menu">
+                                <li><a href="{{route('admin.collections')}}">List</a></li>
+                                <li><a href="{{route('admin.collections.create')}}">Create</a></li>                                
+                              </ul>
+                            </li>
+                            <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Families <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a>
                               <ul class="dropdown-menu forAnimate" role="menu">
                                 <li><a href="{{route('admin.family')}}">List</a></li>

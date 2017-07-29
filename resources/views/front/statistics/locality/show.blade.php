@@ -4,7 +4,11 @@
 @php($cnt = 1)
 <div class="container">
      <div class="page-header">
-        <h1>{{ $lName }} - list of species</h1>        
+        <h1>
+        {{ $lName }} - list of species 
+        <span style="font-size: 0.6em; color: #8c8c8c;">
+        (total {{ count($spLocs) }})
+        </span></h1>        
       </div>
 
       <a href="/statistics/species-by-locality" class="btn btn-primary pull-right">Back to localities</a>
@@ -40,5 +44,12 @@
             @endforeach          
         </tbody>
       </table>
+      @if(Auth::check())
+      <form action="/statistics/species-locality-export" method="POST">
+        {{csrf_field()}}
+        <input type="hidden" name="locality" value="{{ $lId }}">
+        <input type="submit" value="Export" class="btn btn-primary pull-right">
+      </form>
+      @endif 
 </div>
 @endsection

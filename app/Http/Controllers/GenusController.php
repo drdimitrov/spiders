@@ -9,7 +9,7 @@ use App\Family;
 class GenusController extends Controller
 {
     public function index(){
-    	$genera = Genus::orderBy('name')->get();
+    	$genera = Genus::withCount('species')->orderBy('name')->get();
 
         return view('front.genera-list', compact('genera'));
     }

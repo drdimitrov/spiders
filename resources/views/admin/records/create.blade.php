@@ -24,14 +24,8 @@
         <form method="POST" action="{{ route('admin.record.create') }}">            
         		        
             <div class="form-group">            
-                <label for="species_id">Select species:</label>
-                <select class="form-control" name="species_id">
-                    @foreach($species as $s)
-                        <option value="{{ $s->id }}" >
-                        {{ $s->name }} > {{ $s->genus->name }}
-                        </option>
-                    @endforeach
-                </select>                        
+                <label>Select species:</label>
+                <species-select></species-select>                       
             </div>
 
             <paper-select></paper-select>
@@ -43,13 +37,7 @@
 
             <div class="form-group">            
                 <label for="locality_id">Select locality:</label>
-                <select class="form-control" name="locality_id">
-                    @foreach($localities as $locality)
-                        <option value="{{ $locality->id }}" >
-                            {{ $locality->name }}
-                        </option>
-                    @endforeach
-                </select>                        
+                <locality-select></locality-select>    
             </div>
 
             <div class="form-group">
@@ -79,7 +67,7 @@
                 <label for="collection_id">Kept in collection:</label>
                 <select class="form-control" name="collection_id">                    
                     <option value="0">No data</option>                    
-                    <option value="">NMNHS/B11</option>                    
+                    <option value="1">NMNHS/B11</option>                    
                 </select>                        
             </div> -->
 

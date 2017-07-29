@@ -4,7 +4,7 @@
 @php($cnt = 1)
 <div class="container">
      <div class="page-header">
-        <h1>List of all families</h1>
+        <h1>List of all families <span style="font-size: 0.5em">({{ count($families) }} families, {{ $generaCount }} genera, {{ $speciesCount }} species)</span></h1>
       </div>
 
       <table class="table table-striped">
@@ -13,6 +13,8 @@
             <th>Nr.</th>
             <th>Family</th>
             <th>Author</th>
+            <th>Genera</th>
+            <th>Species</th>
             <th>List</th>
           </tr>
         </thead>
@@ -22,6 +24,8 @@
                     <td>{{ $cnt }}</td>
                     <td>{{ $family->name }}</td>
                     <td>{{ $family->author }}</td>
+                    <td>{{ $family->genera_count }}</td>
+                    <td>{{ $family->species_count }}</td>
                     <td>
                         <a href="{{ route('genera.family', $family->slug) }}">Genera</a>
                     </td>

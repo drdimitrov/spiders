@@ -13,6 +13,7 @@
             <th>Nr.</th>
             <th>Genus</th>
             <th>Author</th>
+            <th>Species</th>
             <th>List</th>
           </tr>
         </thead>
@@ -22,6 +23,7 @@
                     <td>{{ $cnt }}</td>
                     <td>{{ $genus->name }}</td>
                     <td>{{ $genus->author }}</td>
+                    <td>{{ $genus->species_count }}</td>
                     <td>
                         <a href="{{ route('species.genus', $genus->slug) }}">Species</a>
                     </td>

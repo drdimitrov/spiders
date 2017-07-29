@@ -17,9 +17,16 @@ class StatisticByRegionController extends Controller
 
     public function region(Request $request){
 
-        $region = Region::find($request->region); 
+        $region = Region::with('countries')->find($request->region); 
 
-        $locality = Locality::with('species.genus')->where('region_id', $request->region)->get();
+         $loc = Locality::with('species.genus')
+            ->where('region_id', $request->region);
+
+            if($request->country && $request->country != 0){
+                $loc->where('country_id', $request->country);
+            }
+
+        $locality = $loc->get();
 
         $locSpecies = [];
         $species = [];
@@ -39,10 +46,24 @@ class StatisticByRegionController extends Controller
             }
         }
 
-        ksort($species);
+        asort($species);
 
         $species = collect($species);
         
         return view('front.statistics.region.show', compact('region', 'species'));
+    }
+
+    public function localitiesByRegion(){
+        $regions = Region::with('countries')->orderBy('name')->get();
+        return view('front.statistics.region.localities', compact('regions'));
+    }
+
+    public function localitiesByRegionShow(Request $request){
+        $region = Region::with(['localities' => function($query){
+            $query->orderBy('name');
+        }])->find($request->region);
+
+        return view('front.statistics.region.localities-show', compact('region'));
+
     }
 }

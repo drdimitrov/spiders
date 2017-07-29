@@ -15,7 +15,7 @@ class SpeciesController extends Controller
     }
 
     public function index(){
-        $species = Species::with('genus')->get();
+        $species = Species::with('genus')->orderBy('name')->paginate(100);
 
         return view('admin.species.index', compact('species'));
     }
@@ -27,21 +27,21 @@ class SpeciesController extends Controller
     public function save(Request $request){
 
     	$this->validate($request, [
-	        'name' => 'required|alpha',
+	        'name' => 'required|unique_with:species,genus_id|alpha_dash',
 	        'author' => 'required',
 	        'genus_id' => 'required|integer',
-            'es_id' => 'integer',
-            'wsc_id' => 'integer',
+            'es_id' => 'integer|nullable',
+            'wsc_id' => 'integer|nullable',
 	    ]);
 
 	    $species = Species::create([
-	    	'name' => $request->name,
+	    	'name' => trim($request->name),
 	    	'slug' => strtolower($request->name),
-	    	'author' => $request->author,
-	    	'genus_id' => $request->genus_id,
-            'es_id' => $request->es_id,
-            'wsc_id' => $request->wsc_id,
-            'wsc_lsid' => $request->wsc_lsid,
+	    	'author' => trim($request->author),
+	    	'genus_id' => (int) $request->genus_id,
+            'es_id' => (int) $request->es_id,
+            'wsc_id' => (int) $request->wsc_id,
+            'wsc_lsid' => trim($request->wsc_lsid),
 
     	]);
 
@@ -58,21 +58,21 @@ class SpeciesController extends Controller
     public function saveSpecies(Request $request){
 
         $this->validate($request, [
-            'name' => 'required|alpha',
+            'name' => 'required|alpha_dash',
             'author' => 'required',
             'genus_id' => 'required|integer',
-            'es_id' => 'integer',
-            'wsc_id' => 'integer',
+            'es_id' => 'integer|nullable',
+            'wsc_id' => 'integer|nullable',
         ]);
         
         $species = Species::find($request->id);
-        $species->name = $request->name;       
-        $species->author = $request->author;       
-        $species->slug = $request->slug;       
-        $species->genus_id = $request->genus_id;
-        $species->es_id = $request->es_id;
-        $species->wsc_id = $request->wsc_id;
-        $species->wsc_lsid = $request->wsc_lsid;
+        $species->name = trim($request->name);       
+        $species->author = trim($request->author);       
+        $species->slug = trim($request->slug);       
+        $species->genus_id = (int) $request->genus_id;
+        $species->es_id = (int) $request->es_id;
+        $species->wsc_id = (int) $request->wsc_id;
+        $species->wsc_lsid = trim($request->wsc_lsid);
 
         if($species->save()){
             return redirect(route('admin.species'));

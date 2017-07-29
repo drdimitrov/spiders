@@ -38,8 +38,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/algolia/search-papers', 'Admin\AlgoliaController@selectPaper');
 
 //Statistics
+Route::get('/statistics/localities-by-country', 'Statistics\StatisticByCountryController@index')->name('stat.countries');
+Route::get('/statistics/localities-by-country/{country}', 'Statistics\StatisticByCountryController@country')->name('stat.country');
+Route::get('/statistics/localities-by-region', 'Statistics\StatisticByRegionController@localitiesByRegion')->name('stat.regions');
+Route::get('/statistics/localities-by-region/{region}', 'Statistics\StatisticByRegionController@localitiesByRegionShow')->name('stat.region');
 Route::get('/statistics/species-by-locality', 'Statistics\StatisticByLocalityController@index')->name('stat.locality');
 Route::get('/statistics/species-by-locality/{locality}', 'Statistics\StatisticByLocalityController@locality')->name('stat.locality.single');
+Route::post('/statistics/species-locality-export', 'Statistics\StatisticByLocalityController@export');
 Route::get('/statistics/species-by-region', 'Statistics\StatisticByRegionController@index')->name('stat.region');
 Route::get('/statistics/species-by-region/{region}', 'Statistics\StatisticByRegionController@region')->name('stat.region.single');
 
@@ -55,6 +60,9 @@ Route::post('/admin/authors/create', 'Admin\AuthorsController@save');
 Route::get('/admin/papers', 'Admin\PapersController@index')->name('admin.papers');
 Route::get('/admin/papers/create', 'Admin\PapersController@create')->name('admin.papers.create');
 Route::post('/admin/papers/create', 'Admin\PapersController@save');
+
+Route::get('/admin/collections', 'Admin\CollectionController@index')->name('admin.collections');
+Route::get('/admin/collections/create', 'Admin\CollectionController@create')->name('admin.collections.create');
 
 Route::get('/admin/family', 'Admin\FamilyController@index')->name('admin.family');
 Route::get('/admin/family/create', 'Admin\FamilyController@create')->name('admin.family.create');
@@ -97,3 +105,5 @@ Route::get('/admin/records', 'Admin\RecordController@index')->name('admin.record
 Route::get('/admin/records/create', 'Admin\RecordController@create')->name('admin.record.create');
 Route::post('/admin/records/create', 'Admin\RecordController@save');
 Route::get('/admin/records/edit/{record}', 'Admin\RecordController@edit')->name('admin.record.edit');
+Route::post('/admin/records/search-species', 'Admin\RecordController@searchSpecies');
+Route::post('/admin/records/search-localities', 'Admin\RecordController@searchLocalities');

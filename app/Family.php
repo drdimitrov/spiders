@@ -18,4 +18,8 @@ class Family extends Model
     public function genera(){
     	return $this->hasMany(Genus::class);
     }
+
+    public function species(){
+    	return $this->hasManyThrough(Species::class, Genus::class);
+    }
 }
