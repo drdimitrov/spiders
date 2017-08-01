@@ -4,26 +4,25 @@
 @php($cnt = 1)
 <div class="container">
 	<div class="page-header">
-		<h2>
+		<h2 style="display: inline;">
 			<i>{{ $species->genus->name }} {{ $species->name }}</i>
 
 			<b>
 			{{ $species->author }}
 			</b>
 		</h2>
-		<div class="externalCit">
+		<div class="externalCit pull-right" style="display: inline;">
 			@if($species->es_id || $species->wsc_id)
 			<div id="externalSrcs">			
 				@if($species->wsc_id)
-					<a href="http://wsc.nmbe.ch/species/{{ $species->wsc_id }}" target="_blank" style="margin-right: 20px;">Species in WSC <span class="glyphicon glyphicon-share-alt"></span></a>
+					<a href="http://wsc.nmbe.ch/species/{{ $species->wsc_id }}" target="_blank" style="margin-right: 20px;">WSC <span class="glyphicon glyphicon-share-alt"></span></a>
 					
 				@endif
 				@if($species->es_id)
-					<a href="http://www.araneae.unibe.ch/data/{{ $species->es_id }}" target="_blank">Species in EU Spiders <span class="glyphicon glyphicon-share-alt"></span></a>
+					<a href="http://www.araneae.unibe.ch/data/{{ $species->es_id }}" target="_blank">EU Spiders <span class="glyphicon glyphicon-share-alt"></span></a>
 									
 				@endif
 			</div>
-			<hr>
 	    	@endif
 		</div>
 	</div>
@@ -32,9 +31,11 @@
     	
 
 		<!-- References -->
+		<h4>Faunistic references:</h4>
 		@foreach($references as $refk => $reference)
 		<p><i>{{$reference}}</i> {{$refk}}</p>
 		@endforeach
+		<hr>
 		<!-- End of references -->
 
     	<div></div>
