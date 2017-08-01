@@ -72,7 +72,7 @@ class SpeciesController extends Controller
                 'juvenile_females' => $record->juvenile_females,
                 'published' => $auth . ' ' . $record->paper->published_at->format('Y'),
                 'slug' => $record->paper->slug,
-                'recorded' => $species->genus->name . ' ' . $species->name,
+                'recorded' => $record->recorded_as,
                 'coordinates' => ($record->locality->latitude && $record->locality->longitude) ? [
                     $record->locality->latitude, 
                     $record->locality->longitude,
@@ -83,11 +83,23 @@ class SpeciesController extends Controller
         }
 
         ksort($localities);
-//dd($localities);
+
         if(! $species){
             return redirect('/');
         }
+
+        $references = [];
+        foreach($localities as $loc){
+            foreach($loc as $lk){
+                foreach($lk as $l){
+                    $references[$l['published']] = $l['recorded'];
+                }
+                
+            }
+        }
+
+        ksort($references);
     	
-        return view('front.single-species', compact('species', 'localities'));
+        return view('front.single-species', compact('species', 'localities', 'references'));
     }
 }

@@ -4,29 +4,39 @@
 @php($cnt = 1)
 <div class="container">
 	<div class="page-header">
-		<h1>
-			{{ $species->genus->name }} {{ $species->name }}
+		<h2>
+			<i>{{ $species->genus->name }} {{ $species->name }}</i>
 
 			<b>
 			{{ $species->author }}
 			</b>
-		</h1>
+		</h2>
+		<div class="externalCit">
+			@if($species->es_id || $species->wsc_id)
+			<div id="externalSrcs">			
+				@if($species->wsc_id)
+					<a href="http://wsc.nmbe.ch/species/{{ $species->wsc_id }}" target="_blank" style="margin-right: 20px;">Species in WSC <span class="glyphicon glyphicon-share-alt"></span></a>
+					
+				@endif
+				@if($species->es_id)
+					<a href="http://www.araneae.unibe.ch/data/{{ $species->es_id }}" target="_blank">Species in EU Spiders <span class="glyphicon glyphicon-share-alt"></span></a>
+									
+				@endif
+			</div>
+			<hr>
+	    	@endif
+		</div>
 	</div>
 
     <div class="col-md-6">
-    	@if($species->es_id || $species->wsc_id)
-		<div id="externalSrcs">			
-			@if($species->wsc_id)
-				<a href="http://wsc.nmbe.ch/species/{{ $species->wsc_id }}" target="_blank" style="margin-right: 20px;">Species in WSC <span class="glyphicon glyphicon-share-alt"></span></a>
-				
-			@endif
-			@if($species->es_id)
-				<a href="http://www.araneae.unibe.ch/data/{{ $species->es_id }}" target="_blank">Species in EU Spiders <span class="glyphicon glyphicon-share-alt"></span></a>
-								
-			@endif
-		</div>
-		<hr>
-    	@endif
+    	
+
+		<!-- References -->
+		@foreach($references as $refk => $reference)
+		<p><i>{{$reference}}</i> {{$refk}}</p>
+		@endforeach
+		<!-- End of references -->
+
     	<div></div>
     	<h3>Localities:</h3>
 		@php($coordinates = [])
