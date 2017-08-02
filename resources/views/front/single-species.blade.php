@@ -31,9 +31,13 @@
     	
 
 		<!-- References -->
-		<h4>Faunistic references:</h4>
-		@foreach($references as $refk => $reference)
-		<p><i>{{$reference}}</i> {{$refk}}</p>
+		<h3>Faunistic references:</h3>
+		@foreach($references as $rfr)
+		@foreach($rfr as $rfrKey => $rf)
+			@foreach($rf as $refk => $reference)
+			<p><i>{{$reference}}</i> <b><a href="/literature/{{$rfrKey}}">{{$refk}}</a></b></p>
+			@endforeach
+		@endforeach
 		@endforeach
 		<hr>
 		<!-- End of references -->
