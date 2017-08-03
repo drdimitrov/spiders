@@ -29,6 +29,8 @@ class SearchController extends Controller
     		$species = Species::find($request->species_id);
     		return redirect(route('species', $species->id));
     	}
+
+        return back();
     	
     }
 }
