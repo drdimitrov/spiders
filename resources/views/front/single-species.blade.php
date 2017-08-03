@@ -4,13 +4,13 @@
 @php($cnt = 1)
 <div class="container">
 	<div class="page-header">
-		<h2 style="display: inline;">
+		<h3 style="display: inline;">
 			<i>{{ $species->genus->name }} {{ $species->name }}</i>
 
 			<b>
 			{{ $species->author }}
 			</b>
-		</h2>
+		</h3>
 		<div class="externalCit pull-right" style="display: inline;">
 			@if($species->es_id || $species->wsc_id)
 			<div id="externalSrcs">			
@@ -31,7 +31,7 @@
     	
 
 		<!-- References -->
-		<h3>Faunistic references:</h3>
+		<h4>Faunistic references:</h4>
 		@foreach($references as $rfr)
 		@foreach($rfr as $rfrKey => $rf)
 			@foreach($rf as $refk => $reference)
@@ -43,7 +43,7 @@
 		<!-- End of references -->
 
     	<div></div>
-    	<h3>Localities:</h3>
+    	<h4>Localities:</h4>
 		@php($coordinates = [])
     	@foreach($localities as $k => $locality)
     		<p>
