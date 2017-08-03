@@ -19,7 +19,7 @@
 					
 				@endif
 				@if($species->es_id)
-					<a href="http://www.araneae.unibe.ch/data/{{ $species->es_id }}" target="_blank">EU Spiders <span class="glyphicon glyphicon-share-alt"></span></a>
+					<a href="http://www.araneae.unibe.ch/data/{{ $species->es_id }}" target="_blank">Araneae <span class="glyphicon glyphicon-share-alt"></span></a>
 									
 				@endif
 			</div>
