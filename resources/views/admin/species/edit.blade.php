@@ -36,11 +36,6 @@
             </div>
 
             <div class="form-group">
-                <label for="wsc_id">WSC id:</label>            
-                <input type="text" name="wsc_id" class="form-control" value="{{ $species->wsc_id }}">
-            </div>
-
-            <div class="form-group">
                 <label for="wsc_lsid">WSC lsid:</label>   
                 <input type="text" name="wsc_lsid" class="form-control" value="{{ $species->wsc_lsid }}">
             </div>

@@ -31,7 +31,6 @@ class SpeciesController extends Controller
 	        'author' => 'required',
 	        'genus_id' => 'required|integer',
             'es_id' => 'integer|nullable',
-            'wsc_id' => 'integer|nullable',
 	    ]);
 
 	    $species = Species::create([
@@ -40,7 +39,6 @@ class SpeciesController extends Controller
 	    	'author' => trim($request->author),
 	    	'genus_id' => (int) $request->genus_id,
             'es_id' => (int) $request->es_id,
-            'wsc_id' => (int) $request->wsc_id,
             'wsc_lsid' => trim($request->wsc_lsid),
 
     	]);
@@ -62,7 +60,6 @@ class SpeciesController extends Controller
             'author' => 'required',
             'genus_id' => 'required|integer',
             'es_id' => 'integer|nullable',
-            'wsc_id' => 'integer|nullable',
         ]);
         
         $species = Species::find($request->id);
@@ -71,7 +68,6 @@ class SpeciesController extends Controller
         $species->slug = trim($request->slug);       
         $species->genus_id = (int) $request->genus_id;
         $species->es_id = (int) $request->es_id;
-        $species->wsc_id = (int) $request->wsc_id;
         $species->wsc_lsid = trim($request->wsc_lsid);
 
         if($species->save()){

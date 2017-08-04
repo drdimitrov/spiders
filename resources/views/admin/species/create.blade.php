@@ -40,10 +40,6 @@
             </div>
 
             <div class="form-group">            
-                <input type="text" name="wsc_id" class="form-control" placeholder="WSC id">
-            </div>
-
-            <div class="form-group">            
                 <input type="text" name="wsc_lsid" class="form-control" placeholder="WSC LS id">
             </div>
             	         
