@@ -12,10 +12,10 @@
 			</b>
 		</h3>
 		<div class="externalCit pull-right" style="display: inline;">
-			@if($species->es_id || $species->wsc_id)
+			@if($species->es_id || $species->wsc_lsid)
 			<div id="externalSrcs">			
-				@if($species->wsc_id)
-					<a href="http://wsc.nmbe.ch/species/{{ $species->wsc_id }}" target="_blank" style="margin-right: 20px;">WSC <span class="glyphicon glyphicon-share-alt"></span></a>
+				@if($species->wsc_lsid)
+					<a href="http://wsc.nmbe.ch/speciesLsid/{{ $species->wsc_lsid }}" target="_blank" style="margin-right: 20px;">WSC <span class="glyphicon glyphicon-share-alt"></span></a>
 					
 				@endif
 				@if($species->es_id)
