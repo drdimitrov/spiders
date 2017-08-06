@@ -99,7 +99,6 @@
 
       <div>@yield('content')</div>
       
-<br><br>_
       <footer class="footer">
         <div class="container">
           <p class="text-muted">

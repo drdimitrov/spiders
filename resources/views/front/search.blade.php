@@ -9,19 +9,19 @@
 
       <form action="{{ route('taxon.search') }}" method="POST">
           <family-select style="display: inline-block;"></family-select>
-          <button type="submit" class="btn btn-primary">Search</button>
+          <button type="submit" class="btn btn-custom">Search</button>
           {{ csrf_field() }}
       </form>
 
       <form action="{{ route('taxon.search') }}" method="POST">
           <genus-select style="display: inline-block;"></genus-select>
-          <button type="submit" class="btn btn-primary">Search</button>
+          <button type="submit" class="btn btn-custom">Search</button>
           {{ csrf_field() }}
       </form>
 
       <form action="{{ route('taxon.search') }}" method="POST">
           <species-select style="display: inline-block;"></species-select>
-          <button type="submit" class="btn btn-primary" style="margin-top: -60px;">Search</button>
+          <button type="submit" class="btn btn-custom" style="margin-top: -60px;">Search</button>
           {{ csrf_field() }}
       </form>      
        

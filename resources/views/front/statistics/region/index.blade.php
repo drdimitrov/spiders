@@ -28,7 +28,7 @@
                       @endforeach
                     </td>
                     <td>                       
-                      <a href="/statistics/species-by-region/{{ $region->id }}" class="btn btn-default">Show species</a>
+                      <a href="/statistics/species-by-region/{{ $region->id }}" class="btn btn-custom">Show species</a>
                     </td>
                 </tr>
                 @php($cnt++)

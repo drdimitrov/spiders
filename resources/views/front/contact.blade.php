@@ -29,7 +29,7 @@
 			<label for="body">Type your question here.</label>
 			<textarea class="form-control" name="body" id="body" rows="5"></textarea>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-custom">Submit</button>
 		{{ csrf_field() }}
 	</form>
   

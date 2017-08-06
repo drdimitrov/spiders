@@ -5,7 +5,7 @@
             <input type="hidden" id="author" name="author" :value="author_id">          
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">Search</button>
+            <button type="submit" class="btn">Search</button>
         </div>
     </form>   
 </template>
@@ -48,3 +48,14 @@
         }
     }
 </script>
+
+<style>
+    button.btn{
+        background: #ddddbb;
+        color: #000;
+    }
+
+    button.btn:hover{
+        color: #fff;
+    }
+</style>
