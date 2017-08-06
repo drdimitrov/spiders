@@ -25,7 +25,7 @@
                     <td>{{ $locality->region->name }}</td>
                     <td>{{ $locality->country->name }}</td>
                     <td>                       
-                      <a href="/statistics/species-by-locality/{{ $locality->id }}" class="btn btn-default">Show species</a>
+                      <a href="/statistics/species-by-locality/{{ $locality->id }}" class="btn btn-custom">Show species</a>
                     </td>
                 </tr>
                 @php($cnt++)
