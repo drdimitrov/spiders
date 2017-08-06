@@ -47,8 +47,8 @@ class RecordController extends Controller
         }
     }
 
-    public function edit(Request $request){
-        //dd(Record::find($request->record));
+    public function edit(Record $record){
+        return view('admin.records.edit', compact('record'));
     }
 
     public function searchSpecies(Request $request){
