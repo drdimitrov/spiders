@@ -5,7 +5,7 @@
 	<div class="page-header">
 		<h1 style="display: inline;">
 			Literature 
-			<a href="{{ route('literature') }}" class="btn btn-primary">All papers</a>
+			<a href="{{ route('literature') }}" class="btn btn-custom">All papers</a>
 		</h1>		
 	</div>
 

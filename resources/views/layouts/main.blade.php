@@ -96,9 +96,15 @@
           </div><!--/.nav-collapse -->
         </div>
       </nav>
+      
+      <!-- <div class="scroll-top-wrapper show">
+        <span class="scroll-top-inner">
+            <img src="{{ asset('images/spider-scroll.png') }}" class="glyphicon glyphicon-arrow-up" height="95">
+        </span>
+    </div> -->
 
       <div>@yield('content')</div>
-      
+      <br><br>
       <footer class="footer">
         <div class="container">
           <p class="text-muted">
