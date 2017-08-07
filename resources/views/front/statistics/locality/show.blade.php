@@ -11,7 +11,7 @@
         </span></h1>        
       </div>
 
-      <a href="/statistics/species-by-locality" class="btn btn-primary pull-right">Back to localities</a>
+      <a href="/statistics/species-by-locality" class="btn btn-custom pull-right">Back to localities</a>
 
       <table class="table table-striped">
         <thead>
