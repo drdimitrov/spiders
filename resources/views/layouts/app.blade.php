@@ -11,8 +11,8 @@
     <title>BG Spiders</title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
-    <link href="/css/jquery-ui.min.css" rel="stylesheet">
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/jquery-ui.min.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -188,7 +188,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    <script src="{{ secure_asset('js/app.js') }}"></script>
     <script>
         $('#datepicker').datepicker({
             dateFormat: "dd-mm-yy",
