@@ -7,9 +7,9 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Spiders of Balkan Peninsula">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/harpactea.jpg') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ secure_asset('images/harpactea.jpg') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/styles.css') }}">
     <title>BPS</title>
 
     <!-- Scripts -->
@@ -113,7 +113,7 @@
         </div>
       </footer>
 
-      <script src="{{ asset('js/app.js') }}"></script>
+      <script src="{{ secure_asset('js/app.js') }}"></script>
     
     <!-- <script src="{{ asset('js/maps.js') }}"></script> -->
       <script>
