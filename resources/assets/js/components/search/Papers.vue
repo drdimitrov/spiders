@@ -12,6 +12,7 @@
             <label for="sel1">Select paper:</label>                    
             <select class="form-control" id="sel1" name="sel1">
                 <option v-for="paper in papers" :value="paper.id">{{paper.name}}</option>
+                <option v-if="this.pred_paper" :value="this.pred_paper">{{ this.pred_paper }}</option>
             </select>
         </div>
     </div>
@@ -22,6 +23,8 @@
     import algolia from 'algoliasearch';
 
     export default {
+        props: ['pred_paper'],
+
         data(){
             return {
                 author : null,
@@ -52,8 +55,7 @@
                 empty : `<div class="aa-empty">No authors found</div>`
             }).on('autocomplete:selected', function(event, suggestion, dataset){
                 this.author == suggestion.id;
-                //console.log(this.author, this.year_published);
-                //selectAuthor.autocomplete.setVal('');
+                this.pred_paper = null;
 
                 $.post('/algolia/search-papers', {
                     author : suggestion.id,

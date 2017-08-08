@@ -12,10 +12,12 @@
 	import debounce from 'debounce';
 
 	export default{
+		props: ['pred_loc'],
+
 		data(){
 			return {
 				search: '',
-				locality_id: null,
+				locality_id: this.pred_loc,
 				localities: []
 			}
 		},

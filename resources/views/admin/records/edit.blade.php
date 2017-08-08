@@ -21,36 +21,40 @@
 			<div class="alert alert-success">{{ Session::get('msg') }}</div>
         @endif
        
-        <form method="POST" action="{{ route('admin.record.create') }}">            
+        <form method="POST" action="{{ route('admin.record.update') }}">
+
+            <input type="hidden" name="record_id" value="{{ $record->id }}">
         		        
             <div class="form-group">            
                 <label>Select species:</label>
-                <species-select></species-select>                       
+                <species-select :pred_species="{{ $record->species_id }}"></species-select>                       
             </div>
 
-            <paper-select></paper-select>
+            <paper-select :pred_paper="{{ $record->paper_id }}"></paper-select>
 
             <div class="form-group">
                 <label for="recorded_as">Recorded as:</label>            
-                <input type="text" name="recorded_as" class="form-control" >
+                <input type="text" name="recorded_as" class="form-control" value="{{ $record->recorded_as }}">
             </div>
 
             <div class="form-group">            
                 <label for="locality_id">Select locality:</label>
-                <locality-select></locality-select>    
+                <locality-select :pred_loc="{{ $record->locality_id }}"></locality-select>    
             </div>
 
             <div class="form-group">
                 <label for="notes">Notes:</label>
-                <textarea name="notes" class="form-control" rows="5" id="notes"></textarea>
+                <textarea name="notes" class="form-control" rows="5" id="notes">
+                    {{ $record->comments ?: '' }}
+                </textarea>
             </div>
 
             <div class="form-group" id="inps">
                 <label>Specimens:</label>            
-                <input type="text" name="males" class="form-control" placeholder="males" style="display: inline; width: 120px;">
-                <input type="text" name="females" class="form-control" placeholder="females" style="display: inline; width: 120px;">                      
-                <input type="text" name="males_juv" class="form-control" placeholder="juv. males" style="display: inline; width: 120px;">                      
-                <input type="text" name="females_juv" class="form-control" placeholder="juv. females" style="display: inline; width: 120px;">                     
+                <input type="text" name="males" class="form-control" placeholder="males" value="{{ $record->males ?: '' }}" style="display: inline; width: 120px;">
+                <input type="text" name="females" class="form-control" placeholder="females" value="{{ $record->females ?: '' }}" style="display: inline; width: 120px;">                      
+                <input type="text" name="males_juv" class="form-control" placeholder="juv. males" value="{{ $record->juvenile_males ?: '' }}" style="display: inline; width: 120px;">                      
+                <input type="text" name="females_juv" class="form-control" placeholder="juv. females" value="{{ $record->juvenile_females ?: '' }}" style="display: inline; width: 120px;">                     
             </div>
 
             <div class="form-group">      
@@ -59,7 +63,7 @@
 
             <div class="input-group">
                 <label for="datepicker">Select date:</label>
-                <input type="text" class="form-control" id="datepicker" name="datepicker">
+                <input type="text" class="form-control" id="datepicker" name="datepicker" value="{{ $record->collected_at ? $record->collected_at->format('d-m-Y') : '' }}">
             </div>
             <br>
 

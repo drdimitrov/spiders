@@ -1,6 +1,6 @@
 <template> 
     <div>
-    	<input class="form-control" v-model="search" type="text" style="display: inline-block;" placeholder="Choose speies">
+    	<input class="form-control" v-model="search" type="text" style="display: inline-block;" placeholder="Choose species">
 		<input type="hidden" name="species_id" v-model="species_id">
 	    <ul id="selectResults">
 	    	<li v-for="spc in species"><a href="#" @click.prevent="selectSpecies(spc)">{{ spc.name }} > {{ spc.genus.name }}</a></li>
@@ -12,10 +12,12 @@
 	import debounce from 'debounce';
 
 	export default{
+		props: ['pred_species'],
+
 		data(){
 			return {
 				search: '',
-				species_id: null,
+				species_id: this.pred_species,
 				species: []
 			}
 		},

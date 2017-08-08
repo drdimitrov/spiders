@@ -51,6 +51,33 @@ class RecordController extends Controller
         return view('admin.records.edit', compact('record'));
     }
 
+    public function update(Request $request){
+        $this->validate($request, [
+            'species_id' => 'required|integer',
+            'locality_id' => 'required|integer',
+            'sel1' => 'required|integer',
+        ]);
+
+        $record = Record::find($request->record_id);
+
+        $record->recorded_as = $request->recorded_as;
+        $record->species_id = $request->species_id;
+        $record->locality_id = $request->locality_id;
+        $record->comments = $request->notes;
+        $record->males = $request->males;
+        $record->females = $request->females;
+        $record->juvenile_males = $request->males_juv;
+        $record->juvenile_females = $request->females_juv;
+        $record->collected_by = $request->collected_by;
+        $record->collected_at = $request->has('datepicker') ?\Carbon\Carbon::createFromFormat('d-m-Y', $request->datepicker) : null;
+        $record->paper_id = $request->sel1;
+        //$record->collection_id = null
+
+        if($record->save()){
+            return back();
+        }
+    }
+
     public function searchSpecies(Request $request){
         $species = Species::with('genus')->where('name', 'ilike', $request->species.'%')->orderBy('name')->get();
 

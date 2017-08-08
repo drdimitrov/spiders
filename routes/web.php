@@ -105,5 +105,7 @@ Route::get('/admin/records', 'Admin\RecordController@index')->name('admin.record
 Route::get('/admin/records/create', 'Admin\RecordController@create')->name('admin.record.create');
 Route::post('/admin/records/create', 'Admin\RecordController@save');
 Route::get('/admin/records/edit/{record}', 'Admin\RecordController@edit')->name('admin.record.edit');
+Route::post('/admin/records/edit', 'Admin\RecordController@update')->name('admin.record.update');
+
 Route::post('/admin/records/search-species', 'Admin\RecordController@searchSpecies');
 Route::post('/admin/records/search-localities', 'Admin\RecordController@searchLocalities');
