@@ -31,14 +31,9 @@
 		        </div>
 
                 <div class="form-group">
-                <label for="es_id">ES id:</label>            
-                <input type="text" name="es_id" class="form-control" value="{{ $species->es_id }}">
-            </div>
-
-            <div class="form-group">
-                <label for="wsc_lsid">WSC lsid:</label>   
-                <input type="text" name="wsc_lsid" class="form-control" value="{{ $species->wsc_lsid }}">
-            </div>
+                    <label for="wsc_lsid">WSC lsid:</label>   
+                    <input type="text" name="wsc_lsid" class="form-control" value="{{ $species->wsc_lsid }}">
+                </div>
                 
                 <div class="form-group">
                     <label for="genus_id">Genus:</label>

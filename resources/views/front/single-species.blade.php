@@ -12,16 +12,11 @@
 			</b>
 		</h3>
 		<div class="externalCit pull-right" style="display: inline;">
-			@if($species->es_id || $species->wsc_lsid)
-			<div id="externalSrcs">			
-				@if($species->wsc_lsid)
-					<a href="http://wsc.nmbe.ch/speciesLsid/{{ $species->wsc_lsid }}" target="_blank" style="margin-right: 20px;">WSC <span class="glyphicon glyphicon-share-alt"></span></a>
-					
-				@endif
-				@if($species->es_id)
-					<a href="http://www.araneae.unibe.ch/data/{{ $species->es_id }}" target="_blank">Araneae <span class="glyphicon glyphicon-share-alt"></span></a>
-									
-				@endif
+			@if($species->wsc_lsid)
+			<div id="externalSrcs">
+				<a href="http://wsc.nmbe.ch/speciesLsid/{{ $species->wsc_lsid }}" target="_blank" style="margin-right: 20px;">WSC <span class="glyphicon glyphicon-share-alt"></span></a>
+			
+				<a href="http://www.araneae.unibe.ch/speclsid/{{ $species->wsc_lsid }}" target="_blank">Araneae <span class="glyphicon glyphicon-share-alt"></span></a>
 			</div>
 	    	@endif
 		</div>
