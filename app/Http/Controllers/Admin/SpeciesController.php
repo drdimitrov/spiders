@@ -65,7 +65,7 @@ class SpeciesController extends Controller
             'wsc_lsid' => trim(request()->wsc_lsid),
         ]);
         
-        if($species->save()){
+        if($newSpecies->save()){
             return redirect(route('admin.species.create'))->withMsg('Species has been created successfully.');
         }
     }
