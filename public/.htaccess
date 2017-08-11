@@ -19,6 +19,6 @@
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
     # require SSL 
-    RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    #RewriteCond %{HTTP:X-Forwarded-Proto} !https
     #RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
