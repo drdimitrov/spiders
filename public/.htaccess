@@ -19,6 +19,6 @@
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
     # require SSL 
-    RewriteCond %{HTTP:X-Forwarded-Proto} !https
-    RewriteRule ^(.*)$ https://araneae.herokuapp.com/$1 [R,L]
+    #RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    #RewriteRule ^(.*)$ https://araneae.herokuapp.com/$1 [R,L]
 </IfModule>
