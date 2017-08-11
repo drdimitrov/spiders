@@ -85,7 +85,7 @@
         
         <div class="container-fluid">
             <div class="row">
-                @if(Auth::check())
+                @if(Auth::check() && Auth::user()->hasRole('admin'))
                 <div class="col-md-2">
                     <nav class="navbar navbar-default sidebar" role="navigation">
                         <div class="container-fluid">
