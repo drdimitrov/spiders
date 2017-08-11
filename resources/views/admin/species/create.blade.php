@@ -23,7 +23,7 @@
         @if(Session::has('msg-err'))
             <div class="alert alert-danger">{{ Session::get('msg-err') }}</div>
         @endif
-
+        <div>
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#custom" aria-controls="home" role="tab" data-toggle="tab">Custom</a></li>
             <li role="presentation"><a href="#lsid" aria-controls="profile" role="tab" data-toggle="tab">LsId</a></li>
@@ -71,7 +71,7 @@
             </form>
         </div>
         </div>
-       
+        </div>
 
     </div>
 </div>
