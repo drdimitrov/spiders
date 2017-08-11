@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Genus;
+use App\Http\Controllers\Controller;
+use App\Services\WscService;
 use App\Species;
+use Illuminate\Http\Request;
 
 class SpeciesController extends Controller
 {
@@ -38,12 +39,35 @@ class SpeciesController extends Controller
 	    	'author' => trim($request->author),
 	    	'genus_id' => (int) $request->genus_id,
             'wsc_lsid' => trim($request->wsc_lsid),
-
     	]);
 
     	if($species->save()){
     		return redirect(route('admin.species.create'))->withMsg('Species has been created successfully.');
     	}
+    }
+
+    public function saveByLsid(WscService $wsc){
+
+        $species = json_decode($wsc->fetchSpecies(request()->wsc_lsid));
+
+        if($species->taxon->status != 'VALID'){
+            return back()->with('msg-err', 'The species is not valid.');
+        }
+
+        $genus = Genus::where('name', $species->taxon->genus)->first();
+        
+
+        $newSpecies = Species::create([
+            'name' => $species->taxon->species,
+            'slug' => strtolower($species->taxon->species),
+            'author' => $species->taxon->author,
+            'genus_id' => $genus->id,
+            'wsc_lsid' => trim(request()->wsc_lsid),
+        ]);
+        
+        if($species->save()){
+            return redirect(route('admin.species.create'))->withMsg('Species has been created successfully.');
+        }
     }
 
     public function edit(Species $species){

@@ -79,6 +79,7 @@ Route::post('/admin/genus/edit', 'Admin\GenusController@saveGenus');
 Route::get('/admin/species', 'Admin\SpeciesController@index')->name('admin.species');
 Route::get('/admin/species/create', 'Admin\SpeciesController@create')->name('admin.species.create');
 Route::post('/admin/species/create', 'Admin\SpeciesController@save');
+Route::post('/admin/species/create-by-lsid', 'Admin\SpeciesController@saveByLsid');
 Route::get('/admin/species/edit/{species}', 'Admin\SpeciesController@edit')->name('admin.species.edit');
 Route::post('/admin/species/edit', 'Admin\SpeciesController@saveSpecies');
 
