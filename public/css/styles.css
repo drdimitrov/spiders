@@ -214,3 +214,7 @@ code {
   .btn.btn-custom:hover{
     color: #fff;
   }
+
+  .nav.navbar-nav.navbar-right li a{
+    color: #800000;
+  }
