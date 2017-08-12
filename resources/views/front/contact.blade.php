@@ -11,27 +11,43 @@
 	  {{Session::get('msg')}}
 	</div>
   	@endif
-
-	<form action="{{ route('contact') }}" method="POST">
-		<div class="form-group">
-			<label for="name">Name</label>
-			<input type="text" class="form-control" id="name" name="name" placeholder="John Doe">
+	<div class="row">
+		<div class="col-md-9">
+			<form action="{{ route('contact') }}" method="POST">
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input type="text" class="form-control" id="name" name="name" placeholder="John Doe">
+				</div>
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="text" name="email" class="form-control" id="email" placeholder="john@example.com">
+				</div>
+				<div class="form-group">
+					<label for="subject">Subject</label>
+					<input type="text" name="subject" class="form-control" id="subject" placeholder="Your subject">
+				</div>
+				<div class="form-group">
+					<label for="body">Type your question here.</label>
+					<textarea class="form-control" name="body" id="body" rows="5"></textarea>
+				</div>
+				<button type="submit" class="btn btn-custom">Submit</button>
+				{{ csrf_field() }}
+			</form>
 		</div>
-		<div class="form-group">
-			<label for="email">Email</label>
-			<input type="text" name="email" class="form-control" id="email" placeholder="john@example.com">
+		<div class="col-md-3">
+			<h3>Authors:</h3>
+			<address>
+				<strong>Dragomir Dimitrov</strong><br>
+				1 Tsar Osvoboditel Blvd,<br>
+				1000 Sofia, Bulgaria<br>
+				<abbr title="Email">Email:</abbr> info[at]nortiena.com
+			</address>
 		</div>
-		<div class="form-group">
-			<label for="subject">Subject</label>
-			<input type="text" name="subject" class="form-control" id="subject" placeholder="Your subject">
-		</div>
-		<div class="form-group">
-			<label for="body">Type your question here.</label>
-			<textarea class="form-control" name="body" id="body" rows="5"></textarea>
-		</div>
-		<button type="submit" class="btn btn-custom">Submit</button>
-		{{ csrf_field() }}
-	</form>
-  
+	</div>  
 </div>
+<style>
+	.col-md-3{
+		padding-left: 5%;
+	}
+</style>
 @endsection
