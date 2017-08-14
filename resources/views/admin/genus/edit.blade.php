@@ -29,6 +29,10 @@
                     <label for="slug">Slug:</label>           
 		            <input type="text" name="slug" class="form-control" value="{{ $genus->slug }}">
 		        </div>
+                <div class="form-group">
+                    <label for="author">WSC LsId:</label>          
+                    <input type="text" name="wsc_lsid" class="form-control" value="{{ $genus->wsc_lsid }}">
+                </div>
                 
                 <div class="form-group">
                     <label for="family_id">Family:</label>

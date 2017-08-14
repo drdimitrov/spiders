@@ -9,7 +9,7 @@ class Family extends Model
 {
 	use Searchable;
 
-    protected $fillable = ['name', 'slug', 'order_id', 'author'];
+    protected $fillable = ['name', 'slug', 'order_id', 'author', 'wsc_id'];
 
     public function paper(){
     	return $this->belongsTo(Paper::class);

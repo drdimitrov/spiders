@@ -15,7 +15,7 @@ class GenusController extends Controller
     }
     
     public function index(){
-        $genera = Genus::with('family')->get();
+        $genera = Genus::with('family')->orderBy('genera.name')->get();
 
         return view('admin.genus.index', compact('genera'));
     }
@@ -54,6 +54,7 @@ class GenusController extends Controller
         $genus->name = $request->name;
         $genus->author = $request->author;
         $genus->slug = $request->slug;
+        $genus->wsc_lsid = $request->wsc_lsid;
         $genus->family_id = $request->family_id;
 
         if($genus->save()){

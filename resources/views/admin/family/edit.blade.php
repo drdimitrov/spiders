@@ -29,6 +29,10 @@
                     <label for="author">Author:</label>          
                     <input type="text" name="author" class="form-control" value="{{ $family->author }}">
                 </div>
+                <div class="form-group">
+                    <label for="author">WSC LsId:</label>          
+                    <input type="text" name="wsc_lsid" class="form-control" value="{{ $family->wsc_lsid }}">
+                </div>
 		        <div class="form-group">
 		            <button type="submit" class="btn btn-primary">Save Family</button>
 		        </div>

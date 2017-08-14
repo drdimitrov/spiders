@@ -68,7 +68,7 @@ Route::get('/admin/family', 'Admin\FamilyController@index')->name('admin.family'
 Route::get('/admin/family/create', 'Admin\FamilyController@create')->name('admin.family.create');
 Route::post('/admin/family/create', 'Admin\FamilyController@save');
 Route::get('/admin/family/edit/{family}', 'Admin\FamilyController@edit')->name('admin.family.edit');
-Route::post('/admin/family/edit', 'Admin\FamilyController@saveFamily');
+Route::post('/admin/family/edit', 'Admin\FamilyController@update');
 
 Route::get('/admin/genus', 'Admin\GenusController@index')->name('admin.genus');
 Route::get('/admin/genus/create', 'Admin\GenusController@create')->name('admin.genus.create');

@@ -9,7 +9,7 @@ class Genus extends Model
 {
 	use Searchable;
 	
-    protected $fillable = ['name', 'author', 'family_id', 'slug'];
+    protected $fillable = ['name', 'author', 'family_id', 'slug', 'wsc_lsid'];
     
     public function family(){
     	return $this->belongsTo(Family::class);

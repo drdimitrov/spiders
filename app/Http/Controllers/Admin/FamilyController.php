@@ -14,8 +14,7 @@ class FamilyController extends Controller
     }
 
     public function index(){
-        $families = Family::all();
-
+        $families = Family::orderBy('name')->get();
         return view('admin.family.index', compact('families'));
     }
     
@@ -48,11 +47,13 @@ class FamilyController extends Controller
         return view('admin.family.edit', compact('family'));
     }
 
-    public function saveFamily(Request $request){
+    public function update(Request $request){
+
         $family = Family::find($request->id);
         $family->name = $request->name;
         $family->slug = $request->slug;
         $family->author = $request->author;
+        $family->wsc_lsid = $request->wsc_lsid;
 
         if($family->save()){
             return redirect(route('admin.family'));
