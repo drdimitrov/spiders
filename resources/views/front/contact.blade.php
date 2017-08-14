@@ -40,7 +40,8 @@
 				<strong>Dragomir Dimitrov</strong><br>
 				1 Tsar Osvoboditel Blvd,<br>
 				1000 Sofia, Bulgaria<br>
-				<abbr title="Email">Email:</abbr> info[at]nortiena.com
+				<abbr title="Email">Email:</abbr> 
+				{!! obscure('info@nortiena.com') !!}
 			</address>
 		</div>
 	</div>  
