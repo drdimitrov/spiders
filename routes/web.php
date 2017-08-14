@@ -34,6 +34,11 @@ Route::post('/taxon/search', 'SearchController@show');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Route::get('/wsc', function(\App\Services\WscService $wsc){
+// 	$a = $wsc->fetchUpdatedTaxa('2017-07-01');
+// 	dd($a);
+// });
+
 //Search routes
 Route::post('/algolia/search-papers', 'Admin\AlgoliaController@selectPaper');
 

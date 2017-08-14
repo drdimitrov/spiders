@@ -48,7 +48,7 @@ class SpeciesController extends Controller
 
     public function saveByLsid(WscService $wsc){
 
-        $species = json_decode($wsc->fetchSpecies(request()->wsc_lsid));
+        $species = $wsc->fetchSpecies(request()->wsc_lsid);
 
         if($species->taxon->status != 'VALID'){
             return back()->with('msg-err', 'The species is not valid.');
