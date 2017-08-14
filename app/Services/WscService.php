@@ -54,22 +54,23 @@ class WscService{
 		
 		$res = $this->client->request(
 			'GET',
-			'http://wsc.nmbe.ch/api/updates?date=' . $date . '&apiKey=' . $this->apiKey
+			'http://wsc.nmbe.ch/api/updates?page=' . $cnt . '&date=' . $date . '&apiKey=' . $this->apiKey
 		);
 
 		
 		$temp = json_decode($res->getBody());
-
-		foreach($temp->updates as $update){
-			$taxa[] = $update;
+		
+		if(isset($temp->updates)){			
+			foreach($temp->updates as $update){
+				$taxa[] = $update;
+			}
 		}
-
-		return $taxa;
-
+		
 		// if(isset($temp->_links->next)){
 			
 		// }
 
+		return $taxa;
 	}
 	
 }
