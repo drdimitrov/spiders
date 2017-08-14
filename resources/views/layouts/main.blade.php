@@ -98,11 +98,11 @@
         </div>
       </nav>
       
-      <!-- <div class="scroll-top-wrapper show">
+      <div class="scroll-top-wrapper">
         <span class="scroll-top-inner">
-            <img src="{{ asset('images/spider-scroll.png') }}" class="glyphicon glyphicon-arrow-up" height="95">
+            <img src="{{ asset('images/spider-scroll.png') }}" class="glyphicon glyphicon-arrow-up" height="60">
         </span>
-    </div> -->
+    </div>
 
       <div>@yield('content')</div>
       <br><br>
@@ -149,6 +149,48 @@
 
 
         })();
+
+        //Scroll top
+        $(function(){
+ 
+            $(document).on( 'scroll', function(){
+         
+                if ($(window).scrollTop() > 100) {
+                    $('.scroll-top-wrapper').addClass('show');
+             $('#codeprefheader').css('position','fixed').css('top','0px');
+                } else {
+                    $('.scroll-top-wrapper').removeClass('show');
+             $('#codeprefheader').css('position','relative');
+                }
+            });
+            $('.fancyimg').fancybox({
+            openEffect  : 'none',
+            closeEffect : 'none',
+            type : 'image'
+          });         
+            
+        });
+        
+        $(function(){
+          $('.scroll-top-wrapper').on('click', scrollToTop);
+
+          var x = parseInt($('.wrapper').first().css('padding-top')) - 15;
+
+          $('a.button.big.scrolly').scrolly({
+          bgParallax: true,
+          speed: 1000,
+          offset: x
+          });
+
+        });
+       
+      function scrollToTop() {
+          verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
+          element = $('body');
+          offset = element.offset();
+          offsetTop = offset.top;
+          $('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
+      }
       </script>
 
   </body>
