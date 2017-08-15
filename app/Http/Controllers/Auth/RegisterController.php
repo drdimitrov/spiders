@@ -71,7 +71,7 @@ class RegisterController extends Controller
                 );
             }catch(UserAlreadySubscribedException $e){
                 return back()->withInput()->withErrors([
-                    'newsletter' => $e->getMessage();
+                    'newsletter' => $e->getMessage()
                 ]);
             }
         }
