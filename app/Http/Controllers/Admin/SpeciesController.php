@@ -55,8 +55,13 @@ class SpeciesController extends Controller
         }
 
         $genus = Genus::where('name', $species->taxon->genus)->first();
-        
 
+        $existingSpecies = Species::where('wsc_lsid', str_replace('urn:lsid:nmbe.ch:spidersp:', '', $species->taxon->lsid))->first();
+
+        if($existingSpecies){
+            return back()->with('msg-err', 'The species already exists.');
+        }
+       
         $newSpecies = Species::create([
             'name' => $species->taxon->species,
             'slug' => strtolower($species->taxon->species),
