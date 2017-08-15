@@ -37,7 +37,7 @@
                                 @endif
                             </div>
                         </div>
-
+                       
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
@@ -57,6 +57,14 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="newsletter" class="col-md-4 control-label">Subscribe</label>
+
+                            <div class="col-md-6">
+                                <input type="checkbox" name="newsletter" value="1">
                             </div>
                         </div>
 

@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
+use App\Services\Newsletter\NewsletterContract;
+use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Auth\Events\Registered;
+use App\Services\Newsletter\Exceptions\UserAlreadySubscribedException;
 
 class RegisterController extends Controller
 {
@@ -52,6 +56,32 @@ class RegisterController extends Controller
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
+    }
+
+    public function register(Request $request, NewsletterContract $newsletter)
+    {
+        $this->validator($request->all())->validate();
+
+        if($request->newsletter){
+            try{
+                $newsletter->subscribe(
+                    env('MAILCHIMP_LIST'), 
+                    $request->email,
+                    ['FNAME' => $request->name]
+                );
+            }catch(UserAlreadySubscribedException $e){
+                return back()->withInput()->withErrors([
+                    'newsletter' => $e->getMessage();
+                ]);
+            }
+        }
+        
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+                        ?: redirect($this->redirectPath());
     }
 
     /**
