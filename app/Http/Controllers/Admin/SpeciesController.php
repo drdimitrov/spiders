@@ -51,6 +51,12 @@ class SpeciesController extends Controller
         $species = $wsc->fetchSpecies(request()->wsc_lsid);
 
         if($species->taxon->status != 'VALID'){
+
+            // if($species->taxon->status == 'SYNONYM'){
+            //     $valid = $wsc->fetchValidTaxon($species->validTaxon->_href);
+            //     dd($valid->taxon);
+            // }
+
             return back()->with('msg-err', 'The species is not valid.');
         }
         
@@ -59,7 +65,7 @@ class SpeciesController extends Controller
         if($existingSpecies){
             return back()->with('msg-err', 'The species already exists.');
         }
-        
+
         $genus = Genus::where('name', $species->taxon->genus)->first();
        
         $newSpecies = Species::create([

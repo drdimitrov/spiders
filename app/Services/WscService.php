@@ -92,6 +92,11 @@ class WscService{
 		return $updated;
 	}
 
+	public function fetchValidTaxon($link){
+		$res = $this->client->request('GET', $link . '?apiKey=' . $this->apiKey);
+		return json_decode($res->getBody());
+	}
+
 	public function nextLink($link){
 		$res = $this->client->request('GET', $link);
 
