@@ -53,14 +53,14 @@ class SpeciesController extends Controller
         if($species->taxon->status != 'VALID'){
             return back()->with('msg-err', 'The species is not valid.');
         }
-
-        $genus = Genus::where('name', $species->taxon->genus)->first();
-
+        
         $existingSpecies = Species::where('wsc_lsid', str_replace('urn:lsid:nmbe.ch:spidersp:', '', $species->taxon->lsid))->first();
 
         if($existingSpecies){
             return back()->with('msg-err', 'The species already exists.');
         }
+        
+        $genus = Genus::where('name', $species->taxon->genus)->first();
        
         $newSpecies = Species::create([
             'name' => $species->taxon->species,
