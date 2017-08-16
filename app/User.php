@@ -2,8 +2,9 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -15,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'surname', 'title', 'email', 'password', 'activation_token', 'active',
     ];
 
     /**
@@ -52,5 +53,9 @@ class User extends Authenticatable
         }
 
         return false;
+    }
+
+    public function scopeByEmail(Builder $builder, $email){
+        return $builder->where('email', $email);
     }
 }

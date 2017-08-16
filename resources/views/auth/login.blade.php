@@ -3,6 +3,10 @@
 @section('content')
 <div class="container">
     <div class="row">
+        @if(session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
+        
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
@@ -56,6 +60,10 @@
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?
+                                </a>
+
+                                <a class="btn btn-link" href="{{ route('auth.activate.resend') }}">
+                                    Resend activation email
                                 </a>
                             </div>
                         </div>

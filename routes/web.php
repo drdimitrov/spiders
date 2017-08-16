@@ -11,7 +11,9 @@
 |
 */
 Auth::routes();
-
+Route::get('/auth/activate', 'Auth\ActivationController@activate')->name('auth.activate');
+Route::get('/auth/activate/resend', 'Auth\ActivationController@showResendForm')->name('auth.activate.resend');
+Route::post('/auth/activate/resend', 'Auth\ActivationController@resend');
 
 Route::get('/', 'FrontController@index')->name('frontpage');
 Route::get('/contact', 'FrontController@contact')->name('contact');

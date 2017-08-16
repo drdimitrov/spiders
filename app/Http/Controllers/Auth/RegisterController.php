@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\Auth\UserRequestedActivationEmail;
 use App\Http\Controllers\Controller;
+use App\Services\Newsletter\Exceptions\UserAlreadySubscribedException;
 use App\Services\Newsletter\NewsletterContract;
 use App\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Auth\Events\Registered;
-use App\Services\Newsletter\Exceptions\UserAlreadySubscribedException;
 
 class RegisterController extends Controller
 {
@@ -31,7 +32,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -53,6 +54,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
+            'surname' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
@@ -78,10 +80,11 @@ class RegisterController extends Controller
         
         event(new Registered($user = $this->create($request->all())));
 
-        $this->guard()->login($user);
+        event(new UserRequestedActivationEmail($user));
+        //$this->guard()->login($user);
 
         return $this->registered($request, $user)
-                        ?: redirect($this->redirectPath());
+                        ?: redirect($this->redirectPath())->withSuccess('Registered successfully. Please, check your email to activate your account.');
     }
 
     /**
@@ -94,8 +97,12 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'surname' => $data['surname'],
+            'title' => isset($data['title']) ? $data['title'] : null,
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'active' => false,
+            'activation_token' => str_random(150),
         ]);
     }
 }

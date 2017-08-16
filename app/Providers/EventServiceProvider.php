@@ -16,6 +16,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\StatisticDownloadedEvent' => [
             'App\Listeners\StatisticDownloadedListener',
         ],
+        'App\Events\Auth\UserRequestedActivationEmail' => [
+            'App\Listeners\Auth\SendActivationEmail',
+        ],
     ];
 
     /**
