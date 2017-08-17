@@ -1,7 +1,12 @@
-Message sent from the contact form <br>
+@component('mail::message')
+# Contact form message
+
+Message from Balkan spiders contact form <br>
 
 by {{ $name }} ({{ $email }}) <br>
-Subject: {{ $subject }}
-__________________________________________
+Subject: {{ $subject }} <br><br>
 
-{{ $body }}
+Message: {{ $body }}
+
+
+@endcomponent
