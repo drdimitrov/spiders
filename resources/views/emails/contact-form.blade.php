@@ -1,3 +1,7 @@
-Message sent from the contact form
+Message sent from the contact form <br>
 
-by {{ $email }}
+by {{ $name }} ({{ $email }}) <br>
+Subject: {{ $subject }}
+__________________________________________
+
+{{ $body }}
