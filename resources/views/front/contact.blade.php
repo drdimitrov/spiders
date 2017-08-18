@@ -12,7 +12,7 @@
 	</div>
   	@endif
 	<div class="row">
-		<div class="col-md-9">
+		<div class="col-md-8">
 			<form action="{{ route('contact') }}" method="POST">
 				<div class="form-group">
 					<label for="name">Name</label>
@@ -34,11 +34,11 @@
 				{{ csrf_field() }}
 			</form>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-4">
 			<h3>Authors:</h3>
 			<address>
 				<strong>Dragomir Dimitrov</strong><br>
-				National Museum of Natural History<br>
+				National Museum of Natural History,<br>
 				1 Tsar Osvoboditel Blvd,<br>
 				1000 Sofia, Bulgaria<br>
 				<abbr title="Email">Email:</abbr> 
