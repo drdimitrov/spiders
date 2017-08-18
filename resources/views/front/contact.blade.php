@@ -38,6 +38,7 @@
 			<h3>Authors:</h3>
 			<address>
 				<strong>Dragomir Dimitrov</strong><br>
+				National Museum of Natural History<br>
 				1 Tsar Osvoboditel Blvd,<br>
 				1000 Sofia, Bulgaria<br>
 				<abbr title="Email">Email:</abbr> 

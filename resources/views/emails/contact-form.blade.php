@@ -1,4 +1,5 @@
-Message from Balkan spiders contact form <br>
+Message from 'Balkan spiders' platform:<br>
+---------------------------------------<br>
 
 by {{ $name }} ({{ $email }}) <br>
 Subject: {{ $subject }} <br><br>
