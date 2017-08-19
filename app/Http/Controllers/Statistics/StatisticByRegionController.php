@@ -61,6 +61,8 @@ class StatisticByRegionController extends Controller
     public function localitiesByRegionShow(Request $request){
         $region = Region::with(['localities' => function($query){
             $query->orderBy('name');
+        }, 'localities.species' => function($q){
+            $q->distinct();
         }])->find($request->region);
 
         return view('front.statistics.region.localities-show', compact('region'));
