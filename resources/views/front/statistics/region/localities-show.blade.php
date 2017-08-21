@@ -2,13 +2,16 @@
 
 @section('content')
 @php($cnt = 1)
+@php($locs = [])
+@php($spnum = [])
 <div class="container">
      <div class="page-header">
-        <h1>Localities in {{ $region->name }}</h1>
-      </div>
+        <h1 style="display: inline;">Localities in {{ $region->name }}</h1>
+        <button class="btn btn-custom chart-btn pull-right" data-toggle="modal" data-target="#chart">Chart</button>
+      </div>   
 
       <div id="map" style="width: 100%; height: 500px;"></div>
-
+      <br>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -20,6 +23,8 @@
         </thead>
         <tbody>
             @foreach($region->localities as $locality)
+            @php($locs[] = $locality->name)
+            @php($spnum[] = count($locality->species))
                 <tr>
                     <td>{{ $cnt }}</td>
                     <td>{{ $locality->name }}</td>
@@ -29,15 +34,20 @@
                     </td>
                 </tr>
                 @php($cnt++)
-            @endforeach          
+            @endforeach      
         </tbody>
       </table>
+
+      <div id="app">
+        <species-locality :locs="{{ collect($locs) }}" :species="{{ collect($spnum) }}"></species-locality>
+      </div>
+      
 </div>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA41cF0sttrkX2sC2iwpBp5cyr6aFAIKJM&callback=initMap"
   type="text/javascript"></script>
 <script>
-    
+
     initMap = function(){
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {
@@ -62,5 +72,22 @@
     @endforeach
 
   }
+
+  new Vue({
+      el : '#app',
+      data : {
+        locs : null,
+        species:null      
+      }
+    });
   </script>
+  <style>
+    .modal-dialog{
+      width: 90%;
+    }
+
+    #lchart{
+      width: 100%;
+    }
+  </style>
 @endsection

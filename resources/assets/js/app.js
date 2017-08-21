@@ -22,6 +22,7 @@ Vue.component('family-select', require('./components/search/Families.vue'));
 Vue.component('genus-select', require('./components/search/Genera.vue'));
 Vue.component('species-select', require('./components/search/Species.vue'));
 Vue.component('locality-select', require('./components/search/Localities.vue'));
+Vue.component('species-locality', require('./components/charts/SpeciesLocality.vue'));
 
 const app = new Vue({
     el: '#app',

@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "chart.js": "^2.6.0",
     "debounce": "^1.0.2",
     "jquery-ui": "github:jquery/jquery-ui",
     "vue2-autocomplete-js": "0.0.4"
