@@ -187,6 +187,7 @@
             </div>
         </div>
     </div>
+    </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
@@ -197,6 +198,10 @@
             changeYear: true,
             yearRange: '1915:2027'
         });
+
+        (function(){
+          $('[data-toggle="tooltip"]').tooltip();
+        })();
     </script>
 </body>
 </html>

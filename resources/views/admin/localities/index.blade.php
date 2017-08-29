@@ -12,18 +12,33 @@
                 <div class="panel-body">
                                       
                     <h3>List of localities:</h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nr.</th>
+                                <th>Locality ID</th>
+                                <th>Locality name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php($nr=1)
+                            @foreach($localities as $locality)
+                            <tr>
+                                <td>{{ $nr }}</td> 
+                                <td>{{ $locality->id }}</td> 
+                                <td>{{ $locality->name }}</td> 
+                                <td>
+                                    <a href="{{ route('admin.locality.edit', $locality->id) }}" data-toggle="tooltip" title="Edit">
+                                        <span class="glyphicon glyphicon-pencil "></span>
+                                    </a>
+                                </td> 
+                            </tr>
+                            @php($nr++)                        
+                            @endforeach 
+                        </tbody> 
+                    </table>
 					
-					<ul class="list-group">
-                    @foreach($localities as $locality)
-						<li class="list-group-item">
-                            {{ $locality->name }}
-                            <a href="{{ route('admin.locality.edit', $locality->id) }}">
-                                <span class="glyphicon glyphicon-pencil pull-right"></span>
-                            </a>
-                        </li>
-                    @endforeach
-                    </ul>
-
                     {{ $localities->links() }}
                 </div
             </div>
