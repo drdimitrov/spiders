@@ -60,8 +60,8 @@ class SpeciesController extends Controller
                 }
             }
             
-
-            $localities[$record->locality->country->name][$record->locality->name][] = [
+            $localities[$record->locality->country->name]['locality_id'] = $record->locality->id;
+            $localities[$record->locality->country->name]['locality_details'][$record->locality->name][] = [
                 //'name' => $record->locality->name,
                 'notes' => $record->comments,
                 'date' => $record->collected_at ? $record->collected_at->format('d-m-Y') : null,
@@ -91,7 +91,7 @@ class SpeciesController extends Controller
 
         $references = [];
         foreach($localities as $loc){
-            foreach($loc as $lk){
+            foreach($loc['locality_details'] as $lk){
                 foreach($lk as $l){
                     $references[$l['year_of_publishing']][$l['slug']][$l['published']] = $l['recorded'];
                     

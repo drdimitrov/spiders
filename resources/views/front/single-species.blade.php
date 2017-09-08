@@ -40,13 +40,16 @@
     	<div></div>
     	<h4>Localities:</h4>
 		@php($coordinates = [])
-    	@foreach($localities as $k => $locality)
-    		<p>
-    		<b>{{ $k }}: </b>
-			@foreach($locality as $kl => $locs)
-				{{ $kl }} - 
-				@foreach($locs as $loc)
-				@if(isset($loc['notes'])) {{ $loc['notes'] }}, @endif 				 
+		
+		@foreach($localities as $k => $locData) 
+		<p>
+		<b>{{ $k }}: </b>  
+    	@foreach($locData['locality_details'] as  $localityi => $localityd) 
+    		{{--dd($locData['locality_id'], $localityi, $localityd)--}}  		
+			@foreach($localityd as  $loc)
+				<a href="/statistics/species-by-locality/{{ $locData['locality_id'] }}">{{ $localityi }}</a> - 
+				
+				@if(isset($loc['notes'])) {{ $loc['notes'] }}, @endif
 				@if(isset($loc['males'])) {{ $loc['males'] }} &#9794;,  @endif
 				@if(isset($loc['females'])) {{ $loc['females'] }} &#9792;,  @endif
 				@if(isset($loc['juvenile_males'])) {{ $loc['juvenile_males'] }} juv. &#9794;,  @endif
@@ -57,9 +60,11 @@
 					@if(isset($loc['coordinates']))
 						@php($coordinates[] = $loc['coordinates'])
 					@endif
-				@endforeach
+				
 			@endforeach
+			
 			</p>
+    	@endforeach
     	@endforeach
 
     </div>
