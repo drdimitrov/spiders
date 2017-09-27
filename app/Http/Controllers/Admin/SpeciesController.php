@@ -6,6 +6,7 @@ use App\Genus;
 use App\Http\Controllers\Controller;
 use App\Services\WscService;
 use App\Species;
+use App\Image;
 use Illuminate\Http\Request;
 
 class SpeciesController extends Controller
@@ -104,5 +105,30 @@ class SpeciesController extends Controller
         if($species->save()){
             return redirect(route('admin.species'));
         }       
+    }
+
+    public function images(){       
+        return view ('admin.species.images');
+    }
+
+    public function saveImage(Request $request){
+
+        $this->validate($request, [
+            'img' => 'required',
+            'species_id' => 'required|integer',
+        ]);
+
+        $file = $request->file('img');
+        $name = time() . '_' . $request->species_id . '.' . $file->guessClientExtension();
+
+        $file->storeAs('species', $name);
+
+        $image = Image::create([
+            'name' => $name,
+            'species_id' => (int) $request->species_id,
+            'description' => $request->description
+        ]);
+
+        return back();
     }
 }

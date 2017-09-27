@@ -89,6 +89,8 @@ Route::post('/admin/species/create', 'Admin\SpeciesController@save');
 Route::post('/admin/species/create-by-lsid', 'Admin\SpeciesController@saveByLsid');
 Route::get('/admin/species/edit/{species}', 'Admin\SpeciesController@edit')->name('admin.species.edit');
 Route::post('/admin/species/edit', 'Admin\SpeciesController@saveSpecies');
+Route::get('/admin/species/images', 'Admin\SpeciesController@images')->name('admin.species.images');
+Route::post('/admin/species/images', 'Admin\SpeciesController@saveImage');
 
 Route::get('/admin/countries', 'Admin\CountryController@index')->name('admin.country');
 Route::get('/admin/countries/create', 'Admin\CountryController@create')->name('admin.country.create');

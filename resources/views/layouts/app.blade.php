@@ -140,7 +140,8 @@
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Species <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a>
                               <ul class="dropdown-menu forAnimate" role="menu">
                                 <li><a href="{{route('admin.species')}}">List</a></li>
-                                <li><a href="{{route('admin.species.create')}}">Create</a></li>                                
+                                <li><a href="{{route('admin.species.create')}}">Create</a></li>
+                                <li><a href="{{route('admin.species.images')}}">Add image</a></li>                              
                               </ul>
                             </li>
                             <li class="dropdown">
