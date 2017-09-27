@@ -121,7 +121,7 @@ class SpeciesController extends Controller
         $file = $request->file('img');
         $name = time() . '_' . $request->species_id . '.' . $file->guessClientExtension();
 
-        $file->storeAs('species', $name);
+        $file->storeAs('public/species', $name);
 
         $image = Image::create([
             'name' => $name,

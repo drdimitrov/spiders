@@ -15,4 +15,8 @@ class Species extends Model
     public function records(){
     	return $this->hasMany(Record::class);
     }
+
+    public function images(){
+    	return $this->hasMany(Image::class);
+    }
 }

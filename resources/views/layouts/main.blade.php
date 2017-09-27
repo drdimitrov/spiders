@@ -104,7 +104,7 @@
         </span>
     </div>
 
-      <div>@yield('content')</div>
+      <div style="margin-bottom: 20px;">@yield('content')</div>
       <br><br>
       <footer class="footer">
         <p class="text-muted" style="text-align: center; margin-top: 20px;">

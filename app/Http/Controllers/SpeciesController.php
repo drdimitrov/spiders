@@ -34,7 +34,8 @@ class SpeciesController extends Controller
             $species = Species::with(
                 'records.locality.country',
                 'records.paper.authors', 
-                'genus'
+                'genus',
+                'images'
             )->find($request->species);
         }
                 
@@ -62,7 +63,6 @@ class SpeciesController extends Controller
             
             $localities[$record->locality->country->name]['locality_id'] = $record->locality->id;
             $localities[$record->locality->country->name]['locality_details'][$record->locality->name][] = [
-                //'name' => $record->locality->name,
                 'notes' => $record->comments,
                 'date' => $record->collected_at ? $record->collected_at->format('d-m-Y') : null,
                 'leg' => $record->collected_by,

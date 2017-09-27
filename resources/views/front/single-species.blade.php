@@ -70,7 +70,21 @@
     </div>
     <div class="col-md-6">
     	<div id="map" style="width: 500px; height: 400px;"></div>
-    </div>  
+    </div>
+
+    <div class=" row images">
+    <h4>Images:</h4>
+    @if(count($species->images))
+    	@foreach($species->images as $image)
+    	<div style="width: 160px; display: inline-block;">
+    		<img src="/storage/species/{{ $image->name  }}" width="150">
+    		<p style="text-align: center;">{{$image->description}}</p>
+    	</div>		
+    	@endforeach
+	@else
+	<p>No images available yet.</p>
+	@endif
+    </div> 
 </div>
    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA41cF0sttrkX2sC2iwpBp5cyr6aFAIKJM&callback=initMap"
   type="text/javascript"></script>
