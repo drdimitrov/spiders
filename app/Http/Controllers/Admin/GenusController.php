@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Family;
 use App\Genus;
+use App\Services\WscService;
 
 class GenusController extends Controller
 {
@@ -24,20 +25,25 @@ class GenusController extends Controller
     	return view('admin.genus.create', ['families' => Family::all()]);
     }
 
-    public function save(Request $request){
+    public function save(Request $request, WscService $wsc){
 
-    	$this->validate($request, [
-	        'name' => 'required|unique:genera|alpha',
-	        'author' => 'required',
-	        'family' => 'required|integer',
-	    ]);
+//    	$this->validate($request, [
+//	        'name' => 'required|unique:genera|alpha',
+//	        'author' => 'required',
+//	        'family' => 'required|integer',
+//	    ]);
 
-	    $genus = Genus::create([
-	    	'name' => $request->name,
-	    	'slug' => strtolower($request->name),
-	    	'author' => $request->author,
-	    	'family_id' => $request->family,
-    	]);
+        $this->validate($request, ['wsc_lsid' => 'required']);
+
+//	    $genus = Genus::create([
+//	    	'name' => $request->name,
+//	    	'slug' => strtolower($request->name),
+//	    	'author' => $request->author,
+//	    	'family_id' => $request->family,
+//    	]);
+
+        $genus = $wsc->fetchGenus($request->wsc_lsid);
+        dd($genus);
 
     	if($genus->save()){
     		return redirect(route('admin.genus.create'))->withMsg('Genus has been created successfully.');
