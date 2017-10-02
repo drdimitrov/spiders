@@ -16,7 +16,7 @@
 					<ul class="list-group">
                     @foreach($genera as $genus)
 						<li class="list-group-item">
-                            {{ $genus->name }}
+                            {{ $genus->name }} @if($genus->wsc_lsid) | {{ $genus->wsc_lsid }} @endif
                             <a href="{{ route('admin.genus.edit', $genus->id) }}">
                                 <span class="glyphicon glyphicon-pencil pull-right"></span>
                             </a>
