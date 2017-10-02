@@ -22,13 +22,17 @@
        
         <form method="POST" action="{{ route('admin.family.create') }}">
             
-        	<div class="form-group">            
-	            <input type="text" name="name" class="form-control" placeholder="Name">				              
-	        </div>
-	        
-	        <div class="form-group">            
-	            <input type="text" name="author" class="form-control" placeholder="Author">				              
-	        </div>
+        	{{--<div class="form-group">            --}}
+	            {{--<input type="text" name="name" class="form-control" placeholder="Name">				              --}}
+	        {{--</div>--}}
+	        {{----}}
+	        {{--<div class="form-group">            --}}
+	            {{--<input type="text" name="author" class="form-control" placeholder="Author">				              --}}
+	        {{--</div>--}}
+
+            <div class="form-group">
+                <input type="text" name="wsc_lsid" class="form-control" placeholder="WSC lsId">
+            </div>
 
 	        <div class="form-group">
 	            <button type="submit" class="btn btn-primary">Save Family</button>

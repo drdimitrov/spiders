@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Family;
+use App\Services\WscService;
 
 class FamilyController extends Controller
 {
@@ -22,14 +23,31 @@ class FamilyController extends Controller
     	return view('admin.family.create');
     }
 
-    public function save(Request $request){
+    public function save(Request $request, WscService $wsc){
 
-    	$this->validate($request, [
-	        'name' => 'required|unique:families|alpha',
-	        'author' => 'required',
-	    ]);
+//    	$this->validate($request, [
+//	        'name' => 'required|unique:families|alpha',
+//	        'author' => 'required',
+//	    ]);
 
-	    $family = Family::create([
+        $this->validate($request, ['wsc_lsid' => 'required']);
+
+        $family = $wsc->fetchFamily($request->wsc_lsid);
+
+        if($family->taxon->status != 'VALID'){
+
+            // Fetch the valid one
+            return back()->with('msg-err', 'The family is not valid.');
+        }
+
+        $existingFamily = Family::where('wsc_lsid', str_replace('urn:lsid:nmbe.ch:spiderfam:', '', $family->taxon->lsid))->first();
+
+        if($existingFamily){
+            return back()->with('msg-err', 'The family already exists.');
+        }
+
+        dd($family);
+        $family = Family::create([
 	    	'name' => $request->name,
 	    	'order_id' => 2,
 	    	'slug' => strtolower($request->name),
