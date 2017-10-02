@@ -43,6 +43,10 @@
                 <input type="text" name="wsc_lsid" class="form-control" placeholder="WSC lsId">
             </div>
 
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Save Genus</button>
+            </div>
+
             {{ csrf_field() }}
         </form>
     </div>

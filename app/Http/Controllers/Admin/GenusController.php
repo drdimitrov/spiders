@@ -43,7 +43,28 @@ class GenusController extends Controller
 //    	]);
 
         $genus = $wsc->fetchGenus($request->wsc_lsid);
-        dd($genus);
+
+        if($genus->taxon->status != 'VALID'){
+
+            // Fetch the valid one
+            return back()->with('msg-err', 'The species is not valid.');
+        }
+
+        $existingGenus = Genus::where('wsc_lsid', str_replace('urn:lsid:nmbe.ch:spidergen:', '', $genus->taxon->lsid))->first();
+
+        if($existingGenus){
+            return back()->with('msg-err', 'The genus already exists.');
+        }
+
+        $family = Family::where('name', $genus->taxon->family)->first();
+
+        $genus = Genus::create([
+	    	'name' => $genus->taxon->genus,
+	    	'slug' => strtolower($genus->taxon->genus),
+	    	'author' => $genus->taxon->author,
+	    	'family_id' => $family->id,
+            'wsc_lsid' => $request->wsc_lsid
+    	]);
 
     	if($genus->save()){
     		return redirect(route('admin.genus.create'))->withMsg('Genus has been created successfully.');
