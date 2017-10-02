@@ -33,7 +33,7 @@ class FamilyController extends Controller
         $this->validate($request, ['wsc_lsid' => 'required']);
 
         $family = $wsc->fetchFamily($request->wsc_lsid);
-
+dd($family);
         if($family->taxon->status != 'VALID'){
 
             // Fetch the valid one
@@ -52,7 +52,7 @@ class FamilyController extends Controller
 	    	'order_id' => 2,
 	    	'slug' => strtolower($family->taxon->family),
 	    	'author' => $family->taxon->author,
-	    	'wsc_id' => $family->taxon->lsid,
+	    	'wsc_id' => $request->wsc_lsid,
     	]);
 
     	if($family->save()){
