@@ -14,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(UrlGenerator $url)
     {
-        if(\App::environment('production')){
+        if(env('FORCE_HTTPS') === true){
             $url->forceScheme('https');
         }
     }
