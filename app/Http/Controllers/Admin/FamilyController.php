@@ -46,12 +46,13 @@ class FamilyController extends Controller
             return back()->with('msg-err', 'The family already exists.');
         }
 
-        dd($family);
+
         $family = Family::create([
-	    	'name' => $request->name,
+	    	'name' => $family->taxon->family,
 	    	'order_id' => 2,
-	    	'slug' => strtolower($request->name),
-	    	'author' => $request->author,
+	    	'slug' => strtolower($family->taxon->family),
+	    	'author' => $family->taxon->author,
+	    	'wsc_id' => $family->taxon->lsid,
     	]);
 
     	if($family->save()){
