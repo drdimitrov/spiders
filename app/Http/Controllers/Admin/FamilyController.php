@@ -52,7 +52,7 @@ dd($family);
 	    	'order_id' => 2,
 	    	'slug' => strtolower($family->taxon->family),
 	    	'author' => $family->taxon->author,
-	    	'wsc_id' => $request->wsc_lsid,
+	    	'wsc_lsid' => $request->wsc_lsid,
     	]);
 
     	if($family->save()){
