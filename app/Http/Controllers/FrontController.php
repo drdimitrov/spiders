@@ -21,4 +21,8 @@ class FrontController extends Controller
 
     	return redirect(route('contact'))->withMsg('Thank you for contacting us. We will get back to you as soon as possible.');
     }
+
+    public function guide(){
+        return view('front.guide');
+    }
 }
