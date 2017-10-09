@@ -52,7 +52,7 @@ class FamilyController extends Controller
 	    	'order_id' => 2,
 	    	'slug' => strtolower($family->taxon->family),
 	    	'author' => $family->taxon->author,
-	    	'wsc_id' => $family->taxon->lsid,
+	    	'wsc_lsid' => $request->wsc_lsid,
     	]);
 
     	if($family->save()){

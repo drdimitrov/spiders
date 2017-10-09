@@ -68,6 +68,10 @@ class SpeciesController extends Controller
         }
 
         $genus = Genus::where('name', $species->taxon->genus)->first();
+
+        if(!$genus){
+            return back()->with('msg-err', 'The genus doesn\'t exist.');
+        }
        
         $newSpecies = Species::create([
             'name' => $species->taxon->species,

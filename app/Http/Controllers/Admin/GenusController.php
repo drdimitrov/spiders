@@ -58,6 +58,10 @@ class GenusController extends Controller
 
         $family = Family::where('name', $genus->taxon->family)->first();
 
+        if(!$family){
+            return back()->with('msg-err', 'The family doesn\'t exist.');
+        }
+
         $genus = Genus::create([
 	    	'name' => $genus->taxon->genus,
 	    	'slug' => strtolower($genus->taxon->genus),
