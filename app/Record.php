@@ -16,12 +16,15 @@ class Record extends Model
 	    'comments',
 	    'males',
 	    'females',
+	    'juveniles',
 	    'juvenile_males',
 	    'juvenile_females',
 	    'collected_by',
 	    'collected_at',
 	    'paper_id',
 	    'recorded_as',
+        'page',
+        'altitude',
     ];
 
     public function locality(){

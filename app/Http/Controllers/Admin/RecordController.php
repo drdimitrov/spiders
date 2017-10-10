@@ -34,12 +34,15 @@ class RecordController extends Controller
             'comments' => $request->notes,
             'males' => $request->males,
             'females' => $request->females,
+            'juveniles' => $request->juveniles,
             'juvenile_males' => $request->males_juv,
             'juvenile_females' => $request->females_juv,
             'collected_by' => $request->collected_by,
             'collected_at' => $request->has('datepicker') ?\Carbon\Carbon::createFromFormat('d-m-Y', $request->datepicker) : null,
             'paper_id' => $request->sel1,
             'recorded_as' => $request->recorded_as,
+            'page' => $request->page,
+            'altitude' => $request->altitude
         ]);
 
         if($record->save()){
@@ -66,11 +69,14 @@ class RecordController extends Controller
         $record->comments = $request->notes;
         $record->males = $request->males;
         $record->females = $request->females;
+        $record->juveniles = $request->juveniles;
         $record->juvenile_males = $request->males_juv;
         $record->juvenile_females = $request->females_juv;
         $record->collected_by = $request->collected_by;
         $record->collected_at = $request->has('datepicker') ?\Carbon\Carbon::createFromFormat('d-m-Y', $request->datepicker) : null;
         $record->paper_id = $request->sel1;
+        $record->page = $request->page;
+        $record->altitude = $request->altitude;
         //$record->collection_id = null
 
         if($record->save()){

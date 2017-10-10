@@ -28,7 +28,11 @@
                 <species-select></species-select>                       
             </div>
 
-            <paper-select></paper-select>
+            <paper-select style="width: 85%; display: inline-block;"></paper-select>
+
+            <div class="form-group" style="width: 10%; display: inline-block; margin-left: 10px;">
+                <input type="text" name="page" class="form-control" placeholder="page">
+            </div>
 
             <div class="form-group">
                 <label for="recorded_as">Recorded as:</label>            
@@ -41,20 +45,22 @@
             </div>
 
             <div class="form-group">
+                <label for="altitude">Altitude:</label>
+                <input type="text" name="altitude" class="form-control" >
+            </div>
+
+            <div class="form-group">
                 <label for="notes">Notes:</label>
                 <textarea name="notes" class="form-control" rows="5" id="notes"></textarea>
             </div>
 
             <div class="form-group" id="inps">
-                <label>Specimens:</label>            
+                <label>Number of pecimens:</label>
                 <input type="text" name="males" class="form-control" placeholder="males" style="display: inline; width: 120px;">
                 <input type="text" name="females" class="form-control" placeholder="females" style="display: inline; width: 120px;">                      
-                <input type="text" name="males_juv" class="form-control" placeholder="juv. males" style="display: inline; width: 120px;">                      
-                <input type="text" name="females_juv" class="form-control" placeholder="juv. females" style="display: inline; width: 120px;">                     
-            </div>
-
-            <div class="form-group">      
-                <input type="text" name="collected_by" class="form-control" placeholder="collected by">                     
+                <input type="text" name="juveniles" class="form-control" placeholder="juveniles &#9794;,&#9792;" style="display: inline; width: 120px;">
+                <input type="text" name="males_juv" class="form-control" placeholder="juv. &#9794;" style="display: inline; width: 120px;">
+                <input type="text" name="females_juv" class="form-control" placeholder="juv. &#9792;" style="display: inline; width: 120px;">
             </div>
 
             <div class="input-group">
