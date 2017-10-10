@@ -52,6 +52,7 @@
 				@if(isset($loc['notes'])) {{ $loc['notes'] }}, @endif
 				@if(isset($loc['males'])) {{ $loc['males'] }} &#9794;,  @endif
 				@if(isset($loc['females'])) {{ $loc['females'] }} &#9792;,  @endif
+				@if(isset($loc['juveniles'])) {{ $loc['juveniles'] }} juv.,  @endif
 				@if(isset($loc['juvenile_males'])) {{ $loc['juvenile_males'] }} juv. &#9794;,  @endif
 				@if(isset($loc['juvenile_females'])) {{ $loc['juvenile_females'] }} juv. &#9792;,  @endif
 				@if(isset($loc['date'])) {{ $loc['date'] }}, @endif

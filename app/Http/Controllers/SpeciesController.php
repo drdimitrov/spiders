@@ -68,12 +68,14 @@ class SpeciesController extends Controller
                 'leg' => $record->collected_by,
                 'males' => $record->males,
                 'females' => $record->females,
+                'juveniles' => $record->juveniles,
                 'juvenile_males' => $record->juvenile_males,
                 'juvenile_females' => $record->juvenile_females,
                 'published' => $auth . ' ' . $record->paper->published_at->format('Y'),
                 'year_of_publishing' => $record->paper->published_at->format('Y'),
                 'slug' => $record->paper->slug,
                 'recorded' => $record->recorded_as,
+                'page' => $record->page,
                 'coordinates' => ($record->locality->latitude && $record->locality->longitude) ? [
                     $record->locality->latitude, 
                     $record->locality->longitude,
@@ -93,7 +95,7 @@ class SpeciesController extends Controller
         foreach($localities as $loc){
             foreach($loc['locality_details'] as $lk){
                 foreach($lk as $l){
-                    $references[$l['year_of_publishing']][$l['slug']][$l['published']] = $l['recorded'];
+                    $references[$l['year_of_publishing']][$l['slug']][$l['published'] . ', p.' . $l['page']] = $l['recorded'] ;
                     
                 }
                 
