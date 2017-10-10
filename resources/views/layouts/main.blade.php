@@ -113,7 +113,7 @@
       </footer>
 
       <script src="{{ asset('js/app.js') }}"></script>
-    <!-- <script src="{{ asset('js/maps.js') }}"></script> -->
+      {{--<script src="{{ asset('js/maps.js') }}"></script>--}}
       <script>        
         (function () {
           'use strict';
@@ -179,6 +179,9 @@
           offsetTop = offset.top;
           $('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
       }
+
+      //Image dialog
+        $('.sp_img').dialog();
 
       </script>
 

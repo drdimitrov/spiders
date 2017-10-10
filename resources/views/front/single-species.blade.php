@@ -88,7 +88,7 @@
     <h4>Images:</h4>
     @if(count($species->images))
     	@foreach($species->images as $image)
-    	<div style="width: 160px; display: inline-block;">
+    	<div style="width: 160px; display: inline-block;" class="sp_img" title="{{ $species->genus->name }} {{ $species->name }}">
     		<img src="/storage/species/{{ $image->name  }}" width="150">
     		<p style="text-align: center;">{{$image->description}}</p>
     	</div>		
