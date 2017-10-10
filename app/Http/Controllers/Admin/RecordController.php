@@ -41,8 +41,8 @@ class RecordController extends Controller
             'collected_at' => $request->has('datepicker') ?\Carbon\Carbon::createFromFormat('d-m-Y', $request->datepicker) : null,
             'paper_id' => $request->sel1,
             'recorded_as' => $request->recorded_as,
-            'page' => $request->page,
-            'altitude' => $request->altitude
+            'page' => (int) $request->page,
+            'altitude' => (int) $request->altitude
         ]);
 
         if($record->save()){
@@ -75,8 +75,8 @@ class RecordController extends Controller
         $record->collected_by = $request->collected_by;
         $record->collected_at = $request->has('datepicker') ?\Carbon\Carbon::createFromFormat('d-m-Y', $request->datepicker) : null;
         $record->paper_id = $request->sel1;
-        $record->page = $request->page;
-        $record->altitude = $request->altitude;
+        $record->page = (int) $request->page;
+        $record->altitude = (int) $request->altitude;
         //$record->collection_id = null
 
         if($record->save()){

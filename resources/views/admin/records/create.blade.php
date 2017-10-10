@@ -45,7 +45,7 @@
             </div>
 
             <div class="form-group">
-                <label for="altitude">Altitude:</label>
+                <label for="altitude">Altitude (m):</label>
                 <input type="text" name="altitude" class="form-control" >
             </div>
 
