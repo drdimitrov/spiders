@@ -71,8 +71,15 @@
     <div class="col-md-6">
     	<div id="map" style="width: 500px; height: 400px;"></div>
 		<div class="gdist">
-			<h4 style="display: inline-block">General distribution:</h4>
-			Bulgaria, Turkey
+			@if($species->gdist)
+				<h4 style="display: inline-block">General distribution:</h4>
+				{{$species->gdist}}
+			@else
+				@if($species->gdist_wsc)
+					<h4 style="display: inline-block">General distribution (WSC):</h4>
+					{{$species->gdist_wsc}}
+				@endif
+			@endif
 		</div>
     </div>
 

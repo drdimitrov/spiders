@@ -34,6 +34,11 @@
                     <label for="wsc_lsid">WSC lsid:</label>   
                     <input type="text" name="wsc_lsid" class="form-control" value="{{ $species->wsc_lsid }}">
                 </div>
+
+                <div class="form-group">
+                    <label for="gdist">General distribution:</label>
+                    <input type="text" name="gdist" class="form-control" value="{{ $species->gdist }}">
+                </div>
                 
                 <div class="form-group">
                     <label for="genus_id">Genus:</label>

@@ -105,6 +105,7 @@ class SpeciesController extends Controller
         $species->slug = trim($request->slug);       
         $species->genus_id = (int) $request->genus_id;
         $species->wsc_lsid = trim($request->wsc_lsid);
+        $species->gdist = trim($request->gdist);
 
         if($species->save()){
             return redirect(route('admin.species'));
