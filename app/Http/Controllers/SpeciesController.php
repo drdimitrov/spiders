@@ -95,7 +95,8 @@ class SpeciesController extends Controller
         foreach($localities as $loc){
             foreach($loc['locality_details'] as $lk){
                 foreach($lk as $l){
-                    $references[$l['year_of_publishing']][$l['slug']][$l['published'] . ', p.' . $l['page']] = $l['recorded'] ;
+                    $page = isset($l['page']) ? ', p.' . $l['page'] : '';
+                    $references[$l['year_of_publishing']][$l['slug']][$l['published'] . $page] = $l['recorded'] ;
                     
                 }
                 
