@@ -145,12 +145,13 @@
          
                 if ($(window).scrollTop() > 100) {
                     $('.scroll-top-wrapper').addClass('show');
-             $('#codeprefheader').css('position','fixed').css('top','0px');
+                    $('#codeprefheader').css('position','fixed').css('top','0px');
                 } else {
                     $('.scroll-top-wrapper').removeClass('show');
-             $('#codeprefheader').css('position','relative');
+                    $('#codeprefheader').css('position','relative');
                 }
             });
+
             $('.fancyimg').fancybox({
             openEffect  : 'none',
             closeEffect : 'none',
@@ -160,15 +161,15 @@
         });
         
         $(function(){
-          $('.scroll-top-wrapper').on('click', scrollToTop);
+            $('.scroll-top-wrapper').on('click', scrollToTop);
 
-          var x = parseInt($('.wrapper').first().css('padding-top')) - 15;
+            var x = parseInt($('.wrapper').first().css('padding-top')) - 15;
 
-          $('a.button.big.scrolly').scrolly({
-          bgParallax: true,
-          speed: 1000,
-          offset: x
-          });
+            $('a.button.big.scrolly').scrolly({
+            bgParallax: true,
+            speed: 1000,
+            offset: x
+            });
 
         });
        
