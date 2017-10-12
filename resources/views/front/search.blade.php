@@ -21,7 +21,7 @@
 
       <form action="{{ route('taxon.search') }}" method="POST" style="position: relative;">
           <species-select style="display: inline-block;"></species-select>
-          <button type="submit" class="btn btn-custom" style="position: absolute; margin-left: 5px;">Search</button>
+          <button type="submit" class="btn btn-custom" style="position: absolute; margin-left: 4px;">Search</button>
           {{ csrf_field() }}
       </form>      
        

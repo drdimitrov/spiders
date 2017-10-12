@@ -16,8 +16,14 @@ class SpeciesController extends Controller
         $this->middleware('isAllowed');
     }
 
-    public function index(){
-        $species = Species::with('genus')->orderBy('name')->paginate(100);
+    public function index(Request $r){
+        $species = Species::with('genus');
+
+        if($r->species_id){
+            $species = $species->where('id', $r->species_id);
+        }
+
+        $species= $species->orderBy('name')->paginate(100);
 
         return view('admin.species.index', compact('species'));
     }
