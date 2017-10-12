@@ -11,7 +11,7 @@ use App\Locality;
 class RecordController extends Controller
 {
     public function index(Request $r){
-    	$records = Record::with('locality', 'species.genus', 'paper');
+    	$records = Record::with('locality', 'species.genus', 'paper.authors');
 
         if($r->species_id){
             $records = $records->where('species_id', $r->species_id);
