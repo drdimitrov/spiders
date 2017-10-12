@@ -10,8 +10,14 @@ use App\Locality;
 
 class RecordController extends Controller
 {
-    public function index(){
-    	$records = Record::with('locality', 'species.genus', 'paper')->paginate(100);
+    public function index(Request $r){
+    	$records = Record::with('locality', 'species.genus', 'paper');
+
+        if($r->species_id){
+            $records = $records->where('species_id', $r->species_id);
+        }
+
+        $records = $records->paginate(100);
     	return view('admin.records.index', compact('records'));
     }
 

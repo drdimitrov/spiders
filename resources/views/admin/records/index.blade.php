@@ -12,6 +12,12 @@
                 <div class="panel-body">
                                       
                     <h3>List of records:</h3>
+
+                    <form action="" class="form-inline" method="get">
+                        <species-select style="display: inline-block;"></species-select>
+                        <input type="submit" value="Select" class="btn btn-primary" style="display: inline-block; position: absolute;">
+                        <a href="/admin/records" class="btn btn-success pull-right" style="display: inline-block;"> All records</a>
+                    </form>
 					
 					<ul class="list-group">
                     @foreach($records as $record)
@@ -24,7 +30,7 @@
                     @endforeach
                     </ul>
 
-                    {{ $records->links() }}
+                    {{ $records->appends(['species_id' => Request::get('species_id')])->links() }}
                 </div
             </div>
 
