@@ -31,7 +31,7 @@
 					</td>
 					<td>{{ $paper->published_at->format('Y') }}</td>
 					<td>{{ $paper->name }}</td>
-					<td>{{ $paper->journal }} <br><a href="/literature/taxa/{{$paper->slug}}">Show included taxa</a></td>
+					<td>{{ $paper->journal }} <br><a href="/literature/taxa/{{$paper->slug}}">Included species</a></td>
 				</tr>			
 			</table>
 		</div>
