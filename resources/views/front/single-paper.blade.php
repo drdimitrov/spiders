@@ -13,7 +13,7 @@
 		<div class="col-md-12">
 			<table class="table table-bordered">
 				<tr>
-					<td>
+					<td class="col-md-2">
 					@if(count($paper->authors) > 1)
 						@foreach($paper->authors as $ka => $author)						
 							@if($loop->first)
@@ -31,7 +31,7 @@
 					</td>
 					<td>{{ $paper->published_at->format('Y') }}</td>
 					<td>{{ $paper->name }}</td>
-					<td>{{ $paper->journal }}</td>
+					<td>{{ $paper->journal }} <br><a href="/literature/taxa/{{$paper->slug}}">Show included taxa</a></td>
 				</tr>			
 			</table>
 		</div>

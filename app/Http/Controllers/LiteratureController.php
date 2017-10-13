@@ -58,4 +58,9 @@ class LiteratureController extends Controller
     public function show(Paper $paper){
     	return view('front.single-paper', compact('paper'));
     }
+
+    public function taxa($paper){
+        $paper = Paper::with('taxa.genus')->where('slug', $paper)->first();
+        return view('front.paper-taxa', compact('paper'));
+    }
 }

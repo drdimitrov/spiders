@@ -29,6 +29,7 @@ Route::get('/species/show/{genus}', 'SpeciesController@showGenusSpecies')->name(
 Route::get('/species/{species}/{region?}', 'SpeciesController@show')->name('species');
 
 Route::get('/literature', 'LiteratureController@index')->name('literature');
+Route::get('/literature/taxa/{paper}', 'LiteratureController@taxa')->name('literature.single.taxa');
 Route::get('/literature/{paper}', 'LiteratureController@show')->name('literature.single');
 
 Route::get('/taxon/search', 'SearchController@index')->name('taxon.search');
