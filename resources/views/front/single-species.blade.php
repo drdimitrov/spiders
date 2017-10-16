@@ -42,12 +42,12 @@
 		@php($coordinates = [])
 		
 		@foreach($localities as $k => $locData) 
-		<p>
+		<span>
 		<b>{{ $k }}: </b>  
     	@foreach($locData['locality_details'] as  $localityi => $localityd) 
     		{{--dd($locData['locality_id'], $localityi, $localityd)--}}  		
 			@foreach($localityd as  $loc)
-				<a href="/statistics/species-by-locality/{{ $locData['locality_id'] }}">{{ $localityi }}</a> - 
+				<a href="/statistics/species-by-locality/{{ $locData['locality_id'] }}" style="display: inline;">{{ $localityi }}</a> -
 				
 				@if(isset($loc['notes'])) {{ $loc['notes'] }}, @endif
 				@if(isset($loc['males'])) {{ $loc['males'] }} &#9794;,  @endif
@@ -57,14 +57,14 @@
 				@if(isset($loc['juvenile_females'])) {{ $loc['juvenile_females'] }} juv. &#9792;,  @endif
 				@if(isset($loc['date'])) {{ $loc['date'] }}, @endif
 				@if(isset($loc['leg'])) {{ $loc['leg'] }} leg., @endif 
-				(<a href="/literature/{{ $loc['slug'] }}" target="_blank">{{ $loc['published'] }}</a>);
+				(<a href="/literature/{{ $loc['slug'] }}" target="_blank" style="display: inline;">{{ $loc['published'] }}</a>);
 					@if(isset($loc['coordinates']))
 						@php($coordinates[] = $loc['coordinates'])
 					@endif
 				
 			@endforeach
 			
-			</p>
+			</span>
     	@endforeach
     	@endforeach
 
