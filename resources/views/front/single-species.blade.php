@@ -70,7 +70,7 @@
 
     </div>
     <div class="col-md-6">
-    	<div id="map" style="width: 500px; height: 400px;"></div>
+    	<div id="map" style="width: 100%; height: 400px;"></div>
 		<div class="gdist">
 			@if($species->gdist)
 				<h4 style="display: inline-block">General distribution:</h4>
