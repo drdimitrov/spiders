@@ -47,8 +47,9 @@
     	@foreach($locData['locality_details'] as  $localityi => $localityd) 
     		{{--dd($locData['locality_id'], $localityi, $localityd)--}}  		
 			@foreach($localityd as  $loc)
-				<a href="/statistics/species-by-locality/{{ $locData['locality_id'] }}" style="display: inline;">{{ $localityi }}</a> -
-				
+				{{--To repair the link--}}
+				{{--<a href="/statistics/species-by-locality/{{ $locData['locality_id'] }}" style="display: inline;">{{ $localityi }}</a> ---}}
+					{{ $localityi }} -
 				@if(isset($loc['notes'])) {{ $loc['notes'] }}, @endif
 				@if(isset($loc['males'])) {{ $loc['males'] }} &#9794;,  @endif
 				@if(isset($loc['females'])) {{ $loc['females'] }} &#9792;,  @endif

@@ -61,7 +61,9 @@ class SpeciesController extends Controller
                 }
             }
             
-            $localities[$record->locality->country->name]['locality_id'] = $record->locality->id;
+            //$localities[$record->locality->country->name]['locality_id'] = $record->locality->id;
+            //To rewrite the logic to include the locality_id above
+            
             $localities[$record->locality->country->name]['locality_details'][$record->locality->name][] = [
                 'notes' => $record->comments,
                 'date' => $record->collected_at ? $record->collected_at->format('d-m-Y') : null,
@@ -104,7 +106,7 @@ class SpeciesController extends Controller
         }
 
         ksort($references);
-    	
+
         return view('front.single-species', compact('species', 'localities', 'references'));
     }
 }
