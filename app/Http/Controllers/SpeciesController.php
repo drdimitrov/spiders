@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Admin\PapersController;
 use Illuminate\Http\Request;
 use App\Genus;
 use App\Species;
+use App\Paper;
 
 class SpeciesController extends Controller
 {
@@ -21,8 +23,9 @@ class SpeciesController extends Controller
     public function show(Request $request){
 
         if($request->has('region')){
+            //To rewrite this
             $species = Species::with([
-                    'records.locality' => function($q){
+                    'records.locality' => function($q) use($request){
                         $q->where('locality.region_id', $request->region);
                     }
                 ],
@@ -31,77 +34,63 @@ class SpeciesController extends Controller
                 'genus'
             )->find($request->species);
         }else{
-            $species = Species::with(
-                'records.locality.country',
-                'records.paper.authors',
-                'genus',
-                'images'
-            )->find($request->species);
+            $species = Species::with('localities.country')->find($request->species);
         }
-                
+
+        if(! $species){ return redirect('/'); }
+
         $localities = [];
+        $papers_ids = [];
 
-        foreach($species->records as $record){
-            $auth = '';
+        foreach($species->localities as $sl){
+            $papers_ids[] = $sl->pivot->paper_id;
+        }
 
-            if(count($record->paper->authors) > 1){
-                $authCnt = 1;
-                foreach($record->paper->authors as $author){
-                    if($authCnt < count($record->paper->authors)){
-                        $auth .= ' '.$author->last_name . ' &';
-                    }else{
-                        $auth .= ' '.$author->last_name;
-                    }
-                    
-                    $authCnt+=1;               
-                }
-            }else{
-                foreach($record->paper->authors as $author){
-                    $auth .= ' '.$author->last_name;                
-                }
-            }
-            
-            //$localities[$record->locality->country->name]['locality_id'] = $record->locality->id;
-            //To rewrite the logic to include the locality_id above
+        $papers = Paper::with('authors')->orderBy('published_at')->find($papers_ids);
 
-            $localities[$record->locality->country->name]['locality_details'][$record->locality->name][] = [
-                'notes' => $record->comments,
-                'date' => $record->collected_at ? $record->collected_at->format('d-m-Y') : null,
-                'leg' => $record->collected_by,
-                'males' => $record->males,
-                'females' => $record->females,
-                'juveniles' => $record->juveniles,
-                'juvenile_males' => $record->juvenile_males,
-                'juvenile_females' => $record->juvenile_females,
-                'published' => $auth . ' ' . $record->paper->published_at->format('Y'),
-                'year_of_publishing' => $record->paper->published_at->format('Y'),
-                'slug' => $record->paper->slug,
-                'recorded' => $record->recorded_as,
-                'page' => $record->page,
-                'coordinates' => ($record->locality->latitude && $record->locality->longitude) ? [
-                    $record->locality->latitude, 
-                    $record->locality->longitude,
-                    $record->locality->name,
+        foreach($species->localities as $locality){
+            $localities[$locality->country->name][$locality->id]['locality_name'] = $locality->name;
+            $localities[$locality->country->name][$locality->id]['records'][] = [
+                'notes' => $locality->pivot->comments,
+                'date' => $locality->pivot->collected_at ? \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $locality->pivot->collected_at)->format('d-m-Y') : null,
+                'leg' => $locality->pivot->collected_by,
+                'males' => $locality->pivot->males,
+                'females' => $locality->pivot->females,
+                'juveniles' => $locality->pivot->juveniles,
+                'juvenile_males' => $locality->pivot->juvenile_males,
+                'juvenile_females' => $locality->pivot->juvenile_females,
+                'paper' => $papers->filter(function($v, $k) use($locality){
+                    return $v->id == $locality->pivot->paper_id;
+                }),
+                'recorded' => $locality->pivot->recorded_as,
+                'page' => $locality->pivot->page,
+                'coordinates' => ($locality->latitude && $locality->longitude) ? [
+                    $locality->latitude,
+                    $locality->longitude,
+                    $locality->name,
                 ] : null,
             ];
-            
         }
 
         ksort($localities);
 
-        if(! $species){
-            return redirect('/');
-        }
-
         $references = [];
-        foreach($localities as $loc){
-            foreach($loc['locality_details'] as $lk){
-                foreach($lk as $l){
-                    $page = isset($l['page']) ? ', p.' . $l['page'] : '';
-                    $references[$l['year_of_publishing']][$l['slug']][$l['published'] . $page] = $l['recorded'] ;
-                    
+        foreach($localities as $countries){
+            foreach($countries as $locality1){
+                foreach($locality1['records'] as $record){
+
+                    if(count($record['paper']->first()->authors) > 2){
+                        $authors = $record['paper']->first()->authors->first()->last_name . ' et al.';
+                    }elseif(count($record['paper']->first()->authors) == 2){
+                        $authors = $record['paper']->first()->authors->first()->last_name . ' & ' . $record['paper']->first()->authors->last()->last_name;
+                    }else{
+                        $authors = $record['paper']->first()->authors->first()->last_name;
+                    }
+
+                    $references[$record['paper']->first()->published_at->format('Y')][$authors]['page']= $record['page'];
+                    $references[$record['paper']->first()->published_at->format('Y')][$authors]['as']= $record['recorded'];
+                    $references[$record['paper']->first()->published_at->format('Y')][$authors]['slug']= $record['paper']->first()->slug;
                 }
-                
             }
         }
 

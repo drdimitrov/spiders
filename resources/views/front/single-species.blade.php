@@ -23,16 +23,19 @@
 	</div>
 
     <div class="col-md-6">
-    	
 
 		<!-- References -->
 		<h4>Faunistic references:</h4>
-		@foreach($references as $rfr)
-		@foreach($rfr as $rfrKey => $rf)
-			@foreach($rf as $refk => $reference)
-			<p><i>{{$reference}}</i> <b><a href="/literature/{{$rfrKey}}">{{$refk}}</a></b></p>
+		@foreach($references as $kref => $ref)
+			@foreach($ref as $kr => $r)
+					<p><i>{{$r['as']}}</i>
+						<b>
+							<a href="/literature/{{$r['slug']}}">
+								{{ $kr }} {{ $kref }}@if(isset($r['page'])), p. {{ $r['page'] }}@endif
+							</a>
+						</b>
+					</p>
 			@endforeach
-		@endforeach
 		@endforeach
 		<hr>
 		<!-- End of references -->
@@ -40,33 +43,40 @@
     	<div></div>
     	<h4>Localities:</h4>
 		@php($coordinates = [])
-		
-		@foreach($localities as $k => $locData) 
+
+		@foreach($localities as $k => $locs)
 		<span>
-		<b>{{ $k }}: </b>  
-    	@foreach($locData['locality_details'] as  $localityi => $localityd) 
-    		{{--dd($locData['locality_id'], $localityi, $localityd)--}}  		
-			@foreach($localityd as  $loc)
-				{{--To repair the link--}}
-				{{--<a href="/statistics/species-by-locality/{{ $locData['locality_id'] }}" style="display: inline;">{{ $localityi }}</a> ---}}
-					{{ $localityi }} -
-				@if(isset($loc['notes'])) {{ $loc['notes'] }}, @endif
-				@if(isset($loc['males'])) {{ $loc['males'] }} &#9794;,  @endif
-				@if(isset($loc['females'])) {{ $loc['females'] }} &#9792;,  @endif
-				@if(isset($loc['juveniles'])) {{ $loc['juveniles'] }} juv.,  @endif
-				@if(isset($loc['juvenile_males'])) {{ $loc['juvenile_males'] }} juv. &#9794;,  @endif
-				@if(isset($loc['juvenile_females'])) {{ $loc['juvenile_females'] }} juv. &#9792;,  @endif
-				@if(isset($loc['date'])) {{ $loc['date'] }}, @endif
-				@if(isset($loc['leg'])) {{ $loc['leg'] }} leg., @endif 
-				(<a href="/literature/{{ $loc['slug'] }}" target="_blank" style="display: inline;">{{ $loc['published'] }}</a>);
-					@if(isset($loc['coordinates']))
-						@php($coordinates[] = $loc['coordinates'])
+		<b>{{ $k }}: </b>
+			@foreach($locs as $kloc => $loc)
+			<a href="/statistics/species-by-locality/{{ $kloc }}" style="display: inline;">{{ $loc['locality_name'] }}</a> -
+				@foreach($loc['records'] as $ll)
+					@if(isset($ll['notes'])) {{ $ll['notes'] }}, @endif
+					@if(isset($ll['males'])) {{ $ll['males'] }} &#9794;,  @endif
+					@if(isset($ll['females'])) {{ $ll['females'] }} &#9792;,  @endif
+					@if(isset($ll['juveniles'])) {{ $ll['juveniles'] }} juv.,  @endif
+					@if(isset($ll['juvenile_males'])) {{ $ll['juvenile_males'] }} juv. &#9794;,  @endif
+					@if(isset($ll['juvenile_females'])) {{ $ll['juvenile_females'] }} juv. &#9792;,  @endif
+					@if(isset($ll['date'])) {{ $ll['date'] }}, @endif
+					@if(isset($ll['leg'])) {{ $ll['leg'] }} leg., @endif
+					(<a href="/literature/{{ $ll['paper']->first()->slug }}" target="_blank" style="display: inline;">
+					@if(count($ll['paper']->first()->authors) > 2)
+						{{$ll['paper']->first()->authors->first()->last_name}} et al.
+					@elseif(count($ll['paper']->first()->authors) == 2)
+						@foreach($ll['paper']->first()->authors as $a)
+							{{ $a->last_name }} @if(!$loop->last) & @endif
+						@endforeach
+					@else
+						{{$ll['paper']->first()->authors->first()->last_name}}
 					@endif
-				
+					{{ str_limit($ll['paper']->first()->published_at, 4, '') }}
+					</a>);
+					@if(isset($ll['coordinates']))
+						@php($coordinates[] = $ll['coordinates'])
+					@endif
+				@endforeach
 			@endforeach
-			
-			</span>
-    	@endforeach
+			<br>
+		</span>
     	@endforeach
 
     </div>

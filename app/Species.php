@@ -19,4 +19,13 @@ class Species extends Model
     public function images(){
     	return $this->hasMany(Image::class);
     }
+
+    public function localities(){
+        return $this->belongsToMany(Locality::class,
+            'records', 'species_id', 'locality_id'
+        )->withPivot([
+            'recorded_as', 'comments', 'males', 'females', 'juvenile_males', 'juvenile_females',
+            'juveniles', 'page', 'altitude', 'collected_at', 'paper_id'
+        ]);
+    }
 }
