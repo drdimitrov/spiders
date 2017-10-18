@@ -58,8 +58,7 @@
 					@if(isset($ll['juvenile_females'])) {{ $ll['juvenile_females'] }} juv. &#9792;,  @endif
 					@if(isset($ll['date'])) {{ $ll['date'] }}, @endif
 					@if(isset($ll['leg'])) {{ $ll['leg'] }} leg., @endif
-					(<a href="/literature/{{ $ll['paper']->first()->slug }}" target="_blank" style="display: inline;">
-					@if(count($ll['paper']->first()->authors) > 2)
+					(@if(count($ll['paper']->first()->authors) > 2)
 						{{$ll['paper']->first()->authors->first()->last_name}} et al.
 					@elseif(count($ll['paper']->first()->authors) == 2)
 						@foreach($ll['paper']->first()->authors as $a)
@@ -68,8 +67,7 @@
 					@else
 						{{$ll['paper']->first()->authors->first()->last_name}}
 					@endif
-					{{ str_limit($ll['paper']->first()->published_at, 4, '') }}
-					</a>);
+					{{ str_limit($ll['paper']->first()->published_at, 4, '') }});
 					@if(isset($ll['coordinates']))
 						@php($coordinates[] = $ll['coordinates'])
 					@endif
