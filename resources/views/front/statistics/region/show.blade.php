@@ -30,7 +30,7 @@
             @foreach($species as $k => $s)              
                   <tr>
                       <td>{{ $cnt }}</td>
-                      <td><a href="/species/{{ $k }}">{{ $s }}</a></td>
+                      <td style="font-style: italic"><a href="/species/{{ $k }}">{{ $s }}</a></td>
                       <td><a href="/species/{{ $k }}/{{ $region->id }}" class="btn btn-custom">Show details</a></td>
                   </tr>
                   @php($cnt++)             

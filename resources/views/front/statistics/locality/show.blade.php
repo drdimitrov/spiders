@@ -26,7 +26,7 @@
               @foreach($v as $spec => $loc)
                   <tr>
                       <td>{{ $cnt }}</td>
-                      <td><a href="/species/{{ $spK }}">{{ $spec }}</a></td>
+                      <td style="font-style: italic;"><a href="/species/{{ $spK }}">{{ $spec }}</a></td>
                       <td>
                         @foreach($loc as $l)                          
                           @if(isset($l['males'])) {{ $l['males'] }}  &#9794;, @endif
