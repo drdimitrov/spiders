@@ -20,6 +20,7 @@ class GenusController extends Controller
 
     public function showFamilyGenera(Request $request){
     	$family = Family::with(['genera' => function($genus){
+            $genus->withCount('species');
             $genus->orderBy('name');
         }])->where('slug', $request->family)->first();
 

@@ -63,9 +63,18 @@ class SpeciesController extends Controller
                     $locality->name,
                 ] : null,
             ];
+
         }
 
         ksort($localities);
+
+//        foreach($localities as $lsort){
+//            foreach($lsort as $lsr){
+//                usort($lsr['records'], function($a, $b) {
+//                    return $a['paper']->first()->published_at->timestamp <=> $b['paper']->first()->published_at->timestamp;
+//                });
+//            }
+//        }
 
         $references = [];
         foreach($localities as $countries){
@@ -84,7 +93,9 @@ class SpeciesController extends Controller
                     $references[$record['paper']->first()->published_at->format('Y')][$authors]['as']= $record['recorded'];
                     $references[$record['paper']->first()->published_at->format('Y')][$authors]['slug']= $record['paper']->first()->slug;
                 }
+
             }
+
         }
 
         ksort($references);

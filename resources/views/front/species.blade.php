@@ -4,7 +4,7 @@
 @php($cnt = 1)
 <div class="container">
      <div class="page-header">
-        <h1>Species list - {{ $genus->name }}</h1>
+        <h1><i style="font-weight: bold;">{{ $genus->name }}</i> - list of species</h1>
       </div>
 
       <table class="table table-striped">
@@ -20,7 +20,7 @@
             @foreach($genus->species as $species)
                 <tr>
                     <td>{{ $cnt }}</td>
-                    <td>{{ $species->name }}</td>
+                    <td style="font-style: italic">{{ $species->name }}</td>
                     <td>{{ $species->author }}</td>                    
                     <td><a href="{{ route('species', $species->id) }}">Show details</a></td>                    
                 </tr>

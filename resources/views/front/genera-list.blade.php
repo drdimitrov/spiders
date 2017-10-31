@@ -21,7 +21,7 @@
             @foreach($genera as $genus)
                 <tr>
                     <td>{{ $cnt }}</td>
-                    <td>{{ $genus->name }}</td>
+                    <td style="font-style: italic;">{{ $genus->name }}</td>
                     <td>{{ $genus->author }}</td>
                     <td>{{ $genus->species_count }}</td>
                     <td>
