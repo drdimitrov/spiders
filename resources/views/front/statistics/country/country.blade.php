@@ -16,7 +16,8 @@
         <tr>
           <th>Nr.</th>
           <th>Locality</th>
-          <th>Action</th>            
+          <th>Species</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -24,7 +25,8 @@
               <tr>
                   <td>{{ $cnt }}</td>
                   <td>{{ $locality->name }}</td>
-                  <td>                       
+                  <td>{{ $locality->species_count }}</td>
+                  <td>
                     <a href="/statistics/species-by-locality/{{ $locality->id }}" class="btn btn-custom">Show species</a>
                   </td>
               </tr>

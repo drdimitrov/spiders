@@ -17,6 +17,7 @@ class StatisticByCountryController extends Controller
     public function country(Request $request){
 
     	$country = Country::with(['localities' => function($query){
+    		$query->withCount('species');
     		$query->orderBy('localities.name');
     	}])->find($request->country);
     	return view('front.statistics.country.country', compact('country'));
