@@ -5,18 +5,6 @@
 <div class="container">
      <div class="page-header">
         <h1>List of localities</h1>
-         <form action="#" class="form-horizontal">
-             <div class="form-group">
-                 <label for="locality_id">Select locality:</label>
-                 <locality-select></locality-select>
-             </div>
-
-             <div class="form-group">
-                 <button type="submit" class="btn btn-primary">Select locality</button>
-             </div>
-
-             {{ csrf_field() }}
-         </form>
       </div>
 
       <table class="table table-striped">
