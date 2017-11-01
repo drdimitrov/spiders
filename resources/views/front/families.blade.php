@@ -22,7 +22,7 @@
             @foreach($families as $family)
                 <tr>
                     <td>{{ $cnt }}</td>
-                    <td style="font-style: italic">{{ $family->name }}</td>
+                    <td style="font-style: italic; font-size: 1.2em; font-weight: bold;">{{ $family->name }}</td>
                     <td>{{ $family->author }}</td>
                     <td>{{ $family->genera_count }}</td>
                     <td>{{ $family->species_count }}</td>
