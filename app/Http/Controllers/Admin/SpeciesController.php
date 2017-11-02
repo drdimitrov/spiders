@@ -142,4 +142,13 @@ class SpeciesController extends Controller
 
         return back();
     }
+
+    public function delete(Species $species){
+        return view('admin.species.delete', compact('species'));
+    }
+
+    public function destroy(Request $request){
+        Species::find($request->species)->delete();
+        return redirect('/admin/species');
+    }
 }

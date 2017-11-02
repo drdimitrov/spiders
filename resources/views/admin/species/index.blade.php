@@ -22,9 +22,14 @@
                     @foreach($species as $s)
 						<li class="list-group-item">
                             {{ $s->name }} > {{ $s->genus->name }}
-                            <a href="{{ route('admin.species.edit', $s->id) }}">
-                                <span class="glyphicon glyphicon-pencil pull-right"></span>
-                            </a>
+                            <div class="pull-right">
+                                <a href="{{ route('admin.species.edit', $s->id) }}" style="margin-right: 10px;">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </a>
+                                <a href="{{ route('admin.species.delete', $s->id) }}">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </a>
+                            </div>
                         </li>
                     @endforeach
                     </ul>

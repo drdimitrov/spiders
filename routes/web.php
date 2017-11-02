@@ -94,6 +94,8 @@ Route::get('/admin/species/edit/{species}', 'Admin\SpeciesController@edit')->nam
 Route::post('/admin/species/edit', 'Admin\SpeciesController@saveSpecies');
 Route::get('/admin/species/images', 'Admin\SpeciesController@images')->name('admin.species.images');
 Route::post('/admin/species/images', 'Admin\SpeciesController@saveImage');
+Route::get('/admin/species/delete/{species}', 'Admin\SpeciesController@delete')->name('admin.species.delete');
+Route::post('/admin/species/delete', 'Admin\SpeciesController@destroy');
 
 Route::get('/admin/countries', 'Admin\CountryController@index')->name('admin.country');
 Route::get('/admin/countries/create', 'Admin\CountryController@create')->name('admin.country.create');
