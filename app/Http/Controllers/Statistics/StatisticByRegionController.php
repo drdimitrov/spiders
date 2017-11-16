@@ -65,7 +65,37 @@ class StatisticByRegionController extends Controller
             $q->distinct();
         }])->find($request->region);
 
-        return view('front.statistics.region.localities-show', compact('region'));
+        //To calculate species richness
+        $allspecies = [];
+        $splocs = [];
+        $oneloc = 0;
+        $twolocs = 0;
+
+        foreach($region->localities as $lc){
+            foreach($lc->species as $ls){
+                $splocs[$ls->id][] = $lc->id;
+
+                if(!in_array($ls->id, $allspecies)){
+                    $allspecies[] = $ls->id;
+                }
+            }
+        }
+
+        foreach ($splocs as $sl){
+            if(count($sl) == 1){
+                $oneloc += 1;
+            }elseif(count($sl) == 2){
+                $twolocs += 1;
+            }
+        }
+
+        $chao1 = count($allspecies) + (pow($oneloc, 2) / 2 * $twolocs);
+
+        return view('front.statistics.region.localities-show', [
+            'region' => $region,
+            'allspecies' => count($allspecies),
+            'chao1' => $chao1,
+        ]);
 
     }
 }

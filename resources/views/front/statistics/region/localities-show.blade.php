@@ -7,6 +7,7 @@
 <div class="container">
      <div class="page-header">
         <h1 style="display: inline;">Localities in {{ $region->name }}</h1>
+         {{-- {{  $allspecies }} species, Chao1 (expected species richness) =  {{ intval($chao1) }} --}}
         <button class="btn btn-custom chart-btn pull-right" data-toggle="modal" data-target="#chart">Chart</button>
       </div>   
 
