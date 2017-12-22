@@ -5,7 +5,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": "^7.1.12",
+        "php": "7.1.12",
         "algolia/algoliasearch-client-php": "^1.14",
         "felixkiss/uniquewith-validator": "^3.0",
         "guzzlehttp/guzzle": "^6.3",
