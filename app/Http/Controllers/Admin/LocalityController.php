@@ -28,8 +28,6 @@ class LocalityController extends Controller
 	        'slug' => 'required',
 	        'region_id' => 'required',
 	        'country_id' => 'required',
-            'latitude' => 'null',
-            'longitude' => 'null',
             'latitude' => 'numeric|between:0,99.999999',
             'longitude' => 'numeric|between:0,99.999999'
 	    ]);
