@@ -11,7 +11,7 @@ class FamilyController extends Controller
     public function index(){
 
     	$families = Family::withCount(['genera', 'species'])->orderBy('name')->get();
-dd($families);
+
     	$generaCount = 0;
     	$speciesCount = 0;
 
