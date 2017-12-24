@@ -27,7 +27,8 @@
 		<!-- References -->
 		<h4>Faunistic references:</h4>
 		@foreach($references as $kref => $ref)
-			@foreach($ref as $kr => $r)
+			@foreach($ref as $kr => $vr)
+				@foreach($vr as $r)
 					<p><i>{{$r['as']}}</i>
 						<b>
 							<a href="/literature/{{$r['slug']}}">
@@ -35,6 +36,7 @@
 							</a>
 						</b>
 					</p>
+				@endforeach	
 			@endforeach
 		@endforeach
 		<hr>
@@ -58,7 +60,7 @@
 					@if(isset($ll['juvenile_females'])) {{ $ll['juvenile_females'] }} juv. &#9792;,  @endif
 					@if(isset($ll['date'])) {{ $ll['date'] }}, @endif
 					@if(isset($ll['leg'])) {{ $ll['leg'] }} leg., @endif
-					(@if(count($ll['paper']->first()->authors) > 2)
+					@if(count($ll['paper']->first()->authors) > 2)
 						{{$ll['paper']->first()->authors->first()->last_name}} et al.
 					@elseif(count($ll['paper']->first()->authors) == 2)
 						@foreach($ll['paper']->first()->authors as $a)
@@ -67,7 +69,7 @@
 					@else
 						{{$ll['paper']->first()->authors->first()->last_name}}
 					@endif
-					{{ str_limit($ll['paper']->first()->published_at, 4, '') }});
+					{{ str_limit($ll['paper']->first()->published_at, 4, '') }};
 					@if(isset($ll['coordinates']))
 						@php($coordinates[] = $ll['coordinates'])
 					@endif

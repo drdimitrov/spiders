@@ -34,6 +34,6 @@ class Paper extends Model
     }
 
     public function taxa(){
-        return $this->belongsToMany(Species::class, 'records');
+        return $this->belongsToMany(Species::class, 'records')->distinct();
     }
 }
