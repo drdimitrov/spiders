@@ -89,9 +89,15 @@ class SpeciesController extends Controller
                         $authors = $record['paper']->first()->authors->first()->last_name;
                     }
 
-                    $references[$record['paper']->first()->published_at->format('Y')][$authors]['page']= $record['page'];
-                    $references[$record['paper']->first()->published_at->format('Y')][$authors]['as']= $record['recorded'];
-                    $references[$record['paper']->first()->published_at->format('Y')][$authors]['slug']= $record['paper']->first()->slug;
+                    // $references[$record['paper']->first()->published_at->format('Y')][$authors]['page']= $record['page'];
+                    // $references[$record['paper']->first()->published_at->format('Y')][$authors]['as']= $record['recorded'];
+                    // $references[$record['paper']->first()->published_at->format('Y')][$authors]['slug']= $record['paper']->first()->slug;
+
+                    $references[$record['paper']->first()->published_at->format('Y')][$authors][] = [
+                        'page' => $record['page'],
+                        'as' => $record['recorded'],
+                        'slug' => $record['paper']->first()->slug,
+                    ];
                 }
 
             }
