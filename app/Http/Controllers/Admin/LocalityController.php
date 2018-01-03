@@ -28,8 +28,8 @@ class LocalityController extends Controller
 	        'slug' => 'required',
 	        'region_id' => 'required',
 	        'country_id' => 'required',
-            'latitude' => 'numeric|between:0,99.999999',
-            'longitude' => 'numeric|between:0,99.999999'
+            'latitude' => 'numeric|between:0,99.999999|nullable',
+            'longitude' => 'numeric|between:0,99.999999|nullable'
 	    ]);
 
 	    $locality = Locality::create([
