@@ -15,7 +15,7 @@
 			@if($species->wsc_lsid)
 			<div id="externalSrcs">
 				<a href="http://wsc.nmbe.ch/speciesLsid/{{ $species->wsc_lsid }}" target="_blank" style="margin-right: 20px;">WSC <span class="glyphicon glyphicon-share-alt"></span></a>
-			
+
 				<a href="http://www.araneae.unibe.ch/speclsid/{{ $species->wsc_lsid }}" target="_blank">Araneae <span class="glyphicon glyphicon-share-alt"></span></a>
 			</div>
 	    	@endif
@@ -28,7 +28,8 @@
 		<h4>Faunistic references:</h4>
 		@foreach($references as $kref => $ref)
 			@foreach($ref as $kr => $vr)
-				@foreach($vr as $r)
+				@foreach($vr as $rfr)
+				@foreach($rfr as $r)
 					<p><i>{{$r['as']}}</i>
 						<b>
 							<a href="/literature/{{$r['slug']}}">
@@ -36,7 +37,8 @@
 							</a>
 						</b>
 					</p>
-				@endforeach	
+				@endforeach
+				@endforeach
 			@endforeach
 		@endforeach
 		<hr>
@@ -102,12 +104,12 @@
     	<div style="width: 160px; display: inline-block;" class="sp_img" title="{{ $species->genus->name }} {{ $species->name }}">
     		<img src="/storage/species/{{ $image->name  }}" width="150">
     		<p style="text-align: center;">{{$image->description}}</p>
-    	</div>		
+    	</div>
     	@endforeach
 	@else
 	<p>No images available yet.</p>
 	@endif
-    </div> 
+    </div>
 </div>
    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA41cF0sttrkX2sC2iwpBp5cyr6aFAIKJM&callback=initMap"
   type="text/javascript"></script>
@@ -116,7 +118,7 @@
     initMap = function(){
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {
-          lat: 41.865545, 
+          lat: 41.865545,
           lng: 27.966174
         },
         scrollwheel: false,
@@ -126,7 +128,7 @@
     @foreach($coordinates as $cd)
 	    new google.maps.Marker({
 	      position: {
-	          lat: {{$cd["0"]}}, 
+	          lat: {{$cd["0"]}},
 	          lng: {{$cd["1"]}}
 	        },
 	      map: map,
@@ -136,5 +138,5 @@
 
   }
   </script>
-  @endif 
+  @endif
 @endsection

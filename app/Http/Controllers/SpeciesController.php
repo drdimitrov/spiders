@@ -10,9 +10,9 @@ use App\Paper;
 
 class SpeciesController extends Controller
 {
-    
+
     public function showGenusSpecies(Request $request){
-    	
+
     	$genus = Genus::with(['species' => function($species){
             $species->orderBy('name');
         }])->where('slug', $request->genus)->first();
@@ -93,7 +93,7 @@ class SpeciesController extends Controller
                     // $references[$record['paper']->first()->published_at->format('Y')][$authors]['as']= $record['recorded'];
                     // $references[$record['paper']->first()->published_at->format('Y')][$authors]['slug']= $record['paper']->first()->slug;
 
-                    $references[$record['paper']->first()->published_at->format('Y')][$authors][] = [
+                    $references[$record['paper']->first()->published_at->format('Y')][$authors][$record['paper']->first()->id][$record['recorded']] = [
                         'page' => $record['page'],
                         'as' => $record['recorded'],
                         'slug' => $record['paper']->first()->slug,
