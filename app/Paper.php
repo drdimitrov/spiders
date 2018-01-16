@@ -21,7 +21,7 @@ class Paper extends Model
     }
 
     public function authors(){
-    	return $this->belongsToMany(Author::class);
+    	return $this->belongsToMany(Author::class)->orderBy('author_paper.id');
     }
 
     public function hasAuthor($id){
