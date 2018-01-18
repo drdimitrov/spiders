@@ -28,7 +28,7 @@ class RegionController extends Controller
     public function save(Request $request){
 
     	$this->validate($request, [
-	        'name' => 'required|unique:regions|alpha',
+	        'name' => 'required|unique:regions|regex:/^[\pL\s\-]+$/u',
 	        'slug' => 'required',
 	    ]);
 
@@ -47,7 +47,7 @@ class RegionController extends Controller
     	$region = Region::with('countries')->find($request->region);
         $countries = Country::orderBy('name')->get();
         $regionPlucked = $region->countries->pluck('id')->toArray();
-        
+
         return view('admin.regions.edit', compact('region', 'countries', 'regionPlucked'));
     }
 
