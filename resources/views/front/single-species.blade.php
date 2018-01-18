@@ -10,7 +10,13 @@
 			<b>
 			{{ $species->author }}
 			</b>
+			<br>
+			<span style="display: inline-block; font-size: .7em; margin-top: 15px;">
+			Family <a href="/genera/show/{{$species->genus->family->slug}}">{{$species->genus->family->name}}</a> /
+			Genus <a href="/species/show/{{$species->genus->slug}}">{{$species->genus->name}}</a>
+		</span>
 		</h3>
+
 		<div class="externalCit pull-right" style="display: inline;">
 			@if($species->wsc_lsid)
 			<div id="externalSrcs">
