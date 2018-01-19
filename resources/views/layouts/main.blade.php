@@ -21,7 +21,7 @@
   </head>
 
   <body>
-      
+
       <!-- Fixed navbar -->
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -36,7 +36,7 @@
           </div>
           <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="/">Introduction</a></li>
+              <li><a href="/">Introduction</a></li>
               <li><a href="{{route('guide')}}">User guide</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Taxa <span class="caret"></span></a>
@@ -63,7 +63,7 @@
                 </ul>
               </li>
               <li><a href="/literature">Literature</a></li>
-              <li><a href="/contact">Contact</a></li>            
+              <li><a href="/contact">Contact</a></li>
             </ul>
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
@@ -97,7 +97,7 @@
           </div><!--/.nav-collapse -->
         </div>
       </nav>
-      
+
       <div class="scroll-top-wrapper">
         <span class="scroll-top-inner">
             <img src="{{ asset('images/spider-scroll.png') }}" class="glyphicon glyphicon-arrow-up" height="60">
@@ -114,7 +114,7 @@
 
       <script src="{{ asset('js/app.js') }}"></script>
       {{--<script src="{{ asset('js/maps.js') }}"></script>--}}
-      <script>        
+      <script>
         (function () {
           'use strict';
 
@@ -140,9 +140,9 @@
 
         //Scroll top
         $(function(){
- 
+
             $(document).on( 'scroll', function(){
-         
+
                 if ($(window).scrollTop() > 100) {
                     $('.scroll-top-wrapper').addClass('show');
                     $('#codeprefheader').css('position','fixed').css('top','0px');
@@ -156,10 +156,10 @@
             openEffect  : 'none',
             closeEffect : 'none',
             type : 'image'
-          });         
-            
+          });
+
         });
-        
+
         $(function(){
             $('.scroll-top-wrapper').on('click', scrollToTop);
 
@@ -172,7 +172,7 @@
             });
 
         });
-       
+
       function scrollToTop() {
           verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
           element = $('body');
