@@ -42,15 +42,17 @@ class LiteratureController extends Controller
             $litarr[$lit->id]['authors'] = implode(', ', $litarr[$lit->id]['authors']);
         }
 
-        usort($litarr, function($a, $b) {
-            return $a['authors'] <=> $b['authors'];
-        });
+        // Obtain a list of columns
+        foreach ($litarr as $key => $row) {
+            $authors[$key]  = $row['authors'];
+            $published_at[$key] = $row['published_at'];
+        }
 
-       
+        // Sort the data
+        array_multisort($authors, SORT_ASC, $published_at, SORT_ASC, $litarr);
+
         $references = new \Illuminate\Pagination\Paginator(collect($litarr), 50, $request->page);
 
-        //dd($references);
-    	    	
     	return view('front.literature', compact('references'));
     	
     }
