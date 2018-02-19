@@ -45,7 +45,7 @@ class SpeciesController extends Controller
             $localities[$locality->country->name][$locality->id]['locality_name'] = $locality->name;
             $localities[$locality->country->name][$locality->id]['records'][] = [
                 'notes' => $locality->pivot->comments,
-                'date' => $locality->pivot->collected_at ? \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $locality->pivot->collected_at)->format('d-m-Y') : null,
+                'date' => $locality->pivot->collected_at ? \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $locality->pivot->collected_at)->format('d.m.Y') : null,
                 'leg' => $locality->pivot->collected_by,
                 'males' => $locality->pivot->males,
                 'females' => $locality->pivot->females,
