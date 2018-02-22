@@ -39,6 +39,19 @@ Route::get('/guide', 'FrontController@guide')->name('guide');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/empty', function(){
+    $emptySpecies = [];
+    $species =  App\Species::all();
+    foreach($species as $s){
+        if(!count($s->localities)){
+           
+            $emptySpecies[]= $s->genus->name . ' ' . $s->name;
+        }
+    }
+
+    return $emptySpecies;
+});
+
 // Route::get('/wsc', function(\App\Services\WscService $wsc){
 // 	$a = $wsc->fetchUpdatedTaxa('2017-07-01');
 // 	dd($a);
