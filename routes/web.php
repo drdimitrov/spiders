@@ -41,7 +41,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/empty', function(){
     $emptySpecies = [];
-    $species =  App\Species::all();
+    $species =  App\Species::with('genus')->get();
     foreach($species as $s){
         if(!count($s->localities)){
            
