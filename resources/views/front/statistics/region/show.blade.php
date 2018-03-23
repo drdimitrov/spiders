@@ -4,7 +4,7 @@
 @php($cnt = 1)
 <div class="container">
      <div class="page-header">
-        <h1 style="display: inline">{{ $region->name }} - list of species</h1>
+        <h1 style="display: inline">{{ $region->name }} @if(Request::has('country') && Request::get('country') != 0) ({{\App\Country::find(Request::get('country'))->name}}) @endif- list of species</h1>
         <a href="/statistics/species-by-region" class="btn btn-custom pull-right">Back to regions</a>       
       </div>
 
