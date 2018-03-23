@@ -12,7 +12,7 @@
           <select class="form-control mb-2 mr-sm-2 mb-sm-0" name="country">
             <option value="0" selected>All countries</option>
             @foreach($region->countries as $rc)
-            <option value="{{ $rc->id }}">{{ $rc->name }}</option>
+            <option value="{{ $rc->id }}" @if($rc->id == Request::get('country')) selected @endif>{{ $rc->name }}</option>
             @endforeach
           </select>
           <input type="submit" value="Filter" class="btn btn-custom">
