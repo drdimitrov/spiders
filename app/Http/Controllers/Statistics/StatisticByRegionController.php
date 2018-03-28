@@ -106,11 +106,12 @@ class StatisticByRegionController extends Controller
 
         foreach($region->localities as $locality){
 
-            $lName = $locality->name;
+            //$lName = $locality->name;
 
             foreach($locality->records as $r){
 
                 $spLocs[$r->species_id][$r->species->genus->name . ' ' . $r->species->name][] = [
+                    'locality' => $locality->name,
                     'date' => $r->collected_at ? $r->collected_at->format('d.m.Y') : null,
                     'males' => $r->males ?: null,
                     'females' => $r->females ?: null,
@@ -144,7 +145,7 @@ class StatisticByRegionController extends Controller
                             $cnt++;
                             $sheet->row($cnt, [
                                 $sk,
-                                $lName,
+                                $l['locality'],
                                 $l['collected_by'],
                                 $l['date'],
                                 $l['males'],
