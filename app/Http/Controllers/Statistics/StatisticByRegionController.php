@@ -125,8 +125,8 @@ class StatisticByRegionController extends Controller
         }
 
         //Export the data
-        \Excel::create(str_replace(' ', '_', $region->name).'_'.date('d_m_Y'), function($excel) use($lName, $spLocs){
-            $excel->sheet($lName, function($sheet) use($lName, $spLocs){
+        \Excel::create(str_replace(' ', '_', $region->name).'_'.date('d_m_Y'), function($excel) use($region, $spLocs){
+            $excel->sheet($region, function($sheet) use($region, $spLocs){
                 $cnt = 1;
                 $sheet->row($cnt, [
                     'Species',
