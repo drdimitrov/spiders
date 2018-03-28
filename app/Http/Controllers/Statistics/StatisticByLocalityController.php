@@ -56,7 +56,7 @@ class StatisticByLocalityController extends Controller
             
             $pAuthors = count($r->paper->authors)  > 1? $r->paper->authors->first()->last_name.' et al. ' : $r->paper->authors->first()->last_name;
             $spLocs[$r->species_id][$r->species->genus->name . ' ' . $r->species->name][] = [
-                    'date' => $r->collected_at ? $r->collected_at->format('d-m-Y') : null,
+                    'date' => $r->collected_at ? $r->collected_at->format('d.m.Y') : null,
                     'males' => $r->males ?: null,
                     'females' => $r->females ?: null,
                     'juvenile_males' => $r->juvenile_males ?: null,

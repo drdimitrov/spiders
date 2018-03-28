@@ -65,6 +65,8 @@ Route::get('/statistics/localities-by-country', 'Statistics\StatisticByCountryCo
 Route::get('/statistics/localities-by-country/{country}', 'Statistics\StatisticByCountryController@country')->name('stat.country');
 Route::get('/statistics/localities-by-region', 'Statistics\StatisticByRegionController@localitiesByRegion')->name('stat.regions');
 Route::get('/statistics/localities-by-region/{region}', 'Statistics\StatisticByRegionController@localitiesByRegionShow')->name('stat.region');
+Route::post('/statistics/species-region-export', 'Statistics\StatisticByRegionController@export');
+
 Route::get('/statistics/species-by-locality', 'Statistics\StatisticByLocalityController@index')->name('stat.locality');
 Route::get('/statistics/species-by-locality/{locality}', 'Statistics\StatisticByLocalityController@locality')->name('stat.locality.single');
 Route::post('/statistics/species-locality-export', 'Statistics\StatisticByLocalityController@export');

@@ -98,4 +98,69 @@ class StatisticByRegionController extends Controller
         ]);
 
     }
+
+    public function export(Request $request){
+        $region = Region::with('localities.records.species.genus')->find($request->region);
+
+        $spLocs = [];
+
+        foreach($region->localities as $locality){
+
+            $lName = $locality->name;
+            $lId = $locality->id;
+
+            foreach($locality->records as $r){
+
+                $spLocs[$r->species_id][$r->species->genus->name . ' ' . $r->species->name][] = [
+                    'date' => $r->collected_at ? $r->collected_at->format('d.m.Y') : null,
+                    'males' => $r->males ?: null,
+                    'females' => $r->females ?: null,
+                    'juvenile_males' => $r->juvenile_males ?: null,
+                    'juvenile_females' => $r->juvenile_females ?: null,
+                    'collected_by' => $r->collected_by ?: null,
+                    'paper_slug' => $r->paper->slug,
+                ];
+
+            }
+        }
+
+        //Export the data
+        Excel::create(str_replace(' ', '_', $region->name).'_'.date('d_m_Y'), function($excel) use($lName, $spLocs){
+            $excel->sheet($lName, function($sheet) use($lName, $spLocs){
+                $cnt = 1;
+                $sheet->row($cnt, [
+                    'Species',
+                    'Locality',
+                    'Collected by',
+                    'Collected date',
+                    'Males',
+                    'Females',
+                    'Juvenile males',
+                    'Juvenile females',
+                    'Paper',
+                ]);
+
+                foreach($spLocs as $spL){
+                    foreach($spL as $sk => $sl){
+                        foreach($sl as $l){
+                            $cnt++;
+                            $sheet->row($cnt, [
+                                $sk,
+                                $lName,
+                                $l['collected_by'],
+                                $l['date'],
+                                $l['males'],
+                                $l['females'],
+                                $l['juvenile_males'],
+                                $l['juvenile_females'],
+                                $l['paper'],
+                            ]);
+                        }
+                    }
+                }
+
+            });
+        })->export('csv');
+
+    }
 }

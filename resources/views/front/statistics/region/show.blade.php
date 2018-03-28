@@ -37,5 +37,11 @@
             @endforeach          
         </tbody>
       </table>
+
+    <form action="/statistics/species-region-export" method="POST">
+        <input type="hidden" name="region" value="{{$region->id}}">
+        <input type="submit" value="Export" class="btn btn-primary pull-right">
+        {{ csrf_field() }}
+    </form>
 </div>
 @endsection
