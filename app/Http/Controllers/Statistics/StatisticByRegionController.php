@@ -125,7 +125,7 @@ class StatisticByRegionController extends Controller
         }
 
         //Export the data
-        Excel::create(str_replace(' ', '_', $region->name).'_'.date('d_m_Y'), function($excel) use($lName, $spLocs){
+        \Excel::create(str_replace(' ', '_', $region->name).'_'.date('d_m_Y'), function($excel) use($lName, $spLocs){
             $excel->sheet($lName, function($sheet) use($lName, $spLocs){
                 $cnt = 1;
                 $sheet->row($cnt, [
