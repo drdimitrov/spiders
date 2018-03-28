@@ -107,7 +107,6 @@ class StatisticByRegionController extends Controller
         foreach($region->localities as $locality){
 
             $lName = $locality->name;
-            $lId = $locality->id;
 
             foreach($locality->records as $r){
 
@@ -137,7 +136,6 @@ class StatisticByRegionController extends Controller
                     'Females',
                     'Juvenile males',
                     'Juvenile females',
-                    'Paper',
                 ]);
 
                 foreach($spLocs as $spL){
@@ -153,7 +151,6 @@ class StatisticByRegionController extends Controller
                                 $l['females'],
                                 $l['juvenile_males'],
                                 $l['juvenile_females'],
-                                $l['paper'],
                             ]);
                         }
                     }
