@@ -111,6 +111,8 @@ class StatisticByRegionController extends Controller
             foreach($locality->records as $r){
 
                 $spLocs[$r->species_id][$r->species->genus->name . ' ' . $r->species->name][] = [
+                    'family' => $r->species->genus->family->name,
+                    'lsid' => $r->species->wsc_id,
                     'locality' => $locality->name,
                     'date' => $r->collected_at ? $r->collected_at->format('d.m.Y') : null,
                     'males' => $r->males ?: null,
@@ -129,7 +131,9 @@ class StatisticByRegionController extends Controller
             $excel->sheet('export', function($sheet) use($region, $spLocs){
                 $cnt = 1;
                 $sheet->row($cnt, [
+                    'Family',
                     'Species',
+                    'LsId',
                     'Locality',
                     'Collected by',
                     'Collected date',
@@ -144,7 +148,9 @@ class StatisticByRegionController extends Controller
                         foreach($sl as $l){
                             $cnt++;
                             $sheet->row($cnt, [
+                                $l['family'],
                                 $sk,
+                                $l['lsid'],
                                 $l['locality'],
                                 $l['collected_by'],
                                 $l['date'],
