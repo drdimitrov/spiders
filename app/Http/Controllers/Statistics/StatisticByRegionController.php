@@ -112,7 +112,7 @@ class StatisticByRegionController extends Controller
 
                 $spLocs[$r->species_id][$r->species->genus->name . ' ' . $r->species->name][] = [
                     'family' => $r->species->genus->family->name,
-                    'lsid' => $r->species->wsc_id,
+                    'lsid' => $r->species->wsc_lsid,
                     'locality' => $locality->name,
                     'date' => $r->collected_at ? $r->collected_at->format('d.m.Y') : null,
                     'males' => $r->males ?: null,
