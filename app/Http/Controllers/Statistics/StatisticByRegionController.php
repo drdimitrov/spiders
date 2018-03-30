@@ -134,30 +134,30 @@ class StatisticByRegionController extends Controller
                     'Family',
                     'Species',
                     'LsId',
-                    'Locality',
-                    'Collected by',
-                    'Collected date',
                     'Males',
                     'Females',
-                    'Juvenile males',
-                    'Juvenile females',
+                    'Juveniles',
+                    'Locality',
+                    'Locality_bg',
+                    'Collected date',
                 ]);
 
                 foreach($spLocs as $spL){
                     foreach($spL as $sk => $sl){
                         foreach($sl as $l){
+                            $juvs = $l['juvenile_males'] + $l['juvenile_females'] + $l['juveniles'];
+                            
                             $cnt++;
                             $sheet->row($cnt, [
                                 $l['family'],
                                 $sk,
                                 $l['lsid'],
-                                $l['locality'],
-                                $l['collected_by'],
-                                $l['date'],
                                 $l['males'],
                                 $l['females'],
-                                $l['juvenile_males'],
-                                $l['juvenile_females'],
+                                $juvs,
+                                $l['locality'],
+                                '',
+                                $l['date'],
                             ]);
                         }
                     }
