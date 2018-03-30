@@ -148,9 +148,9 @@ class StatisticByRegionController extends Controller
                         foreach($sl as $l){
                             $juvs = $l['juvenile_males'] + $l['juvenile_females'] + $l['juveniles'];
 
-                            if(!$l['males'] && !$l['females'] && !$juvs){
+                            if(!$l['males'] && !$l['females'] && (!$juvs || $juvs == 0)){
                                 $l['males'] = 1;
-                                if($juvs == 0) $juvs = null;
+                                $juvs = null;
                             }
 
                             $cnt++;
