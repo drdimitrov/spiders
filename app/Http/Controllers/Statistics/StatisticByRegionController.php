@@ -150,6 +150,7 @@ class StatisticByRegionController extends Controller
 
                             if(!$l['males'] && !$l['females'] && !$juvs){
                                 $l['males'] = 1;
+                                $l['juveniles'] = null;
                             }
 
                             $cnt++;
