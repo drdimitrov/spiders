@@ -119,6 +119,7 @@ class StatisticByRegionController extends Controller
                     'females' => $r->females ?: null,
                     'juvenile_males' => $r->juvenile_males ?: null,
                     'juvenile_females' => $r->juvenile_females ?: null,
+                    'juveniles' => $r->juveniles ?: null,
                     'collected_by' => $r->collected_by ?: null,
                     'paper_slug' => $r->paper->slug,
                 ];
@@ -146,7 +147,7 @@ class StatisticByRegionController extends Controller
                     foreach($spL as $sk => $sl){
                         foreach($sl as $l){
                             $juvs = $l['juvenile_males'] + $l['juvenile_females'] + $l['juveniles'];
-                            
+
                             $cnt++;
                             $sheet->row($cnt, [
                                 $l['family'],
