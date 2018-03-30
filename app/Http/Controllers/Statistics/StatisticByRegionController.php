@@ -148,6 +148,10 @@ class StatisticByRegionController extends Controller
                         foreach($sl as $l){
                             $juvs = $l['juvenile_males'] + $l['juvenile_females'] + $l['juveniles'];
 
+                            if(!$l['males'] && !$l['females'] && !$juvs){
+                                $l['males'] = 1;
+                            }
+
                             $cnt++;
                             $sheet->row($cnt, [
                                 $l['family'],
