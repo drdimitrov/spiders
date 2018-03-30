@@ -157,7 +157,7 @@ class StatisticByRegionController extends Controller
                             $sheet->row($cnt, [
                                 $l['family'],
                                 $sk,
-                                $l['lsid'],
+                                (int) $l['lsid'],
                                 $l['males'],
                                 $l['females'],
                                 $juvs,
