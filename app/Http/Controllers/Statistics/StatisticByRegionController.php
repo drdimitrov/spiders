@@ -108,7 +108,7 @@ class StatisticByRegionController extends Controller
 
             //$lName = $locality->name;
 
-            foreach($locality->records as $r){
+            foreach($locality->records as $r){dd($r);
 
                 $spLocs[$r->species_id][$r->species->genus->name . ' ' . $r->species->name][] = [
                     'family' => $r->species->genus->family->name,
@@ -140,7 +140,10 @@ class StatisticByRegionController extends Controller
                     'Juveniles',
                     'Locality',
                     'Locality_bg',
-                    'Collected date',
+                    'Date',
+                    'Method',
+                    'Remarks',
+                    'habitats',
                 ]);
 
                 foreach($spLocs as $spL){
@@ -164,6 +167,9 @@ class StatisticByRegionController extends Controller
                                 $l['locality'],
                                 '',
                                 $l['date'],
+                                '',
+                                '',
+                                '',
                             ]);
                         }
                     }
