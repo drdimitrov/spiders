@@ -82,7 +82,7 @@ class SpeciesController extends Controller
             $genus->name = $species->taxon->genusObject->genus;
             $genus->author = $species->taxon->genusObject->author;
 
-            $fam = Family::where('wsc_id', str_replace('urn:lsid:nmbe.ch:spiderfam:', '', $species->taxon->familyObject->famLsid))->first();
+            $fam = Family::where('wsc_lsid', str_replace('urn:lsid:nmbe.ch:spiderfam:', '', $species->taxon->familyObject->famLsid))->first();
 
             if(!$fam){
                 $fam = Family::create([
@@ -90,7 +90,7 @@ class SpeciesController extends Controller
                     'slug' => strtolower($species->taxon->familyObject->family), 
                     'order_id' => 2, 
                     'author' => $species->taxon->familyObject->author, 
-                    'wsc_id' => str_replace('urn:lsid:nmbe.ch:spiderfam:', '', $species->taxon->familyObject->famLsid)
+                    'wsc_lsid' => str_replace('urn:lsid:nmbe.ch:spiderfam:', '', $species->taxon->familyObject->famLsid)
                 ]);
             }
 
