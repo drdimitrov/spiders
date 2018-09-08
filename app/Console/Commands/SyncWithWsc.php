@@ -61,6 +61,7 @@ class SyncWithWsc extends Command
 
             $species->genus_id = $genus->id;
             $species->author = $fetch->taxon->author;
+            $species->gdist_wsc = $fetch->taxon->distribution;
 
             if($species->save()){
                 $this->info('The species ' . $this->argument('species') . ' was successfully updated');

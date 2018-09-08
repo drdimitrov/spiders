@@ -6,6 +6,7 @@ use App\Genus;
 use App\Http\Controllers\Controller;
 use App\Services\WscService;
 use App\Species;
+use App\Family;
 use App\Image;
 use Illuminate\Http\Request;
 
@@ -76,7 +77,28 @@ class SpeciesController extends Controller
         $genus = Genus::where('name', $species->taxon->genus)->first();
 
         if(!$genus){
-            return back()->with('msg-err', 'The genus doesn\'t exist.');
+
+            $genus = new Genus;
+            $genus->name = $species->taxon->genusObject->genus;
+            $genus->author = $species->taxon->genusObject->author;
+
+            $fam = Family::where('wsc_id', str_replace('urn:lsid:nmbe.ch:spiderfam:', '', $species->taxon->familyObject->famLsid))->first();
+
+            if(!$fam){
+                $fam = Family::create([
+                    'name' => $species->taxon->familyObject->family, 
+                    'slug' => strtolower($species->taxon->familyObject->family), 
+                    'order_id' => 2, 
+                    'author' => $species->taxon->familyObject->author, 
+                    'wsc_id' => str_replace('urn:lsid:nmbe.ch:spiderfam:', '', $species->taxon->familyObject->famLsid)
+                ]);
+            }
+
+            $genus->family_id = $fam->id;
+            $genus->slug = strtolower($species->taxon->genusObject->genus);
+            $genus->wsc_lsid = str_replace('urn:lsid:nmbe.ch:spidergen:', '', $species->taxon->genusObject->genLsid);
+            $genus->save();
+            
         }
        
         $newSpecies = Species::create([
@@ -84,7 +106,8 @@ class SpeciesController extends Controller
             'slug' => strtolower($species->taxon->species),
             'author' => $species->taxon->author,
             'genus_id' => $genus->id,
-            'wsc_lsid' => trim(request()->wsc_lsid),
+            'wsc_lsid' => str_replace('urn:lsid:nmbe.ch:spidersp:', '', $species->taxon->lsid),
+            'gdist_wsc' => $species->taxon->distribution,
         ]);
         
         if($newSpecies->save()){
