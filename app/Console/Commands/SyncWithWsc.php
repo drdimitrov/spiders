@@ -51,10 +51,10 @@ class SyncWithWsc extends Command
 
             if(!$genus){
                 $genus = Genus::create([
-                    'name' => $fetch->taxon->genusObject->genus, 
-                    'author' => $fetch->taxon->genusObject->author, 
-                    'family_id' => $fetch->taxon->familyObject->family, 
-                    'slug' => strtolower($fetch->taxon->genusObject->genus), 
+                    'name' => $fetch->taxon->genusObject->genus,
+                    'author' => $fetch->taxon->genusObject->author,
+                    'family_id' => str_replace('urn:lsid:nmbe.ch:spiderfam:', '', $fetch->taxon->familyObject->famLsid),
+                    'slug' => strtolower($fetch->taxon->genusObject->genus),
                     'wsc_lsid' => str_replace('urn:lsid:nmbe.ch:spidergen:', '', $fetch->taxon->genusObject->genLsid)
                 ]);
             }
@@ -68,7 +68,7 @@ class SyncWithWsc extends Command
             }else{
                 $this->error('An error occupied while trying to update the species ' . $this->argument('species') );
             }
-        }        
+        }
 
     }
 }
