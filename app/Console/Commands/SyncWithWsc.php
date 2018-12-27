@@ -53,8 +53,8 @@ class SyncWithWsc extends Command
                 $genus = Genus::create([
                     'name' => $fetch->taxon->genusObject->genus,
                     'author' => $fetch->taxon->genusObject->author,
-                    'family_id' => str_replace('urn:lsid:nmbe.ch:spiderfam:', '', $fetch->taxon->familyObject->famLsid),
-                    'slug' => strtolower($fetch->taxon->genusObject->genus),
+                    'family_id' => str_replace( 'urn:lsid:nmbe.ch:spiderfam:', '', $fetch->taxon->familyObject->famLsid),
+                    'slug' => strtolower($fetch->taxon->genusObject->genus ),
                     'wsc_lsid' => str_replace('urn:lsid:nmbe.ch:spidergen:', '', $fetch->taxon->genusObject->genLsid)
                 ]);
             }
