@@ -25,44 +25,44 @@
         @endif
         <div>
         <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#custom" aria-controls="home" role="tab" data-toggle="tab">Custom</a></li>
+            {{-- <li role="presentation" class="active"><a href="#custom" aria-controls="home" role="tab" data-toggle="tab">Custom</a></li> --}}
             <li role="presentation"><a href="#lsid" aria-controls="profile" role="tab" data-toggle="tab">LsId</a></li>
         </ul>
 
         <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="custom">
+        {{-- <div role="tabpanel" class="tab-pane active" id="custom">
                     <form method="POST" action="{{ route('admin.species.create') }}">
 
                         <div class="form-group">
-                            <label>Select genus:</label>            
+                            <label>Select genus:</label>
                             <genus-select></genus-select>
                         </div>
 
-                        <div class="form-group">            
+                        <div class="form-group">
                             <input type="text" name="name" class="form-control" placeholder="Name">
                         </div>
 
-                        <div class="form-group">            
+                        <div class="form-group">
                             <input type="text" name="author" class="form-control" placeholder="Author">
                         </div>
 
-                        <div class="form-group">            
+                        <div class="form-group">
                             <input type="text" name="wsc_lsid" class="form-control" placeholder="WSC LS id">
                         </div>
-                                     
+
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Save Species</button>
                         </div>
 
                         {{ csrf_field() }}
                     </form>
-        </div>
+        </div> --}}
         <div role="tabpanel" class="tab-pane" id="lsid">
             <form method="POST" action="/admin/species/create-by-lsid">
-                <div class="form-group">            
+                <div class="form-group">
                     <input type="text" name="wsc_lsid" class="form-control" placeholder="WSC LS id">
                 </div>
-                             
+
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Save Species</button>
                 </div>
