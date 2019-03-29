@@ -25,7 +25,6 @@ class LocalityController extends Controller
 
     	$this->validate($request, [
 	        'name' => 'required|unique:regions',
-	        'slug' => 'required',
 	        'region_id' => 'required',
 	        'country_id' => 'required',
             'latitude' => 'numeric|between:0,99.999999|nullable',
@@ -34,7 +33,7 @@ class LocalityController extends Controller
 
 	    $locality = Locality::create([
 	    	'name' => $request->name,
-	    	'slug' => str_slug($request->slug, '-'),
+	    	'slug' => str_slug($request->name),
 	    	'latitude' => $request->has('latitude') ? $request->latitude : null,
 	    	'longitude' => $request->has('longitude') ? $request->longitude : null,
 	    	'region_id' => $request->region_id,

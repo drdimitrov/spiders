@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('content')        
+@section('content')
     <div class="panel panel-default">
         <div class="panel-heading">Add new locality:</div>
 
         <div class="panel-body">
-           
+
            @if (count($errors) > 0)
                 <div class="alert alert-danger">
                     <ul>
@@ -15,21 +15,18 @@
                     </ul>
                 </div>
             @endif
-            
+
             <form action="{{ route('admin.locality.create') }}" method="POST">
-            	<div class="form-group">            
-		            <input type="text" name="name" class="form-control" placeholder="Name">				              
+            	<div class="form-group">
+		            <input type="text" name="name" class="form-control" placeholder="Name">
 		        </div>
-		        <div class="form-group">            
-		            <input type="text" name="slug" class="form-control" placeholder="slug">				              
-		        </div>
-                <div class="form-group">            
-                    <input type="text" name="latitude" class="form-control" placeholder="latitude">                           
+                <div class="form-group">
+                    <input type="text" name="latitude" class="form-control" placeholder="latitude">
                 </div>
-                <div class="form-group">            
-                    <input type="text" name="longitude" class="form-control" placeholder="longitude">                           
+                <div class="form-group">
+                    <input type="text" name="longitude" class="form-control" placeholder="longitude">
                 </div>
-                <div class="form-group">            
+                <div class="form-group">
                     <label for="region_id">Select region:</label>
                     <select class="form-control" name="region_id">
                         @foreach($regions as $region)
@@ -37,9 +34,9 @@
                             {{ $region->name }}
                             </option>
                         @endforeach
-                    </select>                        
+                    </select>
                 </div>
-                <div class="form-group">            
+                <div class="form-group">
                     <label for="country_id">Select country:</label>
                     <select class="form-control" name="country_id">
                         @foreach($countries as $country)
@@ -47,7 +44,7 @@
                             {{ $country->name }}
                             </option>
                         @endforeach
-                    </select>                        
+                    </select>
                 </div>
 		        <div class="form-group">
 		            <button type="submit" class="btn btn-primary">Save Locality</button>
@@ -57,5 +54,5 @@
             </form>
         </div
     </div>
-</div>   
+</div>
 @endsection
