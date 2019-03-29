@@ -10,8 +10,11 @@
                     {{ Session::get('msg-success') }}
                 @endif
                 <div class="panel-body">
-                                      
+
                     <h3>List of localities:</h3>
+
+                    <a href="{{ route('admin.locality.create') }}" class="btn btn-success pull-right">Insert new locality</a>
+
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -25,20 +28,20 @@
                             @php($nr=1)
                             @foreach($localities as $locality)
                             <tr>
-                                <td>{{ $nr }}</td> 
-                                <td>{{ $locality->id }}</td> 
-                                <td>{{ $locality->name }}</td> 
+                                <td>{{ $nr }}</td>
+                                <td>{{ $locality->id }}</td>
+                                <td>{{ $locality->name }}</td>
                                 <td>
                                     <a href="{{ route('admin.locality.edit', $locality->id) }}" data-toggle="tooltip" title="Edit">
                                         <span class="glyphicon glyphicon-pencil "></span>
                                     </a>
-                                </td> 
+                                </td>
                             </tr>
-                            @php($nr++)                        
-                            @endforeach 
-                        </tbody> 
+                            @php($nr++)
+                            @endforeach
+                        </tbody>
                     </table>
-					
+
                     {{ $localities->links() }}
                 </div
             </div>
