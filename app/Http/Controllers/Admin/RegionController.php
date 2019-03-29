@@ -15,7 +15,7 @@ class RegionController extends Controller
     }
 
     public function index(){
-    	$regions = Region::all();
+    	$regions = Region::orderBy('name')->get();
 
     	return view('admin.regions.index', compact('regions'));
     }
