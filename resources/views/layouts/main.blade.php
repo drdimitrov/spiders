@@ -32,7 +32,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">BP spiders</a>
+            <a class="navbar-brand" href="/"><img src="{{ asset('Atypus_logo.png') }}" width="40"></a>
           </div>
           <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
