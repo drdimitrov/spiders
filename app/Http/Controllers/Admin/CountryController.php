@@ -27,12 +27,11 @@ class CountryController extends Controller
 
     	$this->validate($request, [
 	        'name' => 'required|unique:countries|alpha',
-	        'slug' => 'required',
 	    ]);
 
 	    $country = Country::create([
 	    	'name' => $request->name,
-	        'slug' => $request->slug,
+	        'slug' => str_slug($request->name),
     	]);
 
     	if($country->save()){
