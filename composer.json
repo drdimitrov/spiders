@@ -6,7 +6,7 @@
     "type": "project",
     "require": {
         "php": "7.1.*",
-        "algoliasearch-client-php": "^1.27",
+        "algolia/algoliasearch-client-php": "^1.27",
         "felixkiss/uniquewith-validator": "^3.0",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "5.5.*",
