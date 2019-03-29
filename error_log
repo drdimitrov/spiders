@@ -1,0 +1,15 @@
+[13-Mar-2019 17:05:04 Europe/Sofia] PHP Fatal error:  Out of memory (allocated 565190656) (tried to allocate 4096 bytes) in phar:///opt/cpanel/composer/bin/composer/src/Composer/DependencyResolver/Solver.php on line 220
+[13-Mar-2019 17:09:15 Europe/Sofia] PHP Fatal error:  Out of memory (allocated 565190656) (tried to allocate 4096 bytes) in phar:///opt/cpanel/composer/bin/composer/src/Composer/DependencyResolver/Solver.php on line 220
+[13-Mar-2019 17:10:26 Europe/Sofia] PHP Fatal error:  Out of memory (allocated 565190656) (tried to allocate 4096 bytes) in phar:///opt/cpanel/composer/bin/composer/src/Composer/DependencyResolver/Solver.php on line 220
+[15-Mar-2019 13:39:40 Europe/Sofia] PHP Fatal error:  Out of memory (allocated 565190656) (tried to allocate 974848 bytes) in phar:///opt/cpanel/composer/bin/composer/src/Composer/Util/RemoteFilesystem.php on line 458
+[15-Mar-2019 13:40:48 Europe/Sofia] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Application' not found in /home/balkkrko/araneae/bootstrap/app.php:14
+Stack trace:
+#0 /home/balkkrko/araneae/artisan(18): require_once()
+#1 {main}
+  thrown in /home/balkkrko/araneae/bootstrap/app.php on line 14
+[15-Mar-2019 13:41:16 Europe/Sofia] PHP Fatal error:  Out of memory (allocated 565190656) (tried to allocate 4096 bytes) in phar:///opt/cpanel/composer/bin/composer/src/Composer/DependencyResolver/Solver.php on line 220
+[15-Mar-2019 13:43:11 Europe/Sofia] PHP Fatal error:  Out of memory (allocated 565190656) (tried to allocate 4096 bytes) in phar:///opt/cpanel/composer/bin/composer/src/Composer/DependencyResolver/Solver.php on line 220
+[15-Mar-2019 14:43:32 Europe/Sofia] PHP Fatal error:  Out of memory (allocated 565190656) (tried to allocate 4096 bytes) in phar:///opt/cpanel/composer/bin/composer/src/Composer/DependencyResolver/RuleWatchGraph.php on line 52
+[27-Mar-2019 16:39:52 Europe/Sofia] PHP Fatal error:  Out of memory (allocated 533733376) (tried to allocate 16777216 bytes) in phar:///opt/cpanel/composer/bin/composer/src/Composer/DependencyResolver/Solver.php on line 220
+[27-Mar-2019 16:41:51 Europe/Sofia] PHP Fatal error:  Out of memory (allocated 525344768) (tried to allocate 16777216 bytes) in phar:///opt/cpanel/composer/bin/composer/src/Composer/DependencyResolver/Solver.php on line 220
+[27-Mar-2019 16:43:14 Europe/Sofia] PHP Fatal error:  Out of memory (allocated 531636224) (tried to allocate 4096 bytes) in phar:///opt/cpanel/composer/bin/composer/src/Composer/DependencyResolver/RuleWatchGraph.php on line 52
