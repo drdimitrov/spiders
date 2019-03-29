@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('content')        
+@section('content')
     <div class="panel panel-default">
         <div class="panel-heading">Add new region:</div>
 
         <div class="panel-body">
-           
+
            @if (count($errors) > 0)
                 <div class="alert alert-danger">
                     <ul>
@@ -15,20 +15,18 @@
                     </ul>
                 </div>
             @endif
-            
+
             <form action="{{ route('admin.region.create') }}" method="POST">
-            	<div class="form-group">            
-		            <input type="text" name="name" class="form-control" placeholder="Name">				              
+            	<div class="form-group">
+		            <input type="text" name="name" class="form-control" placeholder="Name">
 		        </div>
-		        <div class="form-group">            
-		            <input type="text" name="slug" class="form-control" placeholder="slug">				              
-		        </div>
-                <div class="form-group">            
+
+                <div class="form-group">
                     <select multiple name="countries[]" class="form-control">
                         @foreach($countries as $country)
                         <option value="{{ $country->id }}">{{ $country->name }}</option>
                         @endforeach
-                    </select>                          
+                    </select>
                 </div>
 		        <div class="form-group">
 		            <button type="submit" class="btn btn-primary">Save Region</button>
@@ -38,5 +36,5 @@
             </form>
         </div
     </div>
-</div>   
+</div>
 @endsection

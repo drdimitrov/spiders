@@ -29,12 +29,11 @@ class RegionController extends Controller
 
     	$this->validate($request, [
 	        'name' => 'required|unique:regions|regex:/^[\pL\s\-]+$/u',
-	        'slug' => 'required',
 	    ]);
 
 	    $region = Region::create([
 	    	'name' => $request->name,
-	        'slug' => $request->slug,
+	        'slug' => str_slug($request->name),
     	]);
 
     	if($region->save()){
