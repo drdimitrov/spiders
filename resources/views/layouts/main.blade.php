@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/harpactea.jpg') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-    <title>BPS</title>
+    <title>Balkan Spiders</title>
 
     <!-- Scripts -->
     <script>
@@ -43,7 +43,7 @@
                 <ul class="dropdown-menu">
                   <li><a href="{{route('taxon.search')}}">Search for taxon</a></li>
                   <li><a href="{{route('families')}}">List all families</a></li>
-                  <li><a href="{{route('genera')}}">List all genera</a></li>
+                  {{-- <li><a href="{{route('genera')}}">List all genera</a></li> --}}
                   <!-- <li role="separator" class="divider"></li> -->
                 </ul>
               </li>

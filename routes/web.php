@@ -21,7 +21,7 @@ Route::post('/contact', 'FrontController@postContact');
 
 Route::get('/families', 'FamilyController@index')->name('families');
 
-Route::get('/genera', 'GenusController@index')->name('genera');
+//Route::get('/genera', 'GenusController@index')->name('genera');
 Route::get('/genera/show/{family}', 'GenusController@showFamilyGenera')->name('genera.family');
 Route::get('/genus/{id}', 'GenusController@show')->name('genera.show');
 
@@ -44,7 +44,7 @@ Route::get('/empty', function(){
     $species =  App\Species::with('genus')->get();
     foreach($species as $s){
         if(!count($s->localities)){
-           
+
             $emptySpecies[]= $s->genus->name . ' ' . $s->name;
         }
     }
