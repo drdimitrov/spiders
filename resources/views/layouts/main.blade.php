@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Spiders of Balkan Peninsula">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/Atypus_logo.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('Atypus_logo.png') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <title>Balkan Spiders</title>
