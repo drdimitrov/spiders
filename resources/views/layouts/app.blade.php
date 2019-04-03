@@ -83,7 +83,7 @@
                 </div>
             </div>
         </nav>
-        
+
         <div class="container-fluid">
             <div class="row">
                 @if(Auth::check() && Auth::user()->hasRole('admin'))
@@ -96,7 +96,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
-                          </button>      
+                          </button>
                         </div>
                         <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
                           <ul class="nav navbar-nav">
@@ -105,35 +105,35 @@
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Authors <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
                               <ul class="dropdown-menu forAnimate" role="menu">
                                 <li><a href="{{route('admin.authors')}}">List</a></li>
-                                <li><a href="{{route('admin.authors.create')}}">Create</a></li>                                
+                                <li><a href="{{route('admin.authors.create')}}">Create</a></li>
                               </ul>
                             </li>
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Papers <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a>
                               <ul class="dropdown-menu forAnimate" role="menu">
                                 <li><a href="{{route('admin.papers')}}">List</a></li>
-                                <li><a href="{{route('admin.papers.create')}}">Create</a></li>                                
+                                <li><a href="{{route('admin.papers.create')}}">Create</a></li>
                               </ul>
                             </li>
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Collections <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-book"></span></a>
                               <ul class="dropdown-menu forAnimate" role="menu">
                                 <li><a href="{{route('admin.collections')}}">List</a></li>
-                                <li><a href="{{route('admin.collections.create')}}">Create</a></li>                                
+                                <li><a href="{{route('admin.collections.create')}}">Create</a></li>
                               </ul>
                             </li>
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Families <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a>
                               <ul class="dropdown-menu forAnimate" role="menu">
                                 <li><a href="{{route('admin.family')}}">List</a></li>
-                                <li><a href="{{route('admin.family.create')}}">Create</a></li>                                
+                                <li><a href="{{route('admin.family.create')}}">Create</a></li>
                               </ul>
                             </li>
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genera <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a>
                               <ul class="dropdown-menu forAnimate" role="menu">
                                 <li><a href="{{route('admin.genus')}}">List</a></li>
-                                <li><a href="{{route('admin.genus.create')}}">Create</a></li>                                
+                                <li><a href="{{route('admin.genus.create')}}">Create</a></li>
                               </ul>
                             </li>
                             <li class="dropdown">
@@ -141,38 +141,38 @@
                               <ul class="dropdown-menu forAnimate" role="menu">
                                 <li><a href="{{route('admin.species')}}">List</a></li>
                                 <li><a href="{{route('admin.species.create')}}">Create</a></li>
-                                <li><a href="{{route('admin.species.images')}}">Add image</a></li>                              
+                                <li><a href="{{route('admin.species.images')}}">Add image</a></li>
                               </ul>
                             </li>
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Countries <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a>
                               <ul class="dropdown-menu forAnimate" role="menu">
                                 <li><a href="{{route('admin.country')}}">List</a></li>
-                                <li><a href="{{route('admin.country.create')}}">Create</a></li>                                
+                                <li><a href="{{route('admin.country.create')}}">Create</a></li>
                               </ul>
                             </li>
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Regions <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a>
                               <ul class="dropdown-menu forAnimate" role="menu">
                                 <li><a href="{{route('admin.region')}}">List</a></li>
-                                <li><a href="{{route('admin.region.create')}}">Create</a></li>                                
+                                <li><a href="{{route('admin.region.create')}}">Create</a></li>
                               </ul>
                             </li>
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Localities <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a>
                               <ul class="dropdown-menu forAnimate" role="menu">
                                 <li><a href="{{route('admin.locality')}}">List</a></li>
-                                <li><a href="{{route('admin.locality.create')}}">Create</a></li>                                
+                                <li><a href="{{route('admin.locality.create')}}">Create</a></li>
                               </ul>
                             </li>
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Records <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a>
                               <ul class="dropdown-menu forAnimate" role="menu">
                                <li><a href="{{route('admin.record')}}">List</a></li>
-                                <li><a href="{{route('admin.record.create')}}">Create</a></li>                                
+                                <li><a href="{{route('admin.record.create')}}">Create</a></li>
                               </ul>
-                            </li>              
-                            <!-- <li ><a href="#">Libros<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>        
+                            </li>
+                            <!-- <li ><a href="#">Libros<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
                             <li ><a href="#">Tags<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li> -->
                           </ul>
                         </div>
@@ -197,7 +197,7 @@
             dateFormat: "dd-mm-yy",
             changeMonth: true,
             changeYear: true,
-            yearRange: '1915:2027'
+            yearRange: '1910:2021'
         });
 
         (function(){
