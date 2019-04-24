@@ -80,7 +80,7 @@ class RecordController extends Controller
         $record->juvenile_males = $request->males_juv;
         $record->juvenile_females = $request->females_juv;
         $record->collected_by = $request->collected_by;
-        $record->collected_at = $request->has('datepicker') ?\Carbon\Carbon::createFromFormat('d-m-Y', $request->datepicker) : null;
+        $record->collected_at = $request->datepicker ? Carbon::createFromFormat('d-m-Y', $request->datepicker) : null;
         $record->paper_id = $request->sel1;
         $record->page = (int) $request->page;
         $record->altitude = (int) $request->altitude;
