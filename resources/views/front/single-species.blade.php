@@ -126,11 +126,11 @@
     initMap = function(){
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {
-          lat: 42.275545,
-          lng: 27.436174
+          lat: 42.475545,
+          lng: 25.436174
         },
         scrollwheel: false,
-        zoom: 9
+        zoom: 6.8
       });
 
     @foreach($coordinates as $cd)
