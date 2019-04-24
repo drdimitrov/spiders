@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Locality;
 use App\Record;
 use App\Species;
-use App\Locality;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class RecordController extends Controller
 {
@@ -44,7 +45,7 @@ class RecordController extends Controller
             'juvenile_males' => $request->males_juv,
             'juvenile_females' => $request->females_juv,
             'collected_by' => $request->collected_by,
-            'collected_at' => $request->has('datepicker') ?\Carbon\Carbon::createFromFormat('d-m-Y', $request->datepicker) : null,
+            'collected_at' => $request->datepicker ? Carbon::createFromFormat('d-m-Y', $request->datepicker) : null,
             'paper_id' => $request->sel1,
             'recorded_as' => $request->recorded_as,
             'page' => (int) $request->page,
