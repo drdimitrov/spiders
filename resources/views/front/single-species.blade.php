@@ -148,3 +148,7 @@
   </script>
   @endif
 @endsection
+
+@push('custom-scripts')
+	console.log('#single_image')
+@endpush

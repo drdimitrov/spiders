@@ -113,7 +113,7 @@
       </footer>
 
       <script src="{{ asset('js/app.js') }}"></script>
-      {{--<script src="{{ asset('js/maps.js') }}"></script>--}}
+
       <script>
         (function () {
           'use strict';
@@ -185,6 +185,8 @@
         $('.sp_img').dialog();
 
       </script>
+
+      @stack('custom-scripts')
 
   </body>
 </html>
