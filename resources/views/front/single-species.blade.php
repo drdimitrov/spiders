@@ -110,11 +110,11 @@
 			@if(count($species->images))
 				@foreach($species->images as $image)
 				<div style="display: inline-block;">
-					<a class="single_image" style="width: 160px; display: inline-block;" class="sp_img" title="{{ $species->genus->name }} {{ $species->name }}">
+					<a class="single_image" style="width: 160px;" class="sp_img" title="{{ $species->genus->name }} {{ $species->name }}">
 						<img src="/storage/species/{{ $image->name  }}" width="150">
 					</a>
 
-					<p style="text-align: center;">{{$image->description}}</p>
+					<p style="width: 160px; text-align: center;">{{$image->description}}</p>
 				</div>
 				@endforeach
 			@else
