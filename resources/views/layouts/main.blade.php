@@ -152,11 +152,7 @@
                 }
             });
 
-            $('.fancyimg').fancybox({
-            openEffect  : 'none',
-            closeEffect : 'none',
-            type : 'image'
-          });
+
 
         });
 
