@@ -111,7 +111,7 @@
             <b>Citation:</b> Dimitrov D: Spiders (Araneae) of Balkan Peninsula. online at http://araneae.herokuapp.com. Version {{ date('Y') }}.
           </p>
       </footer>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
       <script src="{{ asset('js/app.js') }}"></script>
 
       <script>
