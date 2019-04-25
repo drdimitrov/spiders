@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
 @php($cnt = 1)
 <div class="container">
 	<div class="page-header">
@@ -150,6 +151,7 @@
 @endsection
 
 @push('custom-scripts')
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 	<script>
 		console.log($('.single_image'))
 	</script>
