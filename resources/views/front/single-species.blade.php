@@ -151,6 +151,6 @@
 
 @push('custom-scripts')
 	<script>
-		console.log('.single_image')
+		console.log($('.single_image'))
 	</script>
 @endpush
