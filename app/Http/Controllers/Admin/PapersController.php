@@ -13,17 +13,20 @@ class PapersController extends Controller
 		$this->middleware('auth');
 		$this->middleware('isAllowed');
 	}
-	
+
     public function index(){
-    	return view('admin.papers.index');
+
+        $papers = Paper::latest()->paginate(50);
+
+    	return view('admin.papers.index', compact('papers'));
     }
-    
+
     public function create(){
     	return view('admin.papers.create');
     }
 
     public function save(Request $request){
-    	
+
     	$this->validate($request, [
 	        'authors' => 'required',
 	        'name' => 'required',
@@ -33,9 +36,9 @@ class PapersController extends Controller
 	    $authors = Author::find($request->authors);
 
 	    $author = count($authors) > 1 ? $authors->first()->last_name.'-et-al' : $authors->first()->last_name;
-	    	    
+
 	    $slug = str_slug($author .'-'. $request->published_at .'-'. str_limit($request->name, 50), '-');
-	    
+
     	$paper = Paper::create([
 			'name' => $request->name,
 			'journal' => $request->journal,
