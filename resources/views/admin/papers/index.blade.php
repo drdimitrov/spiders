@@ -37,9 +37,9 @@
                                         @endif
                                     @endforeach
                                 </td>
-                                <td>{{ $locality->published_at }}</td>
-                                <td>{{ $locality->name }}</td>
-                                <td>{{ $locality->journal }}</td>
+                                <td>{{ $paper->published_at }}</td>
+                                <td>{{ $paper->name }}</td>
+                                <td>{{ $paper->journal }}</td>
                                 {{-- <td>
                                     <a href="{{ route('admin.locality.edit', $locality->id) }}" data-toggle="tooltip" title="Edit">
                                         <span class="glyphicon glyphicon-pencil "></span>
