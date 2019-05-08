@@ -37,7 +37,7 @@
                                         @endif
                                     @endforeach
                                 </td>
-                                <td>{{ $paper->published_at }}</td>
+                                <td>{{ $paper->published_at->format('Y') }}</td>
                                 <td>{{ $paper->name }}</td>
                                 <td>{{ $paper->journal }}</td>
                                 {{-- <td>
