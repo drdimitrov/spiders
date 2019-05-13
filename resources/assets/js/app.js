@@ -13,7 +13,7 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
- 
+
 
 Vue.component('author', require('./components/search/Authors.vue'));
 Vue.component('author-select', require('./components/search/ChooseAuth.vue'));
@@ -23,6 +23,7 @@ Vue.component('genus-select', require('./components/search/Genera.vue'));
 Vue.component('species-select', require('./components/search/Species.vue'));
 Vue.component('locality-select', require('./components/search/Localities.vue'));
 Vue.component('species-locality', require('./components/charts/SpeciesLocality.vue'));
+Vue.component('paper-rejected', require('./components/search/PaperRejected.vue'));
 
 const app = new Vue({
     el: '#app',
