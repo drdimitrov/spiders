@@ -71,6 +71,9 @@
             </div>
             <br>
 
+            <paper-rejected style="width: 85%; display: inline-block;"></paper-rejected>
+
+
             <!-- <div class="form-group">
                 <label for="collection_id">Kept in collection:</label>
                 <select class="form-control" name="collection_id">
