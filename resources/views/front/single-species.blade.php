@@ -62,7 +62,6 @@
 				@foreach($locs as $kloc => $loc)
 				<a href="/statistics/species-by-locality/{{ $kloc }}" style="display: inline;">{{ $loc['locality_name'] }}</a> -
 					@foreach($loc['records'] as $ll)
-						@if(isset($ll['notes'])) {{ $ll['notes'] }}, @endif
 						@if(isset($ll['males'])) {{ $ll['males'] }} &#9794;,  @endif
 						@if(isset($ll['females'])) {{ $ll['females'] }} &#9792;,  @endif
 						@if(isset($ll['juveniles'])) {{ $ll['juveniles'] }} juv.,  @endif
@@ -80,6 +79,7 @@
 							{{$ll['paper']->first()->authors->first()->last_name}}
 						@endif
 						{{ str_limit($ll['paper']->first()->published_at, 4, '') }};
+						@if(isset($ll['notes'])) ({{ $ll['notes'] }}), @endif
 						@if(isset($ll['coordinates']))
 							@php($coordinates[] = $ll['coordinates'])
 						@endif
