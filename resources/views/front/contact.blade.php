@@ -41,11 +41,20 @@
 				National Museum of Natural History,<br>
 				1 Tsar Osvoboditel Blvd,<br>
 				1000 Sofia, Bulgaria<br>
-				<abbr title="Email">Email:</abbr> 
+				<abbr title="Email">Email:</abbr>
 				{!! obscure('info@nortiena.com') !!}
 			</address>
+
+			<address>
+				<strong>Simeon Indzhov</strong><br>
+				National Museum of Natural History,<br>
+				1 Tsar Osvoboditel Blvd,<br>
+				1000 Sofia, Bulgaria<br>
+				<abbr title="Email">Email:</abbr>
+				{!! obscure('sinjov@abv.com') !!}
+			</address>
 		</div>
-	</div>  
+	</div>
 </div>
 <style>
 	.col-md-3{
