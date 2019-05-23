@@ -79,7 +79,7 @@
 							{{$ll['paper']->first()->authors->first()->last_name}}
 						@endif
 						{{ str_limit($ll['paper']->first()->published_at, 4, '') }}
-						@if(isset($ll['notes'])) ({{ $ll['notes'] }}) @endif;
+						@if(isset($ll['notes']))({{ $ll['notes'] }})@endif;
 						@if(isset($ll['coordinates']))
 							@php($coordinates[] = $ll['coordinates'])
 						@endif
