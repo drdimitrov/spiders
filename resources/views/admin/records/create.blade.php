@@ -57,7 +57,7 @@
             </div>
 
             <div class="form-group" id="inps">
-                <label>Number of pecimens:</label>
+                <label>Number of specimens:</label>
                 <input type="text" name="males" class="form-control" placeholder="males" style="display: inline; width: 120px;">
                 <input type="text" name="females" class="form-control" placeholder="females" style="display: inline; width: 120px;">
                 <input type="text" name="juveniles" class="form-control" placeholder="juveniles &#9794;,&#9792;" style="display: inline; width: 120px;">
