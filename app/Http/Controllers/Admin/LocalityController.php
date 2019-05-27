@@ -24,7 +24,7 @@ class LocalityController extends Controller
     public function save(Request $request){
 
     	$this->validate($request, [
-	        'name' => 'required|unique:regions',
+	        'name' => 'required|unique:localities',
 	        'region_id' => 'required',
 	        'country_id' => 'required',
             'latitude' => 'numeric|between:0,99.999999|nullable',
