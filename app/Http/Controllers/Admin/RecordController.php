@@ -92,7 +92,7 @@ class RecordController extends Controller
     }
 
     public function searchSpecies(Request $request){
-        $species = Species::with('genus')->where('name', 'ilike', $request->species.'%')->orderBy('name')->get();
+        $species = Species::with('genus')->where('name', 'ilike', '%' . $request->species.'%')->orderBy('name')->get();
 
         return $species;
     }
