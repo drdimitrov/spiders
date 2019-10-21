@@ -63,6 +63,7 @@
                 <input type="text" name="juveniles" class="form-control" placeholder="juveniles &#9794;,&#9792;" style="display: inline; width: 120px;">
                 <input type="text" name="males_juv" class="form-control" placeholder="juv. &#9794;" style="display: inline; width: 120px;">
                 <input type="text" name="females_juv" class="form-control" placeholder="juv. &#9792;" style="display: inline; width: 120px;">
+                <input type="text" name="specimens" class="form-control" placeholder="specimens" style="display: inline; width: 120px;">
             </div>
 
             <div class="input-group">

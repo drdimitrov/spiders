@@ -50,6 +50,7 @@ class RecordController extends Controller
             'recorded_as' => $request->recorded_as,
             'page' => (int) $request->page,
             'altitude' => (int) $request->altitude
+            'specimens' => $request->specimens
         ]);
 
         if($record->save()){

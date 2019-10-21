@@ -11,8 +11,8 @@ class Record extends Model
     ];
 
     protected $fillable = [
-	    'species_id', 
-	    'locality_id', 
+	    'species_id',
+	    'locality_id',
 	    'comments',
 	    'males',
 	    'females',
@@ -25,6 +25,7 @@ class Record extends Model
 	    'recorded_as',
         'page',
         'altitude',
+        'specimens',
     ];
 
     public function locality(){
