@@ -125,7 +125,7 @@
 		</div>
     </div>
 </div>
-   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA41cF0sttrkX2sC2iwpBp5cyr6aFAIKJM&callback=initMap"
+   <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_SEARCH_API_KEY') }}"
   type="text/javascript"></script>
   @if(!empty($coordinates))
   <script>
