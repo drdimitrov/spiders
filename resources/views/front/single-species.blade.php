@@ -61,7 +61,7 @@
 			<b>{{ $k }}: </b>
 				@foreach($locs as $kloc => $loc)
 				<a href="/statistics/species-by-locality/{{ $kloc }}" style="display: inline;">{{ $loc['locality_name'] }}</a> -
-					@foreach($loc['records'] as $ll){{dd($ll)}}
+					@foreach($loc['records'] as $ll)
 						@if(isset($ll['specimens'])) {{ $ll['specimens'] }} specimens,  @endif
 						@if(isset($ll['males'])) {{ $ll['males'] }} &#9794;,  @endif
 						@if(isset($ll['females'])) {{ $ll['females'] }} &#9792;,  @endif
