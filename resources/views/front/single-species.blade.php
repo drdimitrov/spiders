@@ -30,7 +30,21 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-12">
+			<div class="pull-right col-md-6" style="background: #ddddbb; padding-top: 10px">
+				<div id="map" style="width: 100%; height: 400px;"></div>
+				<div class="gdist">
+					@if($species->gdist)
+						<h4 style="display: inline-block">General distribution:</h4>
+						{{$species->gdist}}
+					@else
+						@if($species->gdist_wsc)
+							<h4 style="display: inline-block">General distribution (WSC):</h4>
+							{{$species->gdist_wsc}}
+						@endif
+					@endif
+				</div>
+			</div>
 
 			<!-- References -->
 			<h4>Faunistic references:</h4>
@@ -91,20 +105,7 @@
 			@endforeach
 
 		</div>
-		<div class="col-md-6">
-			<div id="map" style="width: 100%; height: 400px;"></div>
-			<div class="gdist">
-				@if($species->gdist)
-					<h4 style="display: inline-block">General distribution:</h4>
-					{{$species->gdist}}
-				@else
-					@if($species->gdist_wsc)
-						<h4 style="display: inline-block">General distribution (WSC):</h4>
-						{{$species->gdist_wsc}}
-					@endif
-				@endif
-			</div>
-		</div>
+		<!-- The OLD place of the map -->
 	</div>
     <div class=" row images">
 		<div class="col-md-12">
