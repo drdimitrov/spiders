@@ -31,7 +31,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<div class="pull-right col-md-6" style="background: #ddddbb; padding-top: 10px">
+			<div class="pull-right col-md-6" style="background: #ddddbb; padding-top: 10px; margin-left: 20px">
 				<div id="map" style="width: 100%; height: 400px;"></div>
 				<div class="gdist">
 					@if($species->gdist)
@@ -71,7 +71,7 @@
 			@php($coordinates = [])
 
 			@foreach($localities as $k => $locs)
-			<span>
+			<div class="text-justify">
 			<b>{{ $k }}: </b>
 				@foreach($locs as $kloc => $loc)
 				<a href="/statistics/species-by-locality/{{ $kloc }}" style="display: inline;">{{ $loc['locality_name'] }}</a> -
@@ -101,7 +101,7 @@
 					@endforeach
 				@endforeach
 				<br>
-			</span>
+			</div>
 			@endforeach
 
 		</div>
