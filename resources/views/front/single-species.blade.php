@@ -31,7 +31,12 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<div class="pull-right col-md-6" style="background: #ddddbb; padding-top: 10px; margin-left: 20px">
+			<div class="pull-right col-md-6" style="
+				background: #ddddbb; 
+				padding-top: 10px; 
+				margin-left: 20px;
+				border-radius: 5px;
+			">
 				<div id="map" style="width: 100%; height: 400px;"></div>
 				<div class="gdist">
 					@if($species->gdist)
