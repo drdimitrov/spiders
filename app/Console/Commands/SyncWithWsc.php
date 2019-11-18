@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use App\Services\WscService;
 use App\Species;
 use App\Genus;
+use App\Family;
 
 class SyncWithWsc extends Command
 {
@@ -44,31 +45,47 @@ class SyncWithWsc extends Command
 
         $species = Species::where('wsc_lsid', str_replace('urn:lsid:nmbe.ch:spidersp:', '', $fetch->taxon->lsid))->first();
 
-        if($species){
-            $species->name = $fetch->taxon->species;
+        if(!$species){
+            $species = new Species;
+        }
 
-            $genus = Genus::where('wsc_lsid', str_replace('urn:lsid:nmbe.ch:spidergen:', '', $fetch->taxon->genusObject->genLsid))->first();
+        $species->name = $fetch->taxon->species;
 
-            if(!$genus){
-                $genus = Genus::create([
-                    'name' => $fetch->taxon->genusObject->genus,
-                    'author' => $fetch->taxon->genusObject->author,
-                    'family_id' => str_replace( 'urn:lsid:nmbe.ch:spiderfam:', '', $fetch->taxon->familyObject->famLsid),
-                    'slug' => strtolower($fetch->taxon->genusObject->genus ),
-                    'wsc_lsid' => str_replace('urn:lsid:nmbe.ch:spidergen:', '', $fetch->taxon->genusObject->genLsid)
+        $genus = Genus::where('wsc_lsid', str_replace('urn:lsid:nmbe.ch:spidergen:', '', $fetch->taxon->genusObject->genLsid))->first();
+
+        if(!$genus){
+
+            $family = Family::where('wsc_lsid', str_replace( 'urn:lsid:nmbe.ch:spiderfam:', '', $fetch->taxon->familyObject->famLsid))->first();
+
+            if(!$family){
+                $family = Family::create([
+                    'name' => $fetch->taxon->familyObject->family,
+                    'slug' => strtolower($fetch->taxon->familyObject->family),
+                    'order_id' => 2,
+                    'author' => $fetch->taxon->familyObject->author,
+                    'wsc_lsid' => str_replace('urn:lsid:nmbe.ch:spiderfam:', '', $fetch->taxon->familyObject->famLsid),
                 ]);
             }
 
-            $species->genus_id = $genus->id;
-            $species->author = $fetch->taxon->author;
-            $species->gdist_wsc = $fetch->taxon->distribution;
-
-            if($species->save()){
-                $this->info('The species ' . $this->argument('species') . ' was successfully updated');
-            }else{
-                $this->error('An error occupied while trying to update the species ' . $this->argument('species') );
-            }
+            $genus = Genus::create([
+                'name' => $fetch->taxon->genusObject->genus,
+                'author' => $fetch->taxon->genusObject->author,
+                'family_id' => $family->id,
+                'slug' => strtolower($fetch->taxon->genusObject->genus ),
+                'wsc_lsid' => str_replace('urn:lsid:nmbe.ch:spidergen:', '', $fetch->taxon->genusObject->genLsid)
+            ]);
         }
+
+        $species->genus_id = $genus->id;
+        $species->author = $fetch->taxon->author;
+        $species->gdist_wsc = $fetch->taxon->distribution;
+
+        if($species->save()){
+            $this->info('The species ' . $this->argument('species') . ' was successfully updated');
+        }else{
+            $this->error('An error occupied while trying to update the species ' . $this->argument('species') );
+        }
+        
 
     }
 }
