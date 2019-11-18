@@ -28,11 +28,18 @@
                 <species-select></species-select>
             </div>
 
-            <paper-select style="width: 85%; display: inline-block;"></paper-select>
+            <paper-select style="width: 85%; display: inline-block;"></paper-select> 
 
             <div class="form-group" style="width: 10%; display: inline-block; margin-left: 10px;">
                 <input type="text" name="page" class="form-control" placeholder="page">
             </div>
+
+            <paper-rejected style="
+                border: 1px solid #cccc99;
+                border-radius: 5px; 
+                padding-right: 5px;
+                padding-left: 5px;"
+            ></paper-rejected>
 
             <div class="row">
                 <div class="col-md-4 form-group">

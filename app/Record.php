@@ -26,6 +26,7 @@ class Record extends Model
         'page',
         'altitude',
         'specimens',
+        'rejected',
     ];
 
     public function locality(){

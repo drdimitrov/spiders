@@ -1,0 +1,51 @@
+Arguments: 
+  /usr/bin/node /usr/bin/yarn install
+
+PATH: 
+  /home/vagrant/.composer/vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.16.0
+
+Node version: 
+  12.3.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: EPROTO: protocol error, symlink '../acorn/bin/acorn' -> '/home/vagrant/code/araneae/node_modules/acorn-dynamic-import/node_modules/.bin/acorn'
+
+npm manifest: 
+  {
+    "private": true,
+    "scripts": {
+      "dev": "node node_modules/cross-env/bin/cross-env.js NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+      "watch": "node node_modules/cross-env/bin/cross-env.js NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+      "hot": "node node_modules/cross-env/bin/cross-env.js NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+      "production": "node node_modules/cross-env/bin/cross-env.js NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    },
+    "devDependencies": {
+      "algoliasearch": "^3.21.1",
+      "autocomplete.js": "^0.26.0",
+      "axios": "^0.15.2",
+      "bootstrap-sass": "^3.3.7",
+      "jquery": "^3.1.0",
+      "laravel-mix": "^0.6.0",
+      "lodash": "^4.16.2",
+      "vue": "^2.0.1"
+    },
+    "dependencies": {
+      "bootstrap": "^3.3.7",
+      "chart.js": "^2.6.0",
+      "debounce": "^1.0.2",
+      "jquery-ui": "github:jquery/jquery-ui",
+      "vue2-autocomplete-js": "0.0.4"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

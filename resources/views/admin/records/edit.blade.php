@@ -36,6 +36,13 @@
                 <input type="text" name="page" class="form-control" placeholder="page" value="{{$record->page}}">
             </div>
 
+             <paper-rejected style="
+                border: 1px solid #cccc99;
+                border-radius: 5px; 
+                padding-right: 5px;
+                padding-left: 5px;"
+            ></paper-rejected>
+
             <div class="form-group">
                 <label for="recorded_as">Recorded as:</label>            
                 <input type="text" name="recorded_as" class="form-control" value="{{ $record->recorded_as }}">
@@ -65,6 +72,7 @@
                 <input type="text" name="juveniles" class="form-control" placeholder="juveniles &#9794;,&#9792;" style="display: inline; width: 120px;" value="{{ $record->juveniles ?: '' }}">
                 <input type="text" name="males_juv" class="form-control" placeholder="juv. &#9794;" value="{{ $record->juvenile_males ?: '' }}" style="display: inline; width: 120px;">
                 <input type="text" name="females_juv" class="form-control" placeholder="juv. &#9792;" value="{{ $record->juvenile_females ?: '' }}" style="display: inline; width: 120px;">
+                <input type="text" name="specimens" class="form-control" placeholder="specimens" value="{{ $record->specimens ?: '' }}" style="display: inline; width: 120px;">
             </div>
 
             <div class="input-group">

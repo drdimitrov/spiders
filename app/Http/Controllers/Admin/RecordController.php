@@ -51,6 +51,7 @@ class RecordController extends Controller
             'page' => (int) $request->page,
             'altitude' => (int) $request->altitude,
             'specimens' => $request->specimens,
+            'rejected' => $request->rejected,
         ]);
 
         if($record->save()){
@@ -85,7 +86,8 @@ class RecordController extends Controller
         $record->paper_id = $request->sel1;
         $record->page = (int) $request->page;
         $record->altitude = (int) $request->altitude;
-        //$record->collection_id = null
+        $record->specimens = $request->specimens;
+        $record->rejected = $request->rejected;
 
         if($record->save()){
             return back();
