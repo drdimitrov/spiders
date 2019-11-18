@@ -7,6 +7,8 @@ use App\Services\WscService;
 use App\Species;
 use App\Genus;
 use App\Family;
+use App\DailyUpdate;
+use Carbon\Carbon;
 
 class SyncWithWsc extends Command
 {
@@ -15,7 +17,7 @@ class SyncWithWsc extends Command
      *
      * @var string
      */
-    protected $signature = 'wsc {species}';
+    protected $signature = 'wsc';
 
     /**
      * The console command description.
@@ -23,6 +25,10 @@ class SyncWithWsc extends Command
      * @var string
      */
     protected $description = 'Sync taxa with WSC';
+
+    protected $relevantSpecies = 0;
+    
+    protected $irrelevantSpecies = 0;
 
     /**
      * Create a new command instance.
@@ -34,6 +40,55 @@ class SyncWithWsc extends Command
         parent::__construct();
     }
 
+    public function synchronize(WscService $wsc, $taxon){
+
+        $fetch = $wsc->fetchSpecies($taxon);
+
+        $species = Species::where('wsc_lsid', str_replace('urn:lsid:nmbe.ch:spidersp:', '', $fetch->taxon->lsid))->first();
+
+        if($species){
+            $species->name = $fetch->taxon->species;
+
+            $genus = Genus::where('wsc_lsid', str_replace('urn:lsid:nmbe.ch:spidergen:', '', $fetch->taxon->genusObject->genLsid))->first();
+
+            if(!$genus){
+
+                $family = Family::where('wsc_lsid', str_replace( 'urn:lsid:nmbe.ch:spiderfam:', '', $fetch->taxon->familyObject->famLsid))->first();
+
+                if(!$family){
+                    $family = Family::create([
+                        'name' => $fetch->taxon->familyObject->family,
+                        'slug' => strtolower($fetch->taxon->familyObject->family),
+                        'order_id' => 2,
+                        'author' => $fetch->taxon->familyObject->author,
+                        'wsc_lsid' => str_replace('urn:lsid:nmbe.ch:spiderfam:', '', $fetch->taxon->familyObject->famLsid),
+                    ]);
+                }
+
+                $genus = Genus::create([
+                    'name' => $fetch->taxon->genusObject->genus,
+                    'author' => $fetch->taxon->genusObject->author,
+                    'family_id' => $family->id,
+                    'slug' => strtolower($fetch->taxon->genusObject->genus ),
+                    'wsc_lsid' => str_replace('urn:lsid:nmbe.ch:spidergen:', '', $fetch->taxon->genusObject->genLsid)
+                ]);
+            }
+
+            $species->genus_id = $genus->id;
+            $species->author = $fetch->taxon->author;
+            $species->gdist_wsc = $fetch->taxon->distribution;
+
+            if($species->save()){
+                $this->relevantSpecies += 1;                
+                //$this->info('The species ' . $this->argument('species') . ' was successfully updated');
+            }else{
+                $this->error('An error occupied while trying to update the species ' . $this->argument('species') );
+            }            
+        }else{
+            $this->irrelevantSpecies += 1;
+        }
+    }
+
     /**
      * Execute the console command.
      *
@@ -41,51 +96,22 @@ class SyncWithWsc extends Command
      */
     public function handle(WscService $wsc)
     {
-        $fetch = $wsc->fetchSpecies($this->argument('species'));
-
-        $species = Species::where('wsc_lsid', str_replace('urn:lsid:nmbe.ch:spidersp:', '', $fetch->taxon->lsid))->first();
-
-        if(!$species){
-            $species = new Species;
-        }
-
-        $species->name = $fetch->taxon->species;
-
-        $genus = Genus::where('wsc_lsid', str_replace('urn:lsid:nmbe.ch:spidergen:', '', $fetch->taxon->genusObject->genLsid))->first();
-
-        if(!$genus){
-
-            $family = Family::where('wsc_lsid', str_replace( 'urn:lsid:nmbe.ch:spiderfam:', '', $fetch->taxon->familyObject->famLsid))->first();
-
-            if(!$family){
-                $family = Family::create([
-                    'name' => $fetch->taxon->familyObject->family,
-                    'slug' => strtolower($fetch->taxon->familyObject->family),
-                    'order_id' => 2,
-                    'author' => $fetch->taxon->familyObject->author,
-                    'wsc_lsid' => str_replace('urn:lsid:nmbe.ch:spiderfam:', '', $fetch->taxon->familyObject->famLsid),
-                ]);
+        $updatedTaxaInWsc = $wsc->fetchUpdatedTaxa(Carbon::yesterday()->format('Y-m-d'));
+       
+        if(isset($updatedTaxaInWsc['species'])){
+            foreach($updatedTaxaInWsc['species'] as $taxon){                
+                $this->synchronize($wsc, $taxon);
             }
-
-            $genus = Genus::create([
-                'name' => $fetch->taxon->genusObject->genus,
-                'author' => $fetch->taxon->genusObject->author,
-                'family_id' => $family->id,
-                'slug' => strtolower($fetch->taxon->genusObject->genus ),
-                'wsc_lsid' => str_replace('urn:lsid:nmbe.ch:spidergen:', '', $fetch->taxon->genusObject->genLsid)
-            ]);
         }
 
-        $species->genus_id = $genus->id;
-        $species->author = $fetch->taxon->author;
-        $species->gdist_wsc = $fetch->taxon->distribution;
+        DailyUpdate::create([
+            'date' => Carbon::today(),
+            'updated' => $this->relevantSpecies,
+            'irrelevant' => $this->irrelevantSpecies,
+        ]);
 
-        if($species->save()){
-            $this->info('The species ' . $this->argument('species') . ' was successfully updated');
-        }else{
-            $this->error('An error occupied while trying to update the species ' . $this->argument('species') );
-        }
-        
-
+        $this->info(
+            $this->relevantSpecies . ' species updated, ' . $this->irrelevantSpecies . ' species irrelevant.'
+        );
     }
 }
