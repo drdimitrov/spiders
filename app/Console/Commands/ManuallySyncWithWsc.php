@@ -4,31 +4,22 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Services\WscService;
-use App\Species;
-use App\Genus;
-use App\Family;
-use App\DailyUpdate;
-use Carbon\Carbon;
 
-class SyncWithWsc extends Command
+class ManuallySyncWithWsc extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'wsc';
+    protected $signature = 'catalog {wsc_lsid}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Sync taxa with WSC';
-
-    protected $relevantSpecies = 0;
-    
-    protected $irrelevantSpecies = 0;
+    protected $description = 'Manually sync taxa with WSC';
 
     /**
      * Create a new command instance.
@@ -40,9 +31,14 @@ class SyncWithWsc extends Command
         parent::__construct();
     }
 
-    public function synchronize(WscService $wsc, $taxon){
-
-        $fetch = $wsc->fetchSpecies($taxon);
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle(WscService $wsc)
+    {
+        $fetch = $wsc->fetchSpecies($this->argument('wsc_lsid'));
 
         $species = Species::where('wsc_lsid', str_replace('urn:lsid:nmbe.ch:spidersp:', '', $fetch->taxon->lsid))->first();
 
@@ -81,40 +77,13 @@ class SyncWithWsc extends Command
             $species->author = $fetch->taxon->author;
             $species->gdist_wsc = $fetch->taxon->distribution;
 
-            if($species->save()){
-                $this->relevantSpecies += 1;                
+            if($species->save()){                              
                 //$this->info('The species ' . $this->argument('species') . ' was successfully updated');
             }else{
                 $this->error('An error occupied while trying to update the species ' . $this->argument('species') );
             }            
-        }else{
-            $this->irrelevantSpecies += 1;
-        }
-    }
-
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
-    public function handle(WscService $wsc)
-    {
-        $updatedTaxaInWsc = $wsc->fetchUpdatedTaxa(Carbon::yesterday()->format('Y-m-d'));
-       
-        if(isset($updatedTaxaInWsc['species'])){
-            foreach($updatedTaxaInWsc['species'] as $taxon){                
-                $this->synchronize($wsc, $taxon);
-            }
         }
 
-        DailyUpdate::create([
-            'date' => Carbon::today(),
-            'updated' => $this->relevantSpecies,
-            'irrelevant' => $this->irrelevantSpecies,
-        ]);
-
-        $this->info(
-            $this->relevantSpecies . ' species updated, ' . $this->irrelevantSpecies . ' species irrelevant.'
-        );
+        $this->info($this->argument('wsc_lsid') . ' synced manually');
     }
 }
