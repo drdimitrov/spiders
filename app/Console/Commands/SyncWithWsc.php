@@ -40,6 +40,32 @@ class SyncWithWsc extends Command
         parent::__construct();
     }
 
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle(WscService $wsc)
+    {
+        $updatedTaxaInWsc = $wsc->fetchUpdatedTaxa(Carbon::yesterday()->format('Y-m-d'));
+       
+        if(isset($updatedTaxaInWsc['species'])){
+            foreach($updatedTaxaInWsc['species'] as $taxon){                
+                $this->synchronize($wsc, $taxon);
+            }
+        }
+
+        DailyUpdate::create([
+            'date' => Carbon::today(),
+            'updated' => $this->relevantSpecies,
+            'irrelevant' => $this->irrelevantSpecies,
+        ]);
+
+        $this->info(
+            $this->relevantSpecies . ' species updated, ' . $this->irrelevantSpecies . ' species irrelevant.'
+        );
+    }
+
     public function synchronize(WscService $wsc, $taxon){
 
         $fetch = $wsc->fetchSpecies($taxon);
@@ -90,31 +116,5 @@ class SyncWithWsc extends Command
         }else{
             $this->irrelevantSpecies += 1;
         }
-    }
-
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
-    public function handle(WscService $wsc)
-    {
-        $updatedTaxaInWsc = $wsc->fetchUpdatedTaxa(Carbon::yesterday()->format('Y-m-d'));
-       
-        if(isset($updatedTaxaInWsc['species'])){
-            foreach($updatedTaxaInWsc['species'] as $taxon){                
-                $this->synchronize($wsc, $taxon);
-            }
-        }
-
-        DailyUpdate::create([
-            'date' => Carbon::today(),
-            'updated' => $this->relevantSpecies,
-            'irrelevant' => $this->irrelevantSpecies,
-        ]);
-
-        $this->info(
-            $this->relevantSpecies . ' species updated, ' . $this->irrelevantSpecies . ' species irrelevant.'
-        );
     }
 }

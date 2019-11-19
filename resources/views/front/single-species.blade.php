@@ -117,7 +117,7 @@
 				@foreach($species->images as $image)
 				<div style="display: inline-block;">
 					<a class="single_image"  class="sp_img" href="/storage/species/{{ $image->name  }}" title="{{ $species->genus->name }} {{ $species->name }}">
-						<img src="/storage/species/{{ $image->name  }}" width="150">
+						<img src="/storage/species/{{ $image->name  }}" height="150">
 					</a>
 
 					<p style="width: 160px; text-align: center;">{{$image->description}}</p>
