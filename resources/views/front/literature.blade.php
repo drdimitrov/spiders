@@ -4,8 +4,11 @@
 <div class="container" id="app">
 	<div class="page-header">
 		<h1 style="display: inline;">
-			Literature 
-			<a href="{{ route('literature') }}" class="btn btn-custom">All papers</a>
+			Literature
+
+			@if(request()->has('author')) 
+				<a href="{{ route('literature') }}" class="btn btn-custom">All papers</a>
+			@endif
 		</h1>
 		<author class="pull-right"></author>
 	</div>
