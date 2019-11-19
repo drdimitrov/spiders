@@ -7,10 +7,8 @@
 <div class="container">
 	<div class="page-header">
 		<h3 style="display: inline;">
-			<i>{{ $species->genus->name }} {{ $species->name }}</i>
-
 			<b>
-			{{ $species->author }}
+				<i>{{ $species->genus->name }} {{ $species->name }}</i> {{ $species->author }}
 			</b>
 			<br>
 			<span style="display: inline-block; font-size: .7em; margin-top: 15px;">
