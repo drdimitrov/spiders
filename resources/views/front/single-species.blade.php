@@ -38,11 +38,11 @@
 				<div id="map" style="width: 100%; height: 400px;"></div>
 				<div class="gdist">
 					@if($species->gdist)
-						<h4 style="display: inline-block">General distribution:</h4>
+						<h4 style="display: inline-block">Distribution:</h4>
 						{{$species->gdist}}
 					@else
 						@if($species->gdist_wsc)
-							<h4 style="display: inline-block">General distribution (WSC):</h4>
+							<h4 style="display: inline-block">Distribution (WSC):</h4>
 							{{$species->gdist_wsc}}
 						@endif
 					@endif
