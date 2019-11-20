@@ -11,19 +11,21 @@
 					<table class="table table-striped">
 						<thead>
 							<tr>
+								<th>Synchronization date</th>
+								<th>Species name</th>		
 								<th>Species ID</th>
-								<th>Species name</th>
-								<th>Synchronized at</th>
+								<th>Source</th>
 							</tr>
 						</thead>
 						<tbody>
 							@foreach($dailyUpdates as $update)
 							<tr>
-								<td>{{ $update->species->id }}</td>
+								<td>{{ $update->created_at->format('d.m.Y') }}</td>
 								<td>
 									{{ $update->species->genus->name . ' ' . $update->species->name }}
 								</td>
-								<td>{{ $update->created_at->format('d.m.Y') }}</td>
+								<td>{{ $update->species->id }}</td>								
+								<td>WSC</td>								
 							</tr>
 							@endforeach						
 						</tbody>
