@@ -8,6 +8,11 @@ use App\DailyUpdate;
 
 class DailyUpdatesController extends Controller
 {
+	public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('isAllowed');
+    }
+    
 	public function index(){
 		$dailyUpdates = DailyUpdate::with('species', 'species.genus')
 			->latest()
