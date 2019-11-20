@@ -11,9 +11,8 @@ class DailyUpdate extends Model
 	
     protected $guarded = [];
 
-    protected $dates = [
-        'created_at', 
-        'updated_at', 
-        'date',
-    ];
+    public function species(){
+    	return $this->belongsTo(Species::class);
+    }
+    
 }

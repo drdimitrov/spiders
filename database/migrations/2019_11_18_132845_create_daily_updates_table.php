@@ -15,9 +15,7 @@ class CreateDailyUpdatesTable extends Migration
     {
         Schema::create('daily_wsc_updates', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamp('date');
-            $table->integer('updated')->nullable();
-            $table->integer('irrelevant')->nullable();
+            $table->integer('species_id');
             $table->timestamps();
         });
     }
