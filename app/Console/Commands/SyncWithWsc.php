@@ -55,11 +55,11 @@ class SyncWithWsc extends Command
             }
         }
 
-        DailyUpdate::create([
-            'date' => Carbon::today(),
-            'updated' => $this->relevantSpecies,
-            'irrelevant' => $this->irrelevantSpecies,
-        ]);
+        // DailyUpdate::create([
+        //     'date' => Carbon::today(),
+        //     'updated' => $this->relevantSpecies,
+        //     'irrelevant' => $this->irrelevantSpecies,
+        // ]);
 
         $this->info(
             $this->relevantSpecies . ' species updated, ' . $this->irrelevantSpecies . ' species irrelevant.'
