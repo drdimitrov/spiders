@@ -5,6 +5,8 @@ namespace App\Services;
 use App\Species;
 use App\Genus;
 use App\Family;
+use Storage;
+use Carbon\Carbon;
 use App\DailyUpdate;
 use GuzzleHttp\Client;
 
@@ -169,6 +171,12 @@ class WscService{
             }else{
             	$message = 'An error occupied while trying to update the species ' .  $species->genus->name . ' ' . $species->name;                
             }            
+        }else{
+        	$message = 'Irrelevant species ' . $speciesToSync;
+        	Storage::append(
+        		'synchronized.txt', 
+        		Carbon::now()->format('d.m.Y') . ' - ' . $message
+        	);
         }
 
         return $message;

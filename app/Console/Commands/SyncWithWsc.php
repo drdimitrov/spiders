@@ -48,22 +48,12 @@ class SyncWithWsc extends Command
     public function handle(WscService $wsc)
     {
         $updatedTaxaInWsc = $wsc->fetchUpdatedTaxa(Carbon::yesterday()->format('Y-m-d'));
-       
+ 
         if(isset($updatedTaxaInWsc['species'])){
-            foreach($updatedTaxaInWsc['species'] as $taxon){                
-                $this->synchronize($wsc, $taxon);
+            foreach($updatedTaxaInWsc['species'] as $taxon){
+                $this->info($wsc->synchronize($taxon));
             }
-        }
-
-        // DailyUpdate::create([
-        //     'date' => Carbon::today(),
-        //     'updated' => $this->relevantSpecies,
-        //     'irrelevant' => $this->irrelevantSpecies,
-        // ]);
-
-        $this->info(
-            $this->relevantSpecies . ' species updated, ' . $this->irrelevantSpecies . ' species irrelevant.'
-        );
+        }      
     }
 
     public function synchronize(WscService $wsc, $taxon){
