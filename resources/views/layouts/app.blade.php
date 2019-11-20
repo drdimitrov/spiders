@@ -169,8 +169,7 @@
                                 <li><a href="{{route('admin.record.create')}}">Create</a></li>
                               </ul>
                             </li>
-                            <!-- <li ><a href="#">Libros<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
-                            <li ><a href="#">Tags<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li> -->
+                            <li><a href="{{ route('admin.daily_updates') }}">Daily updates</a></li>
                           </ul>
                         </div>
                       </div>

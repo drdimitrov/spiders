@@ -139,3 +139,6 @@ Route::post('/admin/records/edit', 'Admin\RecordController@update')->name('admin
 
 Route::post('/admin/records/search-species', 'Admin\RecordController@searchSpecies');
 Route::post('/admin/records/search-localities', 'Admin\RecordController@searchLocalities');
+
+Route::get('/admin/daily-updates', 'Admin\DailyUpdatesController@index')->name('admin.daily_updates');
+

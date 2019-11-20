@@ -164,7 +164,7 @@ class WscService{
             $species->gdist_wsc = $fetch->taxon->distribution;
 
             if($species->save()){
-            	//DailyUpdate::create(['species_id' => $species->id]);                            
+            	DailyUpdate::create(['species_id' => $species->id]);                            
                 $message = $species->genus->name . ' ' . $species->name . ' synced successfully';
             }else{
             	$message = 'An error occupied while trying to update the species ' .  $species->genus->name . ' ' . $species->name;                
