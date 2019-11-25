@@ -22,7 +22,7 @@
 							<tr>
 								<td>{{ $update->created_at->format('d.m.Y') }}</td>
 								<td>
-									{{ $update->species->genus->name . ' ' . $update->species->name }}
+									<a target="_blank" href="{{ route('species', $update->species->id) }}">{{ $update->species->genus->name . ' ' . $update->species->name }}</a>
 								</td>
 								<td>{{ $update->species->id }}</td>								
 								<td>WSC</td>								
