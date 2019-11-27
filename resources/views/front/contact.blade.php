@@ -77,5 +77,9 @@
 	.col-md-3{
 		padding-left: 5%;
 	}
+
+	footer{
+		z-index: -1;
+	}
 </style>
 @endsection
