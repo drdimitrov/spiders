@@ -182,6 +182,8 @@
 
       </script>
 
+      {!!  GoogleReCaptchaV3::init() !!}
+
       @stack('custom-scripts')
 
   </body>

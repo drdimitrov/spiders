@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Mail\EnquirySend;
+use TimeHunter\LaravelGoogleReCaptchaV3\Validations\GoogleReCaptchaV3ValidationRule;
 
 class FrontController extends Controller
 {
@@ -16,6 +17,14 @@ class FrontController extends Controller
     }
 
     public function postContact(Request $request){
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'subject' => 'required',
+            'body' => 'required',
+            'g-recaptcha-response' => [new GoogleReCaptchaV3ValidationRule('contact')],
+        ]);
 
     	\Mail::to('info@nortiena.com')->send(new EnquirySend($request));
 
