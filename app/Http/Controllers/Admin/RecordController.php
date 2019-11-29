@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Locality;
 use App\Record;
 use App\Species;
+use App\Region;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -104,5 +105,11 @@ class RecordController extends Controller
         $localities = Locality::where('name', 'ilike', $request->locality.'%')->orderBy('name')->get();
 
         return $localities;
+    }
+
+    public function fetchCountriesForRegion(Request $request){
+        $region = Region::find((int) $request->region);
+
+        return $region->countries;
     }
 }

@@ -28,7 +28,8 @@
                 </div>
                 <div class="form-group">
                     <label for="region_id">Select region:</label>
-                    <select class="form-control" name="region_id">
+                    <select class="form-control" name="region_id" id="region_id">
+                        <option></option>
                         @foreach($regions as $region)
                             <option value="{{ $region->id }}" >
                             {{ $region->name }}
@@ -38,12 +39,8 @@
                 </div>
                 <div class="form-group">
                     <label for="country_id">Select country:</label>
-                    <select class="form-control" name="country_id">
-                        @foreach($countries as $country)
-                            <option value="{{ $country->id }}" >
-                            {{ $country->name }}
-                            </option>
-                        @endforeach
+                    <select class="form-control" name="country_id" id="country_id">
+                        <option></option>                        
                     </select>
                 </div>
 		        <div class="form-group">
@@ -55,4 +52,32 @@
         </div
     </div>
 </div>
+@endsection
+
+@section('admin-scripts')
+<link href="{{ asset('vendor/select2/select2.css') }}" rel="stylesheet" />
+<script src="{{ asset('vendor/select2/select2.js') }}"></script>
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $('#region_id, #country_id').select2();
+
+    $('#region_id').on('select2:select', function (e) {
+        $.post("{{ route('admin.ajax.countries-for-region') }}", {
+            region: e.params.data.id
+        }, function(data){
+
+            $('#country_id').html('<option></option>');
+
+            $.each(data, function(index, value){
+                console.log(value.id, value.name)
+                $('#country_id').append('<option value="'+ value.id +'">'+ value.name +'</option>');
+            })
+        })
+    });
+</script>
 @endsection

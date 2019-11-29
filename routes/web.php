@@ -142,3 +142,7 @@ Route::post('/admin/records/search-localities', 'Admin\RecordController@searchLo
 
 Route::get('/admin/daily-updates', 'Admin\DailyUpdatesController@index')->name('admin.daily_updates');
 
+//Admin Ajax routes
+Route::post('/admin/ajax/fetch-countries-for-region', 'Admin\RecordController@fetchCountriesForRegion')->name('admin.ajax.countries-for-region');
+
+

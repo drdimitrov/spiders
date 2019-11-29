@@ -88,7 +88,7 @@
 						@if(isset($ll['date'])) {{ $ll['date'] }}, @endif
 						@if(isset($ll['leg'])) {{ $ll['leg'] }} leg., @endif
 						@if(count($ll['paper']->first()->authors) > 2)
-							{{$ll['paper']->first()->authors->first()->last_name}} et al.
+							{{$ll['paper']->first()->authors->first()->last_name}} <i>et al</i>.
 						@elseif(count($ll['paper']->first()->authors) == 2)
 							@foreach($ll['paper']->first()->authors as $a)
 								{{ $a->last_name }} @if(!$loop->last) & @endif

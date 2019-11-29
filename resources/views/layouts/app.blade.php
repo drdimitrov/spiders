@@ -188,6 +188,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @yield('admin-scripts')
     <script>
         $('#datepicker').datepicker({
             dateFormat: "dd-mm-yy",
