@@ -75,7 +75,7 @@
 
             <div class="input-group">
                 <label for="datepicker">Select date:</label>
-                <input type="text" class="form-control" id="datepicker" name="datepicker">
+                <input type="text" class="form-control" id="datepicker" name="datepicker" autocomplete="off">
             </div>
             <br>
 

@@ -77,7 +77,7 @@
 
             <div class="input-group">
                 <label for="datepicker">Select date:</label>
-                <input type="text" class="form-control" id="datepicker" name="datepicker" value="{{ $record->collected_at ? $record->collected_at->format('d-m-Y') : '' }}">
+                <input type="text" class="form-control" id="datepicker" name="datepicker" value="{{ $record->collected_at ? $record->collected_at->format('d-m-Y') : '' }}" autocomplete="off">
             </div>
             <br>
 
