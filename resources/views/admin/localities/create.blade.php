@@ -20,12 +20,15 @@
             	<div class="form-group">
 		            <input type="text" name="name" class="form-control" placeholder="Name">
 		        </div>
-                <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6 form-group">
                     <input type="text" name="latitude" class="form-control" placeholder="latitude">
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <input type="text" name="longitude" class="form-control" placeholder="longitude">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="text" name="longitude" class="form-control" placeholder="longitude">
-                </div>
+                
                 <div class="form-group">
                     <label for="region_id">Select region:</label>
                     <select class="form-control" name="region_id" id="region_id">
