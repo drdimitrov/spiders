@@ -40,4 +40,8 @@ class Record extends Model
     public function paper(){
     	return $this->belongsTo(Paper::class);
     }
+
+    public function rejected(){
+        return $this->belongsTo(Paper::class);
+    }
 }

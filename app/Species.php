@@ -25,7 +25,7 @@ class Species extends Model
             'records', 'species_id', 'locality_id'
         )->withPivot([
             'recorded_as', 'comments', 'males', 'females', 'juvenile_males', 'juvenile_females',
-            'juveniles', 'specimens', 'page', 'altitude', 'collected_at', 'paper_id'
+            'juveniles', 'specimens', 'page', 'altitude', 'collected_at', 'paper_id', 'rejected',
         ]);
     }
 }

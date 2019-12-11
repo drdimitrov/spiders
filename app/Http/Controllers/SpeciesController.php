@@ -48,6 +48,7 @@ class SpeciesController extends Controller
                 'date' => $locality->pivot->collected_at ? \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $locality->pivot->collected_at)->format('d.m.Y') : null,
                 'leg' => $locality->pivot->collected_by,
                 'specimens' => $locality->pivot->specimens,
+                'rejected' => $locality->pivot->rejected,
                 'males' => $locality->pivot->males,
                 'females' => $locality->pivot->females,
                 'juveniles' => $locality->pivot->juveniles,
