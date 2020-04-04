@@ -101,10 +101,7 @@
                         title: "Delete",
                         className: "dt-nowrap dt-center",
                         searchable: false,
-                        responsivePriority: 1,
-                        {{-- render: function (data, type, row) {
-                            return '<a href="/joinplay/{{ $environmentSlug }}/user/' + row.id + '/delete">' + data + '</a>';
-                        } --}}
+                        responsivePriority: 1,                       
                     },
 
                 ],
