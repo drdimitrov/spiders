@@ -13,8 +13,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">    
+    
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
@@ -188,6 +190,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     @yield('admin-scripts')
     <script>
         $('#datepicker').datepicker({

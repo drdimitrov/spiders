@@ -13,7 +13,9 @@
 			<br>
 			<span style="display: inline-block; font-size: .7em; margin-top: 15px;">
 			Family <a href="/genera/show/{{$species->genus->family->slug}}">{{$species->genus->family->name}}</a> /
-			Genus <a href="/species/show/{{$species->genus->slug}}">{{$species->genus->name}}</a>
+			Genus <a href="/species/show/{{$species->genus->slug}}">
+				<i>{{$species->genus->name}}</i>
+			</a>
 		</span>
 		</h3>
 
@@ -55,7 +57,7 @@
 				@foreach($ref as $kr => $vr)
 					@foreach($vr as $rfr)
 					@foreach($rfr as $r)
-						<p><i>{{$r['as']}}</i>
+						<p style="margin-bottom: 1px;"><i>{{$r['as']}}</i>
 							<b>
 								<a href="/literature/{{$r['slug']}}">
 									{{ $kr }} {{ $kref }}@if(isset($r['page'])), p. {{ $r['page'] }}@endif
@@ -146,12 +148,13 @@
       });
     @foreach($coordinates as $cd)
 	    new google.maps.Marker({
-	      position: {
-	          lat: {{$cd["0"]}},
-	          lng: {{$cd["1"]}}
-	        },
-	      map: map,
-	      title: '{{$cd["2"]}}'
+			position: {
+				lat: {{$cd["0"]}},
+				lng: {{$cd["1"]}}
+			},
+			map: map,
+			title: '{{$cd["2"]}}',
+			icon: '{{ asset("images/red-circle.png") }}'
 	    });
     @endforeach
   }
@@ -163,7 +166,6 @@
      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.js"></script>
 	<script>
-	console.log($('.single_image'))
 		$('.single_image').fancybox({
             type : 'image'
         });

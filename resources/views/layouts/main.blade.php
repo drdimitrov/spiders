@@ -18,6 +18,7 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+    <script src="https://unpkg.com/turbolinks@5.2.0/dist/turbolinks.js"></script>
   </head>
 
   <body>
@@ -39,7 +40,7 @@
               <li><a href="/">Introduction</a></li>
               <li><a href="{{route('guide')}}">User guide</a></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Taxa <span class="caret"></span></a>
+                <a href="#" data-turbolinks="false" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Taxa <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="{{route('taxon.search')}}">Search for taxon</a></li>
                   <li><a href="{{route('families')}}">List all families</a></li>
@@ -78,7 +79,7 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ route('home') }}">Home</a></li>
+                            <li><a data-turbolinks="false" href="{{ route('home') }}">Home</a></li>
                             <li>
                                 <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
@@ -112,9 +113,9 @@
           </p>
       </footer>
 
-      <script src="{{ asset('js/app.js') }}"></script>
+      <script data-turbolinks-eval="false" src="{{ asset('js/app.js') }}"></script>
       
-      <script>
+      <script data-turbolinks-eval="false">
         (function () {
           'use strict';
 

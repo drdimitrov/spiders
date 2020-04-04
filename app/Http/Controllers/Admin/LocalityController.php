@@ -10,9 +10,14 @@ use App\Country;
 
 class LocalityController extends Controller
 {
-    public function index(){
-    	$localities = Locality::orderBy('name')->paginate(100);
-    	return view('admin.localities.index', compact('localities'));
+    public function index(Request $request){
+
+        if($request->ajax()){
+            $localities = Locality::with('country', 'region');
+            return datatables($localities)->toJson();
+        }
+
+    	return view('admin.localities.index');
     }
 
     public function create(){
