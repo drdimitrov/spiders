@@ -52,11 +52,11 @@
     initMap = function(){
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {
-          lat: 41.865545, 
-          lng: 27.966174
+          lat: 42.475545,
+          lng: 25.436174
         },
         scrollwheel: false,
-        zoom: 8
+        zoom: 7
       });
 
     @foreach($region->localities as $locality)
@@ -67,7 +67,8 @@
             lng: {{$locality->longitude}}
           },
         map: map,
-        title: '{{$locality->name}}'
+        title: '{{$locality->name}}',
+        icon: '{{ asset("images/red-circle.png") }}'
       });
       @endif
     @endforeach

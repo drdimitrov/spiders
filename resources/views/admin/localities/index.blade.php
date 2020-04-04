@@ -70,7 +70,10 @@
                         title: "Region",
                         className: "dt-nowrap dt-bold",
                         responsivePriority: 1,
-                        searchable: false,                       
+                        searchable: false,
+                        render: function (data, type, row) {
+                            return '<a target="_blank" href="/statistics/localities-by-region/' + row.region.id + '">'  + data + '</a>';
+                        }                      
                     }, 
 
                     {
@@ -78,7 +81,10 @@
                         title: "Country",
                         className: "dt-nowrap dt-bold",
                         responsivePriority: 1,
-                        searchable: false,                       
+                        searchable: false,
+                        render: function (data, type, row) {
+                            return '<a target="_blank" href="/statistics/localities-by-country/' + row.country.id + '">'  + data + '</a>';
+                        }                        
                     },                                                        
 
                     {
