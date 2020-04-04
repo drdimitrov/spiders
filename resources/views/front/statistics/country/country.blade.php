@@ -75,7 +75,8 @@
             lng: {{$locality->longitude}}
           },
         map: map,
-        title: '{{$locality->name}}'
+        title: '{{$locality->name}}',
+        icon: '{{ asset("images/red-circle.png") }}'
       });
       @endif
     @endforeach
