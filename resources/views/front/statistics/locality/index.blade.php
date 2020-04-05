@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-@php($cnt = 1)
+
 <div class="container">
      <div class="page-header">
         <h1>List of localities</h1>
@@ -9,8 +9,7 @@
 
       <table class="table table-striped">
         <thead>
-          <tr>
-            <th>Nr.</th>
+          <tr>            
             <th>Locality</th>
             <th>Region</th>
             <th>Country</th>
@@ -19,18 +18,17 @@
         </thead>
         <tbody>
             @foreach($localities as $locality)
-                <tr>
-                    <td>{{ $cnt }}</td>
+                <tr>                    
                     <td>{{ $locality->name }}</td>
                     <td>{{ $locality->region->name }}</td>
                     <td>{{ $locality->country->name }}</td>
                     <td>                       
                       <a href="/statistics/species-by-locality/{{ $locality->id }}" class="btn btn-custom">Show species</a>
                     </td>
-                </tr>
-                @php($cnt++)
+                </tr>               
             @endforeach          
         </tbody>
       </table>
+      <div class="text-center">{{$localities->links()}}</div>
 </div>
 @endsection

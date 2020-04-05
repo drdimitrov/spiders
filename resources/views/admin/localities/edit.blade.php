@@ -42,7 +42,7 @@
                 <div class="row">
                     <div class="col-md-6 form-group">
                         <label for="region_id">Select region:</label>
-                        <select class="form-control" name="region_id">
+                        <select class="form-control" name="region_id" id="region_id">
                             @foreach($regions as $region)
                                 <option value="{{ $region->id }}"
                                     @if($region->id == $locality->region->id)
@@ -81,4 +81,11 @@
         </div
     </div>
 </div>
+@endsection
+
+@section('admin-scripts')
+    @include('partials._select2')
+    <script>
+        $('#region_id').select2();
+    </script>
 @endsection

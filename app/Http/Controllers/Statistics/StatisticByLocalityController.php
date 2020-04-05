@@ -14,7 +14,7 @@ class StatisticByLocalityController extends Controller
     }
 
     public function index(){
-    	$localities = Locality::with('country', 'region')->orderBy('name')->get();
+    	$localities = Locality::with('country', 'region')->orderBy('name')->paginate(50);
     	return view('front.statistics.locality.index', compact('localities'));
     }
 
