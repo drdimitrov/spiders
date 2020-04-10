@@ -8,13 +8,6 @@
                 <div class="panel-heading">Audit Logs</div>
                
                 <div class="panel-body">
-
-                    <div class="row">
-                        <div class="col-md-12" style="margin-bottom: 20px">
-                            <h3 style="display: inline-block;">List of adjustments:</h3>
-                        </div>
-                    </div>
-
                     <div class="row">
                         <div class="col-md-12">
                             <table class="table table-striped"></table>
