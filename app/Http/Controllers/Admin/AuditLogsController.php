@@ -11,7 +11,7 @@ class AuditLogsController extends Controller
     public function index(Request $request){
 
     	if($request->ajax()){
-            $audits = Audit::with('user', 'audit')->orderBy('audits.created_at', 'desc');
+            $audits = Audit::with('user', 'audit')->latest();
             return datatables($audits)->toJson();
         }    	
 

@@ -30,6 +30,7 @@
 
 @section('admin-scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.28/moment-timezone.min.js"></script> -->
 <script>
 	function htmlDecode(input) {
 		var doc = new DOMParser().parseFromString(input, "text/html");
@@ -51,14 +52,6 @@
                         orderable: false,
                         searchable: true,
                         width: "0px",
-                    },
-
-                    {
-                        data: "user.id",
-                        title: "User ID",
-                        className: "dt-nowrap dt-center",
-                        responsivePriority: 1,
-                        searchable: false,                        
                     },
 
                     {
@@ -128,7 +121,7 @@
                         className: "dt-nowrap dt-center",
                         responsivePriority: 1,
                         render: function(data, type, row){
-                        	return moment(data, "YYYY-MM-DD h:mm:ss").format('DD-MM-YYYY h:mm')
+                        	return moment(data).format('DD-MM-YYYY HH:mm')
                         }
                     },
 
