@@ -172,6 +172,7 @@
                               </ul>
                             </li>
                             <li><a href="{{ route('admin.daily_updates') }}">Daily updates</a></li>
+                            <li><a href="{{ route('admin.audit_logs') }}">Audit Logs</a></li>
                           </ul>
                         </div>
                       </div>

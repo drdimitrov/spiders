@@ -29,6 +29,7 @@
 @endsection
 
 @section('admin-scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script>
 	function htmlDecode(input) {
 		var doc = new DOMParser().parseFromString(input, "text/html");
@@ -115,6 +116,9 @@
                         title: "Updated at",
                         className: "dt-nowrap dt-center",
                         responsivePriority: 1,
+                        render: function(data, type, row){
+                        	return moment(data, "YYYY-MM-DD h:mm:ss").format('DD-MM-YYYY h:mm')
+                        }
                     },
 
                 ],
