@@ -143,6 +143,9 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get('/admin/daily-updates', 'Admin\DailyUpdatesController@index')->name('admin.daily_updates');
 
+	Route::get('/admin/audit-logs', 'Admin\AuditLogsController@index')->name('admin.audit_logs');
+
+
 	//Admin Ajax routes
 	Route::post('/admin/ajax/fetch-countries-for-region', 'Admin\RecordController@fetchCountriesForRegion')->name('admin.ajax.countries-for-region');
 });

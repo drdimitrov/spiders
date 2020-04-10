@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\Auditable;
 
 class Locality extends Model
 {
+    use Auditable;
+    
     protected $fillable = [
 		'name', 
 		'slug', 
