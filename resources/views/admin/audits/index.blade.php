@@ -91,7 +91,7 @@
                         render: function (data, type, row) {
                         	var output = [];
                         	$.each(JSON.parse(htmlDecode(data)), function(k, v){
-                        		output.push('<p>' + k + ':' + v + '</p>')
+                        		output.push('<p>' + k + ' : ' + v + '</p>')
                         	});
 
                         	return output.join('');           	
@@ -107,7 +107,7 @@
                         render: function (data, type, row) {
                         	var output = [];
                         	$.each(JSON.parse(htmlDecode(data)), function(k, v){
-                        		output.push('<p>' + k + ':' + v + '</p>')
+                        		output.push('<p>' + k + ' : ' + v + '</p>')
                         	});
 
                         	return output.join('');           	
