@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\Auditable;
 
 class Record extends Model
 {
+    use Auditable;
+    
     protected $dates = [
     	'created_at', 'updated_at', 'collected_at'
     ];
