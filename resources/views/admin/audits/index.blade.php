@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-11">
             <div class="panel panel-default">
                 <div class="panel-heading">Audit Logs</div>
                
@@ -54,8 +54,16 @@
                     },
 
                     {
+                        data: "user.id",
+                        title: "User ID",
+                        className: "dt-nowrap dt-center",
+                        responsivePriority: 1,
+                        searchable: false,                        
+                    },
+
+                    {
                         data: "user.name",
-                        title: "User",
+                        title: "User Name",
                         className: "dt-nowrap dt-center",
                         responsivePriority: 1,
                         searchable: false,                        
@@ -115,7 +123,7 @@
                     },
 
                     {
-                        data: "updated_at",
+                        data: "created_at",
                         title: "Updated at",
                         className: "dt-nowrap dt-center",
                         responsivePriority: 1,
