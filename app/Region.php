@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\Auditable;
 
 class Region extends Model
 {
+    use Auditable;
+	
     protected $fillable = ['name', 'slug',];
 
     public function countries(){

@@ -14,10 +14,15 @@ class RegionController extends Controller
         $this->middleware('isAllowed');
     }
 
-    public function index(){
-    	$regions = Region::orderBy('name')->get();
+    public function index(Request $request){
 
-    	return view('admin.regions.index', compact('regions'));
+        if($request->ajax()){
+            $regions = Region::with('countries');
+            return datatables($regions)->toJson();
+        }
+    	
+
+    	return view('admin.regions.index');
     }
 
     public function create(){
