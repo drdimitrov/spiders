@@ -63,7 +63,7 @@
                         title: "User Name",
                         className: "dt-nowrap dt-center",
                         responsivePriority: 1,
-                        searchable: false,                        
+                        searchable: true,                        
                     },
 
                     {
@@ -71,7 +71,7 @@
                         title: "Model",
                         className: "dt-nowrap dt-bold",
                         responsivePriority: 1,
-                        searchable: false,
+                        searchable: true,
                         render: function (data, type, row) {
                             return data.replace('App\\', '');
                         }                       
