@@ -22,9 +22,20 @@
 @endsection
 
 @section('admin-scripts')
+<!-- Remove default search input -->
+<!-- <style>
+	.dataTables_filter, .dataTables_info { display: none; }
+</style> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.28/moment-timezone.min.js"></script> -->
 <script>
+	// Hide empty fields on form submit
+	// $("form").submit(function() {
+	// 	$(this).find(":input").filter(function(){ return !this.value; }).attr("disabled", "disabled");
+	// 	return true; // ensure form still submits
+	// });
+
+	// Decode the Json response
 	function htmlDecode(input) {
 		var doc = new DOMParser().parseFromString(input, "text/html");
 		return doc.documentElement.textContent;
@@ -113,9 +124,9 @@
                         title: "Updated at",
                         className: "dt-nowrap dt-center",
                         responsivePriority: 1,
-                        render: function(data, type, row){
-                        	return moment(data).format('DD-MM-YYYY HH:mm')
-                        }
+                        // render: function(data, type, row){
+                        // 	return moment(data).format('DD-MM-YYYY HH:mm')
+                        // }
                     },
 
                 ],
