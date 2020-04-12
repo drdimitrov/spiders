@@ -8,6 +8,11 @@ use App\Audit;
 
 class AuditLogsController extends Controller
 {
+	public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('isAllowed');
+    }
+    
     public function index(Request $request){
 
     	if($request->ajax()){

@@ -10,6 +10,11 @@ use App\Country;
 
 class LocalityController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('isAllowed');
+    }
+    
     public function index(Request $request){
 
         if($request->ajax()){

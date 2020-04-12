@@ -93,6 +93,7 @@
                         title: "Value before",
                         className: "dt-nowrap dt-center",
                         responsivePriority: 1,
+                        searchable: false,
                         render: function (data, type, row) {
                         	var output = [];
                         	$.each(JSON.parse(htmlDecode(data)), function(k, v){
@@ -108,7 +109,7 @@
                         title: "Value after",
                         className: "dt-nowrap dt-center",
                         responsivePriority: 1,
-                        raw: true,
+                        searchable: false,                        
                         render: function (data, type, row) {
                         	var output = [];
                         	$.each(JSON.parse(htmlDecode(data)), function(k, v){
@@ -133,14 +134,7 @@
 
                 "ajax": {
                     url: "{{ route('admin.audit_logs') }}",
-                    headers: { "X-CSRF-TOKEN": "{{ csrf_token() }}" },
-                    // data: function (d) {
-                    //     d.user_id = getUrlParameter('user_id');
-                    //     d.user_name = getUrlParameter('user_name');
-                    //     d.user_currency = getUrlParameter('user_currency');
-                    //     d.created_at_from = getUrlParameter('created_at_from');
-                    //     d.created_at_to = getUrlParameter('created_at_to');
-                    // }
+                    headers: { "X-CSRF-TOKEN": "{{ csrf_token() }}" },                   
                 }
 
             });

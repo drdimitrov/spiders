@@ -12,6 +12,11 @@ use Illuminate\Http\Request;
 
 class RecordController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('isAllowed');
+    }
+    
     public function index(Request $r){
     	$records = Record::with('locality', 'species.genus', 'paper.authors')->orderBy('id', 'desc');
 

@@ -73,80 +73,80 @@ Route::post('/statistics/species-locality-export', 'Statistics\StatisticByLocali
 Route::get('/statistics/species-by-region', 'Statistics\StatisticByRegionController@index')->name('stat.region');
 Route::get('/statistics/species-by-region/{region}', 'Statistics\StatisticByRegionController@region')->name('stat.region.single');
 
-//Admin routes
-Route::middleware(['auth'])->group(function () {
-	Route::get('/admin', 'Admin\AdminController@index')->name('admin');
+// Admin routes
+// Middlewares applied on the controller level
+Route::get('/admin', 'Admin\AdminController@index')->name('admin');
 
-	Route::get('/admin/authors', 'Admin\AuthorsController@index')->name('admin.authors');
-	Route::get('/admin/authors/create', 'Admin\AuthorsController@create')->name('admin.authors.create');
-	Route::get('/admin/authors/edit/{author}', 'Admin\AuthorsController@edit')->name('admin.authors.edit');
-	Route::post('/admin/authors/edit', 'Admin\AuthorsController@saveAuthor');
-	Route::post('/admin/authors/create', 'Admin\AuthorsController@save');
+Route::get('/admin/authors', 'Admin\AuthorsController@index')->name('admin.authors');
+Route::get('/admin/authors/create', 'Admin\AuthorsController@create')->name('admin.authors.create');
+Route::get('/admin/authors/edit/{author}', 'Admin\AuthorsController@edit')->name('admin.authors.edit');
+Route::post('/admin/authors/edit', 'Admin\AuthorsController@saveAuthor');
+Route::post('/admin/authors/create', 'Admin\AuthorsController@save');
 
-	Route::get('/admin/papers', 'Admin\PapersController@index')->name('admin.papers');
-	Route::get('/admin/papers/create', 'Admin\PapersController@create')->name('admin.papers.create');
-	Route::post('/admin/papers/create', 'Admin\PapersController@save');
+Route::get('/admin/papers', 'Admin\PapersController@index')->name('admin.papers');
+Route::get('/admin/papers/create', 'Admin\PapersController@create')->name('admin.papers.create');
+Route::post('/admin/papers/create', 'Admin\PapersController@save');
 
-	Route::get('/admin/collections', 'Admin\CollectionController@index')->name('admin.collections');
-	Route::get('/admin/collections/create', 'Admin\CollectionController@create')->name('admin.collections.create');
+Route::get('/admin/collections', 'Admin\CollectionController@index')->name('admin.collections');
+Route::get('/admin/collections/create', 'Admin\CollectionController@create')->name('admin.collections.create');
 
-	Route::get('/admin/family', 'Admin\FamilyController@index')->name('admin.family');
-	Route::get('/admin/family/create', 'Admin\FamilyController@create')->name('admin.family.create');
-	Route::post('/admin/family/create', 'Admin\FamilyController@save');
-	Route::get('/admin/family/edit/{family}', 'Admin\FamilyController@edit')->name('admin.family.edit');
-	Route::post('/admin/family/edit', 'Admin\FamilyController@update');
+Route::get('/admin/family', 'Admin\FamilyController@index')->name('admin.family');
+Route::get('/admin/family/create', 'Admin\FamilyController@create')->name('admin.family.create');
+Route::post('/admin/family/create', 'Admin\FamilyController@save');
+Route::get('/admin/family/edit/{family}', 'Admin\FamilyController@edit')->name('admin.family.edit');
+Route::post('/admin/family/edit', 'Admin\FamilyController@update');
 
-	Route::get('/admin/genus', 'Admin\GenusController@index')->name('admin.genus');
-	Route::get('/admin/genus/create', 'Admin\GenusController@create')->name('admin.genus.create');
-	Route::post('/admin/genus/create', 'Admin\GenusController@save');
-	Route::get('/admin/genus/edit/{genus}', 'Admin\GenusController@edit')->name('admin.genus.edit');
-	Route::post('/admin/genus/edit', 'Admin\GenusController@saveGenus');
+Route::get('/admin/genus', 'Admin\GenusController@index')->name('admin.genus');
+Route::get('/admin/genus/create', 'Admin\GenusController@create')->name('admin.genus.create');
+Route::post('/admin/genus/create', 'Admin\GenusController@save');
+Route::get('/admin/genus/edit/{genus}', 'Admin\GenusController@edit')->name('admin.genus.edit');
+Route::post('/admin/genus/edit', 'Admin\GenusController@saveGenus');
 
-	Route::get('/admin/species', 'Admin\SpeciesController@index')->name('admin.species');
-	Route::get('/admin/species/create', 'Admin\SpeciesController@create')->name('admin.species.create');
-	Route::post('/admin/species/create', 'Admin\SpeciesController@save');
-	Route::post('/admin/species/create-by-lsid', 'Admin\SpeciesController@saveByLsid');
-	Route::get('/admin/species/edit/{species}', 'Admin\SpeciesController@edit')->name('admin.species.edit');
-	Route::post('/admin/species/edit', 'Admin\SpeciesController@saveSpecies');
-	Route::get('/admin/species/images', 'Admin\SpeciesController@images')->name('admin.species.images');
-	Route::post('/admin/species/images', 'Admin\SpeciesController@saveImage');
-	Route::get('/admin/species/delete/{species}', 'Admin\SpeciesController@delete')->name('admin.species.delete');
-	Route::post('/admin/species/delete', 'Admin\SpeciesController@destroy');
+Route::get('/admin/species', 'Admin\SpeciesController@index')->name('admin.species');
+Route::get('/admin/species/create', 'Admin\SpeciesController@create')->name('admin.species.create');
+Route::post('/admin/species/create', 'Admin\SpeciesController@save');
+Route::post('/admin/species/create-by-lsid', 'Admin\SpeciesController@saveByLsid');
+Route::get('/admin/species/edit/{species}', 'Admin\SpeciesController@edit')->name('admin.species.edit');
+Route::post('/admin/species/edit', 'Admin\SpeciesController@saveSpecies');
+Route::get('/admin/species/images', 'Admin\SpeciesController@images')->name('admin.species.images');
+Route::post('/admin/species/images', 'Admin\SpeciesController@saveImage');
+Route::get('/admin/species/delete/{species}', 'Admin\SpeciesController@delete')->name('admin.species.delete');
+Route::post('/admin/species/delete', 'Admin\SpeciesController@destroy');
 
-	Route::get('/admin/countries', 'Admin\CountryController@index')->name('admin.country');
-	Route::get('/admin/countries/create', 'Admin\CountryController@create')->name('admin.country.create');
-	Route::post('/admin/countries/create', 'Admin\CountryController@save');
-	Route::get('/admin/country/edit/{country}', 'Admin\CountryController@edit')->name('admin.country.edit');
-	Route::post('/admin/country/edit', 'Admin\CountryController@saveCountry');
+Route::get('/admin/countries', 'Admin\CountryController@index')->name('admin.country');
+Route::get('/admin/countries/create', 'Admin\CountryController@create')->name('admin.country.create');
+Route::post('/admin/countries/create', 'Admin\CountryController@save');
+Route::get('/admin/country/edit/{country}', 'Admin\CountryController@edit')->name('admin.country.edit');
+Route::post('/admin/country/edit', 'Admin\CountryController@saveCountry');
 
-	Route::get('/admin/regions', 'Admin\RegionController@index')->name('admin.region');
-	Route::get('/admin/regions/create', 'Admin\RegionController@create')->name('admin.region.create');
-	Route::post('/admin/regions/create', 'Admin\RegionController@save');
-	Route::get('/admin/region/edit/{region}', 'Admin\RegionController@edit')->name('admin.region.edit');
-	Route::post('/admin/region/edit', 'Admin\RegionController@saveRegion');
+Route::get('/admin/regions', 'Admin\RegionController@index')->name('admin.region');
+Route::get('/admin/regions/create', 'Admin\RegionController@create')->name('admin.region.create');
+Route::post('/admin/regions/create', 'Admin\RegionController@save');
+Route::get('/admin/region/edit/{region}', 'Admin\RegionController@edit')->name('admin.region.edit');
+Route::post('/admin/region/edit', 'Admin\RegionController@saveRegion');
 
-	Route::get('/admin/localities', 'Admin\LocalityController@index')->name('admin.locality');
-	Route::get('/admin/locality/create', 'Admin\LocalityController@create')->name('admin.locality.create');
-	Route::post('/admin/locality/create', 'Admin\LocalityController@save');
-	Route::get('/admin/locality/edit/{locality}', 'Admin\LocalityController@edit')->name('admin.locality.edit');
-	Route::post('/admin/locality/edit', 'Admin\LocalityController@saveLocality');
-
-
-	Route::get('/admin/records', 'Admin\RecordController@index')->name('admin.record');
-	Route::get('/admin/records/create', 'Admin\RecordController@create')->name('admin.record.create');
-	Route::post('/admin/records/create', 'Admin\RecordController@save');
-	Route::get('/admin/records/edit/{record}', 'Admin\RecordController@edit')->name('admin.record.edit');
-	Route::post('/admin/records/edit', 'Admin\RecordController@update')->name('admin.record.update');
-
-	Route::post('/admin/records/search-species', 'Admin\RecordController@searchSpecies');
-	Route::post('/admin/records/search-localities', 'Admin\RecordController@searchLocalities');
-
-	Route::get('/admin/daily-updates', 'Admin\DailyUpdatesController@index')->name('admin.daily_updates');
-
-	Route::get('/admin/audit-logs', 'Admin\AuditLogsController@index')->name('admin.audit_logs');
+Route::get('/admin/localities', 'Admin\LocalityController@index')->name('admin.locality');
+Route::get('/admin/locality/create', 'Admin\LocalityController@create')->name('admin.locality.create');
+Route::post('/admin/locality/create', 'Admin\LocalityController@save');
+Route::get('/admin/locality/edit/{locality}', 'Admin\LocalityController@edit')->name('admin.locality.edit');
+Route::post('/admin/locality/edit', 'Admin\LocalityController@saveLocality');
 
 
-	//Admin Ajax routes
-	Route::post('/admin/ajax/fetch-countries-for-region', 'Admin\RecordController@fetchCountriesForRegion')->name('admin.ajax.countries-for-region');
-});
+Route::get('/admin/records', 'Admin\RecordController@index')->name('admin.record');
+Route::get('/admin/records/create', 'Admin\RecordController@create')->name('admin.record.create');
+Route::post('/admin/records/create', 'Admin\RecordController@save');
+Route::get('/admin/records/edit/{record}', 'Admin\RecordController@edit')->name('admin.record.edit');
+Route::post('/admin/records/edit', 'Admin\RecordController@update')->name('admin.record.update');
+
+Route::post('/admin/records/search-species', 'Admin\RecordController@searchSpecies');
+Route::post('/admin/records/search-localities', 'Admin\RecordController@searchLocalities');
+
+Route::get('/admin/daily-updates', 'Admin\DailyUpdatesController@index')->name('admin.daily_updates');
+
+Route::get('/admin/audit-logs', 'Admin\AuditLogsController@index')->name('admin.audit_logs');
+
+
+//Admin Ajax routes
+Route::post('/admin/ajax/fetch-countries-for-region', 'Admin\RecordController@fetchCountriesForRegion')->name('admin.ajax.countries-for-region');
+
 
