@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<!-- Datatables Resposive extension style -->
+<link rel="stylesheet" href="{{ asset('vendor/datatables_responsive/2.2.2/css/responsive.datatables.css') }}">
 <div class="container">
     <div class="row">
         <div class="col-md-11">
@@ -55,7 +57,7 @@
                         responsivePriority: 1,
                         orderable: false,
                         searchable: true,
-                        width: "20px",
+                        width: "0",
                     },
 
                     {
