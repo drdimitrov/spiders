@@ -1,0 +1,188 @@
+/* Datatables Editor Lightbox z-index topmost +++ */
+div.DTE div.DTE_Processing_Indicator {
+    z-index: 1320 !important;
+}
+
+div.DTE_Bubble {
+    z-index: 1311 !important;
+}
+
+div.DTE_Bubble div.DTE_Bubble_Liner div.DTE_Bubble_Close {
+    z-index: 1312 !important;
+}
+
+div.DTE_Bubble_Background {
+    z-index: 1310 !important;
+}
+
+div.DTED_Lightbox_Wrapper {
+    z-index: 1311 !important;
+}
+
+div.DTED_Lightbox_Wrapper div.DTED_Lightbox_Container div.DTED_Lightbox_Content_Wrapper div.DTED_Lightbox_Content div.DTED_Lightbox_Close {
+    z-index: 1312 !important;
+}
+
+div.DTED_Lightbox_Background {
+    z-index: 1310 !important;
+}
+/* Datatables Editor Lightbox z-index topmost ~~~ */
+
+
+/* Editor Popup padding from sides */
+div.DTE_Body div.DTE_Body_Content div.DTE_Field {
+    padding: 5px 3%;
+}
+
+/* Editor input elements */
+.DTE_Field_InputControl {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    line-height: 14px !important;
+}
+
+/* Editor select elements */
+.DTE_Field_InputControl select {
+
+}
+
+/* Editor field description */
+.DTE_Label_Info {
+    font-size: 10px !important;
+    font-weight: normal;
+}
+
+/* Editor popup border */
+div.DTED_Lightbox_Wrapper div.DTED_Lightbox_Container div.DTED_Lightbox_Content_Wrapper div.DTED_Lightbox_Content {
+    border: 0px !important;
+}
+
+/* Responsive collapse button color */
+table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before,
+table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before {
+    color: black;
+    background-color: #c2c2c2 !important;
+}
+
+/* Responsive collapse button width */
+/*
+table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td.control {
+    width: 20px !important;
+}
+*/
+
+table.dataTable > tbody > tr[role="row"] > td {
+    vertical-align: middle !important;
+}
+
+table.dataTable > tbody > tr[role="row"] > td > a > i {
+    font-size: 14px !important;
+    color: #5f5f5f !important;
+}
+
+table.dataTable > tbody > tr[role="row"] > td > a > i:hover {
+    color: #4d9bef !important;
+}
+
+/* Responsive collapse button center */
+table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child:before,
+table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child:before {
+    background-color: #c2c2c2 !important;
+    top: unset !important;
+    left: unset !important;
+    border: unset !important;
+    position: inherit !important;
+    margin: 0 auto !important;
+    height: 13px !important;
+    width: 13px !important;
+    line-height: 13px !important;
+    box-shadow: 0 0 0px #444 !important;
+    border-radius: unset !important;
+    padding-top: 1px !important;
+}
+
+table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child,
+table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child {
+    padding: unset !important;
+    vertical-align: middle;
+}
+
+
+
+/* Datatable table font size and cursor hand */
+.dataTable {
+    font-size: 12px;
+    cursor: pointer;
+}
+
+table.dataTable th {
+    vertical-align: middle !important;
+}
+
+/* Responsive details table width */
+table.dataTable > tbody > tr.child ul {
+    width: 100% !important;
+}
+
+/* Responsive details label min-width */
+table.dataTable > tbody > tr.child span.dtr-title {
+    min-width: 185px !important;
+    word-wrap: break-word !important;
+}
+
+
+.dataTables_wrapper {
+    position: inherit !important;
+}
+
+/* Processing message */
+.dataTables_wrapper .dataTables_processing {
+    height: 60px;
+    font-weight: bold;
+}
+
+/* Per page selector */
+.dataTables_length {
+    /*margin-left: 200px;*/
+    margin-top: 8px;
+}
+
+.dataTables_length label {
+    font-weight: normal;
+}
+
+/* Force Update button on the bottom of the popup */
+div.DTE div.DTE_Footer {
+    position: absolute;
+    bottom: 0 !important;
+    left: 0 !important;
+}
+
+/* Bold helper class */
+.dt-bold {
+    font-weight: bold;
+}
+
+/* Italic helper class */
+.dt-italic {
+    font-style: italic;
+}
+
+/* Red color helper class */
+.dt-red {
+    color: red;
+}
+
+/* Green color helper class */
+.dt-green {
+    color: green;
+}
+
+/* Orange color helper class */
+.dt-orange {
+    color: orange;
+}
+
+.dt-hidden {
+    display: none;
+}

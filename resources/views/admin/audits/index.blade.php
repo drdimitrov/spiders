@@ -1,8 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
+<!-- Datatables Buttons extension style -->
+<link rel="stylesheet" href="{{ asset('vendor/datatables_buttons/1.5.6/css/buttons.datatables.min.css') }}">
+
+<!-- Datatables ColReorder extension style -->
+<link rel="stylesheet" href="{{ asset('vendor/datatables_colreorder/1.5.0/css/colreorder.datatables.min.css') }}">
+
+<!-- Datatables Fixed Header extension style -->
+<link rel="stylesheet" href="{{ asset('vendor/datatables_fixedheader/3.1.4/css/fixedheader.datatables.css') }}">
+
 <!-- Datatables Resposive extension style -->
 <link rel="stylesheet" href="{{ asset('vendor/datatables_responsive/2.2.2/css/responsive.datatables.css') }}">
+
+<!-- Datatables Scroller extension style -->
+<link rel="stylesheet" href="{{ asset('vendor/datatables_scroller/2.0.0/css/scroller.datatables.css') }}">
+
+<!-- Datatables Select extension style -->
+<link rel="stylesheet" href="{{ asset('vendor/datatables_select/1.3.0/css/select.datatables.css') }}">
+
+<link rel="stylesheet" href="{{ asset('css/datatables.css?') . date('Ymdh') }}">
 <div class="container">
     <div class="row">
         <div class="col-md-11">
