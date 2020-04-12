@@ -57,7 +57,7 @@
                         responsivePriority: 1,
                         orderable: false,
                         searchable: true,
-                        width: "0",
+                        width: "20px",
                     },
 
                     {
