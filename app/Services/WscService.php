@@ -193,7 +193,10 @@ class WscService{
             		$validSpeciesExistingInDB->genus_id = $genus->id;
 		            $validSpeciesExistingInDB->author = $validSpecies->taxon->author;
 		            $validSpeciesExistingInDB->gdist_wsc = $validSpecies->taxon->distribution;
-		            $validSpeciesExistingInDB->save();
+		            $validSpeciesExistingInDB->wsc_lsid = $validSpecies->taxon->lsid;
+		            if($validSpeciesExistingInDB->save()){
+            			DailyUpdate::create(['species_id' => $validSpeciesExistingInDB->id]);
+		            }
             	}
 
             	$records = Record::where('species_id', $species->id)->get();
@@ -239,6 +242,7 @@ class WscService{
 
             $species->genus_id = $genus->id;
             $species->author = $fetch->taxon->author;
+            $species->wsc_lsid = $fetch->taxon->lsid;
             $species->gdist_wsc = $fetch->taxon->distribution;
 
             if($species->save()){
