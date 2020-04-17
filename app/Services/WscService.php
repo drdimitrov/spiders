@@ -179,13 +179,15 @@ class WscService{
 		                    'slug' => strtolower($validSpecies->taxon->genusObject->genus ),
 		                    'wsc_lsid' => str_replace('urn:lsid:nmbe.ch:spidergen:', '', $validSpecies->taxon->genusObject->genLsid)
 		                ]);
-            		}            		
+            		}
+
+	            	$validSpeciesExistingInDB->author = $validSpecies->taxon->author;
+            		$validSpeciesExistingInDB->wsc_lsid = str_replace('urn:lsid:nmbe.ch:spidersp:', '', $validSpecies->taxon->lsid);           		
             	}
 
             	$validSpeciesExistingInDB->genus_id = $genus->id;
-	            $validSpeciesExistingInDB->author = $validSpecies->taxon->author;
 	            $validSpeciesExistingInDB->gdist_wsc = $validSpecies->taxon->distribution;
-	            $validSpeciesExistingInDB->wsc_lsid = str_replace('urn:lsid:nmbe.ch:spidersp:', '', $validSpecies->taxon->lsid);
+	            
 	            
 	            if($validSpeciesExistingInDB->save()){
         			DailyUpdate::create(['species_id' => $validSpeciesExistingInDB->id]);
@@ -195,7 +197,7 @@ class WscService{
             	
             	if(!$records->isEmpty()){
             		foreach ($records as $record) {
-            			$record->species_id = $validSpecies->id;
+            			$record->species_id = $validSpeciesExistingInDB->id;
             			$record->save();
             		}
             	}
