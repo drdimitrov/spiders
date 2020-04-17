@@ -135,16 +135,7 @@ class WscService{
         )->first();
 
         if($species){
-
-            // TODO: handle the synonimy
-            // if the species is synonim
-            // select all the record for that species
-            // fetch the valid one
-            // replace the species ID in the records with the valid species ID
-            // make shure that there are no records left for the synonim
-            // delete the synonim from the database 
-            // $species = the valid species
-            // proceed with the synchronization ...
+            
         	if($fetch->taxon->status == 'SYNONYM'){
         		// Fetch the valid species from the WSC API
             	$validSpecies = $this->fetchValidTaxon($fetch->validTaxon->_href);
