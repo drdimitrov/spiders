@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Species;
 use App\Genus;
 use App\Family;
+use App\Record;
 use Storage;
 use Carbon\Carbon;
 use App\DailyUpdate;
@@ -128,7 +129,10 @@ class WscService{
 
 		$fetch = $this->fetchSpecies(trim($speciesToSync));
 
-        $species = Species::where('wsc_lsid', str_replace('urn:lsid:nmbe.ch:spidersp:', '', $fetch->taxon->lsid))->first();
+        $species = Species::where(
+        	'wsc_lsid', 
+        	str_replace('urn:lsid:nmbe.ch:spidersp:', '', $fetch->taxon->lsid)
+        )->first();
 
         if($species){
 
@@ -141,6 +145,70 @@ class WscService{
             // delete the synonim from the database 
             // $species = the valid species
             // proceed with the synchronization ...
+        	if($fetch->taxon->status == 'SYNONYM'){
+        		// Fetch the valid species from the WSC API
+            	$validSpecies = $this->fetchValidTaxon($fetch->validTaxon->_href);
+
+            	// Match it to species in our DB
+            	$validSpeciesExistingInDB = Species::where(
+            		'wsc_lsid', 
+            		str_replace('urn:lsid:nmbe.ch:spidersp:', '', $validSpecies->taxon->lsid)
+            	)->first();
+
+            	if(!$validSpeciesExistingInDB){            		
+            		$validSpeciesExistingInDB = new Species;
+            		$validSpeciesExistingInDB->name = $validSpecies->taxon->species;
+            		$validSpeciesExistingInDB->slug = strtolower($validSpecies->taxon->species);
+
+            		$genus = Genus::where(
+            			'wsc_lsid', 
+            			str_replace('urn:lsid:nmbe.ch:spidergen:', '', $validSpecies->taxon->genusObject->genLsid)
+            		)->first();
+
+            		if(!$genus){
+            			$family = Family::where(
+            				'wsc_lsid', 
+            				str_replace( 'urn:lsid:nmbe.ch:spiderfam:', '', $validSpecies->taxon->familyObject->famLsid)
+            			)->first();
+
+            			if(!$family){
+		                    $family = Family::create([
+		                        'name' => $validSpecies->taxon->familyObject->family,
+		                        'slug' => strtolower($validSpecies->taxon->familyObject->family),
+		                        'order_id' => 2,
+		                        'author' => $validSpeciesvalidSpecies->taxon->familyObject->author,
+		                        'wsc_lsid' => str_replace('urn:lsid:nmbe.ch:spiderfam:', '', $validSpeciesvalidSpecies->taxon->familyObject->famLsid),
+		                    ]);
+		                }
+
+		                $genus = Genus::create([
+		                    'name' => $validSpecies->taxon->genusObject->genus,
+		                    'author' => $validSpecies->taxon->genusObject->author,
+		                    'family_id' => $family->id,
+		                    'slug' => strtolower($validSpecies->taxon->genusObject->genus ),
+		                    'wsc_lsid' => str_replace('urn:lsid:nmbe.ch:spidergen:', '', $validSpecies->taxon->genusObject->genLsid)
+		                ]);
+            		}
+
+            		$validSpeciesExistingInDB->genus_id = $genus->id;
+		            $validSpeciesExistingInDB->author = $validSpecies->taxon->author;
+		            $validSpeciesExistingInDB->gdist_wsc = $validSpecies->taxon->distribution;
+		            $validSpeciesExistingInDB->save();
+            	}
+
+            	$records = Record::where('species_id', $species->id)->get();
+            	
+            	if(!$records->isEmpty()){
+            		foreach ($records as $record) {
+            			$record->species_id = $validSpecies->id;
+            			$record->save();
+            		}
+            	}
+
+            	$species->delete();
+
+            	return 'The synonimy was handled successfully';
+        	}
 
             $species->name = $fetch->taxon->species;
 
