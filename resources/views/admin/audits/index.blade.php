@@ -59,7 +59,7 @@
                     },
 
                     {
-                        data: "created_at",
+                        data: "audits.created_at",
                         title: "Updated at",
                         className: "dt-nowrap dt-center",
                         responsivePriority: 1,
