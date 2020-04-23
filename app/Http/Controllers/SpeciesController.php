@@ -30,7 +30,7 @@ class SpeciesController extends Controller
             $species = Species::with('localities.country')->find($request->species);
         }
 
-        if(! $species){ return redirect('/'); }
+        if(! $species){ abort(404); }
 
         $localities = [];
         $papers_ids = [];
