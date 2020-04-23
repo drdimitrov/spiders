@@ -59,8 +59,26 @@
                     },
 
                     {
+                        data: "created_at",
+                        title: "Updated at",
+                        className: "dt-nowrap dt-center",
+                        responsivePriority: 1,
+                        // render: function(data, type, row){
+                        //  return moment(data).format('DD-MM-YYYY HH:mm')
+                        // }
+                    },
+
+                    {
                         data: "user.name",
                         title: "User Name",
+                        className: "dt-nowrap dt-center",
+                        responsivePriority: 1,
+                        searchable: true,                        
+                    },
+
+                    {
+                        data: "event",
+                        title: "Event",
                         className: "dt-nowrap dt-center",
                         responsivePriority: 1,
                         searchable: true,                        
@@ -118,17 +136,7 @@
 
                         	return output.join('');           	
                         }                         
-                    },
-
-                    {
-                        data: "created_at",
-                        title: "Updated at",
-                        className: "dt-nowrap dt-center",
-                        responsivePriority: 1,
-                        // render: function(data, type, row){
-                        // 	return moment(data).format('DD-MM-YYYY HH:mm')
-                        // }
-                    },
+                    },                    
 
                 ],
 
