@@ -57,17 +57,7 @@
                         searchable: true,
                         width: "20px",
                     },
-
-                    {
-                        data: "audits.created_at",
-                        title: "Updated at",
-                        className: "dt-nowrap dt-center",
-                        responsivePriority: 1,
-                        // render: function(data, type, row){
-                        //  return moment(data).format('DD-MM-YYYY HH:mm')
-                        // }
-                    },
-
+                    
                     {
                         data: "user.name",
                         title: "User Name",
@@ -136,6 +126,16 @@
 
                         	return output.join('');           	
                         }                         
+                    },
+
+                    {
+                        data: "created_at",
+                        title: "Updated at",
+                        className: "dt-nowrap dt-center",
+                        responsivePriority: 1,
+                        // render: function(data, type, row){
+                        //  return moment(data).format('DD-MM-YYYY HH:mm')
+                        // }
                     },                    
 
                 ],
