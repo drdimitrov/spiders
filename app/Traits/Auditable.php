@@ -12,11 +12,12 @@ trait Auditable
         parent::boot();
 
         static::updating(function($element){
-            (new self)->logAudit($element);            
+            (new self)->logAudit($element, 'updated');            
         });
 
         static::created(function($element){
             $element->audits()->attach(Auth::id(), [
+                'event' => 'created',
 	            'before' => null,
 	            'after' => json_encode($element->getDirty()),
 	        ]);
@@ -30,11 +31,12 @@ trait Auditable
             ->latest('pivot_updated_at');        
     }    
 
-    public function logAudit($element){
+    public function logAudit($element, $event){
 
         $changed = $element->getDirty();
 
         $element->audits()->attach(Auth::id(), [
+            'event' => $event,
             'before' => json_encode(
                 array_intersect_key($element->fresh()->toArray(), $changed)
             ),
