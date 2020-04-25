@@ -63,9 +63,9 @@
                         title: "Date",
                         className: "dt-nowrap dt-center",
                         responsivePriority: 1,
-                        // render: function(data, type, row){
-                        //  return moment(data).format('DD-MM-YYYY HH:mm')
-                        // }
+                        render: function(data, type, row){
+                            return moment(data).format('YYYY-MM-DD')
+                        }
                     },  
                     
                     {
