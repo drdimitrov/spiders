@@ -43,7 +43,7 @@
 
     dataTable = $('table').DataTable({
 
-                "order": [[ 2, "asc" ]],
+                //"order": [[ 3, "asc" ]],
                 "serverSide": true,
                 "processing": true,
                 "pageLength": 25,
@@ -57,6 +57,16 @@
                         searchable: true,
                         width: "20px",
                     },
+
+                    {
+                        data: "created_at",
+                        title: "Date",
+                        className: "dt-nowrap dt-center",
+                        responsivePriority: 1,
+                        // render: function(data, type, row){
+                        //  return moment(data).format('DD-MM-YYYY HH:mm')
+                        // }
+                    },  
                     
                     {
                         data: "user.name",
@@ -126,17 +136,7 @@
 
                         	return output.join('');           	
                         }                         
-                    },
-
-                    {
-                        data: "created_at",
-                        title: "Updated at",
-                        className: "dt-nowrap dt-center",
-                        responsivePriority: 1,
-                        // render: function(data, type, row){
-                        //  return moment(data).format('DD-MM-YYYY HH:mm')
-                        // }
-                    },                    
+                    },                                      
 
                 ],
 
