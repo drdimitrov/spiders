@@ -15,7 +15,32 @@
     <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">    
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+
+    <!-- Datatables Buttons extension style -->
+    <link rel="stylesheet" href="{{ asset('vendor/datatables_buttons/1.5.6/css/buttons.datatables.min.css') }}">
+
+    <!-- Datatables ColReorder extension style -->
+    <link rel="stylesheet" href="{{ asset('vendor/datatables_colreorder/1.5.0/css/colreorder.datatables.min.css') }}">
+
+    <!-- Datatables Fixed Header extension style -->
+    <link rel="stylesheet" href="{{ asset('vendor/datatables_fixedheader/3.1.4/css/fixedheader.datatables.css') }}">
+
+    <!-- Datatables Resposive extension style -->
+    <link rel="stylesheet" href="{{ asset('vendor/datatables_responsive/2.2.2/css/responsive.datatables.css') }}">
+
+    <!-- Datatables Scroller extension style -->
+    <link rel="stylesheet" href="{{ asset('vendor/datatables_scroller/2.0.0/css/scroller.datatables.css') }}">
+
+    <!-- Datatables Select extension style -->
+    <link rel="stylesheet" href="{{ asset('vendor/datatables_select/1.3.0/css/select.datatables.css') }}">
+
+    <!-- Datatables css overrides -->
+    <link rel="stylesheet" href="{{ asset('css/datatables.css?') . date('Ymdh') }}">
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans:300,400,700|Roboto:400,500,700"> 
     
     <!-- Scripts -->
     <script>
@@ -192,6 +217,31 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <!-- Datatables Buttons extension javascript -->
+    <script src="{{ asset('vendor/datatables_buttons/1.5.6/js/datatables.buttons.js') }}"></script>
+
+    <!-- Datatables Buttons html5 extension javascript -->
+    <script src="{{ asset('vendor/datatables_buttons/1.5.6/js/buttons.html5.js') }}"></script>
+
+    <!-- Datatables ColReorder extension javascript -->
+    <script src="{{ asset('vendor/datatables_colreorder/1.5.0/js/datatables.colreorder.js') }}"></script>
+
+    <!-- Datatables Fixed Header extension javascript -->
+    <script src="{{ asset('vendor/datatables_fixedheader/3.1.4/js/datatables.fixedheader.js') }}"></script>
+
+    <!-- Datatables Resposive extension javascript -->
+    <script src="{{ asset('vendor/datatables_responsive/2.2.2/js/datatables.responsive.js') }}"></script>
+
+    <!-- Datatables Scroller extension javascript -->
+    <script src="{{ asset('vendor/datatables_scroller/2.0.0/js/datatables.scroller.js') }}"></script>
+
+    <!-- Datatables Select extension javascript -->
+    <script src="{{ asset('vendor/datatables_select/1.3.0/js/datatables.select.js') }}"></script>
+
+    <!-- Datatables base config  -->
+    <script src="{{ asset('js/datatables_base_config.js?') . date('Ymdh') }}"></script>
+    
     @yield('admin-scripts')
     <script>
         $('#datepicker').datepicker({
