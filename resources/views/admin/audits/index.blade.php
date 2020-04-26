@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<!-- Datatables css overrides -->
+<link rel="stylesheet" href="{{ asset('css/datatables.css?') . date('Ymdh') }}">
+
 <div class="container">
     <div class="row">
         <div class="col-md-11">
@@ -8,6 +11,68 @@
                 <div class="panel-heading">Audit Logs</div>
                
                 <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="form-inline" action="" style="margin-bottom: 20px;">
+                                <div class="form-group">
+                                    <label for="date">Date:</label>
+                                    <input type="text" class="form-control" name="date" value="{{ request()->date }}" style="width: 120px;">
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Admin:</label>
+                                    <select name="name" class="form-control">
+                                        <option value=""></option>
+                                        @foreach($admins as $admin)
+                                            <option value="{{ $admin->id }}"
+                                                @if($admin->id == request()->name) selected @endif
+                                            >
+                                                {{ $admin->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="event">Event:</label>
+                                    <select name="event" class="form-control">
+                                        <option value=""></option>
+                                        <option value="created" @if(request()->event == 'created') selected @endif>
+                                            created
+                                        </option>
+                                        <option value="updated" @if(request()->event == 'updated') selected @endif>
+                                            updated
+                                        </option>
+                                        <option value="deleted" @if(request()->event == 'deleted') selected @endif>
+                                            deleted
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="model">Model:</label>
+                                    <select name="model" class="form-control">
+                                        <option value=""></option>
+                                        <option value="Locality" @if(request()->model == 'Locality') selected @endif>
+                                            Locality
+                                        </option>
+                                        <option value="Region" @if(request()->model == 'Region') selected @endif>
+                                            Region
+                                        </option>
+                                        <option value="Record" @if(request()->model == 'Record') selected @endif>
+                                            Record
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="obj">Object:</label>
+                                    <input type="text" class="form-control" name="obj" value="{{ request()->obj }}">
+                                </div>
+
+                                <button type="submit" id="submit_btn" class="btn btn-success" style="margin-left: 10px;">
+                                    Filter
+                                </button>
+                                <a href="{{ route('admin.audit_logs') }}" class="btn btn-success">Clear</a>
+                            </form>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-md-12">
                             <table class="table table-striped"></table>
@@ -22,18 +87,19 @@
 @endsection
 
 @section('admin-scripts')
-<!-- Remove default search input -->
-<!-- <style>
-	.dataTables_filter, .dataTables_info { display: none; }
-</style> -->
+<!-- Datatables base config  -->
+<script src="{{ asset('js/datatables_base_config.js?') . date('Ymdh') }}"></script>
+
+<!-- Moment js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.28/moment-timezone.min.js"></script> -->
+
 <script>
-	// Hide empty fields on form submit
-	// $("form").submit(function() {
-	// 	$(this).find(":input").filter(function(){ return !this.value; }).attr("disabled", "disabled");
-	// 	return true; // ensure form still submits
-	// });
+	//Hide empty fields on form submit
+	$("form").submit(function() {
+		$(this).find(":input").filter(function(){ return !this.value; }).attr("disabled", "disabled");
+		return true; // ensure form still submits
+	});
 
 	// Decode the Json response
 	function htmlDecode(input) {
@@ -70,7 +136,7 @@
                     
                     {
                         data: "user.name",
-                        title: "User Name",
+                        title: "Admin",
                         className: "dt-nowrap dt-center",
                         responsivePriority: 1,
                         searchable: true,                        

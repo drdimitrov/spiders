@@ -35,9 +35,6 @@
     <!-- Datatables Select extension style -->
     <link rel="stylesheet" href="{{ asset('vendor/datatables_select/1.3.0/css/select.datatables.css') }}">
 
-    <!-- Datatables css overrides -->
-    <link rel="stylesheet" href="{{ asset('css/datatables.css?') . date('Ymdh') }}">
-
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans:300,400,700|Roboto:400,500,700"> 
@@ -237,10 +234,7 @@
     <script src="{{ asset('vendor/datatables_scroller/2.0.0/js/datatables.scroller.js') }}"></script>
 
     <!-- Datatables Select extension javascript -->
-    <script src="{{ asset('vendor/datatables_select/1.3.0/js/datatables.select.js') }}"></script>
-
-    <!-- Datatables base config  -->
-    <script src="{{ asset('js/datatables_base_config.js?') . date('Ymdh') }}"></script>
+    <script src="{{ asset('vendor/datatables_select/1.3.0/js/datatables.select.js') }}"></script>    
     
     @yield('admin-scripts')
     <script>
