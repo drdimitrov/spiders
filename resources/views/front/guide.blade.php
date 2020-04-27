@@ -7,14 +7,11 @@
             <h1>How to use the catalog:</h1>
         </div>
 
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis ratione, doloremque dolore eos, iusto, magnam dolorem illo sint nesciunt molestiae nulla rem nihil veniam. Libero exercitationem dolore molestiae, similique quis?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis ratione, doloremque dolore eos, iusto, magnam dolorem illo sint nesciunt molestiae nulla rem nihil veniam. Libero exercitationem dolore molestiae, similique quis?</p>
+        <p class="lead">The user interface of the platform is pretty intuitive. The landing page is called "Introduction". In the "Taxa" dropdown there are two options: "Search for taxon" and "List all families". The firs one allows the user to search directly for particular Family, Genus or Species. The second one lists all the spider Families, known from the Balkan Peninsula with the number of genera and species for each of them. The "Statistics" dropdown contains different statistical options. This section is to be extended with more functionality in the future. There is also a "Literature" section, containing all the cited literature and a standard "Contact" page.</p>
 
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae blanditiis unde libero minus qui nulla alias mollitia, sunt temporibus aperiam expedita aspernatur dolor eveniet modi beatae suscipit molestias dolore tempora.</p>
+        <p class="lead">The Authentication system, consists of <a href="http://spiders.test/login">login</a> and <a href="http://spiders.test/register">register</a> page. Although all the data on the platform can be accessed for free, some specific functionality, as for example the different download options are available only for registered users. The user's <a href="http://spiders.test/home">home page</a> is still under development, and will provide the users an option to change their account's details.</p>
 
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis ratione, doloremque dolore eos, iusto, magnam dolorem illo sint nesciunt molestiae nulla rem nihil veniam. Libero exercitationem dolore molestiae, similique quis?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis ratione, doloremque dolore eos, iusto, magnam dolorem illo sint nesciunt molestiae nulla rem nihil veniam. Libero exercitationem dolore molestiae, similique quis?</p>
-
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis ratione, doloremque dolore eos, iusto, magnam dolorem illo sint nesciunt molestiae nulla rem nihil veniam. Libero exercitationem dolore molestiae, similique quis?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis ratione, doloremque dolore eos, iusto, magnam dolorem illo sint nesciunt molestiae nulla rem nihil veniam. Libero exercitationem dolore molestiae, similique quis?</p>
-
+        
 
     </div>
 @endsection
