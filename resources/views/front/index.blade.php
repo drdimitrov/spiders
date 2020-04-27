@@ -23,7 +23,7 @@
 
   <p class="lead">The first publication, summarizing the data of the spider fauna, known at that point in time is Pencho Drensky’s “Katalog der echten Spinnen (Araneae) der Balkanhalbinsel”, issued in 1936. Since then, the spiders of the Balkan Peninsula have been studied by different arachnologists as Paolo M. Brignoli, Jan Buchar, Christa L. Deeleman-Reinhold, Christo Deltshev, Josef Kratochvíl, Frantisek Miller, Konrad Thaler, Jörg Wunderlich, and many others.</p>
 
-  <p class="lead">Although today in arachnology we have two great scientific resources – the <a href="https://wsc.nmbe.ch/">World Spider Catalog</a> and <a href="https://araneae.nmbe.ch/">Araneae</a>, there is no faunistic database, tracking all the records of the species with the precise information about their localities. With an intention to fill in that gap, we started the “Balkan Spiders” platform. It is planned to be an online catalog, summarizing all the faunistic data about the spider fauna of the Balkan Peninsula and providing an original images of the species from the region.</p>
+  <p class="lead">Although today in arachnology we have two great scientific resources – the <a href="https://wsc.nmbe.ch/">World Spider Catalog</a> and <a href="https://araneae.nmbe.ch/">Araneae</a>, there is no faunistic database, tracking all the records of the species with the precise information about their localities. With an intention to fill in that gap, we started the “Balkan Spiders” platform. It is planned to be an online catalog, summarizing all the faunistic data about the spider fauna of the Balkan Peninsula and providing original images of the species from the region.</p>
 
     
 </div>
