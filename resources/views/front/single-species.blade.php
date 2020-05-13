@@ -120,7 +120,7 @@
 			@if(count($species->images))
 				@foreach($species->images as $image)
 				<div class="panel panel-default" style="display: inline-block; margin-right: 5px">
-                    <div class="panel-body">
+                    <div class="panel-body text-center">
                         <a class="single_image"  class="sp_img" href="/storage/species/{{ $image->name  }}" title="{{ $species->genus->name }} {{ $species->name }}">
     						<img src="/storage/species/{{ $image->name  }}" height="150">
     					</a>
