@@ -119,13 +119,14 @@
 			<h4>Images:</h4>
 			@if(count($species->images))
 				@foreach($species->images as $image)
-				<div style="display: inline-block;">
-					<a class="single_image"  class="sp_img" href="/storage/species/{{ $image->name  }}" title="{{ $species->genus->name }} {{ $species->name }}">
-						<img src="/storage/species/{{ $image->name  }}" height="150">
-					</a>
-
-					<p style="width: 160px; text-align: center;">{{$image->description}}</p>
-				</div>
+				<div class="panel panel-default" style="display: inline-block; margin-right: 5px">
+                    <div class="panel-body">
+                        <a class="single_image"  class="sp_img" href="/storage/species/{{ $image->name  }}" title="{{ $species->genus->name }} {{ $species->name }}">
+    						<img src="/storage/species/{{ $image->name  }}" height="150">
+    					</a>
+                    </div>
+                    <div class="panel-footer">{{$image->description}}</div>
+                </div>
 				@endforeach
 			@else
 			<p>No images available yet.</p>
