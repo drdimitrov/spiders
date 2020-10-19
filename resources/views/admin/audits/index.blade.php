@@ -3,6 +3,7 @@
 @section('content')
 <!-- Datatables css overrides -->
 <link rel="stylesheet" href="{{ asset('css/datatables.css?') . date('Ymdh') }}">
+<link rel="stylesheet" href="{{ asset('vendor/datetimepicker/2.5.11/jquery.datetimepicker.min.css') }}">
 
 <div class="container">
     <div class="row">
@@ -16,11 +17,11 @@
                             <form class="form-inline" action="" style="margin-bottom: 20px;">
                                 <div class="form-group">
                                     <label for="date">Date:</label>
-                                    <input type="text" class="form-control" name="date" value="{{ request()->date }}" style="width: 120px;">
+                                    <input autocomplete="off" type="text" class="form-control" name="date" id="recordDate" value="{{ request()->date }}" style="width: 120px;">
                                 </div>
                                 <div class="form-group">
                                     <label for="name">Admin:</label>
-                                    <select name="name" class="form-control">
+                                    <select name="admin" class="form-control">
                                         <option value=""></option>
                                         @foreach($admins as $admin)
                                             <option value="{{ $admin->id }}"
@@ -31,40 +32,40 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="event">Event:</label>
-                                    <select name="event" class="form-control">
-                                        <option value=""></option>
-                                        <option value="created" @if(request()->event == 'created') selected @endif>
-                                            created
-                                        </option>
-                                        <option value="updated" @if(request()->event == 'updated') selected @endif>
-                                            updated
-                                        </option>
-                                        <option value="deleted" @if(request()->event == 'deleted') selected @endif>
-                                            deleted
-                                        </option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="model">Model:</label>
-                                    <select name="model" class="form-control">
-                                        <option value=""></option>
-                                        <option value="Locality" @if(request()->model == 'Locality') selected @endif>
-                                            Locality
-                                        </option>
-                                        <option value="Region" @if(request()->model == 'Region') selected @endif>
-                                            Region
-                                        </option>
-                                        <option value="Record" @if(request()->model == 'Record') selected @endif>
-                                            Record
-                                        </option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="obj">Object:</label>
-                                    <input type="text" class="form-control" name="obj" value="{{ request()->obj }}">
-                                </div>
+{{--                                <div class="form-group">--}}
+{{--                                    <label for="event">Event:</label>--}}
+{{--                                    <select name="event" class="form-control">--}}
+{{--                                        <option value=""></option>--}}
+{{--                                        <option value="created" @if(request()->event == 'created') selected @endif>--}}
+{{--                                            created--}}
+{{--                                        </option>--}}
+{{--                                        <option value="updated" @if(request()->event == 'updated') selected @endif>--}}
+{{--                                            updated--}}
+{{--                                        </option>--}}
+{{--                                        <option value="deleted" @if(request()->event == 'deleted') selected @endif>--}}
+{{--                                            deleted--}}
+{{--                                        </option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
+{{--                                <div class="form-group">--}}
+{{--                                    <label for="model">Model:</label>--}}
+{{--                                    <select name="model" class="form-control">--}}
+{{--                                        <option value=""></option>--}}
+{{--                                        <option value="Locality" @if(request()->model == 'Locality') selected @endif>--}}
+{{--                                            Locality--}}
+{{--                                        </option>--}}
+{{--                                        <option value="Region" @if(request()->model == 'Region') selected @endif>--}}
+{{--                                            Region--}}
+{{--                                        </option>--}}
+{{--                                        <option value="Record" @if(request()->model == 'Record') selected @endif>--}}
+{{--                                            Record--}}
+{{--                                        </option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
+{{--                                <div class="form-group">--}}
+{{--                                    <label for="obj">Object:</label>--}}
+{{--                                    <input type="text" class="form-control" name="obj" value="{{ request()->obj }}">--}}
+{{--                                </div>--}}
 
                                 <button type="submit" id="submit_btn" class="btn btn-success" style="margin-left: 10px;">
                                     Filter
@@ -94,12 +95,23 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.28/moment-timezone.min.js"></script> -->
 
+{{--Datetimepicker--}}
+<script src="{{ asset('vendor/datetimepicker/2.5.11/jquery.datetimepicker.full.min.js') }}"></script>
+
 <script>
 	//Hide empty fields on form submit
 	$("form").submit(function() {
 		$(this).find(":input").filter(function(){ return !this.value; }).attr("disabled", "disabled");
 		return true; // ensure form still submits
 	});
+
+	$('#recordDate').datetimepicker({
+        dayOfWeekStart: 1,
+        timepicker: false,
+        format: "Y-m-d",
+        value: "{{ request()->date }}",
+        //maxDate: $('#to').val() ? $('#to').val() : moment().local().format(),
+    });
 
 	// Decode the Json response
 	function htmlDecode(input) {
@@ -208,9 +220,32 @@
 
                 "ajax": {
                     url: "{{ route('admin.audit_logs') }}",
-                    headers: { "X-CSRF-TOKEN": "{{ csrf_token() }}" },                   
+                    headers: { "X-CSRF-TOKEN": "{{ csrf_token() }}" },
+                    data: function (d) {
+                        d.admin = getUrlParameter('admin');
+                        d.date = getUrlParameter('date');
+
+                    }
                 }
 
             });
+
+	/**
+     * getUrlParameter
+     *
+     * @param sParam
+     */
+    function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    }
 </script>
 @endsection
