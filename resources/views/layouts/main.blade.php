@@ -18,7 +18,7 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
-    <script src="https://unpkg.com/turbolinks@5.2.0/dist/turbolinks.js"></script>
+{{--    <script src="https://unpkg.com/turbolinks@5.2.0/dist/turbolinks.js"></script>--}}
   </head>
 
   <body>
