@@ -27,6 +27,9 @@ class SearchController extends Controller
 
     	if($request->has('species_id')){
     		$species = Species::find($request->species_id);
+    		
+    		if(!$species){ abort(404); }
+    		
     		return redirect(route('species', $species->id));
     	}
 
