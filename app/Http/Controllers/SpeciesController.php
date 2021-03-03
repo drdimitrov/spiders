@@ -20,6 +20,11 @@ class SpeciesController extends Controller
     	return view('front.species', compact('genus'));
     }
 
+    public function getByLsid(Request $request){
+        $species = Species::find($request->lsid);
+        dd($species);       
+    }
+
     public function show(Request $request){
 
         if($request->region){

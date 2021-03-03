@@ -26,6 +26,7 @@ Route::get('/genera/show/{family}', 'GenusController@showFamilyGenera')->name('g
 Route::get('/genus/{id}', 'GenusController@show')->name('genera.show');
 
 Route::get('/species/show/{genus}', 'SpeciesController@showGenusSpecies')->name('species.genus');
+Route::get('/species/wsc-lsid/{lsid}', 'SpeciesController@getByLsid')->name('specieslsid');
 Route::get('/species/{species}/{region?}', 'SpeciesController@show')->name('species');
 
 Route::get('/literature', 'LiteratureController@index')->name('literature');
@@ -86,6 +87,7 @@ Route::post('/admin/authors/create', 'Admin\AuthorsController@save');
 Route::get('/admin/papers', 'Admin\PapersController@index')->name('admin.papers');
 Route::get('/admin/papers/create', 'Admin\PapersController@create')->name('admin.papers.create');
 Route::post('/admin/papers/create', 'Admin\PapersController@save');
+Route::get('/admin/papers/{paper}/edit', 'Admin\PapersController@edit')->name('admin.papers.edit');
 
 Route::get('/admin/collections', 'Admin\CollectionController@index')->name('admin.collections');
 Route::get('/admin/collections/create', 'Admin\CollectionController@create')->name('admin.collections.create');
