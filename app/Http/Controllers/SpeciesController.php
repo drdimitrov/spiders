@@ -21,8 +21,11 @@ class SpeciesController extends Controller
     }
 
     public function getByLsid(Request $request){
-        $species = Species::find($request->lsid);
-        dd($species);       
+        $species = Species::where('wsc_lsid', $request->lsid)->first();
+        
+        if(!$species){ abort(404); }
+        
+        return redirect()->route('species', ['species' => $species->id]);
     }
 
     public function show(Request $request){
