@@ -125,7 +125,7 @@
     						<img src="/storage/species/{{ $image->name  }}" height="150">
     					</a>
                     </div>
-                    <div class="panel-footer text-center">{{$image->description}}</div>
+                    <div class="panel-footer text-center">{!! $image->description !!}</div>
                 </div>
 				@endforeach
 			@else
