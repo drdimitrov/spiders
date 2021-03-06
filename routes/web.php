@@ -36,7 +36,7 @@ Route::get('/literature/{paper}', 'LiteratureController@show')->name('literature
 Route::get('/taxon/search', 'SearchController@index')->name('taxon.search');
 Route::post('/taxon/search', 'SearchController@show');
 
-Route::get('/guide', 'FrontController@guide')->name('guide');
+Route::get('/updates', 'FrontController@updates')->name('updates');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
