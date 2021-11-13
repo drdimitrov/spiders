@@ -14,6 +14,10 @@ class SearchController extends Controller
     }
 
     public function show(Request $request){
+        
+        if(!$request->family && !$request->genus_id && !$request->species_id){
+            return back();
+        }
 
     	if($request->has('family')){
     		$family = Family::find($request->family);

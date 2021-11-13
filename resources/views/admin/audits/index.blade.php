@@ -188,7 +188,7 @@
                         responsivePriority: 1,
                         searchable: false,
                         render: function(data, type, row){
-                        	return data.name ? data.name : data.id
+                        	//return data.name ? data.name : data.id
                         }
                     },
                     
