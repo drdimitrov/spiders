@@ -17,7 +17,15 @@
                             <form class="form-inline" action="" style="margin-bottom: 20px;">
                                 <div class="form-group">
                                     <label for="date">Date:</label>
-                                    <input autocomplete="off" type="text" class="form-control" name="date" id="recordDate" value="{{ request()->date }}" style="width: 120px;">
+                                    <input
+                                            autocomplete="off"
+                                            type="text"
+                                            class="form-control"
+                                            name="date"
+                                            id="recordDate"
+                                            value="{{ request()->date }}"
+                                            style="width: 120px;"
+                                    >
                                 </div>
                                 <div class="form-group">
                                     <label for="name">Admin:</label>
@@ -32,21 +40,21 @@
                                         @endforeach
                                     </select>
                                 </div>
-{{--                                <div class="form-group">--}}
-{{--                                    <label for="event">Event:</label>--}}
-{{--                                    <select name="event" class="form-control">--}}
-{{--                                        <option value=""></option>--}}
-{{--                                        <option value="created" @if(request()->event == 'created') selected @endif>--}}
-{{--                                            created--}}
-{{--                                        </option>--}}
-{{--                                        <option value="updated" @if(request()->event == 'updated') selected @endif>--}}
-{{--                                            updated--}}
-{{--                                        </option>--}}
-{{--                                        <option value="deleted" @if(request()->event == 'deleted') selected @endif>--}}
-{{--                                            deleted--}}
-{{--                                        </option>--}}
-{{--                                    </select>--}}
-{{--                                </div>--}}
+                                <div class="form-group">
+                                    <label for="event">Event:</label>
+                                    <select name="event" class="form-control">
+                                        <option value=""></option>
+                                        <option value="created" @if(request()->event == 'created') selected @endif>
+                                            created
+                                        </option>
+                                        <option value="updated" @if(request()->event == 'updated') selected @endif>
+                                            updated
+                                        </option>
+                                        <option value="deleted" @if(request()->event == 'deleted') selected @endif>
+                                            deleted
+                                        </option>
+                                    </select>
+                                </div>
 {{--                                <div class="form-group">--}}
 {{--                                    <label for="model">Model:</label>--}}
 {{--                                    <select name="model" class="form-control">--}}
