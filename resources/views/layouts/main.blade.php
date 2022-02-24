@@ -134,8 +134,12 @@
       <script data-turbolinks-eval="false">
 
         $('#cookie-consent-agree').click(function(e){
-            {{ Session::put('bs-cookie-consent', true)}}
-            $('.js-cookie-consent-temp').hide();
+            $.get('/cookie-consent', {}, function(response){
+              if(response == true){
+                $('.js-cookie-consent-temp').hide();
+              }
+            });
+            
         });
 
         (function () {

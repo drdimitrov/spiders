@@ -53,6 +53,11 @@ Route::get('/empty', function(){
     return $emptySpecies;
 });
 
+Route::get('/cookie-consent', function(){
+    \Session::put('bs-cookie-consent', true);
+    return response()->json(\Session::get('bs-cookie-consent'));
+});
+
 // Route::get('/wsc', function(\App\Services\WscService $wsc){
 // 	$a = $wsc->fetchUpdatedTaxa('2017-07-01');
 // 	dd($a);
