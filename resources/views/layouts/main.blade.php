@@ -112,11 +112,32 @@
         <p class="text-muted" style="text-align: center; margin-top: 20px;">
             <b>Citation:</b> Dimitrov D, Indzhov S: Spiders (Araneae) of Balkan Peninsula. online at http://balkan-spiders.com. Version {{ date('Y') }}.
           </p>
+
+          <!-- Temporary cookie consent -->
+          @if(!Session::has('bs-cookie-consent'))
+          <div class="js-cookie-consent-temp cookie-consent">
+            <span class="cookie-consent__message">
+                Your experience on this site will be improved by allowing cookies.
+            </span>
+
+            <button id="cookie-consent-agree" class="js-cookie-consent-agree cookie-consent__agree">
+                Allow cookies
+            </button>
+        </div>
+        @endif
+          <!-- End of the emporary cookie consent -->
+
       </footer>
 
       <script data-turbolinks-eval="false" src="{{ asset('js/app.js') }}"></script>
       
       <script data-turbolinks-eval="false">
+
+        $('#cookie-consent-agree').click(function(e){
+            {{ Session::put('bs-cookie-consent', true)}}
+            $('.js-cookie-consent-temp').hide();
+        });
+
         (function () {
           'use strict';
 
