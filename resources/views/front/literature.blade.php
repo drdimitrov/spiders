@@ -55,8 +55,8 @@
 			@endif
 			</table>
 			
-			@if(isset($literature))
-				{{ $literature->links() }}
+			@if(isset($references))
+				{{ $references->links() }}
 			@endif
 
 		</div>
