@@ -55,9 +55,7 @@
 			@endif
 			</table>
 			
-			@if(isset($references))
-				{{ $references->links() }}
-			@endif
+			<div class="text-center">{{ $references->links() }}</div>
 
 		</div>
 	</div>
