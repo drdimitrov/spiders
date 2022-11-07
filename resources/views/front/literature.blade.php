@@ -55,8 +55,6 @@
 			@endif
 			</table>
 			
-			<div class="text-center">{{ $references->links() }}</div>
-
 		</div>
 	</div>
 </div>

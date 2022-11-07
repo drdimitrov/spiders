@@ -51,7 +51,7 @@ class LiteratureController extends Controller
         // Sort the data
         array_multisort($authors, SORT_ASC, $published_at, SORT_ASC, $litarr);
 
-        $references = new \Illuminate\Pagination\Paginator(collect($litarr), 50, $request->page);
+        $references = new \Illuminate\Pagination\Paginator(collect($litarr), 500, $request->page);
 
     	return view('front.literature', compact('references'));
     	
