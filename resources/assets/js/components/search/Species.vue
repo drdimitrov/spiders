@@ -34,7 +34,7 @@
 
 		methods: {
 			findSpecies(){
-				axios.post('/admin/records/search-species', {
+				axios.post('/taxon/search', {
 					species: this.search
 				}).then((response) => {
 					this.species = response.data;
