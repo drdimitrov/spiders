@@ -13,8 +13,8 @@ use Illuminate\Http\Request;
 class RecordController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth');
-        $this->middleware('isAllowed');
+        $this->middleware('auth', ['except' => ['searchSpecies']]);
+        $this->middleware('isAllowed', ['except' => ['searchSpecies']]);
     }
     
     public function index(Request $r){
