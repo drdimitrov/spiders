@@ -14,11 +14,14 @@ class PapersController extends Controller
 		$this->middleware('isAllowed');
 	}
 
-    public function index(){
+    public function index(Request $request){
 
-        $papers = Paper::latest()->paginate(50);
+    	if($request->ajax()){
+            $papers = Paper::with('authors')->latest();
+            return datatables($papers)->toJson();
+        }
 
-    	return view('admin.papers.index', compact('papers'));
+    	return view('admin.papers.index');
     }
 
     public function create(){
@@ -48,7 +51,11 @@ class PapersController extends Controller
 
 		if($paper->save()){
 			$paper->authors()->sync($request->authors);
-			return redirect(route('literature'));
+			return redirect()->route('admin.papers');
 		}
+    }
+
+    public function edit(Paper $paper){
+    	dd($paper);
     }
 }

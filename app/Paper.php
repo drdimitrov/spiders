@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\Auditable;
 
 class Paper extends Model
 {
+    use Auditable;
+    
 	protected $fillable = [
 		'name', 'journal', 'slug', 'published_at',
 	];

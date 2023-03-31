@@ -79,7 +79,7 @@
 			<div class="text-justify">
 			<b>{{ $k }}: </b>
 				@foreach($locs as $kloc => $loc)
-				<a href="/statistics/species-by-locality/{{ $kloc }}" style="display: inline;">{{ $loc['locality_name'] }}</a> -
+				<a class="species_locality" href="/statistics/species-by-locality/{{ $kloc }}" style="display: inline;">{{ $loc['locality_name'] }}</a> -
 					@foreach($loc['records'] as $ll)
 					<span @if(isset($ll['rejected'])) style="color: #a0a8ab" @endif>
 						@if(isset($ll['specimens'])) {{ $ll['specimens'] }} specimens,  @endif
@@ -139,26 +139,30 @@
   @if(!empty($coordinates))
   <script>
     initMap = function(){
-    var map = new google.maps.Map(document.getElementById('map'), {
-        center: {
-          lat: 42.475545,
-          lng: 25.436174
-        },
-        scrollwheel: false,
-        zoom: 6.8
-      });
-    @foreach($coordinates as $cd)
-	    new google.maps.Marker({
-			position: {
-				lat: {{$cd["0"]}},
-				lng: {{$cd["1"]}}
-			},
-			map: map,
-			title: '{{$cd["2"]}}',
-			icon: '{{ asset("images/red-circle.png") }}'
-	    });
-    @endforeach
-  }
+	    var map = new google.maps.Map(document.getElementById('map'), {
+	        center: {
+	          lat: 42.475545,
+	          lng: 25.436174
+	        },
+	        scrollwheel: false,
+	        zoom: 6.8
+	      });
+	    @foreach($coordinates as $cd)
+		    new google.maps.Marker({
+				position: {
+					lat: {{$cd["0"]}},
+					lng: {{$cd["1"]}}
+				},
+				map: map,
+				title: '{{$cd["2"]}}',
+				icon: '{{ asset("images/red-circle.png") }}'
+		    });
+	    @endforeach
+	  }
+
+		$('.species_locality').hover(function(){
+			console.log(this)
+		})
   </script>
   @endif
 @endsection
